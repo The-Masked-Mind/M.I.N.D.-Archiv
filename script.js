@@ -30,7 +30,7 @@ const bootSteps = [
   },
   {
     time: 7000,
-    text: "AKTE 001 WIRD ENTSCHLÜSSELT..."
+    text: "AKTE WIRD ENTSCHLÜSSELT..."
   }
 ];
 
