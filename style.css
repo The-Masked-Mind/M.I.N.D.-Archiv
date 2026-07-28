@@ -23,7 +23,7 @@
 html {
   scroll-behavior: smooth;
 }
-
+/* Hintergrund der Seite*/
 body {
   margin: 0;
 
@@ -276,7 +276,7 @@ button {
 /* =========================
    KOPFZEILE
 ========================= */
-
+/* oberer Balken*/
 .topBar {
   min-height: 74px;
 
@@ -300,6 +300,7 @@ button {
     0 0 28px rgba(52, 217, 255, 0.1);
 }
 
+/* gesamte obere Bereich */
 .brandArea {
   display: flex;
 
@@ -307,7 +308,7 @@ button {
 
   gap: 16px;
 }
-
+/* das M */
 .brandLogo {
   width: 44px;
   height: 44px;
@@ -327,7 +328,7 @@ button {
   box-shadow:
     0 0 15px rgba(255, 60, 60, 0.35);
 }
-
+/* Text oben */
 .brandTitle {
   font-size: 20px;
   font-weight: 900;
@@ -336,7 +337,7 @@ button {
 
   text-transform: uppercase;
 }
-
+/* kleiner Text oben */
 .brandSubtitle {
   margin-top: 5px;
 
@@ -349,7 +350,7 @@ button {
 
   text-transform: uppercase;
 }
-
+/* Text oben rechts */
 .onlineStatus {
   display: flex;
 
@@ -366,7 +367,7 @@ button {
 
   text-transform: uppercase;
 }
-
+/* Punkt */
 .onlineDot {
   width: 9px;
   height: 9px;
@@ -403,7 +404,7 @@ button {
 /* =========================
    MENÜ LINKS
 ========================= */
-
+/* linker Kasten */
 .sideMenu {
   position: sticky;
 
@@ -434,7 +435,7 @@ button {
     0 0 28px rgba(52, 217, 255, 0.1),
     inset 0 0 24px rgba(52, 217, 255, 0.03);
 }
-
+/* trennt die einzelnen Bereiche */
 .menuSection +
 .menuSection {
   margin-top: 28px;
@@ -444,7 +445,7 @@ button {
   border-top:
     1px solid var(--line);
 }
-
+/* Kategorien */
 .menuTitle span{
     display:block;
 }
@@ -463,7 +464,7 @@ button {
 
   text-transform: uppercase;
 }
-
+/* Menüeintrag */
 .menuButton {
   width: 100%;
 
@@ -587,7 +588,7 @@ button {
       transparent
     );
 }
-
+/* Text oben im Kasten */
 .archiveLabel {
   color: var(--red);
 
@@ -598,7 +599,7 @@ button {
 
   text-transform: uppercase;
 }
-
+/* Überschrift */
 .contentArea h1 {
   margin:
     14px 0 8px;
@@ -615,7 +616,7 @@ button {
   text-shadow:
     0 0 16px rgba(255, 60, 60, 0.35);
 }
-
+/* Untertitel */
 .archiveSubtitle {
   margin-bottom: 26px;
 
@@ -633,7 +634,7 @@ button {
 /* =========================
    INFOKÄSTEN
 ========================= */
-
+/* gesamter Bereich */
 .infoGrid {
   display: grid;
 
@@ -644,7 +645,7 @@ button {
 
   margin-bottom: 28px;
 }
-
+/* einzelner Kasten */
 .infoBox {
   min-height: 76px;
 
@@ -657,7 +658,7 @@ button {
   background:
     rgba(255, 255, 255, 0.02);
 }
-
+/* kleine Überschrift im Kasten */
 .infoLabel {
   display: block;
 
@@ -672,7 +673,7 @@ button {
 
   text-transform: uppercase;
 }
-
+/* Wert im Kasten */
 .infoValue {
   font-size: 15px;
   font-weight: 900;
@@ -693,7 +694,7 @@ button {
 /* =========================
    GESCHICHTENTEXT
 ========================= */
-
+/* Jeder Absatz */
 .storyText {
   padding-top: 10px;
 
@@ -716,7 +717,7 @@ button {
   margin:
     1.35em 0;
 }
-
+/* Großer Buchstabe */
 .storyText p:first-child::first-letter {
   float: left;
 
@@ -1025,7 +1026,7 @@ button {
 
   line-height: 1.8;
 }
-
+/* 3 Statuskasten */
 .homeStatusGrid {
   display: grid;
 
@@ -1036,7 +1037,7 @@ button {
 
   margin-top: 28px;
 }
-
+/* einzelner Statuskasten */
 .homeStatusCard {
   min-height: 105px;
 
@@ -1097,7 +1098,7 @@ button {
 
   text-transform: uppercase;
 }
-
+/* große Kacheln */
 .homeTileGrid {
   display: grid;
 
@@ -1106,7 +1107,7 @@ button {
 
   gap: 16px;
 }
-
+/* eine KAchel */
 .homeTile {
   position: relative;
 
@@ -1165,7 +1166,7 @@ button.homeTile:hover {
   font-size: 28px;
   font-weight: 900;
 }
-
+/* Kachelüberschrift */
 .homeTileTitle {
   margin-top: 17px;
 
@@ -1176,7 +1177,7 @@ button.homeTile:hover {
 
   text-transform: uppercase;
 }
-
+/* Beschreibung der Kachel */
 .homeTileText {
   margin-top: 10px;
 
