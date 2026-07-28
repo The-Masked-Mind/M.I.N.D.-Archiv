@@ -541,3 +541,20 @@ menuButtons.forEach(button => {
       createLockedContent(fileName);
   });
 });
+
+const homeButton =
+    document.getElementById("homeButton");
+
+homeButton.addEventListener("click", () => {
+
+    contentArea.innerHTML = prologContent;
+
+    menuButtons.forEach(button=>{
+        button.classList.remove("active");
+    });
+
+    document
+        .querySelector("[data-page='prolog']")
+        .classList.add("active");
+
+});
