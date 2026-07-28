@@ -671,6 +671,61 @@ function setActiveButton(selectedButton) {
   selectedButton.classList.add("active");
 }
 
+/* =========================
+   SEITEN ÖFFNEN
+========================= */
+
+function clearActiveButtons() {
+  menuButtons.forEach(button => {
+    button.classList.remove("active");
+  });
+}
+
+
+function showProlog() {
+  contentArea.innerHTML =
+    prologContent;
+
+  clearActiveButtons();
+
+  const prologButton =
+    document.querySelector(
+      "[data-page='prolog']"
+    );
+
+  if (prologButton) {
+    prologButton.classList.add("active");
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function showHome() {
+  contentArea.innerHTML =
+    homeContent;
+
+  clearActiveButtons();
+
+  const openPrologButton =
+    document.getElementById(
+      "openPrologButton"
+    );
+
+  if (openPrologButton) {
+    openPrologButton.addEventListener(
+      "click",
+      showProlog
+    );
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
 
 /* =========================
    MENÜKLICKS
