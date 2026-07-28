@@ -1,0 +1,909 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
+:root {
+  --red: #ff3c3c;
+  --cyan: #34d9ff;
+  --green: #45ff75;
+  --yellow: #ffd54a;
+
+  --text: #f4f7f8;
+  --muted: #9ca9ad;
+
+  --background: #020607;
+  --panel: rgba(6, 15, 17, 0.96);
+  --panel-light: rgba(9, 27, 30, 0.92);
+
+  --line: rgba(52, 217, 255, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  color: var(--text);
+
+  font-family:
+    "Roboto",
+    Arial,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(25, 86, 95, 0.3),
+      transparent 38%
+    ),
+    linear-gradient(
+      rgba(52, 217, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(52, 217, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    var(--background);
+
+  background-size:
+    auto,
+    52px 52px,
+    52px 52px,
+    auto;
+
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+
+/* =========================
+   STARTBILDSCHIRM
+========================= */
+
+.bootScreen {
+  position: fixed;
+
+  z-index: 100;
+
+  inset: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 24px;
+
+  background: #010304;
+
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+
+.bootScreen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.bootPanel {
+  width: min(100%, 720px);
+
+  padding: 38px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(3, 10, 10, 0.98),
+      rgba(6, 22, 20, 0.98),
+      rgba(3, 10, 10, 0.98)
+    );
+
+  border-left: 5px solid var(--green);
+
+  clip-path: polygon(
+    0 0,
+    95% 0,
+    100% 18%,
+    100% 100%,
+    5% 100%,
+    0 82%
+  );
+
+  box-shadow:
+    0 0 36px rgba(69, 255, 117, 0.24),
+    inset 0 0 22px rgba(69, 255, 117, 0.05);
+}
+
+/*========================
+   TEXT OBEN
+========================= */
+
+.bootLabel {
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+/*=========================
+   HAUPTTEXT
+========================= */
+
+.bootTitle {
+  margin: 18px 0 10px;
+
+  color: var(--green);
+
+  font-size: clamp(30px, 7vw, 58px);
+  font-weight: 900;
+
+  letter-spacing: 6px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 20px rgba(69, 255, 117, 0.5);
+}
+
+/*=========================
+   TEXT UNTEN
+========================= */
+
+.bootStatus {
+  min-height: 24px;
+
+  margin-top: 16px;
+
+  color: var(--yellow);
+
+  font-size: 14px;
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.bootBar {
+  height: 11px;
+
+  margin-top: 28px;
+
+  overflow: hidden;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   LADEBALKEN
+========================= */
+
+.bootFill {
+  width: 0;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--green),
+      white,
+      var(--green)
+    );
+
+  box-shadow:
+    0 0 15px rgba(69, 255, 117, 0.7);
+
+  animation:
+    bootLoading 9s linear forwards;
+}
+
+
+/* =========================
+   SCANNER
+========================= */
+
+.screenScan {
+  position: fixed;
+
+  z-index: 50;
+
+  left: 0;
+  top: -20px;
+
+  width: 100%;
+  height: 6px;
+
+  pointer-events: none;
+
+  opacity: 0.55;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 60, 60, 0.4),
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 60, 60, 0.4),
+      transparent
+    );
+
+  box-shadow:
+    0 0 20px rgba(255, 60, 60, 0.95),
+    0 0 55px rgba(255, 60, 60, 0.5);
+
+  animation:
+    screenScanner 20s linear infinite;
+}
+
+
+/* =========================
+   GESAMTE SEITE
+========================= */
+
+.archiveApp {
+  width:
+    min(
+      calc(100% - 26px),
+      1440px
+    );
+
+  margin: 0 auto;
+
+  padding:
+    26px 0 48px;
+}
+
+
+/* =========================
+   KOPFZEILE
+========================= */
+
+.topBar {
+  min-height: 74px;
+
+  padding:
+    14px 22px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  background:
+    rgba(4, 11, 12, 0.92);
+
+  border-left:
+    5px solid var(--red);
+
+  box-shadow:
+    0 0 28px rgba(52, 217, 255, 0.1);
+}
+
+.brandArea {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+.brandLogo {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    2px solid var(--red);
+
+  color: var(--red);
+
+  font-size: 20px;
+  font-weight: 900;
+
+  box-shadow:
+    0 0 15px rgba(255, 60, 60, 0.35);
+}
+
+.brandTitle {
+  font-size: 20px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.brandSubtitle {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.onlineStatus {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--green);
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.onlineDot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow:
+    0 0 10px var(--green),
+    0 0 24px rgba(69, 255, 117, 0.65);
+
+  animation:
+    onlinePulse 1.4s ease-in-out infinite;
+}
+
+
+/* =========================
+   SEITENAUFTEILUNG
+========================= */
+
+.mainLayout {
+  display: grid;
+
+  grid-template-columns:
+    300px minmax(0, 1fr);
+
+  gap: 18px;
+
+  margin-top: 18px;
+}
+
+
+/* =========================
+   MENÜ LINKS
+========================= */
+
+.sideMenu {
+  position: sticky;
+
+  top: 16px;
+
+  align-self: start;
+
+  max-height:
+    calc(100vh - 32px);
+
+  overflow-y: auto;
+
+  padding:
+    24px 18px;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(5, 12, 13, 0.97),
+      rgba(8, 24, 26, 0.94),
+      rgba(5, 12, 13, 0.93)
+    );
+
+  border-left:
+    5px solid var(--red);
+
+  box-shadow:
+    0 0 28px rgba(52, 217, 255, 0.1),
+    inset 0 0 24px rgba(52, 217, 255, 0.03);
+}
+
+.menuSection +
+.menuSection {
+  margin-top: 28px;
+
+  padding-top: 22px;
+
+  border-top:
+    1px solid var(--line);
+}
+
+.menuTitle {
+  margin-bottom: 12px;
+
+  color: var(--red);
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.menuButton {
+  width: 100%;
+
+  min-height: 44px;
+
+  margin-bottom: 8px;
+
+  padding:
+    10px 12px;
+
+  border:
+    1px solid transparent;
+
+  color: var(--muted);
+
+  text-align: left;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.menuButton:hover {
+  color: var(--text);
+
+  border-color:
+    rgba(52, 217, 255, 0.18);
+
+  background:
+    rgba(52, 217, 255, 0.04);
+
+  transform:
+    translateX(3px);
+}
+
+.menuButton.unlocked::before {
+  content: "▶ ";
+}
+
+.menuButton.locked::before {
+  content: "🔒 ";
+}
+
+.menuButton.locked {
+  color: #687276;
+}
+
+.menuButton.active {
+  color: var(--green);
+
+  border-color:
+    rgba(69, 255, 117, 0.24);
+
+  background:
+    rgba(69, 255, 117, 0.05);
+
+  box-shadow:
+    inset 3px 0 0 var(--green);
+}
+
+
+/* =========================
+   INHALTSBEREICH RECHTS
+========================= */
+
+.contentArea {
+  position: relative;
+
+  min-height: 760px;
+
+  padding:
+    36px 44px 48px;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(5, 12, 13, 0.97),
+      rgba(8, 24, 26, 0.94),
+      rgba(5, 12, 13, 0.93)
+    );
+
+  border-left:
+    5px solid var(--red);
+
+  clip-path: polygon(
+    0 0,
+    98% 0,
+    100% 26px,
+    100% 100%,
+    2% 100%,
+    0 calc(100% - 26px)
+  );
+
+  box-shadow:
+    0 0 28px rgba(52, 217, 255, 0.1),
+    inset 0 0 24px rgba(52, 217, 255, 0.03);
+}
+
+.contentArea::before {
+  content: "";
+
+  position: absolute;
+
+  left: 34px;
+  right: 44px;
+  top: 12px;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--red),
+      rgba(255, 60, 60, 0.35),
+      transparent
+    );
+}
+
+.archiveLabel {
+  color: var(--red);
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.contentArea h1 {
+  margin:
+    14px 0 8px;
+
+  font-size:
+    clamp(36px, 6vw, 68px);
+
+  line-height: 0.98;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 16px rgba(255, 60, 60, 0.35);
+}
+
+.archiveSubtitle {
+  margin-bottom: 26px;
+
+  color: var(--cyan);
+
+  font-size: 15px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   INFOKÄSTEN
+========================= */
+
+.infoGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-bottom: 28px;
+}
+
+.infoBox {
+  min-height: 76px;
+
+  padding:
+    13px 15px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.16);
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+.infoLabel {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.infoValue {
+  font-size: 15px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.infoValue.green {
+  color: var(--green);
+
+  text-shadow:
+    0 0 10px rgba(69, 255, 117, 0.35);
+}
+
+
+/* =========================
+   GESCHICHTENTEXT
+========================= */
+
+.storyText {
+  padding-top: 10px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  color: #e7ecee;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 19px;
+
+  line-height: 1.86;
+}
+
+.storyText p {
+  margin:
+    1.35em 0;
+}
+
+.storyText p:first-child::first-letter {
+  float: left;
+
+  margin:
+    0.05em 0.13em 0 0;
+
+  color: var(--red);
+
+  font-size: 4.7em;
+
+  line-height: 0.78;
+
+  text-shadow:
+    0 0 14px rgba(255, 60, 60, 0.35);
+}
+
+
+/* =========================
+   GESPERRTE AKTE
+========================= */
+
+.lockedScreen {
+  min-height: 580px;
+
+  display: grid;
+
+  place-items: center;
+
+  text-align: center;
+}
+
+.lockedPanel {
+  width: min(100%, 650px);
+
+  padding: 36px;
+
+  border:
+    2px solid var(--red);
+
+  background:
+    rgba(17, 4, 5, 0.75);
+
+  box-shadow:
+    0 0 34px rgba(255, 60, 60, 0.18),
+    inset 0 0 24px rgba(255, 60, 60, 0.05);
+}
+
+.lockedIcon {
+  font-size: 48px;
+}
+
+.lockedTitle {
+  margin:
+    16px 0 10px;
+
+  color: var(--red);
+
+  font-size: 30px;
+  font-weight: 900;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+}
+
+.lockedText {
+  color: var(--muted);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  line-height: 1.7;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   ANIMATIONEN
+========================= */
+
+@keyframes bootLoading {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes onlinePulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.55);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes screenScanner {
+  from {
+    transform:
+      translateY(-20px);
+  }
+
+  to {
+    transform:
+      translateY(
+        calc(100vh + 40px)
+      );
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 960px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .sideMenu {
+    position: static;
+
+    max-height: none;
+  }
+
+  .menuSection {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+  .menuTitle {
+    grid-column: 1 / -1;
+  }
+
+  .menuButton {
+    margin-bottom: 0;
+  }
+}
+
+
+/* =========================
+   HANDY
+========================= */
+
+@media (max-width: 680px) {
+  .archiveApp {
+    width:
+      min(
+        calc(100% - 16px),
+        1440px
+      );
+  }
+
+  .topBar {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 18px;
+  }
+
+  .contentArea {
+    padding:
+      34px 22px 40px;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .menuSection {
+    grid-template-columns: 1fr;
+  }
+
+  .storyText {
+    font-size: 17px;
+  }
+}

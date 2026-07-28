@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    M.I.N.D. Archiv
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+
+  <!-- STARTBILDSCHIRM -->
+
+  <div
+    class="bootScreen"
+    id="bootScreen"
+  >
+
+    <div class="bootPanel">
+
+      <div class="bootLabel">
+        M.I.N.D. ARCHIV
+      </div>
+
+      <div class="bootTitle">
+        ZUGRIFF WIRD GEPRÜFT
+      </div>
+
+      <div
+        class="bootStatus"
+        id="bootStatus"
+      >
+        VERBINDUNG WIRD HERGESTELLT...
+      </div>
+
+      <div class="bootBar">
+
+        <div class="bootFill"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- SCANNER -->
+
+  <div class="screenScan"></div>
+
+
+  <!-- HAUPTBEREICH -->
+
+  <div class="archiveApp">
+
+    <!-- KOPFZEILE -->
+
+    <header class="topBar">
+
+      <div class="brandArea">
+
+        <div class="brandLogo">
+          M
+        </div>
+
+        <div>
+
+          <div class="brandTitle">
+            M.I.N.D. ARCHIV
+          </div>
+
+          <div class="brandSubtitle">
+            CHRONIKEN DER DUNKELHEIT
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="onlineStatus">
+
+        <span class="onlineDot"></span>
+
+        <span>
+          SYSTEM ONLINE
+        </span>
+
+      </div>
+
+    </header>
+
+
+    <div class="mainLayout">
+
+      <!-- MENÜ LINKS -->
+
+      <aside class="sideMenu">
+
+        <section class="menuSection">
+
+          <div class="menuTitle">
+            ARCHIV
+          </div>
+
+          <button
+            class="menuButton unlocked active"
+            data-page="prolog"
+          >
+            AKTE 001 – PROLOG
+          </button>
+
+          <button
+            class="menuButton locked"
+            data-page="kapitel1episode1"
+          >
+            AKTE 002 – KAPITEL 1 EPISODE 1
+          </button>
+
+          <button
+            class="menuButton locked"
+            data-page="kapitel1episode2"
+          >
+            AKTE 003 – KAPITEL 1 EPISODE 2
+          </button>
+		  
+		  <button
+            class="menuButton locked"
+            data-page="kapitel1episode3"
+          >
+            AKTE 004 – KAPITEL 1 EPISODE 3
+          </button>
+		  
+		  <button
+            class="menuButton locked"
+            data-page="kapitel1episode4"
+          >
+            AKTE 005 – KAPITEL 1 EPISODE 4
+          </button>
+		  		  
+
+          <button
+            class="menuButton locked"
+            data-page="kapitel2"
+          >
+            AKTE 006 – KAPITEL 2
+          </button>
+
+        </section>
+
+
+        <section class="menuSection">
+
+          <div class="menuTitle">
+            MASKEN
+          </div>
+
+          <button
+            class="menuButton locked"
+            data-page="askarion"
+          >
+            ASKARION
+          </button>
+
+          <button
+            class="menuButton locked"
+            data-page="nerathul"
+          >
+            NERATHUL
+          </button>
+
+          <button
+            class="menuButton locked"
+            data-page="tharnex"
+          >
+            THARNEX
+          </button>
+
+          <button
+            class="menuButton locked"
+            data-page="dravion"
+          >
+            DRAVION
+          </button>
+
+        </section>
+
+
+        <section class="menuSection">
+
+          <div class="menuTitle">
+            WESEN
+          </div>
+
+          <button
+            class="menuButton locked"
+            data-page="condor"
+          >
+            CONDOR
+          </button>
+
+        </section>
+
+      </aside>
+
+
+      <!-- INHALT RECHTS -->
+
+      <main
+        class="contentArea"
+        id="contentArea"
+      >
+
+        <div class="archiveLabel">
+          CHRONIKEN DER DUNKELHEIT
+        </div>
+
+        <h1>
+          ARCHIVAKTE 001
+        </h1>
+
+        <div class="archiveSubtitle">
+          DER PROLOG
+        </div>
+
+
+        <div class="infoGrid">
+
+          <div class="infoBox">
+
+            <span class="infoLabel">
+              ZUGRIFFSSTATUS
+            </span>
+
+            <span class="infoValue green">
+              FREIGEGEBEN
+            </span>
+
+          </div>
+
+
+          <div class="infoBox">
+
+            <span class="infoLabel">
+              SICHERHEITSSTUFE
+            </span>
+
+            <span class="infoValue">
+              1
+            </span>
+
+          </div>
+
+
+          <div class="infoBox">
+
+            <span class="infoLabel">
+              AKTENKENNUNG
+            </span>
+
+            <span class="infoValue">
+              CDD-001
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <article
+          class="storyText"
+          id="storyText"
+        >
+
+          <p>
+            Hier wird später dein vollständiger Prolog angezeigt.
+          </p>
+
+          <p>
+            Zuerst bauen wir das Grundsystem und danach setzen wir deinen echten Text ein.
+          </p>
+
+        </article>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
