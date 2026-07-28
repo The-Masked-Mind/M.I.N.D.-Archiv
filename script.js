@@ -660,18 +660,6 @@ function createLockedContent(name) {
 
 
 /* =========================
-   AKTIVEN BUTTON MARKIEREN
-========================= */
-
-function setActiveButton(selectedButton) {
-  menuButtons.forEach(button => {
-    button.classList.remove("active");
-  });
-
-  selectedButton.classList.add("active");
-}
-
-/* =========================
    SEITEN ÖFFNEN
 ========================= */
 
@@ -742,14 +730,14 @@ menuButtons.forEach(button => {
       button.dataset.page;
 
     if (
-      isUnlocked &&
-      page === "prolog"
-    ) {
-      contentArea.innerHTML =
-        prologContent;
+  isUnlocked &&
+  page === "prolog"
+) {
 
-      return;
-    }
+  showProlog();
+
+  return;
+}
 
     const fileName =
       button.textContent.trim();
@@ -778,5 +766,11 @@ if (homeButton) {
   Beim ersten Öffnen der Webseite
   wird immer die Home-Seite angezeigt.
 */
+setTimeout(() => {
 
-showHome();
+    bootScreen.classList.add("hidden");
+
+    showHome();
+
+},9000);
+
