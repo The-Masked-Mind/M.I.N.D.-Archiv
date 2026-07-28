@@ -48,7 +48,164 @@ setTimeout(() => {
    STARTSEITE
 ========================= */
 
-const homeContent = `...`
+/* =========================
+   HOME-SEITE
+========================= */
+
+const homeContent = `
+  <div class="archiveLabel">
+    M.I.N.D. ARCHIVE OS
+  </div>
+
+  <h1>
+    ARCHIVZENTRALE
+  </h1>
+
+  <div class="archiveSubtitle">
+    CHRONIKEN DER DUNKELHEIT
+  </div>
+
+
+  <section class="homeWelcome">
+
+    <h2 class="homeWelcomeTitle">
+      WILLKOMMEN IM ARCHIV
+    </h2>
+
+    <p class="homeWelcomeText">
+      Du befindest dich im digitalen Archiv der
+      Chroniken der Dunkelheit.
+      Hier kannst du alle Akten einsehen, die du bereits
+      durch Kanalpunkte freigeschaltet hast.
+    </p>
+
+    <p class="homeWelcomeText">
+      Weitere Kapitel, Personen, Masken und Wesen bleiben
+      verschlüsselt, bis deine Sicherheitsfreigabe
+      erweitert wurde.
+    </p>
+
+  </section>
+
+
+  <section class="homeStatusGrid">
+
+    <div class="homeStatusCard">
+
+      <span class="homeStatusLabel">
+        FREIGESCHALTETE AKTEN
+      </span>
+
+      <span class="homeStatusValue green">
+        1
+      </span>
+
+    </div>
+
+
+    <div class="homeStatusCard">
+
+      <span class="homeStatusLabel">
+        GESPERRTE AKTEN
+      </span>
+
+      <span class="homeStatusValue">
+        7
+      </span>
+
+    </div>
+
+
+    <div class="homeStatusCard">
+
+      <span class="homeStatusLabel">
+        SICHERHEITSSTUFE
+      </span>
+
+      <span class="homeStatusValue">
+        ALPHA
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <div class="homeSectionTitle">
+    VERFÜGBARE ARCHIVBEREICHE
+  </div>
+
+
+  <section class="homeTileGrid">
+
+    <button
+      class="homeTile"
+      id="openPrologButton"
+      type="button"
+    >
+
+      <div class="homeTileIcon">
+        001
+      </div>
+
+      <div class="homeTileTitle">
+        PROLOG LESEN
+      </div>
+
+      <div class="homeTileText">
+        Archivakte CD-B1-001 wurde vollständig
+        entschlüsselt.
+      </div>
+
+    </button>
+
+
+    <div class="homeTile lockedTile">
+
+      <div class="homeTileIcon"></div>
+
+      <div class="homeTileTitle">
+        WEITERE KAPITEL
+      </div>
+
+      <div class="homeTileText">
+        Noch keine weiteren Kapitel freigeschaltet.
+      </div>
+
+    </div>
+
+
+    <div class="homeTile lockedTile">
+
+      <div class="homeTileIcon"></div>
+
+      <div class="homeTileTitle">
+        MASKENARCHIV
+      </div>
+
+      <div class="homeTileText">
+        Sicherheitsfreigabe nicht ausreichend.
+      </div>
+
+    </div>
+
+
+    <div class="homeTile lockedTile">
+
+      <div class="homeTileIcon"></div>
+
+      <div class="homeTileTitle">
+        WESENSDATENBANK
+      </div>
+
+      <div class="homeTileText">
+        Sicherheitsfreigabe nicht ausreichend.
+      </div>
+
+    </div>
+
+  </section>
+`;
 
 /* =========================
    PROLOG-INHALT
