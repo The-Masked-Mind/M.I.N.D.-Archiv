@@ -908,35 +908,297 @@ button {
   }
 }
 
-.homeButton{
+/* =========================
+   HOME-BUTTON
+========================= */
 
-    width:44px;
-    height:44px;
+.homeButton {
+  width: 44px;
+  height: 44px;
 
-    border:2px solid var(--red);
+  flex: 0 0 44px;
 
-    background:transparent;
+  display: grid;
+  place-items: center;
 
-    color:white;
+  padding: 9px;
 
-    font-size:22px;
+  border: 2px solid var(--red);
 
-    cursor:pointer;
+  color: white;
+  background: rgba(255, 60, 60, 0.03);
 
-    transition:.25s;
+  cursor: pointer;
 
-    box-shadow:
-        0 0 15px rgba(255,60,60,.25);
+  box-shadow:
+    0 0 15px rgba(255, 60, 60, 0.25);
 
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.homeButton:hover{
+.homeButton svg {
+  width: 100%;
+  height: 100%;
 
-    color:var(--red);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
-    transform:scale(1.08);
+.homeButton:hover {
+  color: var(--red);
 
-    box-shadow:
-        0 0 20px rgba(255,60,60,.6);
+  background:
+    rgba(255, 60, 60, 0.08);
 
+  transform:
+    scale(1.08);
+
+  box-shadow:
+    0 0 20px rgba(255, 60, 60, 0.6);
+}
+
+
+/* =========================
+   HOME-SEITE
+========================= */
+
+.homeWelcome {
+  margin-top: 34px;
+
+  padding: 34px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.18);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(52, 217, 255, 0.08),
+      transparent 55%
+    ),
+    rgba(255, 255, 255, 0.018);
+}
+
+.homeWelcomeTitle {
+  margin: 0;
+
+  color: white;
+
+  font-size:
+    clamp(25px, 4vw, 42px);
+
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.homeWelcomeText {
+  max-width: 800px;
+
+  margin:
+    22px 0 0;
+
+  color: #d6dddf;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 19px;
+
+  line-height: 1.8;
+}
+
+.homeStatusGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-top: 28px;
+}
+
+.homeStatusCard {
+  min-height: 105px;
+
+  padding: 18px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.16);
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+.homeStatusLabel {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.homeStatusValue {
+  display: block;
+
+  margin-top: 13px;
+
+  color: white;
+
+  font-size: 24px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.homeStatusValue.green {
+  color: var(--green);
+
+  text-shadow:
+    0 0 12px rgba(69, 255, 117, 0.4);
+}
+
+.homeSectionTitle {
+  margin:
+    42px 0 18px;
+
+  color: var(--red);
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.homeTileGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.homeTile {
+  position: relative;
+
+  min-height: 145px;
+
+  padding: 23px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.18);
+
+  text-align: left;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(5, 14, 15, 0.9),
+      rgba(10, 31, 34, 0.75)
+    );
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+button.homeTile {
+  cursor: pointer;
+}
+
+button.homeTile:hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(69, 255, 117, 0.4);
+
+  box-shadow:
+    0 0 25px rgba(69, 255, 117, 0.1);
+}
+
+.homeTile.lockedTile {
+  color: #6e797c;
+
+  border-color:
+    rgba(255, 255, 255, 0.08);
+
+  background:
+    rgba(255, 255, 255, 0.015);
+}
+
+.homeTileIcon {
+  color: var(--red);
+
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.homeTileTitle {
+  margin-top: 17px;
+
+  font-size: 17px;
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.homeTileText {
+  margin-top: 10px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.lockedTile .homeTileIcon::before {
+  content: "🔒";
+}
+
+@media (max-width: 680px) {
+  .homeStatusGrid,
+  .homeTileGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .homeWelcome {
+    padding: 24px 20px;
+  }
+
+  .homeWelcomeText {
+    font-size: 17px;
+  }
 }
