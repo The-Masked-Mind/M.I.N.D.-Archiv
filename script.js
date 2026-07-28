@@ -547,19 +547,24 @@ menuButtons.forEach(button => {
   });
 });
 
+/* =========================
+   HOME-BUTTON
+========================= */
+
 const homeButton =
-    document.getElementById("homeButton");
+  document.getElementById("homeButton");
 
-homeButton.addEventListener("click", () => {
+if (homeButton) {
+  homeButton.addEventListener(
+    "click",
+    showHome
+  );
+}
 
-    contentArea.innerHTML = prologContent;
 
-    menuButtons.forEach(button=>{
-        button.classList.remove("active");
-    });
+/*
+  Beim ersten Öffnen der Webseite
+  wird immer die Home-Seite angezeigt.
+*/
 
-    document
-        .querySelector("[data-page='prolog']")
-        .classList.add("active");
-
-});
+showHome();
