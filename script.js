@@ -729,16 +729,13 @@ menuButtons.forEach(button => {
     const page =
       button.dataset.page;
 
-    if (
-  isUnlocked &&
-  page === "prolog"
-) {
-
-  showProlog();
-
-  return;
-}
-
+     if (
+      isUnlocked &&
+      page === "prolog"
+      ) {
+      showProlog();
+      return;
+      }
     const fileName =
       button.textContent.trim();
 
