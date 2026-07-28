@@ -445,12 +445,18 @@ button {
     1px solid var(--line);
 }
 
-.menuTitle {
-  margin-bottom: 12px;
+.menuTitle span{
+    display:block;
+}
 
+.menuTitle span:last-child{
+    margin-top:4px;
+}
+
+.menuTitle {
   color: var(--red);
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 900;
 
   letter-spacing: 3px;
