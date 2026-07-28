@@ -44,6 +44,11 @@ setTimeout(() => {
   bootScreen.classList.add("hidden");
 }, 9000);
 
+/* =========================
+   STARTSEITE
+========================= */
+
+const homeContent = `...`
 
 /* =========================
    PROLOG-INHALT
