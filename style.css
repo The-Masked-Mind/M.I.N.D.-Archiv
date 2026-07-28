@@ -907,3 +907,36 @@ button {
     font-size: 17px;
   }
 }
+
+.homeButton{
+
+    width:44px;
+    height:44px;
+
+    border:2px solid var(--red);
+
+    background:transparent;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:
+        0 0 15px rgba(255,60,60,.25);
+
+}
+
+.homeButton:hover{
+
+    color:var(--red);
+
+    transform:scale(1.08);
+
+    box-shadow:
+        0 0 20px rgba(255,60,60,.6);
+
+}
