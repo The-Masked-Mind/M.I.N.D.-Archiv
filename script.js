@@ -252,7 +252,7 @@ const prologContent = `
       </span>
 
       <span class="infoValue">
-        CDD-001
+        CDD-B1-100
       </span>
     </div>
 
