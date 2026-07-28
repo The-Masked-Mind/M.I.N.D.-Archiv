@@ -54,7 +54,7 @@ setTimeout(() => {
 
 const homeContent = `
   <div class="archiveLabel">
-    M.I.N.D. ARCHIVE OS
+    M.I.N.D. ARCHIV
   </div>
 
   <h1>
@@ -153,7 +153,7 @@ const homeContent = `
       </div>
 
       <div class="homeTileText">
-        Archivakte CD-B1-001 wurde vollständig
+        Archivakte CDD-B1-100 wurde vollständig
         entschlüsselt.
       </div>
 
@@ -180,7 +180,7 @@ const homeContent = `
       <div class="homeTileIcon"></div>
 
       <div class="homeTileTitle">
-        MASKENARCHIV
+        DIE MASKEN DES UNHEILS
       </div>
 
       <div class="homeTileText">
@@ -195,7 +195,7 @@ const homeContent = `
       <div class="homeTileIcon"></div>
 
       <div class="homeTileTitle">
-        WESENSDATENBANK
+        WESEN DER UNTERWELT
       </div>
 
       <div class="homeTileText">
