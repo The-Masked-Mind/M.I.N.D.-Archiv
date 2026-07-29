@@ -5,7 +5,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
-     ELEMENTE
+     GRUNDELEMENTE
   ========================= */
 
   const bootScreen =
@@ -20,8 +20,184 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeButton =
     document.getElementById("homeButton");
 
+  const archiveUserName =
+    document.getElementById("archiveUserName");
+
+  const archiveAccessRank =
+    document.getElementById("archiveAccessRank");
+
   const menuButtons =
     [...document.querySelectorAll(".menuButton")];
+
+
+  /* =========================
+     ZUGANGSCODES
+  ========================= */
+
+  /*
+    Diese Codes kannst du später ändern.
+
+    Link für dich:
+
+    ?code=MTM-ALPHA-7K4P
+
+    Link für Schnin:
+
+    ?code=SCHNIN-ALPHA-9Q2M
+  */
+
+  const accessCodes = {
+
+    "MTM-ALPHA-7K4P": {
+      name: "THE_MASKED_MIND",
+      level: 999,
+      rank: "ALPHA"
+    },
+
+    "SCHNIN-ALPHA-9Q2M": {
+      name: "SCHNIN",
+      level: 999,
+      rank: "ALPHA"
+    },
+
+    /*
+      Beispiel für einen Zuschauer,
+      der nur den Prolog besitzt.
+    */
+
+    "TEST-STUFE-1": {
+      name: "TESTZUSCHAUER",
+      level: 1,
+      rank: "DELTA"
+    },
+
+    /*
+      Beispiel für Prolog + Episode 1.
+    */
+
+    "TEST-STUFE-2": {
+      name: "TESTZUSCHAUER 2",
+      level: 2,
+      rank: "GAMMA"
+    }
+
+  };
+
+
+  /* =========================
+     STANDARDPROFIL
+  ========================= */
+
+  let currentUser = {
+    name: "GAST",
+    level: 0,
+    rank: "KEINE"
+  };
+
+
+  /* =========================
+     CODE AUS LINK LESEN
+  ========================= */
+
+  function loadAccessCode() {
+    const parameters =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    const code =
+      parameters.get("code");
+
+    if (
+      code &&
+      accessCodes[code]
+    ) {
+      currentUser =
+        accessCodes[code];
+    }
+
+    updateUserTerminal();
+    updateMenuAccess();
+  }
+
+
+  /* =========================
+     BENUTZERANZEIGE
+  ========================= */
+
+  function updateUserTerminal() {
+    if (archiveUserName) {
+      archiveUserName.textContent =
+        currentUser.name;
+    }
+
+    if (archiveAccessRank) {
+      archiveAccessRank.textContent =
+        currentUser.rank;
+
+      archiveAccessRank.className =
+        "userTerminalValue";
+
+      if (
+        currentUser.rank === "ALPHA"
+      ) {
+        archiveAccessRank.classList.add(
+          "accessAlpha"
+        );
+      }
+
+      if (
+        currentUser.rank === "BETA"
+      ) {
+        archiveAccessRank.classList.add(
+          "accessBeta"
+        );
+      }
+
+      if (
+        currentUser.rank === "GAMMA"
+      ) {
+        archiveAccessRank.classList.add(
+          "accessGamma"
+        );
+      }
+
+      if (
+        currentUser.rank === "DELTA"
+      ) {
+        archiveAccessRank.classList.add(
+          "accessDelta"
+        );
+      }
+    }
+  }
+
+
+  /* =========================
+     MENÜSPERREN AKTUALISIEREN
+  ========================= */
+
+  function updateMenuAccess() {
+    menuButtons.forEach(button => {
+      const requiredLevel =
+        Number(
+          button.dataset.level || 0
+        );
+
+      const hasAccess =
+        currentUser.level >= requiredLevel;
+
+      button.classList.toggle(
+        "unlocked",
+        hasAccess
+      );
+
+      button.classList.toggle(
+        "locked",
+        !hasAccess
+      );
+    });
+  }
 
 
   /* =========================
@@ -35,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       time: 3000,
-      text: "SICHERHEITSSTUFE WIRD GELADEN..."
+      text: "SICHERHEITSFREIGABE WIRD GELADEN..."
     },
     {
       time: 5000,
@@ -51,7 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
     bootSteps.forEach(step => {
       setTimeout(() => {
         if (bootStatus) {
-          bootStatus.textContent = step.text;
+          bootStatus.textContent =
+            step.text;
         }
       }, step.time);
     });
@@ -60,19 +237,23 @@ document.addEventListener("DOMContentLoaded", () => {
       await showHome();
 
       if (bootScreen) {
-        bootScreen.classList.add("hidden");
+        bootScreen.classList.add(
+          "hidden"
+        );
       }
     }, 9000);
   }
 
 
   /* =========================
-     MENÜMARKIERUNG
+     AKTIVE MENÜMARKIERUNG
   ========================= */
 
   function clearActiveButtons() {
     menuButtons.forEach(button => {
-      button.classList.remove("active");
+      button.classList.remove(
+        "active"
+      );
     });
   }
 
@@ -85,33 +266,25 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
     if (selectedButton) {
-      selectedButton.classList.add("active");
+      selectedButton.classList.add(
+        "active"
+      );
     }
   }
 
 
   /* =========================
-     DATEIPFAD ERSTELLEN
+     DATEIPFAD ERZEUGEN
   ========================= */
 
   function createFilePath(pageName) {
-    /*
-      Beispiel:
-
-      data-page=
-      "kapitel/kapitel_1/kapitel_1_episode_1"
-
-      wird zu:
-
-      data/kapitel/kapitel_1/
-      kapitel_1_episode_1.html
-    */
-
     if (!pageName) {
       return null;
     }
 
-    if (pageName.endsWith(".html")) {
+    if (
+      pageName.endsWith(".html")
+    ) {
       return `data/${pageName}`;
     }
 
@@ -124,20 +297,18 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================= */
 
   async function loadPage(filePath) {
-    if (!contentArea || !filePath) {
+    if (
+      !contentArea ||
+      !filePath
+    ) {
       return false;
     }
 
     try {
-      /*
-        Date.now() verhindert,
-        dass eine alte Version aus
-        dem Browser-Cache geladen wird.
-      */
-
-      const response = await fetch(
-        `${filePath}?v=${Date.now()}`
-      );
+      const response =
+        await fetch(
+          `${filePath}?v=${Date.now()}`
+        );
 
       if (!response.ok) {
         throw new Error(
@@ -148,14 +319,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const html =
         await response.text();
 
-      contentArea.innerHTML = html;
+      contentArea.innerHTML =
+        html;
+
+      connectPageButtons();
+      updateDynamicPageInformation();
 
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
-
-      connectPageButtons();
 
       return true;
 
@@ -173,18 +346,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     HOME-SEITE
+     INFORMATIONEN INNERHALB
+     EINER AKTE AKTUALISIEREN
+  ========================= */
+
+  function updateDynamicPageInformation() {
+    const pageUserName =
+      document.querySelector(
+        "[data-current-user]"
+      );
+
+    const pageAccessRank =
+      document.querySelector(
+        "[data-current-rank]"
+      );
+
+    if (pageUserName) {
+      pageUserName.textContent =
+        currentUser.name;
+    }
+
+    if (pageAccessRank) {
+      pageAccessRank.textContent =
+        currentUser.rank;
+    }
+  }
+
+
+  /* =========================
+     HOME
   ========================= */
 
   async function showHome() {
     clearActiveButtons();
 
-    await loadPage("data/home.html");
+    await loadPage(
+      "data/home.html"
+    );
   }
 
 
   /* =========================
-     ARCHIVAKTE ÖFFNEN
+     AKTE ÖFFNEN
   ========================= */
 
   async function openArchivePage(
@@ -195,26 +398,30 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    /*
-      Gesperrter Menüpunkt
-    */
+    let requiredLevel = 0;
+
+    if (sourceButton) {
+      requiredLevel =
+        Number(
+          sourceButton.dataset.level || 0
+        );
+    }
 
     if (
-      sourceButton &&
-      sourceButton.classList.contains("locked")
+      currentUser.level <
+      requiredLevel
     ) {
       activateMenuButton(pageName);
 
       showLockedContent(
-        sourceButton.textContent.trim()
+        sourceButton
+          ? sourceButton.textContent.trim()
+          : pageName,
+        requiredLevel
       );
 
       return;
     }
-
-    /*
-      Freigeschaltete Datei
-    */
 
     activateMenuButton(pageName);
 
@@ -226,92 +433,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     KNÖPFE INNERHALB DER
-     GELADENEN SEITEN
-  ========================= */
-
-  function connectPageButtons() {
-    /*
-      Vorhandener Prolog-Knopf
-      aus home.html
-    */
-
-    const openPrologButton =
-      document.getElementById(
-        "openPrologButton"
-      );
-
-    if (openPrologButton) {
-      openPrologButton.addEventListener(
-        "click",
-        () => {
-          openArchivePage("prolog");
-        }
-      );
-    }
-
-    /*
-      Vorhandener Episode-1-Knopf
-      aus home.html
-    */
-
-    const openEpisode1Button =
-      document.getElementById(
-        "openEpisode1Button"
-      );
-
-    if (openEpisode1Button) {
-      openEpisode1Button.addEventListener(
-        "click",
-        () => {
-          openArchivePage(
-            "kapitel/kapitel_1/kapitel_1_episode_1"
-          );
-        }
-      );
-    }
-
-    /*
-      Flexible Knöpfe für später.
-
-      Beispiel in einer HTML-Datei:
-
-      <button
-        data-open-page=
-        "masken_des_unheils/askarion"
-      >
-        Askarion öffnen
-      </button>
-    */
-
-    const pageLinks =
-      document.querySelectorAll(
-        "[data-open-page]"
-      );
-
-    pageLinks.forEach(button => {
-      button.addEventListener(
-        "click",
-        () => {
-          const pageName =
-            button.dataset.openPage;
-
-          openArchivePage(pageName);
-        }
-      );
-    });
-  }
-
-
-  /* =========================
      GESPERRTE AKTE
   ========================= */
 
-  function showLockedContent(name) {
-    if (!contentArea) {
-      return;
-    }
-
+  function showLockedContent(
+    name,
+    requiredLevel
+  ) {
     contentArea.innerHTML = `
       <div class="lockedScreen">
 
@@ -330,8 +458,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <br><br>
 
-            SICHERHEITSFREIGABE
-            NICHT AUSREICHEND.
+            AKTUELLE FREIGABE:
+            ${currentUser.rank}
+
+            <br><br>
+
+            BENÖTIGTE
+            SICHERHEITSSTUFE:
+            ${getRankName(requiredLevel)}
 
             <br><br>
 
@@ -352,14 +486,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
+     STUFENNAME ERMITTELN
+  ========================= */
+
+  function getRankName(level) {
+    if (level >= 999) {
+      return "ALPHA";
+    }
+
+    if (level >= 4) {
+      return "BETA";
+    }
+
+    if (level >= 2) {
+      return "GAMMA";
+    }
+
+    if (level >= 1) {
+      return "DELTA";
+    }
+
+    return "KEINE";
+  }
+
+
+  /* =========================
      DATEIFEHLER
   ========================= */
 
   function showFileError(filePath) {
-    if (!contentArea) {
-      return;
-    }
-
     contentArea.innerHTML = `
       <div class="lockedScreen">
 
@@ -396,6 +551,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
+     KNÖPFE IN GELADENEN SEITEN
+  ========================= */
+
+  function connectPageButtons() {
+    const pageLinks =
+      document.querySelectorAll(
+        "[data-open-page]"
+      );
+
+    pageLinks.forEach(button => {
+      button.addEventListener(
+        "click",
+        () => {
+          const pageName =
+            button.dataset.openPage;
+
+          const requiredLevel =
+            Number(
+              button.dataset.level || 0
+            );
+
+          if (
+            currentUser.level <
+            requiredLevel
+          ) {
+            showLockedContent(
+              button.textContent.trim(),
+              requiredLevel
+            );
+
+            return;
+          }
+
+          openArchivePage(
+            pageName
+          );
+        }
+      );
+    });
+  }
+
+
+  /* =========================
      LINKES MENÜ
   ========================= */
 
@@ -403,11 +601,8 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener(
       "click",
       () => {
-        const pageName =
-          button.dataset.page;
-
         openArchivePage(
-          pageName,
+          button.dataset.page,
           button
         );
       }
@@ -431,6 +626,7 @@ document.addEventListener("DOMContentLoaded", () => {
      SYSTEM STARTEN
   ========================= */
 
+  loadAccessCode();
   startBootSequence();
 
 });
