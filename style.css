@@ -837,7 +837,7 @@ button {
   to {
     transform:
       translateY(
-        calc(100vh + 40px)
+        calc(300vh + 40px)
       );
   }
 }
