@@ -1658,3 +1658,281 @@ button.maskOverviewCard:hover {
     top: -5px;
   }
 }
+
+/* =========================================================
+   BENUTZERTERMINAL
+========================================================= */
+
+.userTerminal {
+  min-width: 290px;
+
+  padding:
+    10px 15px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.18);
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+.userTerminalStatus {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: var(--green);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.userTerminalData {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-top: 10px;
+
+  padding-top: 10px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+.userTerminalLabel {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.userTerminalValue {
+  display: block;
+
+  margin-top: 5px;
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.accessAlpha {
+  color: var(--red);
+
+  text-shadow:
+    0 0 12px rgba(255, 60, 60, 0.55);
+}
+
+.accessBeta {
+  color: #c46cff;
+}
+
+.accessGamma {
+  color: var(--cyan);
+}
+
+.accessDelta {
+  color: var(--green);
+}
+
+
+/* =========================================================
+   AKTENSTATUS
+========================================================= */
+
+.statusReleased {
+  color: var(--green);
+}
+
+.statusIncomplete {
+  color: var(--yellow);
+}
+
+.statusDamaged {
+  color: var(--red);
+}
+
+.statusClassified {
+  color: #c46cff;
+}
+
+
+/* =========================================================
+   BESCHÄDIGTE DATEN
+========================================================= */
+
+.damagedData {
+  margin:
+    35px 0;
+
+  padding:
+    25px;
+
+  border:
+    1px solid rgba(255, 60, 60, 0.35);
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 60, 60, 0.035),
+      rgba(255, 60, 60, 0.035) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+
+  color: var(--red);
+
+  font-size: 13px;
+  font-weight: 900;
+
+  line-height: 1.8;
+
+  letter-spacing: 3px;
+
+  text-align: center;
+
+  text-transform: uppercase;
+}
+
+.redactedText {
+  display: inline-block;
+
+  padding:
+    0 6px;
+
+  color: transparent;
+
+  background:
+    #060606;
+
+  user-select: none;
+}
+
+
+/* =========================================================
+   VERKNÜPFTE AKTEN
+========================================================= */
+
+.relatedFiles {
+  margin-top: 55px;
+
+  padding-top: 30px;
+
+  border-top:
+    1px solid rgba(52, 217, 255, 0.16);
+}
+
+.relatedFilesTitle {
+  color: var(--red);
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.relatedFilesGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-top: 20px;
+}
+
+.relatedFile {
+  min-height: 105px;
+
+  padding: 18px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.17);
+
+  color: white;
+
+  text-align: left;
+
+  background:
+    rgba(52, 217, 255, 0.025);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.relatedFile:hover {
+  transform:
+    translateY(-3px);
+
+  border-color:
+    rgba(69, 255, 117, 0.4);
+
+  box-shadow:
+    0 0 22px rgba(69, 255, 117, 0.08);
+}
+
+.relatedFileId {
+  color: var(--cyan);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.relatedFileName {
+  margin-top: 12px;
+
+  font-size: 15px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.relatedFileLocked {
+  opacity: 0.42;
+}
+
+
+@media (max-width: 760px) {
+  .userTerminal {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .relatedFilesGrid {
+    grid-template-columns: 1fr;
+  }
+}
