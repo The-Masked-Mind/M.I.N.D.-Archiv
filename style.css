@@ -1210,3 +1210,451 @@ button.homeTile:hover {
     font-size: 17px;
   }
 }
+/* =========================================================
+   ARTEFAKTARCHIV – MASKEN DES UNHEILS
+========================================================= */
+
+.artifactInfoGrid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 28px 0 34px;
+}
+
+.artifactInfoBox {
+  min-height: 84px;
+  padding: 15px;
+
+  border:
+    1px solid rgba(255, 60, 60, 0.22);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 60, 60, 0.04),
+      rgba(255, 255, 255, 0.015)
+    );
+}
+
+.artifactInfoLabel {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.artifactInfoValue {
+  display: block;
+
+  margin-top: 12px;
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.dangerValue {
+  color: var(--red);
+
+  text-shadow:
+    0 0 12px rgba(255, 60, 60, 0.5);
+}
+
+
+/* WARNUNG */
+
+.artifactWarning {
+  margin: 34px 0;
+
+  padding: 24px;
+
+  border:
+    1px solid rgba(255, 60, 60, 0.55);
+
+  border-left:
+    5px solid var(--red);
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 60, 60, 0.035),
+      rgba(255, 60, 60, 0.035) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+}
+
+.artifactWarningTitle {
+  color: var(--red);
+
+  font-size: 14px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.artifactWarning p {
+  margin:
+    16px 0 0;
+
+  color: #dce2e4;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* DOKUMENTTEXT */
+
+.archiveDocument {
+  margin-top: 42px;
+
+  color: #dce3e5;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 18px;
+
+  line-height: 1.85;
+}
+
+.archiveDocument h2 {
+  margin:
+    0 0 22px;
+
+  color: var(--red);
+
+  font-family:
+    "Roboto",
+    sans-serif;
+
+  font-size: 16px;
+  font-weight: 900;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+}
+
+.archiveDocument p {
+  margin:
+    1.3em 0;
+}
+
+.archiveEmphasis {
+  margin:
+    35px 0 !important;
+
+  color: var(--red);
+
+  font-family:
+    "Roboto",
+    sans-serif;
+
+  font-size:
+    clamp(22px, 4vw, 32px);
+
+  font-weight: 900;
+
+  text-align: center;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 18px rgba(255, 60, 60, 0.45);
+}
+
+
+/* ZITAT */
+
+.artifactQuote {
+  position: relative;
+
+  margin:
+    46px 0;
+
+  padding:
+    36px 34px 36px 70px;
+
+  border-top:
+    1px solid rgba(255, 60, 60, 0.3);
+
+  border-bottom:
+    1px solid rgba(255, 60, 60, 0.3);
+
+  background:
+    radial-gradient(
+      circle at left,
+      rgba(255, 60, 60, 0.1),
+      transparent 55%
+    );
+}
+
+.artifactQuoteMark {
+  position: absolute;
+
+  left: 20px;
+  top: 4px;
+
+  color: var(--red);
+
+  font-family: Georgia, serif;
+
+  font-size: 90px;
+
+  opacity: 0.6;
+}
+
+.artifactQuoteText {
+  color: white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(20px, 3vw, 28px);
+
+  font-style: italic;
+
+  line-height: 1.6;
+}
+
+
+/* MASKENKARTEN */
+
+.maskOverviewGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin:
+    50px 0;
+}
+
+.maskOverviewCard {
+  min-height: 190px;
+
+  padding: 24px;
+
+  border:
+    1px solid rgba(255, 60, 60, 0.22);
+
+  color: white;
+
+  text-align: left;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 60, 60, 0.07),
+      rgba(5, 15, 17, 0.9)
+    );
+}
+
+button.maskOverviewCard {
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+button.maskOverviewCard:hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(255, 60, 60, 0.65);
+
+  box-shadow:
+    0 0 26px rgba(255, 60, 60, 0.14);
+}
+
+.maskNumber {
+  color: var(--red);
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 3px;
+}
+
+.maskOverviewName {
+  margin-top: 22px;
+
+  font-size:
+    clamp(24px, 4vw, 38px);
+
+  font-weight: 900;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+}
+
+.maskOverviewTitle {
+  margin-top: 10px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.maskOverviewStatus {
+  margin-top: 24px;
+
+  color: #687276;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.unlockedStatus {
+  color: var(--green);
+}
+
+.lockedArtifact {
+  opacity: 0.48;
+}
+
+
+/* OFFENBARUNGSZEILEN */
+
+.revelationLines {
+  display: grid;
+
+  gap: 10px;
+
+  margin:
+    35px 0;
+
+  padding:
+    25px;
+
+  text-align: center;
+
+  border:
+    1px solid rgba(255, 60, 60, 0.25);
+
+  background:
+    rgba(255, 60, 60, 0.035);
+}
+
+.revelationLines span {
+  color: white;
+
+  font-family:
+    "Roboto",
+    sans-serif;
+
+  font-size:
+    clamp(19px, 3vw, 27px);
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+
+/* M.I.N.D.-ANMERKUNG */
+
+.classifiedBlock {
+  margin:
+    50px 0;
+
+  padding:
+    28px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.25);
+
+  border-left:
+    5px solid var(--cyan);
+
+  background:
+    rgba(52, 217, 255, 0.035);
+}
+
+.classifiedHeader {
+  color: var(--cyan);
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.classifiedText {
+  margin-top: 20px;
+
+  color: #cbd5d8;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+@media (max-width: 900px) {
+  .artifactInfoGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 680px) {
+  .artifactInfoGrid,
+  .maskOverviewGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .artifactQuote {
+    padding:
+      60px 22px 28px;
+  }
+
+  .artifactQuoteMark {
+    left: 18px;
+    top: -5px;
+  }
+}
