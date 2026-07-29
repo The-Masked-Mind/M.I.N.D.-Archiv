@@ -719,9 +719,15 @@ function showHome() {
    MENÜKLICKS
 ========================= */
 
+/* =========================
+   MENÜKLICKS
+========================= */
+
 menuButtons.forEach(button => {
   button.addEventListener("click", () => {
-    setActiveButton(button);
+
+    clearActiveButtons();
+    button.classList.add("active");
 
     const isUnlocked =
       button.classList.contains("unlocked");
@@ -729,21 +735,26 @@ menuButtons.forEach(button => {
     const page =
       button.dataset.page;
 
-     if (
+    if (
       isUnlocked &&
       page === "prolog"
-      ) {
+    ) {
       showProlog();
       return;
-      }
+    }
+
     const fileName =
       button.textContent.trim();
 
     contentArea.innerHTML =
       createLockedContent(fileName);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
 });
-
 /* =========================
    HOME-BUTTON
 ========================= */
