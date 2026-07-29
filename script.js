@@ -42,22 +42,22 @@ const archivePages = {
   },
 
   kapitel1episode1: {
-    file: "episode1.html",
+    file: "kapitel1episode1.html",
     unlocked: true
   },
 
   kapitel1episode2: {
-    file: "episode2.html",
+    file: "kapitel1episode2.html",
     unlocked: false
   },
 
   kapitel1episode3: {
-    file: "episode3.html",
+    file: "kapitel1episode3.html",
     unlocked: false
   },
 
   kapitel1episode4: {
-    file: "episode4.html",
+    file: "kapitel1episode4.html",
     unlocked: false
   },
 
