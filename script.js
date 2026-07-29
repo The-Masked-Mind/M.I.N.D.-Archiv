@@ -14,6 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const bootStatus =
     document.getElementById("bootStatus");
 
+  const bootIdentity =
+    document.getElementById("bootIdentity");
+
+  const bootUserName =
+    document.getElementById("bootUserName");
+
+  const bootAccessRank =
+    document.getElementById("bootAccessRank");
+
+  const bootWelcome =
+    document.getElementById("bootWelcome");
+
   const contentArea =
     document.getElementById("contentArea");
 
@@ -201,48 +213,105 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     STARTSEQUENZ
-  ========================= */
+   STARTSEQUENZ
+========================= */
 
-  const bootSteps = [
-    {
-      time: 1000,
-      text: "IDENTITÄT WIRD GEPRÜFT..."
-    },
-    {
-      time: 3000,
-      text: "SICHERHEITSFREIGABE WIRD GELADEN..."
-    },
-    {
-      time: 5000,
-      text: "ARCHIVZUGRIFF GENEHMIGT..."
-    },
-    {
-      time: 7000,
-      text: "ARCHIVZENTRALE WIRD GELADEN..."
-    }
-  ];
-
-  function startBootSequence() {
-    bootSteps.forEach(step => {
-      setTimeout(() => {
-        if (bootStatus) {
-          bootStatus.textContent =
-            step.text;
-        }
-      }, step.time);
-    });
-
-    setTimeout(async () => {
-      await showHome();
-
-      if (bootScreen) {
-        bootScreen.classList.add(
-          "hidden"
-        );
-      }
-    }, 9000);
+function updateBootIdentity() {
+  if (bootUserName) {
+    bootUserName.textContent =
+      currentUser.name;
   }
+
+  if (bootAccessRank) {
+    bootAccessRank.textContent =
+      currentUser.rank;
+
+    bootAccessRank.className =
+      "bootIdentityValue";
+
+    const rankClass =
+      currentUser.rank.toLowerCase();
+
+    if (
+      rankClass === "alpha" ||
+      rankClass === "beta" ||
+      rankClass === "gamma" ||
+      rankClass === "delta"
+    ) {
+      bootAccessRank.classList.add(
+        rankClass
+      );
+    } else {
+      bootAccessRank.classList.add(
+        "none"
+      );
+    }
+  }
+}
+
+
+function startBootSequence() {
+
+  setTimeout(() => {
+    if (bootStatus) {
+      bootStatus.textContent =
+        "IDENTITÄT WIRD GEPRÜFT...";
+    }
+  }, 1200);
+
+
+  setTimeout(() => {
+    updateBootIdentity();
+
+    if (bootIdentity) {
+      bootIdentity.classList.add("show");
+    }
+
+    if (bootStatus) {
+      bootStatus.textContent =
+        "IDENTITÄT BESTÄTIGT";
+    }
+  }, 3200);
+
+
+  setTimeout(() => {
+    if (bootWelcome) {
+      if (currentUser.level > 0) {
+        bootWelcome.textContent =
+          `WILLKOMMEN ZURÜCK, ${currentUser.name}`;
+      } else {
+        bootWelcome.textContent =
+          "WILLKOMMEN IM M.I.N.D. ARCHIV";
+      }
+
+      bootWelcome.classList.add("show");
+    }
+
+    if (bootStatus) {
+      bootStatus.textContent =
+        "SICHERHEITSFREIGABE AKZEPTIERT";
+    }
+  }, 5200);
+
+
+  setTimeout(() => {
+    if (bootStatus) {
+      bootStatus.textContent =
+        "ARCHIVZENTRALE WIRD GELADEN...";
+    }
+  }, 7200);
+
+
+  setTimeout(async () => {
+    await showHome();
+
+    if (bootScreen) {
+      bootScreen.classList.add(
+        "hidden"
+      );
+    }
+  }, 9000);
+}
 
 
   /* =========================
