@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       time: 3000,
-      text: "SICHERHEITSFREIGABE WIRD GELADEN..."
+      text: "SICHERHEITSSTUFE WIRD GELADEN..."
     },
     {
       time: 5000,
