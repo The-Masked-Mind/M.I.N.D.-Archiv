@@ -2,203 +2,363 @@
    M.I.N.D. ARCHIV – ZENTRALE STEUERUNG
 ========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-/* =========================
-   ELEMENTE DER WEBSEITE
-========================= */
+  /* =========================
+     ELEMENTE
+  ========================= */
 
-const bootScreen =
-  document.getElementById("bootScreen");
+  const bootScreen =
+    document.getElementById("bootScreen");
 
-const bootStatus =
-  document.getElementById("bootStatus");
+  const bootStatus =
+    document.getElementById("bootStatus");
 
-const contentArea =
-  document.getElementById("contentArea");
+  const contentArea =
+    document.getElementById("contentArea");
 
-const homeButton =
-  document.getElementById("homeButton");
+  const homeButton =
+    document.getElementById("homeButton");
 
-const menuButtons =
-  [...document.querySelectorAll(".menuButton")];
-
-
-/* =========================
-   ZUORDNUNG DER ARCHIVSEITEN
-========================= */
-
-/*
-  unlocked: true
-  bedeutet: Die Datei darf geöffnet werden.
-
-  file:
-  Name der Datei im Ordner "data".
-*/
-
-const archivePages = {
-  prolog: {
-    file: "prolog.html",
-    unlocked: true
-  },
-
-  kapitel1episode1: {
-    file: "kapitel1episode1.html",
-    unlocked: true
-  },
-
-  kapitel1episode2: {
-    file: "kapitel1episode2.html",
-    unlocked: false
-  },
-
-  kapitel1episode3: {
-    file: "kapitel1episode3.html",
-    unlocked: false
-  },
-
-  kapitel1episode4: {
-    file: "kapitel1episode4.html",
-    unlocked: false
-  },
-
-  kapitel2: {
-    file: "kapitel2.html",
-    unlocked: false
-  },
-
-  askarion: {
-    file: "askarion.html",
-    unlocked: false
-  },
-
-  nerathul: {
-    file: "nerathul.html",
-    unlocked: false
-  },
-
-  tharnex: {
-    file: "tharnex.html",
-    unlocked: false
-  },
-
-  dravion: {
-    file: "dravion.html",
-    unlocked: false
-  },
-
-  condor: {
-    file: "condor.html",
-    unlocked: false
-  }
-};
+  const menuButtons =
+    [...document.querySelectorAll(".menuButton")];
 
 
-/* =========================
-   STARTSEQUENZ
-========================= */
+  /* =========================
+     STARTSEQUENZ
+  ========================= */
 
-const bootSteps = [
-  {
-    time: 1000,
-    text: "IDENTITÄT WIRD GEPRÜFT..."
-  },
-  {
-    time: 3000,
-    text: "SICHERHEITSFREIGABE WIRD GELADEN..."
-  },
-  {
-    time: 5000,
-    text: "ARCHIVZUGRIFF GENEHMIGT..."
-  },
-  {
-    time: 7000,
-    text: "ARCHIVZENTRALE WIRD GELADEN..."
-  }
-];
-
-function startBootSequence() {
-  bootSteps.forEach(step => {
-    setTimeout(() => {
-      if (bootStatus) {
-        bootStatus.textContent =
-          step.text;
-      }
-    }, step.time);
-  });
-
-  setTimeout(async () => {
-    await showHome();
-
-    if (bootScreen) {
-      bootScreen.classList.add("hidden");
+  const bootSteps = [
+    {
+      time: 1000,
+      text: "IDENTITÄT WIRD GEPRÜFT..."
+    },
+    {
+      time: 3000,
+      text: "SICHERHEITSFREIGABE WIRD GELADEN..."
+    },
+    {
+      time: 5000,
+      text: "ARCHIVZUGRIFF GENEHMIGT..."
+    },
+    {
+      time: 7000,
+      text: "ARCHIVZENTRALE WIRD GELADEN..."
     }
-  }, 9000);
-}
+  ];
 
+  function startBootSequence() {
+    bootSteps.forEach(step => {
+      setTimeout(() => {
+        if (bootStatus) {
+          bootStatus.textContent = step.text;
+        }
+      }, step.time);
+    });
 
-/* =========================
-   AKTIVE MENÜMARKIERUNG
-========================= */
+    setTimeout(async () => {
+      await showHome();
 
-function clearActiveButtons() {
-  menuButtons.forEach(button => {
-    button.classList.remove("active");
-  });
-}
-
-function activateMenuButton(pageName) {
-  clearActiveButtons();
-
-  const selectedButton =
-    document.querySelector(
-      `[data-page="${pageName}"]`
-    );
-
-  if (selectedButton) {
-    selectedButton.classList.add("active");
+      if (bootScreen) {
+        bootScreen.classList.add("hidden");
+      }
+    }, 9000);
   }
-}
 
 
-/* =========================
-   HTML-DATEI LADEN
-========================= */
+  /* =========================
+     MENÜMARKIERUNG
+  ========================= */
 
-async function loadPage(fileName) {
-  try {
+  function clearActiveButtons() {
+    menuButtons.forEach(button => {
+      button.classList.remove("active");
+    });
+  }
+
+  function activateMenuButton(pageName) {
+    clearActiveButtons();
+
+    const selectedButton =
+      document.querySelector(
+        `[data-page="${pageName}"]`
+      );
+
+    if (selectedButton) {
+      selectedButton.classList.add("active");
+    }
+  }
+
+
+  /* =========================
+     DATEIPFAD ERSTELLEN
+  ========================= */
+
+  function createFilePath(pageName) {
     /*
-      Date.now() verhindert, dass der Browser
-      eine alte Version der Datei aus dem Cache lädt.
+      Beispiel:
+
+      data-page=
+      "kapitel/kapitel_1/kapitel_1_episode_1"
+
+      wird zu:
+
+      data/kapitel/kapitel_1/
+      kapitel_1_episode_1.html
     */
 
-    const response = await fetch(
-      `data/${fileName}?v=${Date.now()}`
-    );
+    if (!pageName) {
+      return null;
+    }
 
-    if (!response.ok) {
-      throw new Error(
-        `Datei konnte nicht geladen werden: ${fileName}`
+    if (pageName.endsWith(".html")) {
+      return `data/${pageName}`;
+    }
+
+    return `data/${pageName}.html`;
+  }
+
+
+  /* =========================
+     HTML-DATEI LADEN
+  ========================= */
+
+  async function loadPage(filePath) {
+    if (!contentArea || !filePath) {
+      return false;
+    }
+
+    try {
+      /*
+        Date.now() verhindert,
+        dass eine alte Version aus
+        dem Browser-Cache geladen wird.
+      */
+
+      const response = await fetch(
+        `${filePath}?v=${Date.now()}`
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          `Datei nicht gefunden: ${filePath}`
+        );
+      }
+
+      const html =
+        await response.text();
+
+      contentArea.innerHTML = html;
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+      connectPageButtons();
+
+      return true;
+
+    } catch (error) {
+      console.error(
+        "M.I.N.D.-Archivfehler:",
+        error
+      );
+
+      showFileError(filePath);
+
+      return false;
+    }
+  }
+
+
+  /* =========================
+     HOME-SEITE
+  ========================= */
+
+  async function showHome() {
+    clearActiveButtons();
+
+    await loadPage("data/home.html");
+  }
+
+
+  /* =========================
+     ARCHIVAKTE ÖFFNEN
+  ========================= */
+
+  async function openArchivePage(
+    pageName,
+    sourceButton = null
+  ) {
+    if (!pageName) {
+      return;
+    }
+
+    /*
+      Gesperrter Menüpunkt
+    */
+
+    if (
+      sourceButton &&
+      sourceButton.classList.contains("locked")
+    ) {
+      activateMenuButton(pageName);
+
+      showLockedContent(
+        sourceButton.textContent.trim()
+      );
+
+      return;
+    }
+
+    /*
+      Freigeschaltete Datei
+    */
+
+    activateMenuButton(pageName);
+
+    const filePath =
+      createFilePath(pageName);
+
+    await loadPage(filePath);
+  }
+
+
+  /* =========================
+     KNÖPFE INNERHALB DER
+     GELADENEN SEITEN
+  ========================= */
+
+  function connectPageButtons() {
+    /*
+      Vorhandener Prolog-Knopf
+      aus home.html
+    */
+
+    const openPrologButton =
+      document.getElementById(
+        "openPrologButton"
+      );
+
+    if (openPrologButton) {
+      openPrologButton.addEventListener(
+        "click",
+        () => {
+          openArchivePage("prolog");
+        }
       );
     }
 
-    const html =
-      await response.text();
+    /*
+      Vorhandener Episode-1-Knopf
+      aus home.html
+    */
 
-    contentArea.innerHTML =
-      html;
+    const openEpisode1Button =
+      document.getElementById(
+        "openEpisode1Button"
+      );
+
+    if (openEpisode1Button) {
+      openEpisode1Button.addEventListener(
+        "click",
+        () => {
+          openArchivePage(
+            "kapitel/kapitel_1/kapitel_1_episode_1"
+          );
+        }
+      );
+    }
+
+    /*
+      Flexible Knöpfe für später.
+
+      Beispiel in einer HTML-Datei:
+
+      <button
+        data-open-page=
+        "masken_des_unheils/askarion"
+      >
+        Askarion öffnen
+      </button>
+    */
+
+    const pageLinks =
+      document.querySelectorAll(
+        "[data-open-page]"
+      );
+
+    pageLinks.forEach(button => {
+      button.addEventListener(
+        "click",
+        () => {
+          const pageName =
+            button.dataset.openPage;
+
+          openArchivePage(pageName);
+        }
+      );
+    });
+  }
+
+
+  /* =========================
+     GESPERRTE AKTE
+  ========================= */
+
+  function showLockedContent(name) {
+    if (!contentArea) {
+      return;
+    }
+
+    contentArea.innerHTML = `
+      <div class="lockedScreen">
+
+        <div class="lockedPanel">
+
+          <div class="lockedIcon">
+            🔒
+          </div>
+
+          <div class="lockedTitle">
+            ZUGRIFF VERWEIGERT
+          </div>
+
+          <div class="lockedText">
+            ${name}
+
+            <br><br>
+
+            SICHERHEITSFREIGABE
+            NICHT AUSREICHEND.
+
+            <br><br>
+
+            DIESE ARCHIVAKTE WURDE
+            NOCH NICHT ENTSCHLÜSSELT.
+          </div>
+
+        </div>
+
+      </div>
+    `;
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+  }
 
-    return true;
 
-  } catch (error) {
-    console.error(
-      "M.I.N.D.-Archivfehler:",
-      error
-    );
+  /* =========================
+     DATEIFEHLER
+  ========================= */
+
+  function showFileError(filePath) {
+    if (!contentArea) {
+      return;
+    }
 
     contentArea.innerHTML = `
       <div class="lockedScreen">
@@ -214,188 +374,63 @@ async function loadPage(fileName) {
           </div>
 
           <div class="lockedText">
-            DIE ARCHIVDATEI
-            ${fileName}
-            KONNTE NICHT GELADEN WERDEN.
+            DIE ARCHIVDATEI KONNTE
+            NICHT GELADEN WERDEN.
+
             <br><br>
-            PRÜFE DEN DATEINAMEN UND DEN ORDNER DATA.
+
+            ${filePath}
+
+            <br><br>
+
+            PRÜFE DEN DATEINAMEN,
+            DIE ENDUNG .HTML UND
+            DEN ORDNERPFAD.
           </div>
 
         </div>
 
       </div>
     `;
-
-    return false;
-  }
-}
-
-
-/* =========================
-   HOME-SEITE
-========================= */
-
-async function showHome() {
-  clearActiveButtons();
-
-  const loaded =
-    await loadPage("home.html");
-
-  if (!loaded) {
-    return;
   }
 
-  /*
-    Dieser Knopf befindet sich innerhalb
-    von data/home.html.
-  */
 
-  const openPrologButton =
-    document.getElementById(
-      "openPrologButton"
-    );
+  /* =========================
+     LINKES MENÜ
+  ========================= */
 
-  if (openPrologButton) {
-    openPrologButton.addEventListener(
+  menuButtons.forEach(button => {
+    button.addEventListener(
       "click",
-      () => openArchivePage("prolog")
-    );
-  }
+      () => {
+        const pageName =
+          button.dataset.page;
 
-  /*
-    Optionaler Knopf für Episode 1.
-    Er funktioniert, sobald er in home.html existiert.
-  */
-
-  const openEpisode1Button =
-    document.getElementById(
-      "openEpisode1Button"
-    );
-
-  if (openEpisode1Button) {
-    openEpisode1Button.addEventListener(
-      "click",
-      () =>
         openArchivePage(
-          "kapitel1episode1"
-        )
+          pageName,
+          button
+        );
+      }
     );
-  }
-}
-
-
-/* =========================
-   ARCHIVAKTE ÖFFNEN
-========================= */
-
-async function openArchivePage(pageName) {
-  const page =
-    archivePages[pageName];
-
-  if (!page) {
-    showLockedContent(
-      "UNBEKANNTE ARCHIVAKTE"
-    );
-
-    return;
-  }
-
-  if (!page.unlocked) {
-    const button =
-      document.querySelector(
-        `[data-page="${pageName}"]`
-      );
-
-    const title =
-      button
-        ? button.textContent.trim()
-        : pageName;
-
-    activateMenuButton(pageName);
-    showLockedContent(title);
-
-    return;
-  }
-
-  activateMenuButton(pageName);
-
-  await loadPage(page.file);
-}
-
-
-/* =========================
-   GESPERRTE ARCHIVAKTE
-========================= */
-
-function showLockedContent(name) {
-  contentArea.innerHTML = `
-    <div class="lockedScreen">
-
-      <div class="lockedPanel">
-
-        <div class="lockedIcon">
-          🔒
-        </div>
-
-        <div class="lockedTitle">
-          ZUGRIFF VERWEIGERT
-        </div>
-
-        <div class="lockedText">
-          ${name}
-          <br><br>
-
-          SICHERHEITSFREIGABE
-          NICHT AUSREICHEND.
-          <br><br>
-
-          DIESE ARCHIVAKTE WURDE
-          NOCH NICHT ENTSCHLÜSSELT.
-        </div>
-
-      </div>
-
-    </div>
-  `;
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
   });
-}
 
 
-/* =========================
-   MENÜKLICKS
-========================= */
+  /* =========================
+     HOME-BUTTON
+  ========================= */
 
-menuButtons.forEach(button => {
-  button.addEventListener(
-    "click",
-    () => {
-      const pageName =
-        button.dataset.page;
+  if (homeButton) {
+    homeButton.addEventListener(
+      "click",
+      showHome
+    );
+  }
 
-      openArchivePage(pageName);
-    }
-  );
+
+  /* =========================
+     SYSTEM STARTEN
+  ========================= */
+
+  startBootSequence();
+
 });
-
-
-/* =========================
-   HOME-BUTTON
-========================= */
-
-if (homeButton) {
-  homeButton.addEventListener(
-    "click",
-    showHome
-  );
-}
-
-
-/* =========================
-   SYSTEM STARTEN
-========================= */
-
-startBootSequence();
