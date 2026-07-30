@@ -60,32 +60,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const accessCodes = {
 
-    "TMM-OMEGA-7K4P": {
-      name: "THE_MASKED_MIND",
-      level: 100,
-      rank: "OMEGA"
-      title: "Schöpfer des Archivs",
-      motto: "„Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird.“"
-    },
+  "TMM-OMEGA-7K4P": {
+    name: "THE_MASKED_MIND",
+    level: 999,
+    rank: "OMEGA",
+    title: "Schöpfer des Archivs",
+    motto: "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
+  },
 
-    "SCHNIN-ALPHA-9Q2M": {
-      name: "SCHNIN",
-      level: 99,
-      rank: "ALPHA"
-      title: "Hüter des Archivs",
-      motto: "„Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren.“
-    },
+  "SCHNIN-ALPHA-9Q2M": {
+    name: "SCHNIN",
+    level: 99,
+    rank: "ALPHA",
+    title: "Hüterin des Archivs",
+    motto: "Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren."
+  },
 
-    /*
-      Beispiel für einen Zuschauer
-    */
-
-    "TEST-DELTA-1": {
+  "TEST-DELTA-1": {
     name: "TESTZUSCHAUER",
     level: 1,
     rank: "DELTA",
     title: "Neugieriger Aktenleser",
-    motto: "Jede Wahrheit beginnt mit der Neugier"
+    motto: "Jede Wahrheit beginnt mit der Neugier, eine Akte zu öffnen."
   },
 
   "TEST-GAMMA-10": {
@@ -93,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     level: 10,
     rank: "GAMMA",
     title: "Bewahrer der Chroniken",
-    motto: "Jede Chronik trägt das Echo vergangener Ereignisse."
+    motto: "Erinnerungen vergehen. Die Chroniken vergessen niemals."
   },
 
   "TEST-BETA-20": {
