@@ -17,109 +17,93 @@
 
   <div class="commandDashboardHeader">
 
-    <div>
-      <div class="commandDashboardLabel">
-        AKTIVE SITZUNG
+  <div class="commandIdentity">
+
+    <div class="commandDashboardLabel">
+      AKTIVE SITZUNG
+    </div>
+
+    <div
+      class="commandDashboardUser"
+      data-current-user
+    >
+      UNBEKANNTER BESUCHER
+    </div>
+
+    <div class="commandIdentityGrid">
+
+      <div class="commandIdentityItem">
+
+        <span class="commandIdentityLabel">
+          RANG
+        </span>
+
+        <span
+          class="commandIdentityValue"
+          data-current-rank
+        >
+          KEINE
+        </span>
+
       </div>
+
+      <div class="commandIdentityItem">
+
+        <span class="commandIdentityLabel">
+          LEVEL
+        </span>
+
+        <span
+          class="commandIdentityValue"
+          data-current-level
+        >
+          0
+        </span>
+
+      </div>
+
+      <div class="commandIdentityItem commandIdentityTitle">
+
+        <span class="commandIdentityLabel">
+          TITEL
+        </span>
+
+        <span
+          class="commandIdentityValue"
+          data-current-title
+        >
+          UNBEKANNTER BESUCHER
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="commandMotto">
+
+      <span class="commandMottoLabel">
+        LEITSATZ
+      </span>
 
       <div
-        class="commandDashboardUser"
-        data-current-user
+        class="commandMottoText"
+        data-current-motto
       >
-        UNBEKANNTER BESUCHER
+        „Das Archiv beobachtet jeden, der seine Hallen betritt.“
       </div>
-    </div>
-
-    <div class="commandOnline">
-      <span class="onlineDot"></span>
-      M.I.N.D.-KERN ONLINE
-    </div>
-
-  </div>
-
-
-  <div class="commandStatusGrid">
-
-    <div class="commandStatusCard">
-
-      <span class="commandStatusLabel">
-        SICHERHEITSFREIGABE
-      </span>
-
-      <span
-        class="commandStatusValue rankValue"
-        data-current-rank
-      >
-        KEINE
-      </span>
-
-      <span
-        class="commandStatusDescription"
-        data-access-description
-      >
-        KEINE ARCHIVFREIGABE
-      </span>
-
-    </div>
-
-
-    <div class="commandStatusCard">
-
-      <span class="commandStatusLabel">
-        ARCHIVSTATUS
-      </span>
-
-      <span class="commandStatusValue onlineValue">
-        ONLINE
-      </span>
-
-      <span class="commandStatusDescription">
-        ALLE SYSTEME BETRIEBSBEREIT
-      </span>
-
-    </div>
-
-
-    <div class="commandStatusCard">
-
-      <span class="commandStatusLabel">
-        FREIGEGEBENE AKTEN
-      </span>
-
-      <span
-        class="commandStatusValue"
-        data-unlocked-count
-      >
-        0
-      </span>
-
-      <span class="commandStatusDescription">
-        PERSÖNLICHER ARCHIVZUGRIFF
-      </span>
-
-    </div>
-
-
-    <div class="commandStatusCard">
-
-      <span class="commandStatusLabel">
-        VERSCHLÜSSELTE AKTEN
-      </span>
-
-      <span
-        class="commandStatusValue lockedValue"
-        data-locked-count
-      >
-        0
-      </span>
-
-      <span class="commandStatusDescription">
-        FREIGABE ERFORDERLICH
-      </span>
 
     </div>
 
   </div>
+
+
+  <div class="commandOnline">
+    <span class="onlineDot"></span>
+    M.I.N.D.-KERN ONLINE
+  </div>
+
+</div>
 
 </section>
 
