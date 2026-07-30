@@ -257,7 +257,7 @@ function startBootSequence() {
       bootStatus.textContent =
         "IDENTITÄT WIRD GEPRÜFT...";
     }
-  }, 1200);
+  }, 1000);
 
 
   setTimeout(() => {
@@ -271,7 +271,7 @@ function startBootSequence() {
       bootStatus.textContent =
         "IDENTITÄT BESTÄTIGT";
     }
-  }, 3200);
+  }, 3000);
 
 
   setTimeout(() => {
@@ -291,7 +291,7 @@ function startBootSequence() {
       bootStatus.textContent =
         "SICHERHEITSFREIGABE AKZEPTIERT";
     }
-  }, 5200);
+  }, 6000);
 
 
   setTimeout(() => {
@@ -299,7 +299,7 @@ function startBootSequence() {
       bootStatus.textContent =
         "ARCHIVZENTRALE WIRD GELADEN...";
     }
-  }, 7200);
+  }, 9000);
 
 
   setTimeout(async () => {
@@ -310,7 +310,7 @@ function startBootSequence() {
         "hidden"
       );
     }
-  }, 9000);
+  }, 12000);
 }
 
 
