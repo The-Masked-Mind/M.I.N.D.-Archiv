@@ -2699,3 +2699,16 @@ button.maskOverviewCard:hover {
     grid-column: auto;
   }
 }
+
+.systemHeaderText {
+  margin-top: 12px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
