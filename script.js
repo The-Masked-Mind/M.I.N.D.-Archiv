@@ -436,6 +436,20 @@ function startBootSequence() {
   ========================= */
 
   function updateDynamicPageInformation() {
+  const levelElements =
+    document.querySelectorAll(
+      "[data-current-level]"
+    );
+
+  const titleElements =
+    document.querySelectorAll(
+      "[data-current-title]"
+    );
+
+  const mottoElements =
+    document.querySelectorAll(
+      "[data-current-motto]"
+    );
   const userElements =
     document.querySelectorAll(
       "[data-current-user]"
@@ -467,6 +481,11 @@ function startBootSequence() {
    const mottoElements =
      document.querySelectorAll("[data-current-motto]");
 
+levelElements.forEach(element => {
+  element.textContent =
+    currentUser.level;
+});
+
 titleElements.forEach(element => {
   element.textContent =
     currentUser.title ||
@@ -474,9 +493,12 @@ titleElements.forEach(element => {
 });
 
 mottoElements.forEach(element => {
-  element.textContent =
+  const motto =
     currentUser.motto ||
     "Das Archiv beobachtet jeden, der seine Hallen betritt.";
+
+  element.textContent =
+    `„${motto}“`;
 });
 
 
