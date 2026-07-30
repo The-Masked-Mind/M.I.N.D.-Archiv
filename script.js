@@ -291,7 +291,7 @@ function startBootSequence() {
       bootStatus.textContent =
         "SICHERHEITSFREIGABE AKZEPTIERT";
     }
-  }, 6000);
+  }, 7000);
 
 
   setTimeout(() => {
@@ -299,7 +299,7 @@ function startBootSequence() {
       bootStatus.textContent =
         "ARCHIVZENTRALE WIRD GELADEN...";
     }
-  }, 9000);
+  }, 11000);
 
 
   setTimeout(async () => {
@@ -310,7 +310,7 @@ function startBootSequence() {
         "hidden"
       );
     }
-  }, 12000);
+  }, 15000);
 }
 
 
