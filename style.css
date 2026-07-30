@@ -2532,3 +2532,170 @@ button.maskOverviewCard:hover {
     flex-direction: column;
   }
 }
+
+/* =========================================================
+   IDENTITÄT IN DER KOMMANDOZENTRALE
+========================================================= */
+
+.commandIdentity {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.commandIdentityGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  max-width: 650px;
+
+  margin-top: 22px;
+}
+
+.commandIdentityItem {
+  min-height: 76px;
+
+  padding: 14px 16px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.16);
+
+  background:
+    rgba(255, 255, 255, 0.018);
+}
+
+.commandIdentityTitle {
+  grid-column: 1 / -1;
+}
+
+.commandIdentityLabel {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.commandIdentityValue {
+  display: block;
+
+  margin-top: 10px;
+
+  color: white;
+
+  font-size:
+    clamp(15px, 2vw, 21px);
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* LEITSATZ */
+
+.commandMotto {
+  max-width: 780px;
+
+  margin-top: 18px;
+
+  padding:
+    20px 22px;
+
+  border-top:
+    1px solid rgba(255, 60, 60, 0.3);
+
+  border-bottom:
+    1px solid rgba(255, 60, 60, 0.3);
+
+  background:
+    radial-gradient(
+      circle at left,
+      rgba(255, 60, 60, 0.08),
+      transparent 65%
+    );
+}
+
+.commandMottoLabel {
+  display: block;
+
+  color: var(--red);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.commandMottoText {
+  margin-top: 12px;
+
+  color: #e8edef;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(17px, 2.5vw, 24px);
+
+  font-style: italic;
+
+  line-height: 1.6;
+
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.08);
+}
+
+
+/* RANGFARBEN */
+
+.commandIdentityValue.rankOmega {
+  color: var(--red);
+}
+
+.commandIdentityValue.rankAlpha {
+  color: #ff6b6b;
+}
+
+.commandIdentityValue.rankBeta {
+  color: #c46cff;
+}
+
+.commandIdentityValue.rankGamma {
+  color: var(--cyan);
+}
+
+.commandIdentityValue.rankDelta {
+  color: var(--green);
+}
+
+
+@media (max-width: 760px) {
+  .commandDashboardHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .commandIdentityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .commandIdentityTitle {
+    grid-column: auto;
+  }
+}
