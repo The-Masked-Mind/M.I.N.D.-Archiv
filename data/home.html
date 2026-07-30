@@ -1,5 +1,5 @@
 <div class="archiveLabel">
-  M.I.N.D. ARCHIV
+  M.I.N.D. ARCHIVSYSTEM
 </div>
 
 <h1>
@@ -10,6 +10,7 @@
   CHRONIKEN DER DUNKELHEIT
 </div>
 
+
 <section class="homeWelcome">
 
   <h2 class="homeWelcomeTitle">
@@ -17,45 +18,59 @@
   </h2>
 
   <p class="homeWelcomeText">
-    Du befindest dich im digitalen Archiv der
-    Chroniken der Dunkelheit.
-    Hier kannst du alle Akten einsehen, die du bereits
-    durch Kanalpunkte freigeschaltet hast.
+    Benutzer:
+    <strong data-current-user>
+      GAST
+    </strong>
   </p>
 
   <p class="homeWelcomeText">
-    Weitere Kapitel, Masken und Wesen bleiben
-    verschlüsselt, bis deine Sicherheitsfreigabe
-    erweitert wurde.
+    Aktuelle Sicherheitsfreigabe:
+    <strong data-current-rank>
+      KEINE
+    </strong>
+  </p>
+
+  <p class="homeWelcomeText">
+    Dieses Archiv enthält Kapitel, Artefakte,
+    Wesen und Orte aus den Chroniken der Dunkelheit.
+    Welche Akten geöffnet werden können, hängt von
+    deiner persönlichen Sicherheitsfreigabe ab.
   </p>
 
 </section>
+
 
 <section class="homeStatusGrid">
 
   <div class="homeStatusCard">
 
     <span class="homeStatusLabel">
-      FREIGESCHALTETE AKTEN
+      ARCHIVSTATUS
     </span>
 
     <span class="homeStatusValue green">
-      2
+      ONLINE
     </span>
 
   </div>
+
 
   <div class="homeStatusCard">
 
     <span class="homeStatusLabel">
-      GESPERRTE AKTEN
+      IDENTITÄT
     </span>
 
-    <span class="homeStatusValue">
-      9
+    <span
+      class="homeStatusValue"
+      data-current-user
+    >
+      GAST
     </span>
 
   </div>
+
 
   <div class="homeStatusCard">
 
@@ -63,24 +78,30 @@
       SICHERHEITSSTUFE
     </span>
 
-    <span class="homeStatusValue">
-      ALPHA
+    <span
+      class="homeStatusValue"
+      data-current-rank
+    >
+      KEINE
     </span>
 
   </div>
 
 </section>
 
+
 <div class="homeSectionTitle">
-  VERFÜGBARE ARCHIVAKTEN
+  ARCHIVAKTEN
 </div>
+
 
 <section class="homeTileGrid">
 
   <button
     class="homeTile"
-    id="openPrologButton"
     type="button"
+    data-level="1"
+    data-open-page="prolog"
   >
 
     <div class="homeTileIcon">
@@ -88,20 +109,22 @@
     </div>
 
     <div class="homeTileTitle">
-      PROLOG LESEN
+      PROLOG
     </div>
 
     <div class="homeTileText">
-      Archivakte CDD-B1-100 wurde vollständig
-      entschlüsselt.
+      Liam und die Maske<br>
+      Benötigte Freigabe: DELTA
     </div>
 
   </button>
 
+
   <button
     class="homeTile"
-    id="openEpisode1Button"
     type="button"
+    data-level="2"
+    data-open-page="kapitel/kapitel_1/kapitel_1_episode_1"
   >
 
     <div class="homeTileIcon">
@@ -113,52 +136,76 @@
     </div>
 
     <div class="homeTileText">
-      Kapitel 1 — Das Buch.
-      Episode 1 wurde vollständig entschlüsselt.
+      Kapitel 1 – Episode 1<br>
+      Benötigte Freigabe: GAMMA
     </div>
 
   </button>
 
-  <div class="homeTile lockedTile">
 
-    <div class="homeTileIcon"></div>
+  <button
+    class="homeTile"
+    type="button"
+    data-level="6"
+    data-open-page="masken_des_unheils/askarion"
+  >
+
+    <div class="homeTileIcon">
+      MDU-001
+    </div>
 
     <div class="homeTileTitle">
-      WEITERE EPISODEN
+      ASKARION
     </div>
 
     <div class="homeTileText">
-      Noch keine weiteren Episoden freigeschaltet.
+      Die Maske der Offenbarung<br>
+      Benötigte Freigabe: BETA
     </div>
 
+  </button>
+
+
+  <button
+    class="homeTile"
+    type="button"
+    data-level="10"
+    data-open-page="wesen_der_unterwelt/kondor"
+  >
+
+    <div class="homeTileIcon">
+      WDU-001
+    </div>
+
+    <div class="homeTileTitle">
+      KON'DOR
+    </div>
+
+    <div class="homeTileText">
+      Der Todesvogel<br>
+      Benötigte Freigabe: BETA
+    </div>
+
+  </button>
+
+</section>
+
+
+<section class="classifiedBlock">
+
+  <div class="classifiedHeader">
+    M.I.N.D. HINWEIS
   </div>
 
-  <div class="homeTile lockedTile">
-
-    <div class="homeTileIcon"></div>
-
-    <div class="homeTileTitle">
-      DIE MASKEN DES UNHEILS
-    </div>
-
-    <div class="homeTileText">
-      Sicherheitsfreigabe nicht ausreichend.
-    </div>
-
+  <div class="classifiedText">
+    Weitere Sicherheitsfreigaben können durch das
+    Einlösen entsprechender Kanalpunktbelohnungen
+    erteilt werden.
   </div>
 
-  <div class="homeTile lockedTile">
-
-    <div class="homeTileIcon"></div>
-
-    <div class="homeTileTitle">
-      WESEN DER UNTERWELT
-    </div>
-
-    <div class="homeTileText">
-      Sicherheitsfreigabe nicht ausreichend.
-    </div>
-
+  <div class="classifiedText">
+    Ungültige oder unbekannte Zugangscodes erhalten
+    ausschließlich Gastzugriff.
   </div>
 
 </section>
