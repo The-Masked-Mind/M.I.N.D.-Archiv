@@ -2074,3 +2074,461 @@ button.maskOverviewCard:hover {
 .bootWelcome.show {
   opacity: 1;
 }
+
+/* =========================================================
+   M.I.N.D. KOMMANDOZENTRALE
+========================================================= */
+
+.commandDashboard {
+  margin-top: 30px;
+
+  padding: 26px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.2);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(52, 217, 255, 0.08),
+      transparent 50%
+    ),
+    rgba(255, 255, 255, 0.018);
+}
+
+.commandDashboardHeader {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding-bottom: 20px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+.commandDashboardLabel {
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.commandDashboardUser {
+  margin-top: 8px;
+
+  color: white;
+
+  font-size:
+    clamp(22px, 4vw, 34px);
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.commandOnline {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--green);
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.commandStatusGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 22px;
+}
+
+.commandStatusCard {
+  min-height: 125px;
+
+  padding: 17px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.16);
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+.commandStatusLabel {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.commandStatusValue {
+  display: block;
+
+  margin-top: 15px;
+
+  color: white;
+
+  font-size: 25px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.commandStatusDescription {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #748084;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  line-height: 1.5;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.onlineValue {
+  color: var(--green);
+
+  text-shadow:
+    0 0 12px rgba(69, 255, 117, 0.4);
+}
+
+.lockedValue {
+  color: var(--red);
+}
+
+
+/* =========================================================
+   ARCHIVKATEGORIEN
+========================================================= */
+
+.archiveCategoryGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.archiveCategoryCard {
+  min-height: 210px;
+
+  padding: 24px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.2);
+
+  color: white;
+
+  text-align: left;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(52, 217, 255, 0.035),
+      rgba(5, 15, 17, 0.94)
+    );
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.archiveCategoryCard:hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(69, 255, 117, 0.42);
+
+  box-shadow:
+    0 0 28px rgba(69, 255, 117, 0.09);
+}
+
+.archiveCategoryCard.lockedTile {
+  opacity: 0.42;
+}
+
+.archiveCategoryCard.lockedTile:hover {
+  transform: none;
+
+  border-color:
+    rgba(255, 60, 60, 0.35);
+
+  box-shadow:
+    0 0 22px rgba(255, 60, 60, 0.08);
+}
+
+.archiveCategoryCode {
+  color: var(--red);
+
+  font-size: 29px;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.archiveCategoryTitle {
+  margin-top: 20px;
+
+  font-size: 18px;
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.archiveCategoryText {
+  margin-top: 13px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+  letter-spacing: 1px;
+}
+
+.archiveCategoryStatus {
+  margin-top: 23px;
+
+  color: var(--green);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.lockedTile .archiveCategoryStatus {
+  color: var(--red);
+}
+
+.lockedTile .archiveCategoryStatus::before {
+  content: "🔒 ";
+}
+
+
+/* =========================================================
+   SYSTEMMELDUNGEN
+========================================================= */
+
+.systemMessagePanel {
+  border:
+    1px solid rgba(52, 217, 255, 0.18);
+
+  background:
+    rgba(255, 255, 255, 0.015);
+}
+
+.systemMessage {
+  display: grid;
+
+  grid-template-columns: 90px 1fr;
+
+  gap: 20px;
+
+  padding: 20px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+.systemMessage:last-child {
+  border-bottom: none;
+}
+
+.systemMessageTime {
+  color: var(--cyan);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.systemMessage strong {
+  color: white;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.systemMessage p {
+  margin:
+    8px 0 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.warningMessage .systemMessageTime,
+.warningMessage strong {
+  color: var(--red);
+}
+
+
+/* =========================================================
+   AKTUALISIERUNGSPROTOKOLL
+========================================================= */
+
+.updateLog {
+  display: grid;
+
+  gap: 10px;
+}
+
+.updateLogEntry {
+  display: grid;
+
+  grid-template-columns: 40px 1fr;
+
+  gap: 14px;
+
+  padding: 17px;
+
+  border-left:
+    3px solid var(--green);
+
+  background:
+    rgba(69, 255, 117, 0.025);
+}
+
+.updateLogMarker {
+  color: var(--green);
+
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.updateLogEntry strong {
+  color: white;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.updateLogEntry p {
+  margin:
+    7px 0 0;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   SYSTEMFUSS
+========================================================= */
+
+.systemFooter {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-top: 45px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid rgba(52, 217, 255, 0.16);
+
+  color: #607074;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+@media (max-width: 1050px) {
+  .commandStatusGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 680px) {
+  .commandDashboardHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .commandStatusGrid,
+  .archiveCategoryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .systemMessage {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .systemFooter {
+    flex-direction: column;
+  }
+}
