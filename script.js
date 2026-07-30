@@ -60,40 +60,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const accessCodes = {
 
-    "MTM-ALPHA-7K4P": {
+    "TMM-OMEGA-7K4P": {
       name: "THE_MASKED_MIND",
-      level: 999,
-      rank: "ALPHA"
+      level: 100,
+      rank: "OMEGA"
+      title: "Schöpfer des Archivs",
+      motto: "„Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird.“"
     },
 
     "SCHNIN-ALPHA-9Q2M": {
       name: "SCHNIN",
-      level: 999,
+      level: 99,
       rank: "ALPHA"
+      title: "Hüter des Archivs",
+      motto: "„Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren.“
     },
 
     /*
-      Beispiel für einen Zuschauer,
-      der nur den Prolog besitzt.
+      Beispiel für einen Zuschauer
     */
 
-    "TEST-STUFE-1": {
-      name: "TESTZUSCHAUER",
-      level: 1,
-      rank: "DELTA"
-    },
+    "TEST-DELTA-1": {
+    name: "TESTZUSCHAUER",
+    level: 1,
+    rank: "DELTA",
+    title: "Neugieriger Aktenleser",
+    motto: "Jede Wahrheit beginnt mit der Neugier"
+  },
 
-    /*
-      Beispiel für Prolog + Episode 1.
-    */
+  "TEST-GAMMA-10": {
+    name: "TESTZUSCHAUER GAMMA",
+    level: 10,
+    rank: "GAMMA",
+    title: "Bewahrer der Chroniken",
+    motto: "Jede Chronik trägt das Echo vergangener Ereignisse."
+  },
 
-    "TEST-STUFE-2": {
-      name: "TESTZUSCHAUER 2",
-      level: 2,
-      rank: "GAMMA"
-    }
+  "TEST-BETA-20": {
+    name: "TESTZUSCHAUER BETA",
+    level: 20,
+    rank: "BETA",
+    title: "Forscher der Unterwelt",
+    motto: "Wer in die Dunkelheit blickt, muss lernen, ihr zu widerstehen."
+  }
 
-  };
+};
 
 
   /* =========================
@@ -150,6 +161,14 @@ document.addEventListener("DOMContentLoaded", () => {
       archiveAccessRank.className =
         "userTerminalValue";
 
+       if (
+        currentUser.rank === "OMEGA"
+      ) {
+        archiveAccessRank.classList.add(
+          "accessOmega"
+        );
+      }
+       
       if (
         currentUser.rank === "ALPHA"
       ) {
@@ -233,6 +252,7 @@ function updateBootIdentity() {
       currentUser.rank.toLowerCase();
 
     if (
+      rankClass === "Omega" ||
       rankClass === "alpha" ||
       rankClass === "beta" ||
       rankClass === "gamma" ||
@@ -445,19 +465,23 @@ function startBootSequence() {
       "[data-locked-count]"
     );
 
+   const titleElements =
+     document.querySelectorAll("[data-current-title]");
 
-  userElements.forEach(element => {
-    element.textContent =
-      currentUser.level > 0
-        ? currentUser.name
-        : "UNBEKANNTER BESUCHER";
-  });
+   const mottoElements =
+     document.querySelectorAll("[data-current-motto]");
 
+titleElements.forEach(element => {
+  element.textContent =
+    currentUser.title ||
+    "Unbekannter Besucher";
+});
 
-  rankElements.forEach(element => {
-    element.textContent =
-      currentUser.rank;
-  });
+mottoElements.forEach(element => {
+  element.textContent =
+    currentUser.motto ||
+    "Das Archiv beobachtet jeden, der seine Hallen betritt.";
+});
 
 
   let accessDescription =
@@ -465,22 +489,27 @@ function startBootSequence() {
 
   if (currentUser.rank === "DELTA") {
     accessDescription =
-      "BASISZUGRIFF";
+      "NEUGIERIGER AKTENLESER";
   }
 
   if (currentUser.rank === "GAMMA") {
     accessDescription =
-      "ERWEITERTER ZUGRIFF";
+      "BEWAHRER DER CHRONIKEN";
   }
 
   if (currentUser.rank === "BETA") {
     accessDescription =
-      "HOHE SICHERHEITSFREIGABE";
+      "FORSCHER DER UNTERWELT";
   }
 
   if (currentUser.rank === "ALPHA") {
     accessDescription =
-      "UNEINGESCHRÄNKTER VOLLZUGRIFF";
+      "HÜTER DES ARCHIVS";
+  }
+
+  if (currentUser.rank === "OMEGA") {
+    accessDescription =
+      "SCHÖPFER DES ARCHIVS";
   }
 
 
@@ -638,6 +667,10 @@ function startBootSequence() {
 
   function getRankName(level) {
     if (level >= 999) {
+      return "OMEGA";
+    }
+     
+     if (level >= 100) {
       return "ALPHA";
     }
 
