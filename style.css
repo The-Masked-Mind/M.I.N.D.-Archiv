@@ -6,8 +6,8 @@
   --green: #45ff75;
   --yellow: #ffd54a;
 
-  --text: #f4f7f8;
-  --muted: #9ca9ad;
+  --text: #f4f7f8;  /*weiß*/
+  --muted: #9ca9ad; /*grau*/
 
   --background: #020607;
   --panel: rgba(6, 15, 17, 0.96);
@@ -150,7 +150,7 @@ button {
 .bootTitle {
   margin: 18px 0 10px;
 
-  color: var(--green);
+  color: var(--red);
 
   font-size: clamp(30px, 7vw, 58px);
   font-weight: 900;
@@ -204,16 +204,16 @@ button {
   background:
     linear-gradient(
       90deg,
-      var(--green),
+      var(--red),
       white,
-      var(--green)
+      var(--red)
     );
 
   box-shadow:
     0 0 15px rgba(69, 255, 117, 0.7);
 
   animation:
-    bootLoading 18s linear forwards;
+    bootLoading 15s linear forwards;
 }
 
 
