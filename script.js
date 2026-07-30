@@ -248,7 +248,7 @@ function updateBootIdentity() {
       currentUser.rank.toLowerCase();
 
     if (
-      rankClass === "Omega" ||
+      rankClass === "omega" ||
       rankClass === "alpha" ||
       rankClass === "beta" ||
       rankClass === "gamma" ||
@@ -475,11 +475,17 @@ function startBootSequence() {
       "[data-locked-count]"
     );
 
-   const titleElements =
-     document.querySelectorAll("[data-current-title]");
+userElements.forEach(element => {
+  element.textContent =
+    currentUser.level > 0
+      ? currentUser.name
+      : "UNBEKANNTER BESUCHER";
+});
 
-   const mottoElements =
-     document.querySelectorAll("[data-current-motto]");
+rankElements.forEach(element => {
+  element.textContent =
+    currentUser.rank;
+});
 
 levelElements.forEach(element => {
   element.textContent =
