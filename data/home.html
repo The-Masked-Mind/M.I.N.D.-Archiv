@@ -7,183 +7,234 @@
 </h1>
 
 <div class="archiveSubtitle">
-  CHRONIKEN DER DUNKELHEIT
+  KOMMANDO- UND ÜBERWACHUNGSZENTRALE
 </div>
 
 
-<section class="homeWelcome">
+<!-- BENUTZER UND SYSTEMSTATUS -->
 
-  <h2 class="homeWelcomeTitle">
-    WILLKOMMEN IM ARCHIV
-  </h2>
+<section class="commandDashboard">
 
-  <p class="homeWelcomeText">
-    Benutzer:
-    <strong data-current-user>
-      GAST
-    </strong>
-  </p>
+  <div class="commandDashboardHeader">
 
-  <p class="homeWelcomeText">
-    Aktuelle Sicherheitsfreigabe:
-    <strong data-current-rank>
-      KEINE
-    </strong>
-  </p>
+    <div>
+      <div class="commandDashboardLabel">
+        AKTIVE SITZUNG
+      </div>
 
-  <p class="homeWelcomeText">
-    Dieses Archiv enthält Kapitel, Artefakte,
-    Wesen und Orte aus den Chroniken der Dunkelheit.
-    Welche Akten geöffnet werden können, hängt von
-    deiner persönlichen Sicherheitsfreigabe ab.
-  </p>
+      <div
+        class="commandDashboardUser"
+        data-current-user
+      >
+        UNBEKANNTER BESUCHER
+      </div>
+    </div>
+
+    <div class="commandOnline">
+      <span class="onlineDot"></span>
+      M.I.N.D.-KERN ONLINE
+    </div>
+
+  </div>
+
+
+  <div class="commandStatusGrid">
+
+    <div class="commandStatusCard">
+
+      <span class="commandStatusLabel">
+        SICHERHEITSFREIGABE
+      </span>
+
+      <span
+        class="commandStatusValue rankValue"
+        data-current-rank
+      >
+        KEINE
+      </span>
+
+      <span
+        class="commandStatusDescription"
+        data-access-description
+      >
+        KEINE ARCHIVFREIGABE
+      </span>
+
+    </div>
+
+
+    <div class="commandStatusCard">
+
+      <span class="commandStatusLabel">
+        ARCHIVSTATUS
+      </span>
+
+      <span class="commandStatusValue onlineValue">
+        ONLINE
+      </span>
+
+      <span class="commandStatusDescription">
+        ALLE SYSTEME BETRIEBSBEREIT
+      </span>
+
+    </div>
+
+
+    <div class="commandStatusCard">
+
+      <span class="commandStatusLabel">
+        FREIGEGEBENE AKTEN
+      </span>
+
+      <span
+        class="commandStatusValue"
+        data-unlocked-count
+      >
+        0
+      </span>
+
+      <span class="commandStatusDescription">
+        PERSÖNLICHER ARCHIVZUGRIFF
+      </span>
+
+    </div>
+
+
+    <div class="commandStatusCard">
+
+      <span class="commandStatusLabel">
+        VERSCHLÜSSELTE AKTEN
+      </span>
+
+      <span
+        class="commandStatusValue lockedValue"
+        data-locked-count
+      >
+        0
+      </span>
+
+      <span class="commandStatusDescription">
+        FREIGABE ERFORDERLICH
+      </span>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<section class="homeStatusGrid">
-
-  <div class="homeStatusCard">
-
-    <span class="homeStatusLabel">
-      ARCHIVSTATUS
-    </span>
-
-    <span class="homeStatusValue green">
-      ONLINE
-    </span>
-
-  </div>
-
-
-  <div class="homeStatusCard">
-
-    <span class="homeStatusLabel">
-      IDENTITÄT
-    </span>
-
-    <span
-      class="homeStatusValue"
-      data-current-user
-    >
-      GAST
-    </span>
-
-  </div>
-
-
-  <div class="homeStatusCard">
-
-    <span class="homeStatusLabel">
-      SICHERHEITSSTUFE
-    </span>
-
-    <span
-      class="homeStatusValue"
-      data-current-rank
-    >
-      KEINE
-    </span>
-
-  </div>
-
-</section>
-
+<!-- ARCHIVBEREICHE -->
 
 <div class="homeSectionTitle">
-  ARCHIVAKTEN
+  ARCHIVBEREICHE
 </div>
 
-
-<section class="homeTileGrid">
+<section class="archiveCategoryGrid">
 
   <button
-    class="homeTile"
+    class="archiveCategoryCard"
     type="button"
     data-level="1"
     data-open-page="prolog"
   >
 
-    <div class="homeTileIcon">
-      B1-100
+    <div class="archiveCategoryCode">
+      CDD
     </div>
 
-    <div class="homeTileTitle">
-      PROLOG
+    <div class="archiveCategoryTitle">
+      CHRONIKEN
     </div>
 
-    <div class="homeTileText">
-      Liam und die Maske<br>
-      Benötigte Freigabe: DELTA
+    <div class="archiveCategoryText">
+      Kapitel, Episoden und Aufzeichnungen aus
+      „Liam und die Maske“.
     </div>
 
-  </button>
-
-
-  <button
-    class="homeTile"
-    type="button"
-    data-level="2"
-    data-open-page="kapitel/kapitel_1/kapitel_1_episode_1"
-  >
-
-    <div class="homeTileIcon">
-      B1-101
-    </div>
-
-    <div class="homeTileTitle">
-      STIMMEN IM WALD
-    </div>
-
-    <div class="homeTileText">
-      Kapitel 1 – Episode 1<br>
-      Benötigte Freigabe: GAMMA
+    <div class="archiveCategoryStatus">
+      ARCHIV ÖFFNEN
     </div>
 
   </button>
 
 
   <button
-    class="homeTile"
+    class="archiveCategoryCard"
     type="button"
     data-level="6"
-    data-open-page="masken_des_unheils/askarion"
+    data-open-page="masken_des_unheils/geschichte"
   >
 
-    <div class="homeTileIcon">
-      MDU-001
+    <div class="archiveCategoryCode">
+      MDU
     </div>
 
-    <div class="homeTileTitle">
-      ASKARION
+    <div class="archiveCategoryTitle">
+      MASKEN DES UNHEILS
     </div>
 
-    <div class="homeTileText">
-      Die Maske der Offenbarung<br>
-      Benötigte Freigabe: BETA
+    <div class="archiveCategoryText">
+      Forschungsakten zu Askarion, Nerathul,
+      Tharnex und Dravion.
+    </div>
+
+    <div class="archiveCategoryStatus">
+      ARTEFAKTARCHIV ÖFFNEN
     </div>
 
   </button>
 
 
   <button
-    class="homeTile"
+    class="archiveCategoryCard"
     type="button"
     data-level="10"
     data-open-page="wesen_der_unterwelt/kondor"
   >
 
-    <div class="homeTileIcon">
-      WDU-001
+    <div class="archiveCategoryCode">
+      WDU
     </div>
 
-    <div class="homeTileTitle">
-      KON'DOR
+    <div class="archiveCategoryTitle">
+      WESEN DER UNTERWELT
     </div>
 
-    <div class="homeTileText">
-      Der Todesvogel<br>
-      Benötigte Freigabe: BETA
+    <div class="archiveCategoryText">
+      Klassifizierte Informationen über bekannte
+      Wesen und Todesboten.
+    </div>
+
+    <div class="archiveCategoryStatus">
+      BESTIARIUM ÖFFNEN
+    </div>
+
+  </button>
+
+
+  <button
+    class="archiveCategoryCard"
+    type="button"
+    data-level="11"
+    data-open-page="orte/tharghul"
+  >
+
+    <div class="archiveCategoryCode">
+      ORT
+    </div>
+
+    <div class="archiveCategoryTitle">
+      VERLORENE ORTE
+    </div>
+
+    <div class="archiveCategoryText">
+      Aufzeichnungen über Thar'ghul und weitere
+      verborgene Orte.
+    </div>
+
+    <div class="archiveCategoryStatus">
+      ORTSARCHIV ÖFFNEN
     </div>
 
   </button>
@@ -191,21 +242,155 @@
 </section>
 
 
-<section class="classifiedBlock">
+<!-- SYSTEMMELDUNGEN -->
 
-  <div class="classifiedHeader">
-    M.I.N.D. HINWEIS
+<div class="homeSectionTitle">
+  SYSTEMMELDUNGEN
+</div>
+
+<section class="systemMessagePanel">
+
+  <div class="systemMessage">
+
+    <span class="systemMessageTime">
+      STATUS
+    </span>
+
+    <div>
+      <strong>
+        M.I.N.D.-KERN VERBUNDEN
+      </strong>
+
+      <p>
+        Verbindung zur Archivdatenbank wurde erfolgreich
+        hergestellt.
+      </p>
+    </div>
+
   </div>
 
-  <div class="classifiedText">
-    Weitere Sicherheitsfreigaben können durch das
-    Einlösen entsprechender Kanalpunktbelohnungen
-    erteilt werden.
+
+  <div class="systemMessage">
+
+    <span class="systemMessageTime">
+      NEU
+    </span>
+
+    <div>
+      <strong>
+        ARTEFAKTAKTEN REGISTRIERT
+      </strong>
+
+      <p>
+        Datensätze zu den Masken des Unheils wurden dem
+        Archiv hinzugefügt.
+      </p>
+    </div>
+
   </div>
 
-  <div class="classifiedText">
-    Ungültige oder unbekannte Zugangscodes erhalten
-    ausschließlich Gastzugriff.
+
+  <div class="systemMessage warningMessage">
+
+    <span class="systemMessageTime">
+      WARNUNG
+    </span>
+
+    <div>
+      <strong>
+        VERSCHLÜSSELTE DATENSÄTZE ERKANNT
+      </strong>
+
+      <p>
+        Einige Akten benötigen eine höhere persönliche
+        Sicherheitsfreigabe.
+      </p>
+    </div>
+
   </div>
 
 </section>
+
+
+<!-- LETZTE AKTUALISIERUNGEN -->
+
+<div class="homeSectionTitle">
+  LETZTE AKTUALISIERUNGEN
+</div>
+
+<section class="updateLog">
+
+  <div class="updateLogEntry">
+
+    <span class="updateLogMarker">
+      ✓
+    </span>
+
+    <div>
+      <strong>
+        AKTE CDD-B1-101
+      </strong>
+
+      <p>
+        „Stimmen im Wald“ wurde dem Archiv hinzugefügt.
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="updateLogEntry">
+
+    <span class="updateLogMarker">
+      ✓
+    </span>
+
+    <div>
+      <strong>
+        MASKEN DES UNHEILS
+      </strong>
+
+      <p>
+        Artefaktakten wurden neu klassifiziert.
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="updateLogEntry">
+
+    <span class="updateLogMarker">
+      ✓
+    </span>
+
+    <div>
+      <strong>
+        SICHERHEITSPROTOKOLL
+      </strong>
+
+      <p>
+        Persönliche Sicherheitsfreigaben wurden aktiviert.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer class="systemFooter">
+
+  <span>
+    M.I.N.D. ARCHIVSYSTEM
+  </span>
+
+  <span>
+    VERSION 2.0.0
+  </span>
+
+  <span>
+    STATUS: ONLINE
+  </span>
+
+</footer>
