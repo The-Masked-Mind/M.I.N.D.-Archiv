@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   "TMM-OMEGA-7K4P": {
     name: "THE_MASKED_MIND",
-    level: 999,
+    level: 100,
     rank: "OMEGA",
     title: "Schöpfer des Archivs",
     motto: "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
@@ -690,19 +690,19 @@ mottoElements.forEach(element => {
   ========================= */
 
   function getRankName(level) {
-    if (level >= 999) {
+    if (level >= 100) {
       return "OMEGA";
     }
      
-     if (level >= 100) {
+     if (level >= 99) {
       return "ALPHA";
     }
 
-    if (level >= 4) {
+    if (level >= 20) {
       return "BETA";
     }
 
-    if (level >= 2) {
+    if (level >= 10) {
       return "GAMMA";
     }
 
