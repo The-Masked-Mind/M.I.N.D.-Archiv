@@ -420,26 +420,104 @@ function startBootSequence() {
   ========================= */
 
   function updateDynamicPageInformation() {
-    const pageUserName =
-      document.querySelector(
-        "[data-current-user]"
-      );
+  const userElements =
+    document.querySelectorAll(
+      "[data-current-user]"
+    );
 
-    const pageAccessRank =
-      document.querySelector(
-        "[data-current-rank]"
-      );
+  const rankElements =
+    document.querySelectorAll(
+      "[data-current-rank]"
+    );
 
-    if (pageUserName) {
-      pageUserName.textContent =
-        currentUser.name;
-    }
+  const accessDescriptions =
+    document.querySelectorAll(
+      "[data-access-description]"
+    );
 
-    if (pageAccessRank) {
-      pageAccessRank.textContent =
-        currentUser.rank;
-    }
+  const unlockedCountElements =
+    document.querySelectorAll(
+      "[data-unlocked-count]"
+    );
+
+  const lockedCountElements =
+    document.querySelectorAll(
+      "[data-locked-count]"
+    );
+
+
+  userElements.forEach(element => {
+    element.textContent =
+      currentUser.level > 0
+        ? currentUser.name
+        : "UNBEKANNTER BESUCHER";
+  });
+
+
+  rankElements.forEach(element => {
+    element.textContent =
+      currentUser.rank;
+  });
+
+
+  let accessDescription =
+    "KEINE ARCHIVFREIGABE";
+
+  if (currentUser.rank === "DELTA") {
+    accessDescription =
+      "BASISZUGRIFF";
   }
+
+  if (currentUser.rank === "GAMMA") {
+    accessDescription =
+      "ERWEITERTER ZUGRIFF";
+  }
+
+  if (currentUser.rank === "BETA") {
+    accessDescription =
+      "HOHE SICHERHEITSFREIGABE";
+  }
+
+  if (currentUser.rank === "ALPHA") {
+    accessDescription =
+      "UNEINGESCHRÄNKTER VOLLZUGRIFF";
+  }
+
+
+  accessDescriptions.forEach(element => {
+    element.textContent =
+      accessDescription;
+  });
+
+
+  let unlockedCount = 0;
+  let lockedCount = 0;
+
+  menuButtons.forEach(button => {
+    const requiredLevel =
+      Number(button.dataset.level || 0);
+
+    if (
+      currentUser.level >= requiredLevel
+    ) {
+      unlockedCount++;
+    } else {
+      lockedCount++;
+    }
+  });
+
+
+  unlockedCountElements.forEach(element => {
+    element.textContent =
+      unlockedCount;
+  });
+
+
+  lockedCountElements.forEach(element => {
+    element.textContent =
+      lockedCount;
+  });
+}
 
 
   /* =========================
