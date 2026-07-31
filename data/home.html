@@ -11,104 +11,117 @@
 </div>
 
 
-<!-- BENUTZER UND SYSTEMSTATUS -->
+<!-- ======================================================
+     AKTIVE SITZUNG
+====================================================== -->
 
 <section class="commandDashboard">
 
   <div class="commandDashboardHeader">
 
-  <div class="commandIdentity">
+    <div class="commandIdentity">
 
-    <div class="commandDashboardLabel">
-      AKTIVE SITZUNG
-    </div>
-
-    <div
-      class="commandDashboardUser"
-      data-current-user
-    >
-      UNBEKANNTER BESUCHER
-    </div>
-
-    <div class="commandIdentityGrid">
-
-      <div class="commandIdentityItem">
-
-        <span class="commandIdentityLabel">
-          RANG
-        </span>
-
-        <span
-          class="commandIdentityValue"
-          data-current-rank
-        >
-          KEINE
-        </span>
-
+      <div class="commandDashboardLabel">
+        AKTIVE SITZUNG
       </div>
-
-      <div class="commandIdentityItem">
-
-        <span class="commandIdentityLabel">
-          LEVEL
-        </span>
-
-        <span
-          class="commandIdentityValue"
-          data-current-level
-        >
-          0
-        </span>
-
-      </div>
-
-      <div class="commandIdentityItem commandIdentityTitle">
-
-        <span class="commandIdentityLabel">
-          TITEL
-        </span>
-
-        <span
-          class="commandIdentityValue"
-          data-current-title
-        >
-          UNBEKANNTER BESUCHER
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="commandMotto">
-
-      <span class="commandMottoLabel">
-        LEITSATZ
-      </span>
 
       <div
-        class="commandMottoText"
-        data-current-motto
+        class="commandDashboardUser"
+        data-current-user
       >
-        „Das Archiv beobachtet jeden, der seine Hallen betritt.“
+        UNBEKANNTER BESUCHER
+      </div>
+
+
+      <div class="commandIdentityGrid">
+
+        <div class="commandIdentityItem">
+
+          <span class="commandIdentityLabel">
+            RANG
+          </span>
+
+          <span
+            class="commandIdentityValue"
+            data-current-rank
+          >
+            KEINE
+          </span>
+
+        </div>
+
+
+        <div class="commandIdentityItem">
+
+          <span class="commandIdentityLabel">
+            LEVEL
+          </span>
+
+          <span
+            class="commandIdentityValue"
+            data-current-level
+          >
+            0
+          </span>
+
+        </div>
+
+
+        <div class="commandIdentityItem commandIdentityTitle">
+
+          <span class="commandIdentityLabel">
+            TITEL
+          </span>
+
+          <span
+            class="commandIdentityValue"
+            data-current-title
+          >
+            UNBEKANNTER BESUCHER
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="commandMotto">
+
+        <span class="commandMottoLabel">
+          LEITSATZ
+        </span>
+
+        <div
+          class="commandMottoText"
+          data-current-motto
+        >
+          „Das Archiv beobachtet jeden,
+          der seine Hallen betritt.“
+        </div>
+
       </div>
 
     </div>
 
+
+    <div class="commandOnline">
+
+      <span class="onlineDot"></span>
+
+      <span>
+        M.I.N.D.-KERN ONLINE
+      </span>
+
+    </div>
+
   </div>
-
-
-  <div class="commandOnline">
-    <span class="onlineDot"></span>
-    M.I.N.D.-KERN ONLINE
-  </div>
-
-</div>
 
 </section>
 
 
-<!-- ARCHIVBEREICHE -->
+<!-- ======================================================
+     ARCHIVBEREICHE
+====================================================== -->
 
 <div class="homeSectionTitle">
   ARCHIVBEREICHE
@@ -134,6 +147,10 @@
     <div class="archiveCategoryText">
       Kapitel, Episoden und Aufzeichnungen aus
       „Liam und die Maske“.
+    </div>
+
+    <div class="archiveCategoryAccess">
+      BENÖTIGTES LEVEL: 1
     </div>
 
     <div class="archiveCategoryStatus">
@@ -163,6 +180,10 @@
       Tharnex und Dravion.
     </div>
 
+    <div class="archiveCategoryAccess">
+      BENÖTIGTES LEVEL: 6
+    </div>
+
     <div class="archiveCategoryStatus">
       ARTEFAKTARCHIV ÖFFNEN
     </div>
@@ -188,6 +209,10 @@
     <div class="archiveCategoryText">
       Klassifizierte Informationen über bekannte
       Wesen und Todesboten.
+    </div>
+
+    <div class="archiveCategoryAccess">
+      BENÖTIGTES LEVEL: 10
     </div>
 
     <div class="archiveCategoryStatus">
@@ -217,6 +242,10 @@
       verborgene Orte.
     </div>
 
+    <div class="archiveCategoryAccess">
+      BENÖTIGTES LEVEL: 11
+    </div>
+
     <div class="archiveCategoryStatus">
       ORTSARCHIV ÖFFNEN
     </div>
@@ -226,7 +255,9 @@
 </section>
 
 
-<!-- SYSTEMMELDUNGEN -->
+<!-- ======================================================
+     SYSTEMMELDUNGEN
+====================================================== -->
 
 <div class="homeSectionTitle">
   SYSTEMMELDUNGEN
@@ -241,6 +272,7 @@
     </span>
 
     <div>
+
       <strong>
         M.I.N.D.-KERN VERBUNDEN
       </strong>
@@ -249,6 +281,7 @@
         Verbindung zur Archivdatenbank wurde erfolgreich
         hergestellt.
       </p>
+
     </div>
 
   </div>
@@ -261,6 +294,7 @@
     </span>
 
     <div>
+
       <strong>
         ARTEFAKTAKTEN REGISTRIERT
       </strong>
@@ -269,6 +303,7 @@
         Datensätze zu den Masken des Unheils wurden dem
         Archiv hinzugefügt.
       </p>
+
     </div>
 
   </div>
@@ -281,6 +316,7 @@
     </span>
 
     <div>
+
       <strong>
         VERSCHLÜSSELTE DATENSÄTZE ERKANNT
       </strong>
@@ -289,6 +325,7 @@
         Einige Akten benötigen eine höhere persönliche
         Sicherheitsfreigabe.
       </p>
+
     </div>
 
   </div>
@@ -296,7 +333,9 @@
 </section>
 
 
-<!-- LETZTE AKTUALISIERUNGEN -->
+<!-- ======================================================
+     LETZTE AKTUALISIERUNGEN
+====================================================== -->
 
 <div class="homeSectionTitle">
   LETZTE AKTUALISIERUNGEN
@@ -311,6 +350,7 @@
     </span>
 
     <div>
+
       <strong>
         AKTE CDD-B1-101
       </strong>
@@ -318,6 +358,7 @@
       <p>
         „Stimmen im Wald“ wurde dem Archiv hinzugefügt.
       </p>
+
     </div>
 
   </div>
@@ -330,13 +371,15 @@
     </span>
 
     <div>
+
       <strong>
         MASKEN DES UNHEILS
       </strong>
 
       <p>
-        Artefaktakten wurden neu klassifiziert.
+        Die Artefaktakten wurden neu klassifiziert.
       </p>
+
     </div>
 
   </div>
@@ -349,6 +392,7 @@
     </span>
 
     <div>
+
       <strong>
         SICHERHEITSPROTOKOLL
       </strong>
@@ -356,12 +400,17 @@
       <p>
         Persönliche Sicherheitsfreigaben wurden aktiviert.
       </p>
+
     </div>
 
   </div>
 
 </section>
 
+
+<!-- ======================================================
+     SYSTEMFUSS
+====================================================== -->
 
 <footer class="systemFooter">
 
@@ -378,4 +427,3 @@
   </span>
 
 </footer>
-

@@ -4,9 +4,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================
+  /* =======================================================
      GRUNDELEMENTE
-  ========================= */
+  ======================================================= */
 
   const bootScreen =
     document.getElementById("bootScreen");
@@ -42,81 +42,171 @@ document.addEventListener("DOMContentLoaded", () => {
     [...document.querySelectorAll(".menuButton")];
 
 
-  /* =========================
+  /* =======================================================
      ZUGANGSCODES
-  ========================= */
-
-  /*
-    Diese Codes kannst du später ändern.
-
-    Link für dich:
-
-    ?code=MTM-ALPHA-7K4P
-
-    Link für Schnin:
-
-    ?code=SCHNIN-ALPHA-9Q2M
-  */
+  ======================================================= */
 
   const accessCodes = {
 
-  "TMM-OMEGA-7K4P": {
-    name: "THE_MASKED_MIND",
-    level: 100,
-    rank: "OMEGA",
-    title: "Schöpfer des Archivs",
-    motto: "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
-  },
+    "TMM-OMEGA-7K4P": {
+      name: "THE_MASKED_MIND",
+      level: 100,
+      title: "Schöpfer des Archivs",
+      motto:
+        "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
+    },
 
-  "SCHNIN-ALPHA-9Q2M": {
-    name: "SCHNIN",
-    level: 99,
-    rank: "ALPHA",
-    title: "Hüterin des Archivs",
-    motto: "Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren."
-  },
+    "SCHNIN-ALPHA-9Q2M": {
+      name: "SCHNIN",
+      level: 99,
+      title: "Hüterin des Archivs",
+      motto:
+        "Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren."
+    },
 
-  "TEST-DELTA-1": {
-    name: "TESTZUSCHAUER",
-    level: 1,
-    rank: "DELTA",
-    title: "Neugieriger Aktenleser",
-    motto: "Jede Wahrheit beginnt mit der Neugier, eine Akte zu öffnen."
-  },
+    "TEST-DELTA-1": {
+      name: "TESTZUSCHAUER",
+      level: 1
+    },
 
-  "TEST-GAMMA-10": {
-    name: "TESTZUSCHAUER GAMMA",
-    level: 10,
-    rank: "GAMMA",
-    title: "Bewahrer der Chroniken",
-    motto: "Erinnerungen vergehen. Die Chroniken vergessen niemals."
-  },
+    "TEST-DELTA-2": {
+      name: "TESTZUSCHAUER LEVEL 2",
+      level: 2
+    },
 
-  "TEST-BETA-20": {
-    name: "TESTZUSCHAUER BETA",
-    level: 20,
-    rank: "BETA",
-    title: "Forscher der Unterwelt",
-    motto: "Wer in die Dunkelheit blickt, muss lernen, ihr zu widerstehen."
-  }
+    "TEST-GAMMA-10": {
+      name: "TESTZUSCHAUER GAMMA",
+      level: 10
+    },
 
-};
+    "TEST-BETA-20": {
+      name: "TESTZUSCHAUER BETA",
+      level: 20
+    }
 
-
-  /* =========================
-     STANDARDPROFIL
-  ========================= */
-
-  let currentUser = {
-    name: "GAST",
-    level: 0,
-    rank: "KEINE"
   };
 
 
-  /* =========================
-     CODE AUS LINK LESEN
-  ========================= */
+  /* =======================================================
+     RANGDATEN
+  ======================================================= */
+
+  const rankInformation = {
+
+    KEINE: {
+      title: "Unbekannter Besucher",
+      motto:
+        "Das Archiv beobachtet jeden, der seine Hallen betritt."
+    },
+
+    DELTA: {
+      title: "Neugieriger Aktenleser",
+      motto:
+        "Jede Wahrheit beginnt mit der Neugier, eine Akte zu öffnen."
+    },
+
+    GAMMA: {
+      title: "Bewahrer der Chroniken",
+      motto:
+        "Erinnerungen vergehen. Die Chroniken vergessen niemals."
+    },
+
+    BETA: {
+      title: "Forscher der Unterwelt",
+      motto:
+        "Wer in die Dunkelheit blickt, muss lernen, ihr zu widerstehen."
+    },
+
+    ALPHA: {
+      title: "Hüter des Archivs",
+      motto:
+        "Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren."
+    },
+
+    OMEGA: {
+      title: "Schöpfer des Archivs",
+      motto:
+        "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
+    }
+
+  };
+
+
+  /* =======================================================
+     STANDARDPROFIL
+  ======================================================= */
+
+  let currentUser = createUserProfile({
+    name: "GAST",
+    level: 0
+  });
+
+
+  /* =======================================================
+     RANG AUS LEVEL BERECHNEN
+  ======================================================= */
+
+  function getRankName(level) {
+    if (level >= 100) {
+      return "OMEGA";
+    }
+
+    if (level >= 50) {
+      return "ALPHA";
+    }
+
+    if (level >= 20) {
+      return "BETA";
+    }
+
+    if (level >= 10) {
+      return "GAMMA";
+    }
+
+    if (level >= 1) {
+      return "DELTA";
+    }
+
+    return "KEINE";
+  }
+
+
+  /* =======================================================
+     BENUTZERPROFIL ERSTELLEN
+  ======================================================= */
+
+  function createUserProfile(userData) {
+    const level =
+      Number(userData.level || 0);
+
+    const rank =
+      getRankName(level);
+
+    const defaultRankData =
+      rankInformation[rank];
+
+    return {
+      name:
+        userData.name || "GAST",
+
+      level,
+
+      rank,
+
+      title:
+        userData.title ||
+        defaultRankData.title,
+
+      motto:
+        userData.motto ||
+        defaultRankData.motto
+    };
+  }
+
+
+  /* =======================================================
+     ZUGANGSCODE AUS URL LADEN
+  ======================================================= */
 
   function loadAccessCode() {
     const parameters =
@@ -132,7 +222,9 @@ document.addEventListener("DOMContentLoaded", () => {
       accessCodes[code]
     ) {
       currentUser =
-        accessCodes[code];
+        createUserProfile(
+          accessCodes[code]
+        );
     }
 
     updateUserTerminal();
@@ -140,76 +232,47 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* =========================
-     BENUTZERANZEIGE
-  ========================= */
+  /* =======================================================
+     BENUTZERANZEIGE OBEN RECHTS
+  ======================================================= */
 
   function updateUserTerminal() {
     if (archiveUserName) {
       archiveUserName.textContent =
-        currentUser.name;
+        currentUser.level > 0
+          ? currentUser.name
+          : "GAST";
     }
 
-    if (archiveAccessRank) {
-      archiveAccessRank.textContent =
-        currentUser.rank;
-
-      archiveAccessRank.className =
-        "userTerminalValue";
-
-       if (
-        currentUser.rank === "OMEGA"
-      ) {
-        archiveAccessRank.classList.add(
-          "accessOmega"
-        );
-      }
-       
-      if (
-        currentUser.rank === "ALPHA"
-      ) {
-        archiveAccessRank.classList.add(
-          "accessAlpha"
-        );
-      }
-
-      if (
-        currentUser.rank === "BETA"
-      ) {
-        archiveAccessRank.classList.add(
-          "accessBeta"
-        );
-      }
-
-      if (
-        currentUser.rank === "GAMMA"
-      ) {
-        archiveAccessRank.classList.add(
-          "accessGamma"
-        );
-      }
-
-      if (
-        currentUser.rank === "DELTA"
-      ) {
-        archiveAccessRank.classList.add(
-          "accessDelta"
-        );
-      }
+    if (!archiveAccessRank) {
+      return;
     }
+
+    archiveAccessRank.textContent =
+      currentUser.rank;
+
+    archiveAccessRank.className =
+      "userTerminalValue";
+
+    const rankClass =
+      `access${capitalizeWord(
+        currentUser.rank.toLowerCase()
+      )}`;
+
+    archiveAccessRank.classList.add(
+      rankClass
+    );
   }
 
 
-  /* =========================
-     MENÜSPERREN AKTUALISIEREN
-  ========================= */
+  /* =======================================================
+     MENÜZUGRIFF AKTUALISIEREN
+  ======================================================= */
 
   function updateMenuAccess() {
     menuButtons.forEach(button => {
       const requiredLevel =
-        Number(
-          button.dataset.level || 0
-        );
+        getRequiredLevel(button);
 
       const hasAccess =
         currentUser.level >= requiredLevel;
@@ -227,19 +290,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* =========================
-   STARTSEQUENZ
-========================= */
+  /* =======================================================
+     STARTSEQUENZ
+  ======================================================= */
 
-function updateBootIdentity() {
-  if (bootUserName) {
-    bootUserName.textContent =
-      currentUser.name;
-  }
+  function updateBootIdentity() {
+    if (bootUserName) {
+      bootUserName.textContent =
+        currentUser.level > 0
+          ? currentUser.name
+          : "UNBEKANNTER BESUCHER";
+    }
 
-  if (bootAccessRank) {
+    if (!bootAccessRank) {
+      return;
+    }
+
     bootAccessRank.textContent =
-      currentUser.rank;
+      `${currentUser.rank} – LEVEL ${currentUser.level}`;
 
     bootAccessRank.className =
       "bootIdentityValue";
@@ -248,11 +316,13 @@ function updateBootIdentity() {
       currentUser.rank.toLowerCase();
 
     if (
-      rankClass === "omega" ||
-      rankClass === "alpha" ||
-      rankClass === "beta" ||
-      rankClass === "gamma" ||
-      rankClass === "delta"
+      [
+        "omega",
+        "alpha",
+        "beta",
+        "gamma",
+        "delta"
+      ].includes(rankClass)
     ) {
       bootAccessRank.classList.add(
         rankClass
@@ -263,76 +333,78 @@ function updateBootIdentity() {
       );
     }
   }
-}
 
 
-function startBootSequence() {
-
-  setTimeout(() => {
-    if (bootStatus) {
-      bootStatus.textContent =
-        "IDENTITÄT WIRD GEPRÜFT...";
-    }
-  }, 1000);
+  function startBootSequence() {
+    setTimeout(() => {
+      setBootStatus(
+        "IDENTITÄT WIRD GEPRÜFT..."
+      );
+    }, 1000);
 
 
-  setTimeout(() => {
-    updateBootIdentity();
+    setTimeout(() => {
+      updateBootIdentity();
 
-    if (bootIdentity) {
-      bootIdentity.classList.add("show");
-    }
-
-    if (bootStatus) {
-      bootStatus.textContent =
-        "IDENTITÄT BESTÄTIGT";
-    }
-  }, 3000);
-
-
-  setTimeout(() => {
-    if (bootWelcome) {
-      if (currentUser.level > 0) {
-        bootWelcome.textContent =
-          `WILLKOMMEN ZURÜCK, ${currentUser.name}`;
-      } else {
-        bootWelcome.textContent =
-          "WILLKOMMEN IM M.I.N.D. ARCHIV";
+      if (bootIdentity) {
+        bootIdentity.classList.add(
+          "show"
+        );
       }
 
-      bootWelcome.classList.add("show");
-    }
-
-    if (bootStatus) {
-      bootStatus.textContent =
-        "SICHERHEITSFREIGABE AKZEPTIERT";
-    }
-  }, 7000);
-
-
-  setTimeout(() => {
-    if (bootStatus) {
-      bootStatus.textContent =
-        "ARCHIVZENTRALE WIRD GELADEN...";
-    }
-  }, 11000);
-
-
-  setTimeout(async () => {
-    await showHome();
-
-    if (bootScreen) {
-      bootScreen.classList.add(
-        "hidden"
+      setBootStatus(
+        "IDENTITÄT BESTÄTIGT"
       );
+    }, 3000);
+
+
+    setTimeout(() => {
+      if (bootWelcome) {
+        bootWelcome.textContent =
+          currentUser.level > 0
+            ? `WILLKOMMEN ZURÜCK, ${currentUser.name}`
+            : "WILLKOMMEN IM M.I.N.D. ARCHIV";
+
+        bootWelcome.classList.add(
+          "show"
+        );
+      }
+
+      setBootStatus(
+        "SICHERHEITSFREIGABE AKZEPTIERT"
+      );
+    }, 7000);
+
+
+    setTimeout(() => {
+      setBootStatus(
+        "ARCHIVZENTRALE WIRD GELADEN..."
+      );
+    }, 11000);
+
+
+    setTimeout(async () => {
+      await showHome();
+
+      if (bootScreen) {
+        bootScreen.classList.add(
+          "hidden"
+        );
+      }
+    }, 15000);
+  }
+
+
+  function setBootStatus(text) {
+    if (bootStatus) {
+      bootStatus.textContent = text;
     }
-  }, 15000);
-}
+  }
 
 
-  /* =========================
-     AKTIVE MENÜMARKIERUNG
-  ========================= */
+  /* =======================================================
+     MENÜMARKIERUNG
+  ======================================================= */
 
   function clearActiveButtons() {
     menuButtons.forEach(button => {
@@ -342,13 +414,19 @@ function startBootSequence() {
     });
   }
 
+
   function activateMenuButton(pageName) {
     clearActiveButtons();
 
+    const normalizedPage =
+      normalizePageName(pageName);
+
     const selectedButton =
-      document.querySelector(
-        `[data-page="${pageName}"]`
-      );
+      menuButtons.find(button => {
+        return normalizePageName(
+          button.dataset.page
+        ) === normalizedPage;
+      });
 
     if (selectedButton) {
       selectedButton.classList.add(
@@ -358,28 +436,36 @@ function startBootSequence() {
   }
 
 
-  /* =========================
-     DATEIPFAD ERZEUGEN
-  ========================= */
+  /* =======================================================
+     DATEIPFADE
+  ======================================================= */
 
-  function createFilePath(pageName) {
+  function normalizePageName(pageName) {
     if (!pageName) {
-      return null;
+      return "";
     }
 
-    if (
-      pageName.endsWith(".html")
-    ) {
-      return `data/${pageName}`;
-    }
-
-    return `data/${pageName}.html`;
+    return pageName
+      .replace(/^data\//, "")
+      .replace(/\.html$/, "");
   }
 
 
-  /* =========================
+  function createFilePath(pageName) {
+    const normalizedPage =
+      normalizePageName(pageName);
+
+    if (!normalizedPage) {
+      return null;
+    }
+
+    return `data/${normalizedPage}.html`;
+  }
+
+
+  /* =======================================================
      HTML-DATEI LADEN
-  ========================= */
+  ======================================================= */
 
   async function loadPage(filePath) {
     if (
@@ -390,9 +476,14 @@ function startBootSequence() {
     }
 
     try {
+      const separator =
+        filePath.includes("?")
+          ? "&"
+          : "?";
+
       const response =
         await fetch(
-          `${filePath}?v=${Date.now()}`
+          `${filePath}${separator}v=${Date.now()}`
         );
 
       if (!response.ok) {
@@ -409,6 +500,7 @@ function startBootSequence() {
 
       connectPageButtons();
       updateDynamicPageInformation();
+      updatePageTileAccess();
 
       window.scrollTo({
         top: 0,
@@ -430,152 +522,111 @@ function startBootSequence() {
   }
 
 
-  /* =========================
-     INFORMATIONEN INNERHALB
-     EINER AKTE AKTUALISIEREN
-  ========================= */
+  /* =======================================================
+     DYNAMISCHE SEITENINFORMATIONEN
+  ======================================================= */
 
   function updateDynamicPageInformation() {
-  const levelElements =
-    document.querySelectorAll(
-      "[data-current-level]"
+    setTextForAll(
+      "[data-current-user]",
+      currentUser.level > 0
+        ? currentUser.name
+        : "UNBEKANNTER BESUCHER"
     );
 
-  const titleElements =
-    document.querySelectorAll(
-      "[data-current-title]"
+    setTextForAll(
+      "[data-current-rank]",
+      currentUser.rank
     );
 
-  const mottoElements =
-    document.querySelectorAll(
-      "[data-current-motto]"
-    );
-  const userElements =
-    document.querySelectorAll(
-      "[data-current-user]"
+    setTextForAll(
+      "[data-current-level]",
+      currentUser.level
     );
 
-  const rankElements =
-    document.querySelectorAll(
-      "[data-current-rank]"
+    setTextForAll(
+      "[data-current-title]",
+      currentUser.title
     );
 
-  const accessDescriptions =
-    document.querySelectorAll(
-      "[data-access-description]"
+    setTextForAll(
+      "[data-current-motto]",
+      `„${currentUser.motto}“`
     );
 
-  const unlockedCountElements =
-    document.querySelectorAll(
-      "[data-unlocked-count]"
+    setTextForAll(
+      "[data-access-description]",
+      getAccessDescription()
     );
 
-  const lockedCountElements =
-    document.querySelectorAll(
-      "[data-locked-count]"
-    );
-
-userElements.forEach(element => {
-  element.textContent =
-    currentUser.level > 0
-      ? currentUser.name
-      : "UNBEKANNTER BESUCHER";
-});
-
-rankElements.forEach(element => {
-  element.textContent =
-    currentUser.rank;
-});
-
-levelElements.forEach(element => {
-  element.textContent =
-    currentUser.level;
-});
-
-titleElements.forEach(element => {
-  element.textContent =
-    currentUser.title ||
-    "Unbekannter Besucher";
-});
-
-mottoElements.forEach(element => {
-  const motto =
-    currentUser.motto ||
-    "Das Archiv beobachtet jeden, der seine Hallen betritt.";
-
-  element.textContent =
-    `„${motto}“`;
-});
-
-
-  let accessDescription =
-    "KEINE ARCHIVFREIGABE";
-
-  if (currentUser.rank === "DELTA") {
-    accessDescription =
-      "NEUGIERIGER AKTENLESER";
-  }
-
-  if (currentUser.rank === "GAMMA") {
-    accessDescription =
-      "BEWAHRER DER CHRONIKEN";
-  }
-
-  if (currentUser.rank === "BETA") {
-    accessDescription =
-      "FORSCHER DER UNTERWELT";
-  }
-
-  if (currentUser.rank === "ALPHA") {
-    accessDescription =
-      "HÜTER DES ARCHIVS";
-  }
-
-  if (currentUser.rank === "OMEGA") {
-    accessDescription =
-      "SCHÖPFER DES ARCHIVS";
+    updateArchiveCounts();
   }
 
 
-  accessDescriptions.forEach(element => {
-    element.textContent =
-      accessDescription;
-  });
+  function setTextForAll(selector, value) {
+    document
+      .querySelectorAll(selector)
+      .forEach(element => {
+        element.textContent = value;
+      });
+  }
 
 
-  let unlockedCount = 0;
-  let lockedCount = 0;
+  function getAccessDescription() {
+    switch (currentUser.rank) {
+      case "OMEGA":
+        return "SCHÖPFER DES ARCHIVS";
 
-  menuButtons.forEach(button => {
-    const requiredLevel =
-      Number(button.dataset.level || 0);
+      case "ALPHA":
+        return "HÜTER DES ARCHIVS";
 
-    if (
-      currentUser.level >= requiredLevel
-    ) {
-      unlockedCount++;
-    } else {
-      lockedCount++;
+      case "BETA":
+        return "FORSCHER DER UNTERWELT";
+
+      case "GAMMA":
+        return "BEWAHRER DER CHRONIKEN";
+
+      case "DELTA":
+        return "NEUGIERIGER AKTENLESER";
+
+      default:
+        return "KEINE ARCHIVFREIGABE";
     }
-  });
+  }
 
 
-  unlockedCountElements.forEach(element => {
-    element.textContent =
-      unlockedCount;
-  });
+  function updateArchiveCounts() {
+    let unlockedCount = 0;
+    let lockedCount = 0;
+
+    menuButtons.forEach(button => {
+      const requiredLevel =
+        getRequiredLevel(button);
+
+      if (
+        currentUser.level >= requiredLevel
+      ) {
+        unlockedCount++;
+      } else {
+        lockedCount++;
+      }
+    });
+
+    setTextForAll(
+      "[data-unlocked-count]",
+      unlockedCount
+    );
+
+    setTextForAll(
+      "[data-locked-count]",
+      lockedCount
+    );
+  }
 
 
-  lockedCountElements.forEach(element => {
-    element.textContent =
-      lockedCount;
-  });
-}
-
-
-  /* =========================
-     HOME
-  ========================= */
+  /* =======================================================
+     HOME-SEITE
+  ======================================================= */
 
   async function showHome() {
     clearActiveButtons();
@@ -586,60 +637,100 @@ mottoElements.forEach(element => {
   }
 
 
-  /* =========================
+  /* =======================================================
      AKTE ÖFFNEN
-  ========================= */
+  ======================================================= */
 
   async function openArchivePage(
     pageName,
-    sourceButton = null
+    sourceElement = null
   ) {
-    if (!pageName) {
+    const normalizedPage =
+      normalizePageName(pageName);
+
+    if (!normalizedPage) {
       return;
     }
 
-    let requiredLevel = 0;
+    const matchingMenuButton =
+      findMenuButton(normalizedPage);
 
-    if (sourceButton) {
-      requiredLevel =
-        Number(
-          sourceButton.dataset.level || 0
-        );
-    }
+    const requiredLevel =
+      sourceElement?.dataset.level
+        ? getRequiredLevel(sourceElement)
+        : matchingMenuButton
+          ? getRequiredLevel(
+              matchingMenuButton
+            )
+          : 999;
 
     if (
       currentUser.level <
       requiredLevel
     ) {
-      activateMenuButton(pageName);
+      activateMenuButton(
+        normalizedPage
+      );
 
       showLockedContent(
-        sourceButton
-          ? sourceButton.textContent.trim()
-          : pageName,
+        sourceElement?.textContent.trim() ||
+        matchingMenuButton?.textContent.trim() ||
+        normalizedPage,
         requiredLevel
       );
 
       return;
     }
 
-    activateMenuButton(pageName);
+    activateMenuButton(
+      normalizedPage
+    );
 
     const filePath =
-      createFilePath(pageName);
+      createFilePath(
+        normalizedPage
+      );
 
     await loadPage(filePath);
   }
 
 
-  /* =========================
+  function findMenuButton(pageName) {
+    const normalizedPage =
+      normalizePageName(pageName);
+
+    return menuButtons.find(button => {
+      return normalizePageName(
+        button.dataset.page
+      ) === normalizedPage;
+    });
+  }
+
+
+  function getRequiredLevel(element) {
+    const level =
+      Number(
+        element?.dataset.level
+      );
+
+    return Number.isFinite(level)
+      ? level
+      : 999;
+  }
+
+
+  /* =======================================================
      GESPERRTE AKTE
-  ========================= */
+  ======================================================= */
 
   function showLockedContent(
     name,
     requiredLevel
   ) {
+    if (!contentArea) {
+      return;
+    }
+
     contentArea.innerHTML = `
       <div class="lockedScreen">
 
@@ -654,18 +745,27 @@ mottoElements.forEach(element => {
           </div>
 
           <div class="lockedText">
-            ${name}
+            ${escapeHtml(name)}
 
             <br><br>
 
-            AKTUELLE FREIGABE:
+            AKTUELLER RANG:
             ${currentUser.rank}
 
+            <br>
+
+            AKTUELLES LEVEL:
+            ${currentUser.level}
+
             <br><br>
 
-            BENÖTIGTE
-            SICHERHEITSSTUFE:
+            BENÖTIGTER RANG:
             ${getRankName(requiredLevel)}
+
+            <br>
+
+            BENÖTIGTES LEVEL:
+            ${requiredLevel}
 
             <br><br>
 
@@ -685,40 +785,15 @@ mottoElements.forEach(element => {
   }
 
 
-  /* =========================
-     STUFENNAME ERMITTELN
-  ========================= */
-
-  function getRankName(level) {
-    if (level >= 100) {
-      return "OMEGA";
-    }
-     
-     if (level >= 99) {
-      return "ALPHA";
-    }
-
-    if (level >= 20) {
-      return "BETA";
-    }
-
-    if (level >= 10) {
-      return "GAMMA";
-    }
-
-    if (level >= 1) {
-      return "DELTA";
-    }
-
-    return "KEINE";
-  }
-
-
-  /* =========================
+  /* =======================================================
      DATEIFEHLER
-  ========================= */
+  ======================================================= */
 
   function showFileError(filePath) {
+    if (!contentArea) {
+      return;
+    }
+
     contentArea.innerHTML = `
       <div class="lockedScreen">
 
@@ -738,7 +813,7 @@ mottoElements.forEach(element => {
 
             <br><br>
 
-            ${filePath}
+            ${escapeHtml(filePath)}
 
             <br><br>
 
@@ -754,9 +829,9 @@ mottoElements.forEach(element => {
   }
 
 
-  /* =========================
-     KNÖPFE IN GELADENEN SEITEN
-  ========================= */
+  /* =======================================================
+     KNÖPFE INNERHALB GELADENER SEITEN
+  ======================================================= */
 
   function connectPageButtons() {
     const pageLinks =
@@ -768,28 +843,9 @@ mottoElements.forEach(element => {
       button.addEventListener(
         "click",
         () => {
-          const pageName =
-            button.dataset.openPage;
-
-          const requiredLevel =
-            Number(
-              button.dataset.level || 0
-            );
-
-          if (
-            currentUser.level <
-            requiredLevel
-          ) {
-            showLockedContent(
-              button.textContent.trim(),
-              requiredLevel
-            );
-
-            return;
-          }
-
           openArchivePage(
-            pageName
+            button.dataset.openPage,
+            button
           );
         }
       );
@@ -797,9 +853,47 @@ mottoElements.forEach(element => {
   }
 
 
-  /* =========================
+  function updatePageTileAccess() {
+    const pageLinks =
+      document.querySelectorAll(
+        "[data-open-page]"
+      );
+
+    pageLinks.forEach(element => {
+      const requiredLevel =
+        getRequiredLevel(element);
+
+      const hasAccess =
+        currentUser.level >= requiredLevel;
+
+      element.classList.toggle(
+        "lockedTile",
+        !hasAccess
+      );
+
+      element.classList.toggle(
+        "unlockedTile",
+        hasAccess
+      );
+
+      const statusElement =
+        element.querySelector(
+          ".archiveCategoryStatus"
+        );
+
+      if (statusElement) {
+        statusElement.textContent =
+          hasAccess
+            ? "ARCHIV ÖFFNEN"
+            : "ZUGRIFF GESPERRT";
+      }
+    });
+  }
+
+
+  /* =======================================================
      LINKES MENÜ
-  ========================= */
+  ======================================================= */
 
   menuButtons.forEach(button => {
     button.addEventListener(
@@ -814,9 +908,9 @@ mottoElements.forEach(element => {
   });
 
 
-  /* =========================
+  /* =======================================================
      HOME-BUTTON
-  ========================= */
+  ======================================================= */
 
   if (homeButton) {
     homeButton.addEventListener(
@@ -826,9 +920,35 @@ mottoElements.forEach(element => {
   }
 
 
-  /* =========================
+  /* =======================================================
+     HILFSFUNKTIONEN
+  ======================================================= */
+
+  function capitalizeWord(word) {
+    if (!word) {
+      return "";
+    }
+
+    return (
+      word.charAt(0).toUpperCase() +
+      word.slice(1)
+    );
+  }
+
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+
+  /* =======================================================
      SYSTEM STARTEN
-  ========================= */
+  ======================================================= */
 
   loadAccessCode();
   startBootSequence();
