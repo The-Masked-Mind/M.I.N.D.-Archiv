@@ -878,8 +878,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const statusElement =
         element.querySelector(
-          ".archiveCategoryStatus"
-        );
+          ".archiveCategoryStatus, .maskOverviewStatus"
+      );
 
       if (statusElement) {
         statusElement.textContent =
