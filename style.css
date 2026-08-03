@@ -66,6 +66,28 @@ button {
   font: inherit;
 }
 
+.musicButton {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+
+  padding: 10px 16px;
+
+  border: 1px solid #4b8f7a;
+  background: rgba(3, 20, 18, 0.95);
+  color: #b7e7d7;
+
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+}
+
+.musicButton:hover {
+  background: rgba(8, 42, 36, 0.98);
+}
 
 /* =========================
    STARTBILDSCHIRM

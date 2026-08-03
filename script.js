@@ -99,6 +99,102 @@ document.addEventListener(
     const mindUser =
       await loadMindUserFromSupabase();
 
+/* =====================================================
+   ARCHIVMUSIK – PLAYLIST
+===================================================== */
+
+const archiveMusic =
+  document.getElementById("archiveMusic");
+
+const archivePlaylist = [
+  "sounds/archivmusik.mp3",
+  "sounds/archivmusik1.mp3",
+  "sounds/archivmusik2.mp3",
+  "sounds/archivmusik3.mp3"
+];
+
+let currentMusicIndex = 0;
+let archiveMusicStarted = false;
+
+
+function loadCurrentArchiveTrack() {
+  if (!archiveMusic) {
+    return;
+  }
+
+  archiveMusic.src =
+    archivePlaylist[currentMusicIndex];
+
+  archiveMusic.load();
+}
+
+
+async function startArchiveMusic() {
+  if (
+    !archiveMusic ||
+    archiveMusicStarted
+  ) {
+    return;
+  }
+
+  try {
+    archiveMusicStarted = true;
+
+    loadCurrentArchiveTrack();
+
+    archiveMusic.volume = 0.25;
+
+    await archiveMusic.play();
+
+    document.removeEventListener(
+      "click",
+      startArchiveMusic
+    );
+
+  } catch (error) {
+    archiveMusicStarted = false;
+
+    console.error(
+      "M.I.N.D.: Archivmusik konnte nicht gestartet werden:",
+      error
+    );
+  }
+}
+
+
+if (archiveMusic) {
+  archiveMusic.addEventListener(
+    "ended",
+    async () => {
+      currentMusicIndex++;
+
+      if (
+        currentMusicIndex >=
+        archivePlaylist.length
+      ) {
+        currentMusicIndex = 0;
+      }
+
+      loadCurrentArchiveTrack();
+
+      try {
+        await archiveMusic.play();
+      } catch (error) {
+        console.error(
+          "M.I.N.D.: Nächster Titel konnte nicht gestartet werden:",
+          error
+        );
+      }
+    }
+  );
+}
+
+
+document.addEventListener(
+  "click",
+  startArchiveMusic
+);
+
 
     /* =====================================================
        GRUNDELEMENTE
