@@ -199,8 +199,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     OMEGA: {
       title: "Schöpfer des Archivs",
       motto:
-        "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
-    },
+        "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."    },
 
   };
 
@@ -1056,4 +1055,4 @@ if (mindUser && mindUser.access_code) {
   loadAccessCode();
   startBootSequence();
 
-});
+}
