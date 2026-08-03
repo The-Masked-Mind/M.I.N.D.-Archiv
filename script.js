@@ -158,30 +158,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
   };
-
-/* ======================================================
-   SUPABASE-NUTZER IN DIE ZUGANGSCODES ÜBERNEHMEN
-====================================================== */
-
-if (mindUser && mindUser.access_code) {
-  const dynamicCode =
-    String(mindUser.access_code).trim();
-
-  const dynamicName =
-    String(
-      mindUser.twitch_name || "UNBEKANNTER NUTZER"
-    ).toUpperCase();
-
-  const dynamicLevel =
-    Number.parseInt(mindUser.level, 10) || 1;
-
-  accessCodes[dynamicCode] = {
-    name: dynamicName,
-    level: dynamicLevel,
-    title: "Mitglied des M.I.N.D.-Archivs",
-    motto:
-      "Zugriff wurde über das M.I.N.D.-Netzwerk autorisiert."
-  };
 }
 
   /* =======================================================
@@ -228,6 +204,36 @@ if (mindUser && mindUser.access_code) {
 
   };
 
+/* ======================================================
+   SUPABASE-NUTZER IN DIE ZUGANGSCODES ÜBERNEHMEN
+====================================================== */
+
+if (mindUser && mindUser.access_code) {
+  const dynamicCode =
+    String(mindUser.access_code).trim();
+
+  const dynamicName =
+    String(
+      mindUser.twitch_name || "UNBEKANNTER NUTZER"
+    ).toUpperCase();
+
+  const dynamicLevel =
+    Number.parseInt(mindUser.level, 10) || 1;
+
+  const dynamicRankName =
+    getRankName(dynamicLevel);
+
+  const dynamicRankInformation =
+    rankInformation[dynamicRankName] ||
+    rankInformation.KEINE;
+
+  accessCodes[dynamicCode] = {
+    name: dynamicName,
+    level: dynamicLevel,
+    title: dynamicRankInformation.title,
+    motto: dynamicRankInformation.motto
+  };
+}
 
   /* =======================================================
      STANDARDPROFIL
