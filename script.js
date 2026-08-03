@@ -584,7 +584,7 @@ document.addEventListener(
         setBootStatus(
           "IDENTITÄT BESTÄTIGT"
         );
-      }, 3000);
+      }, 2000);
 
 
       setTimeout(() => {
@@ -602,14 +602,14 @@ document.addEventListener(
         setBootStatus(
           "SICHERHEITSFREIGABE AKZEPTIERT"
         );
-      }, 7000);
+      }, 5000);
 
 
       setTimeout(() => {
         setBootStatus(
           "ARCHIVZENTRALE WIRD GELADEN..."
         );
-      }, 11000);
+      }, 7000);
 
 
       setTimeout(async () => {
@@ -620,7 +620,7 @@ document.addEventListener(
             .classList
             .add("hidden");
         }
-      }, 15000);
+      }, 10000);
     }
 
 

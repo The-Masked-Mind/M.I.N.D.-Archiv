@@ -210,10 +210,10 @@ button {
     );
 
   box-shadow:
-    0 0 15px rgba(69, 255, 117, 0.7);
+    0 0 15px rgba(255, 69, 69, 0.7);
 
   animation:
-    bootLoading 15s linear forwards;
+    bootLoading 10s linear forwards;
 }
 
 
