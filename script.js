@@ -146,73 +146,66 @@ const playlist = [
   "data/sounds/archivmusik39.mp3"
 ];
 
-const audioToggle =
-  document.getElementById("audioToggle");
-
+const audioToggle = document.getElementById("audioToggle");
 const archiveAudio = new Audio();
 
 archiveAudio.volume = 0.35;
 archiveAudio.preload = "auto";
 
-let currentTrackIndex = 0;
+let currentTrackIndex = -1;
 let audioIsActive = false;
 
 
-/* Zufälligen Starttitel auswählen */
-function chooseRandomTrack() {
-  currentTrackIndex =
-    Math.floor(Math.random() * playlist.length);
+/* Zufälligen Titel wählen */
+function getRandomTrackIndex() {
+  if (playlist.length === 1) return 0;
 
-  archiveAudio.src =
-    playlist[currentTrackIndex];
+  let newIndex;
 
-  archiveAudio.load();
+  do {
+    newIndex = Math.floor(Math.random() * playlist.length);
+  } while (newIndex === currentTrackIndex);
+
+  return newIndex;
 }
 
 
-/* Nächsten Titel starten */
-function playNextTrack() {
-  currentTrackIndex++;
+/* Gewählten Titel laden und abspielen */
+function playTrack(index) {
+  if (!audioIsActive) return;
 
-  if (currentTrackIndex >= playlist.length) {
-    currentTrackIndex = 0;
-  }
+  currentTrackIndex = index;
 
-  archiveAudio.src =
-    playlist[currentTrackIndex];
-
+  archiveAudio.src = playlist[currentTrackIndex];
   archiveAudio.currentTime = 0;
+  archiveAudio.load();
 
   archiveAudio.play().catch(error => {
-    console.log("Musik konnte nicht gestartet werden:", error);
+    console.error(
+      "Musik konnte nicht gestartet werden:",
+      playlist[currentTrackIndex],
+      error
+    );
   });
 }
 
 
-/* Musik einschalten */
+/* Archiv-Audio einschalten */
 function enableArchiveAudio() {
-  if (playlist.length === 0) return;
+  if (!audioToggle || playlist.length === 0) return;
 
   audioIsActive = true;
-
-  /*
-    Bei jedem neuen Aktivieren beginnt die Playlist
-    mit einem zufällig ausgewählten Titel.
-  */
-  chooseRandomTrack();
-
-  archiveAudio.play().catch(error => {
-    console.log("Musik konnte nicht gestartet werden:", error);
-  });
 
   audioToggle.textContent =
     "ARCHIV-AUDIO DEAKTIVIEREN";
 
   audioToggle.classList.add("active");
+
+  playTrack(getRandomTrackIndex());
 }
 
 
-/* Musik ausschalten */
+/* Archiv-Audio ausschalten */
 function disableArchiveAudio() {
   audioIsActive = false;
 
@@ -226,21 +219,23 @@ function disableArchiveAudio() {
 }
 
 
-/* Button schaltet zwischen an und aus */
-audioToggle.addEventListener("click", () => {
-  if (audioIsActive) {
-    disableArchiveAudio();
-  } else {
-    enableArchiveAudio();
-  }
-});
+/* Button als Ein-/Ausschalter */
+if (audioToggle) {
+  audioToggle.addEventListener("click", () => {
+    if (audioIsActive) {
+      disableArchiveAudio();
+    } else {
+      enableArchiveAudio();
+    }
+  });
+}
 
 
-/* Nach dem Lied automatisch das nächste abspielen */
+/* Nach jedem Titel zufällig einen neuen auswählen */
 archiveAudio.addEventListener("ended", () => {
   if (!audioIsActive) return;
 
-  playNextTrack();
+  playTrack(getRandomTrackIndex());
 });
 
 
