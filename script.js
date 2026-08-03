@@ -1,9 +1,82 @@
 /* =========================================================
    M.I.N.D. ARCHIV – ZENTRALE STEUERUNG
 ========================================================= */
+const SUPABASE_URL =
+  "https://vyyysbwtzisvgigrkgkv.supabase.co";
 
-document.addEventListener("DOMContentLoaded", () => {
+const SUPABASE_PUBLISHABLE_KEY =
+  "sb_publishable_ubqmffcDeAtVfr__G1k0Fg_WGsXCcMK";
 
+  async function loadMindUserFromSupabase() {
+  const parameters = new URLSearchParams(window.location.search);
+  const accessCode = parameters.get("code");
+
+  if (!accessCode) {
+    console.warn("M.I.N.D.: Kein Zugangscode in der URL.");
+    return null;
+  }
+
+  const requestUrl =
+    `${SUPABASE_URL}/rest/v1/mind_users` +
+    `?access_code=eq.${encodeURIComponent(accessCode)}` +
+    `&select=twitch_name,level,access_code`;
+
+  try {
+    const response = await fetch(requestUrl, {
+      method: "GET",
+      headers: {
+        apikey: SUPABASE_PUBLISHABLE_KEY
+      }
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+
+      console.error(
+        "M.I.N.D.: Supabase-Abfrage fehlgeschlagen:",
+        response.status,
+        errorText
+      );
+
+      return null;
+    }
+
+    const users = await response.json();
+
+    if (!Array.isArray(users) || users.length === 0) {
+      console.warn(
+        "M.I.N.D.: Kein Benutzer für diesen Code gefunden."
+      );
+
+      return null;
+    }
+
+    return users[0];
+  } catch (error) {
+    console.error(
+      "M.I.N.D.: Verbindung zu Supabase fehlgeschlagen:",
+      error
+    );
+
+    return null;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  
+  const mindUser = await loadMindUserFromSupabase();
+
+  if (mindUser) {
+    const userName =
+      mindUser.twitch_name || "UNBEKANNTER NUTZER";
+
+    const userLevel =
+      Number.parseInt(mindUser.level, 10) || 1;
+
+    localStorage.setItem("mindUserName", userName);
+    localStorage.setItem("mindUserLevel", String(userLevel));
+  }
+  
   /* =======================================================
      GRUNDELEMENTE
   ======================================================= */
