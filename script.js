@@ -158,7 +158,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
   };
-}
 
   /* =======================================================
      RANGDATEN
