@@ -103,97 +103,145 @@ document.addEventListener(
    ARCHIVMUSIK – PLAYLIST
 ===================================================== */
 
-const archiveMusic =
-  document.getElementById("archiveMusic");
-
-const archivePlaylist = [
-  "sounds/archivmusik.mp3",
-  "sounds/archivmusik1.mp3",
-  "sounds/archivmusik2.mp3",
-  "sounds/archivmusik3.mp3"
+const playlist = [
+  "data/sounds/archivmusik.mp3",
+  "data/sounds/archivmusik1.mp3",
+  "data/sounds/archivmusik2.mp3",
+  "data/sounds/archivmusik3.mp3",
+  "data/sounds/archivmusik4.mp3",
+  "data/sounds/archivmusik5.mp3",
+  "data/sounds/archivmusik6.mp3",
+  "data/sounds/archivmusik7.mp3",
+  "data/sounds/archivmusik8.mp3",
+  "data/sounds/archivmusik9.mp3",
+  "data/sounds/archivmusik10.mp3",
+  "data/sounds/archivmusik11.mp3",
+  "data/sounds/archivmusik12.mp3",
+  "data/sounds/archivmusik13.mp3",
+  "data/sounds/archivmusik14.mp3",
+  "data/sounds/archivmusik15.mp3",
+  "data/sounds/archivmusik16.mp3",
+  "data/sounds/archivmusik17.mp3",
+  "data/sounds/archivmusik18.mp3",
+  "data/sounds/archivmusik19.mp3",
+  "data/sounds/archivmusik20.mp3",
+  "data/sounds/archivmusik21.mp3",
+  "data/sounds/archivmusik22.mp3",
+  "data/sounds/archivmusik23.mp3",
+  "data/sounds/archivmusik24.mp3",
+  "data/sounds/archivmusik25.mp3",
+  "data/sounds/archivmusik26.mp3",
+  "data/sounds/archivmusik27.mp3",
+  "data/sounds/archivmusik28.mp3",
+  "data/sounds/archivmusik29.mp3",
+  "data/sounds/archivmusik30.mp3",
+  "data/sounds/archivmusik31.mp3",
+  "data/sounds/archivmusik32.mp3",
+  "data/sounds/archivmusik33.mp3",
+  "data/sounds/archivmusik34.mp3",
+  "data/sounds/archivmusik35.mp3",
+  "data/sounds/archivmusik36.mp3",
+  "data/sounds/archivmusik37.mp3",
+  "data/sounds/archivmusik38.mp3",
+  "data/sounds/archivmusik39.mp3"
 ];
 
-let currentMusicIndex = 0;
-let archiveMusicStarted = false;
+const audioToggle =
+  document.getElementById("audioToggle");
+
+const archiveAudio = new Audio();
+
+archiveAudio.volume = 0.35;
+archiveAudio.preload = "auto";
+
+let currentTrackIndex = 0;
+let audioIsActive = false;
 
 
-function loadCurrentArchiveTrack() {
-  if (!archiveMusic) {
-    return;
-  }
+/* Zufälligen Starttitel auswählen */
+function chooseRandomTrack() {
+  currentTrackIndex =
+    Math.floor(Math.random() * playlist.length);
 
-  archiveMusic.src =
-    archivePlaylist[currentMusicIndex];
+  archiveAudio.src =
+    playlist[currentTrackIndex];
 
-  archiveMusic.load();
+  archiveAudio.load();
 }
 
 
-async function startArchiveMusic() {
-  if (
-    !archiveMusic ||
-    archiveMusicStarted
-  ) {
-    return;
+/* Nächsten Titel starten */
+function playNextTrack() {
+  currentTrackIndex++;
+
+  if (currentTrackIndex >= playlist.length) {
+    currentTrackIndex = 0;
   }
 
-  try {
-    archiveMusicStarted = true;
+  archiveAudio.src =
+    playlist[currentTrackIndex];
 
-    loadCurrentArchiveTrack();
+  archiveAudio.currentTime = 0;
 
-    archiveMusic.volume = 0.25;
-
-    await archiveMusic.play();
-
-    document.removeEventListener(
-      "click",
-      startArchiveMusic
-    );
-
-  } catch (error) {
-    archiveMusicStarted = false;
-
-    console.error(
-      "M.I.N.D.: Archivmusik konnte nicht gestartet werden:",
-      error
-    );
-  }
+  archiveAudio.play().catch(error => {
+    console.log("Musik konnte nicht gestartet werden:", error);
+  });
 }
 
 
-if (archiveMusic) {
-  archiveMusic.addEventListener(
-    "ended",
-    async () => {
-      currentMusicIndex++;
+/* Musik einschalten */
+function enableArchiveAudio() {
+  if (playlist.length === 0) return;
 
-      if (
-        currentMusicIndex >=
-        archivePlaylist.length
-      ) {
-        currentMusicIndex = 0;
-      }
+  audioIsActive = true;
 
-      loadCurrentArchiveTrack();
+  /*
+    Bei jedem neuen Aktivieren beginnt die Playlist
+    mit einem zufällig ausgewählten Titel.
+  */
+  chooseRandomTrack();
 
-      try {
-        await archiveMusic.play();
-      } catch (error) {
-        console.error(
-          "M.I.N.D.: Nächster Titel konnte nicht gestartet werden:",
-          error
-        );
-      }
-    }
-  );
+  archiveAudio.play().catch(error => {
+    console.log("Musik konnte nicht gestartet werden:", error);
+  });
+
+  audioToggle.textContent =
+    "ARCHIV-AUDIO DEAKTIVIEREN";
+
+  audioToggle.classList.add("active");
 }
 
 
-document.addEventListener(
-  "click",
-  startArchiveMusic
-);
+/* Musik ausschalten */
+function disableArchiveAudio() {
+  audioIsActive = false;
+
+  archiveAudio.pause();
+  archiveAudio.currentTime = 0;
+
+  audioToggle.textContent =
+    "ARCHIV-AUDIO AKTIVIEREN";
+
+  audioToggle.classList.remove("active");
+}
+
+
+/* Button schaltet zwischen an und aus */
+audioToggle.addEventListener("click", () => {
+  if (audioIsActive) {
+    disableArchiveAudio();
+  } else {
+    enableArchiveAudio();
+  }
+});
+
+
+/* Nach dem Lied automatisch das nächste abspielen */
+archiveAudio.addEventListener("ended", () => {
+  if (!audioIsActive) return;
+
+  playNextTrack();
+});
 
 
     /* =====================================================

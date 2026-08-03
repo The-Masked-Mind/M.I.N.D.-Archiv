@@ -89,6 +89,25 @@ button {
   background: rgba(8, 42, 36, 0.98);
 }
 
+#audioToggle {
+  color: #a9d8cf;
+  background: rgba(5, 25, 25, 0.9);
+  border: 1px solid #4fc9b5;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+#audioToggle.active {
+  color: #ff6b6b;
+  border-color: #ff4545;
+
+  box-shadow:
+    0 0 10px rgba(255, 69, 69, 0.55),
+    inset 0 0 12px rgba(255, 69, 69, 0.08);
+}
+
 /* =========================
    STARTBILDSCHIRM
 ========================= */
