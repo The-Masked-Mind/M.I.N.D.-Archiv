@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       title: "Schöpfer des Archivs",
       motto:
         "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
-    }
+    },
 
   };
 
