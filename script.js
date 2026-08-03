@@ -1054,4 +1054,4 @@ if (mindUser && mindUser.access_code) {
   loadAccessCode();
   startBootSequence();
 
-}
+});
