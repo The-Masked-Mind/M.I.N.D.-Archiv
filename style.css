@@ -2029,20 +2029,25 @@ button.maskOverviewCard:hover {
 }
 
 .bootIdentityValue.beta {
-  color: #c46cff;
+  color: var(--green);
 }
 
 .bootIdentityValue.gamma {
-  color: var(--cyan);
+  color: var(--green);
 }
 
 .bootIdentityValue.delta {
   color: var(--green);
 }
 
+.bootIdentityValue.omega {
+  color: var(--green);
+}
+
 .bootIdentityValue.none {
   color: var(--muted);
 }
+
 
 .bootWelcome {
   min-height: 28px;
