@@ -146,7 +146,7 @@ const playlist = [
   "data/sounds/archivmusik39.mp3"
 ];
 
-const audioToggle = document.getElementById("audioToggle");
+let audioToggle;
 const archiveAudio = new Audio();
 
 archiveAudio.volume = 0.35;
@@ -238,6 +238,22 @@ archiveAudio.addEventListener("ended", () => {
   playTrack(getRandomTrackIndex());
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  audioToggle = document.getElementById("audioToggle");
+
+  if (!audioToggle) {
+    console.error('Der Button mit der ID "audioToggle" wurde nicht gefunden.');
+    return;
+  }
+
+  audioToggle.addEventListener("click", () => {
+    if (audioIsActive) {
+      disableArchiveAudio();
+    } else {
+      enableArchiveAudio();
+    }
+  });
+});
 
     /* =====================================================
        GRUNDELEMENTE
