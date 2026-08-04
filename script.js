@@ -372,7 +372,10 @@ archiveAudio.addEventListener("ended", () => {
       document.getElementById(
         "archiveAccessRank"
       );
-
+    const archiveUserLevel =
+      document.getElementById(
+        "archiveUserLevel"
+      );
     const menuButtons =
       [
         ...document.querySelectorAll(
@@ -692,33 +695,28 @@ archiveAudio.addEventListener("ended", () => {
     ===================================================== */
 
     function updateUserTerminal() {
-      if (archiveUserName) {
-        archiveUserName.textContent =
-          currentUser.level > 0
-            ? currentUser.name
-            : "GAST";
-      }
-
-      if (!archiveAccessRank) {
-        return;
-      }
-
+      if (archiveAccessRank) {
       archiveAccessRank.textContent =
-        currentUser.rank;
+      currentUser.rank;
 
       archiveAccessRank.className =
-        "userTerminalValue";
+      "userTerminalValue";
 
-      const rankClass =
-        `access${capitalizeWord(
-          currentUser.rank
-            .toLowerCase()
-        )}`;
+    const rankClass =
+      `access${capitalizeWord(
+        currentUser.rank.toLowerCase()
+      )}`;
 
       archiveAccessRank.classList.add(
-        rankClass
-      );
-    }
+      rankClass
+    );
+  }
+
+  if (archiveUserLevel) {
+      archiveUserLevel.textContent =
+      currentUser.level;
+  }
+}
 
 
     /* =====================================================
