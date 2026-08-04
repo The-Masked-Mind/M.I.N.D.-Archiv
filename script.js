@@ -290,18 +290,6 @@ document.addEventListener("click", event => {
 });
 
 
-/* Nach jedem Titel wieder einen zufälligen Titel starten */
-archiveAudio.addEventListener("ended", () => {
-  if (!audioIsActive) {
-    return;
-  }
-
-  playTrack(
-    getRandomTrackIndex()
-  );
-});
-
-
 /* Zeigt Lade- oder Dateifehler direkt an */
 archiveAudio.addEventListener("error", () => {
   const button = getAudioButton();
