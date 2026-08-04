@@ -2766,23 +2766,23 @@ button.maskOverviewCard:hover {
 /* RANGFARBEN */
 
 .commandIdentityValue.rankOmega {
-  color: var(--red);
+  color: var(--muted);
 }
 
 .commandIdentityValue.rankAlpha {
-  color: #ff6b6b;
+  color: var(--muted);
 }
 
 .commandIdentityValue.rankBeta {
-  color: #c46cff;
+  color: var(--muted);
 }
 
 .commandIdentityValue.rankGamma {
-  color: var(--cyan);
+  color: var(--muted);
 }
 
 .commandIdentityValue.rankDelta {
-  color: var(--green);
+  color: var(--muted);
 }
 
 
