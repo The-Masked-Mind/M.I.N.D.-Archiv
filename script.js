@@ -372,10 +372,12 @@ archiveAudio.addEventListener("ended", () => {
       document.getElementById(
         "archiveAccessRank"
       );
+
     const archiveUserLevel =
       document.getElementById(
         "archiveUserLevel"
       );
+
     const menuButtons =
       [
         ...document.querySelectorAll(
@@ -695,25 +697,32 @@ archiveAudio.addEventListener("ended", () => {
     ===================================================== */
 
     function updateUserTerminal() {
-      if (archiveAccessRank) {
-      archiveAccessRank.textContent =
-      currentUser.rank;
+      if (archiveUserName) {
+        archiveUserName.textContent =
+        currentUser.level > 0
+        ? currentUser.name
+        : "GAST";
+    }
 
-      archiveAccessRank.className =
-      "userTerminalValue";
+      if (archiveAccessRank) {
+        archiveAccessRank.textContent =
+        currentUser.rank;
+
+        archiveAccessRank.className =
+        "userTerminalValue";
 
     const rankClass =
-      `access${capitalizeWord(
+        `access${capitalizeWord(
         currentUser.rank.toLowerCase()
-      )}`;
+        )}`;
 
-      archiveAccessRank.classList.add(
-      rankClass
-    );
+        archiveAccessRank.classList.add(
+        rankClass
+      );
   }
 
   if (archiveUserLevel) {
-      archiveUserLevel.textContent =
+    archiveUserLevel.textContent =
       currentUser.level;
   }
 }

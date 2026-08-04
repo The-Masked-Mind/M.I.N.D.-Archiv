@@ -1790,45 +1790,34 @@ button.maskOverviewCard:hover {
 
 .userTerminalData {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+  margin-top: 14px;
+  border-top: 1px solid rgba(120, 255, 230, 0.15);
+  padding-top: 12px;
+}
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+.userTerminalRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-  gap: 18px;
-
-  margin-top: 10px;
-
-  padding-top: 10px;
-
-  border-top:
-    1px solid rgba(255, 255, 255, 0.08);
+.userTerminalRow.full {
+  grid-column: 1 / -1;
 }
 
 .userTerminalLabel {
-  display: block;
-
-  color: var(--muted);
-
-  font-size: 8px;
-  font-weight: 700;
-
+  font-size: 11px;
   letter-spacing: 2px;
-
+  color: rgba(220, 255, 245, 0.65);
   text-transform: uppercase;
 }
 
 .userTerminalValue {
-  display: block;
-
-  margin-top: 5px;
-
-  color: white;
-
-  font-size: 11px;
-  font-weight: 900;
-
-  letter-spacing: 1px;
-
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
