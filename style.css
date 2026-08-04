@@ -1255,12 +1255,17 @@ button.homeTile:hover {
 #audioToggle {
   display: block;
 
-  width: fit-content;
+  position: absolute;
+
+  left: 50%;
+  top: 74px;
+
+  transform: translateX(-50%);
+
   min-width: 280px;
-
-  margin: 38px auto 0;
-
   padding: 14px 24px;
+
+  z-index: 1000;
 
   color: #a9d8cf;
   background: rgba(5, 25, 25, 0.92);
