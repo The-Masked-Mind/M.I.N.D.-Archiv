@@ -146,8 +146,7 @@ const playlist = [
   "data/sounds/archivmusik39.mp3"
 ];
 
-const audioToggle =
-  document.getElementById("audioToggle");
+
 
 const archiveAudio = new Audio();
 
@@ -194,31 +193,53 @@ function playTrack(index) {
 
 /* Archiv-Audio einschalten */
 function enableArchiveAudio() {
-  if (!audioToggle || playlist.length === 0) return;
+  if (playlist.length === 0) return;
 
   audioIsActive = true;
 
-  audioToggle.textContent =
-    "ARCHIV-AUDIO DEAKTIVIEREN";
+  const button =
+    document.getElementById("audioToggle");
 
-  audioToggle.classList.add("active");
+  if (button) {
+    button.textContent =
+      "ARCHIV-AUDIO DEAKTIVIEREN";
+
+    button.classList.add("active");
+  }
 
   playTrack(getRandomTrackIndex());
 }
 
-
-/* Archiv-Audio ausschalten */
 function disableArchiveAudio() {
   audioIsActive = false;
 
   archiveAudio.pause();
   archiveAudio.currentTime = 0;
 
-  audioToggle.textContent =
-    "ARCHIV-AUDIO AKTIVIEREN";
+  const button =
+    document.getElementById("audioToggle");
 
-  audioToggle.classList.remove("active");
+  if (button) {
+    button.textContent =
+      "ARCHIV-AUDIO AKTIVIEREN";
+
+    button.classList.remove("active");
+  }
 }
+
+
+document.addEventListener("click", event => {
+  const button =
+    event.target.closest("#audioToggle");
+
+  if (!button) return;
+
+  if (audioIsActive) {
+    disableArchiveAudio();
+  } else {
+    enableArchiveAudio();
+  }
+});
 
 /* Nach jedem Titel zufällig einen neuen auswählen */
 archiveAudio.addEventListener("ended", () => {
@@ -227,20 +248,7 @@ archiveAudio.addEventListener("ended", () => {
   playTrack(getRandomTrackIndex());
 });
 
-/* Button als Ein-/Ausschalter */
-if (!audioToggle) {
-  console.error(
-    'Der Button mit der ID "audioToggle" wurde nicht gefunden.'
-  );
-} else {
-  audioToggle.addEventListener("click", () => {
-    if (audioIsActive) {
-      disableArchiveAudio();
-    } else {
-      enableArchiveAudio();
-    }
-  });
-}
+
 
     /* =====================================================
        GRUNDELEMENTE
