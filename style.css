@@ -1798,7 +1798,7 @@ button.maskOverviewCard:hover {
 }
 
 .userTerminalRow {
-  display: flex;
+  display: flex-start;
   flex-direction: column;
   gap: 4px;
 }
