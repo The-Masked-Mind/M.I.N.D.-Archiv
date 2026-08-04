@@ -434,7 +434,7 @@ button {
   display: grid;
 
   grid-template-columns:
-    480px minmax(0, 1fr);
+    360px minmax(0, 1fr);
 
   gap: 18px;
 
@@ -452,7 +452,7 @@ button {
   top: 16px;
 
   align-self: start;
-  width: 480px;
+  width: 360px;
   max-height:
     calc(100vh - 32px);
 
