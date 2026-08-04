@@ -103,6 +103,10 @@ document.addEventListener(
    ARCHIVMUSIK – PLAYLIST
 ===================================================== */
 
+/* =====================================================
+   ARCHIVMUSIK – PLAYLIST UND STEUERUNG
+===================================================== */
+
 const playlist = [
   "data/sounds/archivmusik.mp3",
   "data/sounds/archivmusik1.mp3",
@@ -146,8 +150,6 @@ const playlist = [
   "data/sounds/archivmusik39.mp3"
 ];
 
-
-
 const archiveAudio = new Audio();
 
 archiveAudio.volume = 0.35;
@@ -157,48 +159,88 @@ let currentTrackIndex = -1;
 let audioIsActive = false;
 
 
-/* Zufälligen Titel wählen */
+/* Button immer frisch suchen, weil home.html später geladen wird */
+function getAudioButton() {
+  return document.getElementById("audioToggle");
+}
+
+
+/* Zufälligen Titel auswählen – nicht zweimal direkt denselben */
 function getRandomTrackIndex() {
-  if (playlist.length === 1) return 0;
+  if (playlist.length <= 1) {
+    return 0;
+  }
 
   let newIndex;
 
   do {
-    newIndex = Math.floor(Math.random() * playlist.length);
+    newIndex =
+      Math.floor(Math.random() * playlist.length);
   } while (newIndex === currentTrackIndex);
 
   return newIndex;
 }
 
 
-/* Gewählten Titel laden und abspielen */
-function playTrack(index) {
-  if (!audioIsActive) return;
+/* Titel laden und abspielen */
+async function playTrack(index) {
+  if (!audioIsActive) {
+    return;
+  }
 
   currentTrackIndex = index;
 
-  archiveAudio.src = playlist[currentTrackIndex];
-  archiveAudio.currentTime = 0;
-  archiveAudio.load();
-
-  archiveAudio.play().catch(error => {
-    console.error(
-      "Musik konnte nicht gestartet werden:",
+  /*
+    Erstellt eine vollständige Adresse aus dem relativen Pfad.
+    Das verhindert Probleme mit Unterseiten wie data/home.html.
+  */
+  const trackUrl =
+    new URL(
       playlist[currentTrackIndex],
+      document.baseURI
+    ).href;
+
+  archiveAudio.pause();
+  archiveAudio.src = trackUrl;
+  archiveAudio.currentTime = 0;
+
+  try {
+    await archiveAudio.play();
+
+    console.log(
+      "Archivmusik gestartet:",
+      trackUrl
+    );
+  } catch (error) {
+    console.error(
+      "Archivmusik konnte nicht gestartet werden:",
+      trackUrl,
       error
     );
-  });
+
+    audioIsActive = false;
+
+    const button = getAudioButton();
+
+    if (button) {
+      button.textContent =
+        "AUDIOFEHLER – DATEIPFAD PRÜFEN";
+
+      button.classList.remove("active");
+    }
+  }
 }
 
 
-/* Archiv-Audio einschalten */
+/* Archivmusik einschalten */
 function enableArchiveAudio() {
-  if (playlist.length === 0) return;
+  if (playlist.length === 0) {
+    return;
+  }
 
   audioIsActive = true;
 
-  const button =
-    document.getElementById("audioToggle");
+  const button = getAudioButton();
 
   if (button) {
     button.textContent =
@@ -207,17 +249,20 @@ function enableArchiveAudio() {
     button.classList.add("active");
   }
 
-  playTrack(getRandomTrackIndex());
+  playTrack(
+    getRandomTrackIndex()
+  );
 }
 
+
+/* Archivmusik ausschalten */
 function disableArchiveAudio() {
   audioIsActive = false;
 
   archiveAudio.pause();
   archiveAudio.currentTime = 0;
 
-  const button =
-    document.getElementById("audioToggle");
+  const button = getAudioButton();
 
   if (button) {
     button.textContent =
@@ -228,17 +273,53 @@ function disableArchiveAudio() {
 }
 
 
+/* Funktioniert auch bei später geladenem home.html */
 document.addEventListener("click", event => {
   const button =
     event.target.closest("#audioToggle");
 
-  if (!button) return;
+  if (!button) {
+    return;
+  }
 
   if (audioIsActive) {
     disableArchiveAudio();
   } else {
     enableArchiveAudio();
   }
+});
+
+
+/* Nach jedem Titel wieder einen zufälligen Titel starten */
+archiveAudio.addEventListener("ended", () => {
+  if (!audioIsActive) {
+    return;
+  }
+
+  playTrack(
+    getRandomTrackIndex()
+  );
+});
+
+
+/* Zeigt Lade- oder Dateifehler direkt an */
+archiveAudio.addEventListener("error", () => {
+  const button = getAudioButton();
+
+  console.error(
+    "Fehler beim Laden der Musikdatei:",
+    archiveAudio.src,
+    archiveAudio.error
+  );
+
+  if (button) {
+    button.textContent =
+      "DATEI NICHT GEFUNDEN";
+
+    button.classList.remove("active");
+  }
+
+  audioIsActive = false;
 });
 
 /* Nach jedem Titel zufällig einen neuen auswählen */
