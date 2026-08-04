@@ -1832,19 +1832,20 @@ button.maskOverviewCard:hover {
   text-transform: uppercase;
 }
 
-.accessAlpha {
-  color: var(--red);
+.accessOmega {
+  color: var(--green);
+}
 
-  text-shadow:
-    0 0 12px rgba(255, 60, 60, 0.55);
+.accessAlpha {
+  color: var(--green);
 }
 
 .accessBeta {
-  color: #c46cff;
+  color: var(--green);
 }
 
 .accessGamma {
-  color: var(--cyan);
+  color: var(--green);
 }
 
 .accessDelta {
