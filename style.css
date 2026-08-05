@@ -3123,7 +3123,7 @@ button.maskOverviewCard:hover {
 #contentArea .archiveImage,
 #contentArea .entityImage {
   display: block;
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
   margin: 0 auto;
 }
