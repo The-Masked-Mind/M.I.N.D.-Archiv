@@ -410,8 +410,8 @@ button {
 }
 /* Punkt */
 .onlineDot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
 
   border-radius: 50%;
 
@@ -1809,8 +1809,8 @@ button.maskOverviewCard:hover {
 
 
 .onlineDot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 
   flex-shrink: 0;
 
@@ -1929,13 +1929,12 @@ button.maskOverviewCard:hover {
 
 /* Rangfarben */
 
-.userTerminalValue.accessOmega {
-  color: var(--green);
-}
-
-
+.userTerminalValue.accessOmega,
 .userTerminalValue.accessAlpha {
-  color: var(--red);
+  color: var(--green);
+
+  text-shadow:
+    0 0 10px rgba(69, 255, 117, 0.55);
 }
 
 
@@ -1958,7 +1957,7 @@ button.maskOverviewCard:hover {
 }
 
 .accessAlpha {
-  color: var(--red);
+  color: var(--green);
 }
 
 .accessBeta {
@@ -2985,7 +2984,7 @@ button.maskOverviewCard:hover {
   margin: 34px 0 18px;
   color: var(--red) !important;
   font-family: "Roboto", Arial, sans-serif !important;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: 4px;
@@ -3123,7 +3122,7 @@ button.maskOverviewCard:hover {
 #contentArea .archiveImage,
 #contentArea .entityImage {
   display: block;
-  max-width: 50%;
+  max-width: 100%;
   height: auto;
   margin: 0 auto;
 }
@@ -3158,5 +3157,97 @@ button.maskOverviewCard:hover {
   #contentArea .artifactTitle {
     font-size: 20px;
     letter-spacing: 3px;
+  }
+}
+
+/* =========================================================
+   KORREKTUR V2 – KACHELBREITEN UND INDIVIDUELLE BILDGRÖSSEN
+========================================================= */
+
+/* Die obere Standardreihe mit genau drei Infokacheln nutzt die volle Breite. */
+#contentArea .infoGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  width: 100%;
+}
+
+/* Vierer-Reihen bleiben vier gleich breite Kacheln. */
+#contentArea .artifactInfoGrid,
+#contentArea .archiveInfoGrid,
+#contentArea .entityInfoGrid,
+#contentArea .reportInfoGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  width: 100%;
+}
+
+/* Auch abweichend benannte direkte Kachel-Kinder bekommen denselben Rahmen. */
+#contentArea .infoGrid > div,
+#contentArea .artifactInfoGrid > div,
+#contentArea .archiveInfoGrid > div,
+#contentArea .entityInfoGrid > div,
+#contentArea .reportInfoGrid > div {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+   INDIVIDUELLE BILDGRÖSSEN
+   Klasse direkt am Bild ergänzen, z. B.:
+   <img class="artifactImage imageLarge" ...>
+--------------------------------------------------------- */
+#contentArea img.imageSmall {
+  width: min(100%, 320px) !important;
+}
+
+#contentArea img.imageMedium {
+  width: min(100%, 480px) !important;
+}
+
+#contentArea img.imageLarge {
+  width: min(100%, 680px) !important;
+}
+
+#contentArea img.imageWide {
+  width: min(100%, 900px) !important;
+}
+
+#contentArea img.imageFull {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Freie Größe pro Bild über eine CSS-Variable:
+   <img class="artifactImage imageCustom" style="--image-width: 560px" ...>
+*/
+#contentArea img.imageCustom {
+  width: min(100%, var(--image-width, 480px)) !important;
+}
+
+/* Bildrahmen bleiben immer über die gesamte Inhaltsbreite. */
+#contentArea figure,
+#contentArea .artifactImageFrame,
+#contentArea .archiveImageFrame,
+#contentArea .entityImageFrame,
+#contentArea .imageFrame {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1100px) {
+  #contentArea .infoGrid,
+  #contentArea .artifactInfoGrid,
+  #contentArea .archiveInfoGrid,
+  #contentArea .entityInfoGrid,
+  #contentArea .reportInfoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  #contentArea .infoGrid,
+  #contentArea .artifactInfoGrid,
+  #contentArea .archiveInfoGrid,
+  #contentArea .entityInfoGrid,
+  #contentArea .reportInfoGrid {
+    grid-template-columns: 1fr !important;
   }
 }
