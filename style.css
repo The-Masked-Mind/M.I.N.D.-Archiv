@@ -1931,7 +1931,7 @@ button.maskOverviewCard:hover {
 
 .userTerminalValue.accessOmega,
 .userTerminalValue.accessAlpha {
-  color: #45ff75;
+  color: var(--green);
 
   text-shadow:
     0 0 10px rgba(69, 255, 117, 0.55);
@@ -1939,17 +1939,17 @@ button.maskOverviewCard:hover {
 
 
 .userTerminalValue.accessBeta {
-  color: #5ab8ff;
+  color: var(--cyan);
 }
 
 
 .userTerminalValue.accessGamma {
-  color: #ffd54a;
+  color: var(--yellow);
 }
 
 
 .userTerminalValue.accessDelta {
-  color: #d8d8d8;
+  color: var(--muted);
 }
 
 .accessOmega {
@@ -1961,15 +1961,15 @@ button.maskOverviewCard:hover {
 }
 
 .accessBeta {
-  color: var(--green);
+  color: var(--cyan);
 }
 
 .accessGamma {
-  color: var(--green);
+  color: var(--yellow);
 }
 
 .accessDelta {
-  color: var(--green);
+  color: var(--muted);
 }
 
 
