@@ -458,8 +458,8 @@ button {
 
   border-left: 4px solid #ff3b3b;
   border-top: 1px solid rgba(255, 59, 59, 0.18);
-  border-right: 1px solid rgba(255, 59, 59, 0.18);
-  border-bottom: 1px solid rgba(255, 59, 59, 0.18);
+  /* border-right: 1px solid rgba(255, 59, 59, 0.18); 
+  border-bottom: 1px solid rgba(255, 59, 59, 0.18);*/
 
   padding: 22px;
   box-sizing: border-box;
