@@ -3272,3 +3272,51 @@ button.maskOverviewCard:hover {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* =====================================================
+   FÄHIGKEITEN UNTEREINANDER
+===================================================== */
+
+.archiveSection .infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  width: 100%;
+  margin-top: 20px;
+}
+
+.archiveSection .infoCard {
+  width: 100%;
+
+  padding: 18px 20px;
+
+  border:
+    1px solid rgba(255, 60, 60, 0.24);
+
+  background:
+    rgba(255, 255, 255, 0.018);
+}
+
+.archiveSection .infoCard h3 {
+  margin: 0 0 10px;
+
+  color: var(--red);
+
+  font-size: 16px;
+  font-weight: 900;
+
+  line-height: 1.25;
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.archiveSection .infoCard p {
+  margin: 0;
+
+  color: rgba(245, 245, 245, 0.9);
+
+  font-size: 16px;
+  line-height: 1.65;
+}
