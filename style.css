@@ -2107,26 +2107,23 @@ button.maskOverviewCard:hover {
 }
 
 .bootIdentityValue.alpha {
-  color: var(--red);
-
-  text-shadow:
-    0 0 14px rgba(255, 60, 60, 0.55);
+  color: var(--muted);
 }
 
 .bootIdentityValue.beta {
-  color: var(--green);
+  color: var(--muted);
 }
 
 .bootIdentityValue.gamma {
-  color: var(--green);
+  color: var(--muted);
 }
 
 .bootIdentityValue.delta {
-  color: var(--green);
+  color: var(--muted);
 }
 
 .bootIdentityValue.omega {
-  color: var(--green);
+  color: var(--muted);
 }
 
 .bootIdentityValue.none {
