@@ -452,7 +452,7 @@ button {
   top: 20px;
   align-self: flex-start;
 
-  width: 340px;
+  width: 360px;
   max-height: calc(100vh - 40px);
   overflow-y: auto;
 
