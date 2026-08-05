@@ -1930,13 +1930,12 @@ button.maskOverviewCard:hover {
 
 /* Rangfarben */
 
-.userTerminalValue.accessOmega {
-  color: var(--green);
-}
-
-
+.userTerminalValue.accessOmega,
 .userTerminalValue.accessAlpha {
-  color: var(--red);
+  color: var(--green);
+
+  text-shadow:
+    0 0 10px rgba(69, 255, 117, 0.55);
 }
 
 
@@ -1959,7 +1958,7 @@ button.maskOverviewCard:hover {
 }
 
 .accessAlpha {
-  color: var(--red);
+  color: var(--green);
 }
 
 .accessBeta {
@@ -2885,19 +2884,19 @@ button.maskOverviewCard:hover {
 /* RANGFARBEN */
 
 .commandIdentityValue.rankOmega {
-  color: var(--green);
+  color: var(--muted);
 }
 
 .commandIdentityValue.rankAlpha {
-  color: var(--red);
+  color: var(--muted);
 }
 
 .commandIdentityValue.rankBeta {
-  color: var(--cyan);
+  color: var(--muted);
 }
 
 .commandIdentityValue.rankGamma {
-  color: var(--yellow);
+  color: var(--muted);
 }
 
 .commandIdentityValue.rankDelta {
@@ -2977,36 +2976,29 @@ button.maskOverviewCard:hover {
 .imageCustom {
   width: var(--image-width, 600px);
 }
+
 /* =========================================================
-   EINHEITLICHES DESIGN FÜR ALLE ARCHIVAKTEN
-   Einheitliche rote Überschriften, Roboto-Fließtext,
-   Infokästen und Bildrahmen
+   ARCHIVAKTEN – EINHEITLICHES GRUNDDESIGN
+
+   Dieser Bereich steuert alle geladenen Aktenseiten:
+   - rote Abschnittsüberschriften
+   - einheitliche Fließtexte
+   - Statuskacheln mit 3 Spalten
+   - Grunddatenkacheln mit 4 Spalten
+   - Fähigkeiten untereinander
+   - individuelle Bildgrößen
 ========================================================= */
 
-/* Grundschrift im geladenen Aktenbereich */
-#contentArea,
-#contentArea article,
-#contentArea section,
-#contentArea div,
-#contentArea p,
-#contentArea li,
-#contentArea span {
-  font-family: "Roboto", Arial, sans-serif;
-}
-
-/* Alle Abschnittsüberschriften einheitlich rot */
+/* ---------------------------------------------------------
+   AKTENÜBERSCHRIFTEN
+   Betrifft z. B. ARCHIVBERICHT, BESCHREIBUNG und FÄHIGKEITEN
+--------------------------------------------------------- */
 #contentArea h2,
-#contentArea h3,
-#contentArea h4,
-#contentArea .sectionTitle,
-#contentArea .archiveSectionTitle,
-#contentArea .entitySectionTitle,
-#contentArea .reportTitle,
-#contentArea .artifactTitle {
+#contentArea .archiveSectionTitle {
   margin: 34px 0 18px;
-  color: var(--red) !important;
-  font-family: "Roboto", Arial, sans-serif !important;
-  font-size: 24px;
+  color: var(--red);
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 22px;
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: 4px;
@@ -3014,16 +3006,28 @@ button.maskOverviewCard:hover {
   text-shadow: 0 0 10px rgba(255, 60, 60, 0.28);
 }
 
-/* Fließtext einheitlich */
+/* Kleinere Überschriften innerhalb von Karten */
+#contentArea h3 {
+  margin: 0 0 10px;
+  color: var(--red);
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   FLIESSTEXT
+--------------------------------------------------------- */
 #contentArea p,
 #contentArea li,
 #contentArea .archiveText,
-#contentArea .entityText,
-#contentArea .reportText,
 #contentArea .archiveDocument,
 #contentArea .storyText {
   color: #e7ecee;
-  font-family: "Roboto", Arial, sans-serif !important;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -3034,8 +3038,10 @@ button.maskOverviewCard:hover {
   margin: 0 0 16px;
 }
 
-/* Drop-Cap auf normalen Aktenseiten deaktivieren */
-#contentArea .storyText p:first-child::first-letter {
+/* Der große Anfangsbuchstabe aus den Kapitelseiten bleibt dort erhalten,
+   wird aber auf normalen Aktenseiten nicht zusätzlich erzeugt. */
+#contentArea .archiveSection .storyText p:first-child::first-letter,
+#contentArea .archiveDocument p:first-child::first-letter {
   float: none;
   margin: 0;
   color: inherit;
@@ -3044,57 +3050,42 @@ button.maskOverviewCard:hover {
   text-shadow: none;
 }
 
-/* Informationsfelder vereinheitlichen */
-#contentArea .infoGrid,
-#contentArea .artifactInfoGrid,
-#contentArea .archiveInfoGrid,
-#contentArea .entityInfoGrid,
-#contentArea .reportInfoGrid {
+/* ---------------------------------------------------------
+   STATUSKACHELN – IMMER 3 KACHELN ÜBER DIE VOLLE BREITE
+   Klassen im HTML:
+   statusGrid, statusCard, statusLabel, statusValue
+--------------------------------------------------------- */
+#contentArea .statusGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+  width: 100%;
   margin: 28px 0 34px;
 }
 
-#contentArea .infoBox,
-#contentArea .artifactInfoBox,
-#contentArea .archiveInfoBox,
-#contentArea .entityInfoBox,
-#contentArea .reportInfoBox {
+#contentArea .statusCard {
+  min-width: 0;
   min-height: 84px;
   padding: 15px;
-  box-sizing: border-box;
-  border: 1px solid rgba(255, 60, 60, 0.28) !important;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 60, 60, 0.035),
-    rgba(255, 255, 255, 0.015)
-  );
+  border: 1px solid rgba(52, 217, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
 }
 
-#contentArea .infoLabel,
-#contentArea .artifactInfoLabel,
-#contentArea .archiveInfoLabel,
-#contentArea .entityInfoLabel,
-#contentArea .reportInfoLabel {
+#contentArea .statusLabel,
+#contentArea .detailLabel {
   display: block;
   margin-bottom: 10px;
   color: var(--muted);
-  font-family: "Roboto", Arial, sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-#contentArea .infoValue,
-#contentArea .artifactInfoValue,
-#contentArea .archiveInfoValue,
-#contentArea .entityInfoValue,
-#contentArea .reportInfoValue {
+#contentArea .statusValue,
+#contentArea .detailValue {
   display: block;
   color: white;
-  font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
   font-weight: 900;
   line-height: 1.25;
@@ -3102,30 +3093,78 @@ button.maskOverviewCard:hover {
   text-transform: uppercase;
 }
 
-/* Gefahrenstufen rot */
-#contentArea .dangerValue,
-#contentArea .danger,
-#contentArea .dangerLevel,
-#contentArea .threatLevel,
-#contentArea [data-danger] {
-  color: var(--red) !important;
+/* ---------------------------------------------------------
+   GRUNDDATENKACHELN – IMMER 4 KACHELN
+   Klassen im HTML:
+   detailGrid, detailCard, detailLabel, detailValue
+--------------------------------------------------------- */
+#contentArea .detailGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin: 28px 0 34px;
+}
+
+#contentArea .detailCard {
+  min-width: 0;
+  min-height: 96px;
+  padding: 16px;
+  border: 1px solid rgba(255, 60, 60, 0.28);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 60, 60, 0.035),
+    rgba(255, 255, 255, 0.015)
+  );
+}
+
+/* Farbige Statuswerte */
+#contentArea .statusReleased,
+#contentArea .green {
+  color: var(--green);
+  text-shadow: 0 0 10px rgba(69, 255, 117, 0.35);
+}
+
+#contentArea .dangerValue {
+  color: var(--red);
   text-shadow: 0 0 12px rgba(255, 60, 60, 0.48);
 }
 
-/* Freigegeben grün */
-#contentArea .green,
-#contentArea .statusReleased,
-#contentArea .approved,
-#contentArea .released {
-  color: var(--green) !important;
+/* ---------------------------------------------------------
+   FÄHIGKEITEN – IMMER UNTEREINANDER
+   Klassen im HTML:
+   abilityList und abilityCard
+--------------------------------------------------------- */
+#contentArea .abilityList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  width: 100%;
+  margin: 20px 0 32px;
 }
 
-/* Bilder und Bildrahmen vereinheitlichen */
+#contentArea .abilityCard {
+  width: 100%;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 60, 60, 0.24);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+#contentArea .abilityCard p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* ---------------------------------------------------------
+   BILDER UND BILDRAHMEN
+   Der Rahmen bleibt breit; die Bildklasse bestimmt die Bildgröße.
+--------------------------------------------------------- */
 #contentArea figure,
 #contentArea .artifactImageFrame,
 #contentArea .archiveImageFrame,
-#contentArea .entityImageFrame,
 #contentArea .imageFrame {
+  width: 100%;
   margin: 28px 0 30px;
   padding: 14px;
   border: 1px solid rgba(70, 180, 200, 0.25);
@@ -3140,184 +3179,46 @@ button.maskOverviewCard:hover {
 }
 
 #contentArea img,
-#contentArea .artifactImage,
-#contentArea .archiveImage,
-#contentArea .entityImage {
+#contentArea .artifactImage {
   display: block;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
 }
 
-/* Responsive Infokästen */
+/* Vorgegebene Bildgrößen */
+#contentArea img.imageSmall  { width: min(100%, 320px); }
+#contentArea img.imageMedium { width: min(100%, 480px); }
+#contentArea img.imageLarge  { width: min(100%, 680px); }
+#contentArea img.imageWide   { width: min(100%, 900px); }
+#contentArea img.imageFull   { width: 100%; max-width: none; }
+
+/* Eigene Bildgröße im HTML:
+   class="artifactImage imageCustom"
+   style="--image-width: 560px"
+*/
+#contentArea img.imageCustom {
+  width: min(100%, var(--image-width, 480px));
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE DARSTELLUNG
+--------------------------------------------------------- */
 @media (max-width: 1100px) {
-  #contentArea .infoGrid,
-  #contentArea .artifactInfoGrid,
-  #contentArea .archiveInfoGrid,
-  #contentArea .entityInfoGrid,
-  #contentArea .reportInfoGrid {
+  #contentArea .detailGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 680px) {
-  #contentArea .infoGrid,
-  #contentArea .artifactInfoGrid,
-  #contentArea .archiveInfoGrid,
-  #contentArea .entityInfoGrid,
-  #contentArea .reportInfoGrid {
+  #contentArea .statusGrid,
+  #contentArea .detailGrid {
     grid-template-columns: 1fr;
   }
 
   #contentArea h2,
-  #contentArea h3,
-  #contentArea h4,
-  #contentArea .sectionTitle,
-  #contentArea .archiveSectionTitle,
-  #contentArea .entitySectionTitle,
-  #contentArea .reportTitle,
-  #contentArea .artifactTitle {
-    font-size: 20px;
+  #contentArea .archiveSectionTitle {
+    font-size: 19px;
     letter-spacing: 3px;
   }
-}
-
-/* =========================================================
-   KORREKTUR V2 – KACHELBREITEN UND INDIVIDUELLE BILDGRÖSSEN
-========================================================= */
-
-/* Die obere Standardreihe mit genau drei Infokacheln nutzt die volle Breite. */
-#contentArea .infoGrid {
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  width: 100%;
-}
-
-/* Vierer-Reihen bleiben vier gleich breite Kacheln. */
-#contentArea .artifactInfoGrid,
-#contentArea .archiveInfoGrid,
-#contentArea .entityInfoGrid,
-#contentArea .reportInfoGrid {
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  width: 100%;
-}
-
-/* Auch abweichend benannte direkte Kachel-Kinder bekommen denselben Rahmen. */
-#contentArea .infoGrid > div,
-#contentArea .artifactInfoGrid > div,
-#contentArea .archiveInfoGrid > div,
-#contentArea .entityInfoGrid > div,
-#contentArea .reportInfoGrid > div {
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-/* ---------------------------------------------------------
-   INDIVIDUELLE BILDGRÖSSEN
-   Klasse direkt am Bild ergänzen, z. B.:
-   <img class="artifactImage imageLarge" ...>
---------------------------------------------------------- */
-#contentArea img.imageSmall {
-  width: min(100%, 320px) !important;
-}
-
-#contentArea img.imageMedium {
-  width: min(100%, 480px) !important;
-}
-
-#contentArea img.imageLarge {
-  width: min(100%, 680px) !important;
-}
-
-#contentArea img.imageWide {
-  width: min(100%, 900px) !important;
-}
-
-#contentArea img.imageFull {
-  width: 100% !important;
-  max-width: none !important;
-}
-
-/* Freie Größe pro Bild über eine CSS-Variable:
-   <img class="artifactImage imageCustom" style="--image-width: 560px" ...>
-*/
-#contentArea img.imageCustom {
-  width: min(100%, var(--image-width, 480px)) !important;
-}
-
-/* Bildrahmen bleiben immer über die gesamte Inhaltsbreite. */
-#contentArea figure,
-#contentArea .artifactImageFrame,
-#contentArea .archiveImageFrame,
-#contentArea .entityImageFrame,
-#contentArea .imageFrame {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-@media (max-width: 1100px) {
-  #contentArea .infoGrid,
-  #contentArea .artifactInfoGrid,
-  #contentArea .archiveInfoGrid,
-  #contentArea .entityInfoGrid,
-  #contentArea .reportInfoGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (max-width: 680px) {
-  #contentArea .infoGrid,
-  #contentArea .artifactInfoGrid,
-  #contentArea .archiveInfoGrid,
-  #contentArea .entityInfoGrid,
-  #contentArea .reportInfoGrid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* =====================================================
-   FÄHIGKEITEN UNTEREINANDER
-===================================================== */
-/* Infokarten für Fähigkeiten */
-.archiveSection .infoGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-
-  width: 100%;
-  margin-top: 20px;
-}
-/* einzelne Fähigkeiten */
-.archiveSection .infoCard {
-  width: 100%;
-
-  padding: 18px 20px;
-
-  border:
-    1px solid rgba(255, 60, 60, 0.24);
-
-  background:
-    rgba(255, 255, 255, 0.018);
-}
-/* Fähigkeitsüberschrift */
-.archiveSection .infoCard h3 {
-  margin: 0 0 10px;
-
-  color: var(--red);
-
-  font-size: 14px;
-  font-weight: 900;
-
-  line-height: 1.25;
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-}
-/* Fähigkeitsbeschreibung */
-.archiveSection .infoCard p {
-  margin: 0;
-
-  color: rgba(245, 245, 245, 0.9);
-
-  font-size: 14px;
-  line-height: 1.65;
 }
