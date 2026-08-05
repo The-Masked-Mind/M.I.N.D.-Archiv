@@ -1929,12 +1929,13 @@ button.maskOverviewCard:hover {
 
 /* Rangfarben */
 
-.userTerminalValue.accessOmega,
-.userTerminalValue.accessAlpha {
+.userTerminalValue.accessOmega {
   color: var(--green);
+}
 
-  text-shadow:
-    0 0 10px rgba(69, 255, 117, 0.55);
+
+.userTerminalValue.accessAlpha {
+  color: var(--red);
 }
 
 
@@ -1957,7 +1958,7 @@ button.maskOverviewCard:hover {
 }
 
 .accessAlpha {
-  color: var(--green);
+  color: var(--red);
 }
 
 .accessBeta {
