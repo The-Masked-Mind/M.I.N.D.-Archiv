@@ -1959,7 +1959,7 @@ button.maskOverviewCard:hover {
 }
 
 .accessAlpha {
-  color: var(--green);
+  color: var(--red);
 }
 
 .accessBeta {
@@ -2885,19 +2885,19 @@ button.maskOverviewCard:hover {
 /* RANGFARBEN */
 
 .commandIdentityValue.rankOmega {
-  color: var(--muted);
+  color: var(--green);
 }
 
 .commandIdentityValue.rankAlpha {
-  color: var(--muted);
+  color: var(--red);
 }
 
 .commandIdentityValue.rankBeta {
-  color: var(--muted);
+  color: var(--cyan);
 }
 
 .commandIdentityValue.rankGamma {
-  color: var(--muted);
+  color: var(--yellow);
 }
 
 .commandIdentityValue.rankDelta {
