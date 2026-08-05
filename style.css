@@ -3202,3 +3202,84 @@ button.maskOverviewCard:hover {
     letter-spacing: 3px;
   }
 }
+
+/* =====================================================
+   RITUALTEXT UND BESCHWÖRUNGSFORMELN
+===================================================== */
+
+.ritualBlock {
+  margin: 42px 0;
+  padding: 30px;
+
+  border: 1px solid rgba(75, 225, 225, 0.28);
+  border-left: 4px solid var(--cyan);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 220, 220, 0.05),
+      rgba(0, 0, 0, 0.25)
+    );
+
+  text-align: center;
+}
+
+.ritualBlockDanger {
+  border-color: rgba(255, 55, 55, 0.35);
+  border-left-color: var(--red);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 45, 45, 0.06),
+      rgba(0, 0, 0, 0.28)
+    );
+}
+
+.ritualLabel {
+  margin-bottom: 24px;
+
+  color: var(--red);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.ritualText {
+  color: #ffffff;
+
+  font-family: Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.9;
+  letter-spacing: 1px;
+}
+
+.ritualTranslation {
+  margin-top: 24px;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: rgba(215, 225, 228, 0.78);
+  font-family: Georgia, serif;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   LAUT GESPROCHENE ODER GESCHRIENE DIALOGE
+===================================================== */
+
+.storyDialogueLoud {
+  border-left-color: var(--red);
+  color: var(--red);
+
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
