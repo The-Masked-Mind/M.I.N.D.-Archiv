@@ -450,14 +450,6 @@ button {
    LINKES MENÜ BEIM START NACH OBEN SETZEN
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const sideMenu = document.querySelector(".sideMenu");
-
-  if (sideMenu) {
-    sideMenu.scrollTop = 0;
-  }
-});
-
 .sideMenu {
   position: sticky;
   top: 20px;
