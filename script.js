@@ -386,46 +386,6 @@ archiveAudio.addEventListener("ended", () => {
       ];
 
 
-    /* =====================================================
-       FESTE ZUGANGSCODES
-    ===================================================== */
-
-    const accessCodes = {
-
-
-      "TEST-DELTA-1": {
-        name:
-          "TESTZUSCHAUER",
-        level:
-          1
-      },
-
-
-      "TEST-DELTA-2": {
-        name:
-          "TESTZUSCHAUER LEVEL 2",
-        level:
-          2
-      },
-
-
-      "TEST-GAMMA-10": {
-        name:
-          "TESTZUSCHAUER GAMMA",
-        level:
-          10
-      },
-
-
-      "TEST-BETA-20": {
-        name:
-          "TESTZUSCHAUER BETA",
-        level:
-          20
-      }
-
-    };
-
 
     /* =====================================================
        RANGDATEN
