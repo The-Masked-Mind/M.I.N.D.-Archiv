@@ -3009,7 +3009,7 @@ button.maskOverviewCard:hover {
 /* Kleinere Überschriften innerhalb von Karten */
 #contentArea h3 {
   margin: 0 0 10px;
-  color: var(--red);
+  color: var(--cyan);
   font-family: "Roboto", Arial, sans-serif;
   font-size: 15px;
   font-weight: 900;
