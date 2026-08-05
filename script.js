@@ -392,53 +392,6 @@ archiveAudio.addEventListener("ended", () => {
 
     const accessCodes = {
 
-      "TMM-OMEGA-7K4P": {
-        name:
-          "THE_MASKED_MIND",
-        level:
-          100,
-        title:
-          "Schöpfer des Archivs",
-        motto:
-          "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
-      },
-
-
-      "SCHNIN-ALPHA-9Q2M": {
-        name:
-          "SCHNIN",
-        level:
-          99,
-        title:
-          "Hüterin des Archivs",
-        motto:
-          "Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren."
-      },
-
-
-      "DANFEL-ALPHA-9K1P": {
-        name:
-          "DANA UND FELIX",
-        level:
-          99,
-        title:
-          "Hüter des Archivs",
-        motto:
-          "Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren."
-      },
-
-
-      "BIASCH-ALPHA-4B8W": {
-        name:
-          "BIA UND SCHORSCHI",
-        level:
-          99,
-        title:
-          "Hüter des Archivs",
-        motto:
-          "Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren."
-      },
-
 
       "TEST-DELTA-1": {
         name:
@@ -669,23 +622,6 @@ archiveAudio.addEventListener("ended", () => {
               ) || 1
           });
       }
-
-
-      /*
-        Feste Codes für dich,
-        Schnin und Tests
-      */
-
-      else if (
-        code &&
-        accessCodes[code]
-      ) {
-        currentUser =
-          createUserProfile(
-            accessCodes[code]
-          );
-      }
-
 
       updateUserTerminal();
       updateMenuAccess();
