@@ -446,17 +446,25 @@ button {
    MENÜ LINKS
 ========================= */
 /* linker Kasten */
-.sideMenu {
+/* =====================================================
+   LINKES ARCHIVMENÜ
+
+   Beginnt immer oben am Anfang des Inhalts.
+   Beim Scrollen bleibt es oben stehen.
+===================================================== */
+
+.sideMenü {
   position: sticky;
+  top: 20px;
+  align-self: flex-start;
 
-  top: 16px;
+  /* Alte Zentrierung vollständig entfernen */
+  transform: none;
 
-  align-self: start;
-  width: 360px;
-  max-height:
-    calc(100vh - 32px);
-
+  /* Das Menü kann innerhalb seiner Fläche scrollen */
+  max-height: calc(100vh - 40px);
   overflow-y: auto;
+}
 
   padding:
     24px 18px;
