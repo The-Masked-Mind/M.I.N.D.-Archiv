@@ -1754,33 +1754,52 @@ button.maskOverviewCard:hover {
   }
 }
 
-/* =========================================================
-   BENUTZERTERMINAL
-========================================================= */
+/* =====================================================
+   BENUTZERTERMINAL OBEN RECHTS
+===================================================== */
 
 .userTerminal {
-  min-width: 290px;
+  width: 340px;
 
-  padding:
-    10px 15px;
+  padding: 14px 18px 16px;
 
-  border:
-    1px solid rgba(52, 217, 255, 0.18);
+  box-sizing: border-box;
 
   background:
-    rgba(255, 255, 255, 0.02);
+    linear-gradient(
+      90deg,
+      rgba(4, 14, 15, 0.97),
+      rgba(8, 25, 27, 0.94)
+    );
+
+  border:
+    1px solid rgba(70, 205, 190, 0.35);
+
+  box-shadow:
+    inset 0 0 18px rgba(50, 210, 200, 0.05),
+    0 0 18px rgba(0, 0, 0, 0.38);
 }
+
+
+/* Oberer Systembereich */
+
+.userTerminalHeader {
+  padding-bottom: 10px;
+
+  border-bottom:
+    1px solid rgba(100, 220, 205, 0.16);
+}
+
 
 .userTerminalStatus {
   display: flex;
-
   align-items: center;
 
   gap: 9px;
 
-  color: var(--green);
+  color: #45ff75;
 
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
 
   letter-spacing: 2px;
@@ -1788,37 +1807,149 @@ button.maskOverviewCard:hover {
   text-transform: uppercase;
 }
 
-.userTerminalData {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 20px;
-  margin-top: 14px;
-  border-top: 1px solid rgba(120, 255, 230, 0.15);
-  padding-top: 12px;
+
+.onlineDot {
+  width: 10px;
+  height: 10px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #45ff75;
+
+  box-shadow:
+    0 0 8px #45ff75,
+    0 0 18px rgba(69, 255, 117, 0.65);
 }
 
-.userTerminalRow {
-  display: flex-start;
+
+.systemHeaderText {
+  margin-top: 7px;
+
+  color:
+    rgba(205, 235, 230, 0.7);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* Unterer Benutzerbereich */
+
+.userTerminalBody {
+  padding-top: 10px;
+}
+
+
+/* Benutzername oben */
+
+.userTerminalUser {
+  display: flex;
   flex-direction: column;
+
+  align-items: flex-start;
+
   gap: 4px;
 }
 
-.userTerminalRow.full {
-  grid-column: 1 / -1;
+
+.userTerminalName {
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.12);
 }
+
+
+/* Rang und Level darunter */
+
+.userTerminalStats {
+  margin-top: 12px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 24px;
+}
+
+
+.userTerminalField {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 4px;
+}
+
+
+/* Kleine Beschriftungen */
 
 .userTerminalLabel {
-  font-size: 11px;
+  color:
+    rgba(190, 225, 220, 0.72);
+
+  font-size: 9px;
+  font-weight: 700;
+
   letter-spacing: 2px;
-  color: rgba(220, 255, 245, 0.65);
+
   text-transform: uppercase;
 }
 
+
+/* Werte */
+
 .userTerminalValue {
-  font-size: 16px;
-  font-weight: 800;
   color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 900;
+
+  line-height: 1;
+
   text-transform: uppercase;
+}
+
+
+/* Rangfarben */
+
+.userTerminalValue.accessOmega,
+.userTerminalValue.accessAlpha {
+  color: #45ff75;
+
+  text-shadow:
+    0 0 10px rgba(69, 255, 117, 0.55);
+}
+
+
+.userTerminalValue.accessBeta {
+  color: #5ab8ff;
+}
+
+
+.userTerminalValue.accessGamma {
+  color: #ffd54a;
+}
+
+
+.userTerminalValue.accessDelta {
+  color: #d8d8d8;
 }
 
 .accessOmega {
