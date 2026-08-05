@@ -2931,19 +2931,19 @@ button.maskOverviewCard:hover {
 }
 
 .imageSmall {
-  width: 280px;
+  width: 240px;
 }
 
 .imageMedium {
-  width: 480px;
+  width: 360px;
 }
 
 .imageLarge {
-  width: 680px;
+  width: 480px;
 }
 
 .imageWide {
-  width: 900px;
+  width: 600px;
 }
 
 .imageFull {
