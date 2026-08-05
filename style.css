@@ -2237,23 +2237,23 @@ button.maskOverviewCard:hover {
   text-transform: uppercase;
 }
 
+.bootIdentityValue.omega {
+  color: var(--green);
+}
+
 .bootIdentityValue.alpha {
-  color: var(--muted);
+  color: var(--red);
 }
 
 .bootIdentityValue.beta {
-  color: var(--muted);
+  color: var(--cyan);
 }
 
 .bootIdentityValue.gamma {
-  color: var(--muted);
+  color: var(--yellow);
 }
 
 .bootIdentityValue.delta {
-  color: var(--muted);
-}
-
-.bootIdentityValue.omega {
   color: var(--muted);
 }
 
