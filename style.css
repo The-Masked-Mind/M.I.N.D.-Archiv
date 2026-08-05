@@ -446,11 +446,22 @@ button {
 /* =====================================================
    LINKES MENÜ – SAUBERE GRUNDFASSUNG
 ===================================================== */
+/* =====================================================
+   LINKES MENÜ BEIM START NACH OBEN SETZEN
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sideMenu = document.querySelector(".sideMenu");
+
+  if (sideMenu) {
+    sideMenu.scrollTop = 0;
+  }
+});
 
 .sideMenu {
   position: sticky;
   top: 20px;
-  align-self: normal;
+  align-self: start;
 
   width: 400px;
   max-height: calc(100vh - 40px);
