@@ -3276,7 +3276,7 @@ button.maskOverviewCard:hover {
 /* =====================================================
    FÄHIGKEITEN UNTEREINANDER
 ===================================================== */
-
+/* Infokarten für Fähigkeiten */
 .archiveSection .infoGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -3285,7 +3285,7 @@ button.maskOverviewCard:hover {
   width: 100%;
   margin-top: 20px;
 }
-
+/* einzelne Fähigkeiten */
 .archiveSection .infoCard {
   width: 100%;
 
@@ -3297,13 +3297,13 @@ button.maskOverviewCard:hover {
   background:
     rgba(255, 255, 255, 0.018);
 }
-
+/* Fähigkeitsüberschrift */
 .archiveSection .infoCard h3 {
   margin: 0 0 10px;
 
   color: var(--red);
 
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 900;
 
   line-height: 1.25;
@@ -3311,12 +3311,12 @@ button.maskOverviewCard:hover {
 
   text-transform: uppercase;
 }
-
+/* Fähigkeitsbeschreibung */
 .archiveSection .infoCard p {
   margin: 0;
 
   color: rgba(245, 245, 245, 0.9);
 
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.65;
 }
