@@ -3283,3 +3283,14 @@ button.maskOverviewCard:hover {
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
+
+.storyDialogue {
+  border-left-color: var(--cyan);
+  color: var(--cyan);
+
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
