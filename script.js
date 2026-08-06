@@ -888,13 +888,15 @@ archiveAudio.addEventListener("ended", () => {
         updateDynamicPageInformation();
         updatePageTileAccess();
 
-        window.scrollTo({
-          top:
-            0,
-
-          behavior:
-            "smooth"
-        });
+        /* Auf Handy und Tablet nach dem Laden zum Artikel springen */
+if (window.matchMedia("(max-width: 960px)").matches) {
+  requestAnimationFrame(() => {
+    contentArea.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+}
 
         return true;
 
@@ -1442,35 +1444,3 @@ archiveAudio.addEventListener("ended", () => {
   }
 );
 
-/* =====================================================
-   HANDY: NACH MENÜKLICK AUTOMATISCH ZUM ARTIKEL SCROLLEN
-
-   Auf großen Bildschirmen passiert nichts.
-   Auf Handy und Tablet springt die Seite nach dem Laden
-   der Akte automatisch zum rechten Inhaltsbereich.
-===================================================== */
-
-document.addEventListener("click", (event) => {
-  const menuButton = event.target.closest(".menuButton");
-
-  if (!menuButton) {
-    return;
-  }
-
-  if (!window.matchMedia("(max-width: 960px)").matches) {
-    return;
-  }
-
-  const contentArea = document.querySelector("#contentArea");
-
-  if (!contentArea) {
-    return;
-  }
-
-  setTimeout(() => {
-    contentArea.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }, 150);
-});
