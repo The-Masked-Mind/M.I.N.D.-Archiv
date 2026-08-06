@@ -1441,3 +1441,36 @@ archiveAudio.addEventListener("ended", () => {
 
   }
 );
+
+/* =====================================================
+   HANDY: NACH MENÜKLICK AUTOMATISCH ZUM ARTIKEL SCROLLEN
+
+   Auf großen Bildschirmen passiert nichts.
+   Auf Handy und Tablet springt die Seite nach dem Laden
+   der Akte automatisch zum rechten Inhaltsbereich.
+===================================================== */
+
+document.addEventListener("click", (event) => {
+  const menuButton = event.target.closest(".menuButton");
+
+  if (!menuButton) {
+    return;
+  }
+
+  if (!window.matchMedia("(max-width: 960px)").matches) {
+    return;
+  }
+
+  const contentArea = document.querySelector("#contentArea");
+
+  if (!contentArea) {
+    return;
+  }
+
+  setTimeout(() => {
+    contentArea.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 150);
+});

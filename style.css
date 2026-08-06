@@ -3281,3 +3281,11 @@ button.maskOverviewCard:hover {
   text-shadow:
     0 0 14px rgba(255, 60, 60, 0.35);
 }
+
+/* =====================================================
+   ABSTAND BEIM AUTOMATISCHEN SPRUNG ZUM ARTIKEL
+===================================================== */
+
+#contentArea {
+  scroll-margin-top: 16px;
+}
