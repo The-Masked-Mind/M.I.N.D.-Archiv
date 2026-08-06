@@ -848,99 +848,61 @@ archiveAudio.addEventListener("ended", () => {
 
 
     /* =====================================================
-       HTML-DATEI LADEN
-    ===================================================== */
-
-    async function loadPage(
-      filePath
-    ) {
-      if (
-        !contentArea ||
-        !filePath
-      ) {
-        return false;
-      }
-
-      try {
-        const separator =
-          filePath.includes("?")
-            ? "&"
-            : "?";
-
-        const response =
-          await fetch(
-            `${filePath}${separator}v=${Date.now()}`
-          );
-
-        if (!response.ok) {
-          throw new Error(
-            `Datei nicht gefunden: ${filePath}`
-          );
-        }
-
-        const html =
-          await response.text();
-
-        contentArea.innerHTML =
-          html;
-
-        connectPageButtons();
-        updateDynamicPageInformation();
-        updatePageTileAccess();
-        scrollToContentOnMobile();
-
-        /* Auf Handy und Tablet nach dem Laden zum Artikel springen */
-       if (window.matchMedia("(max-width: 960px)").matches) {
-         requestAnimationFrame(() => {
-        });
-       }
-/* =====================================================
-   HANDY: ZUVERLÄSSIG ZUM INHALTSBEREICH SPRINGEN
-
-   Der Sprung wird mehrmals kurz überprüft, weil mobile
-   Browser den Seitenaufbau manchmal verzögert berechnen.
+   HTML-DATEI LADEN
 ===================================================== */
 
-function scrollToContentOnMobile() {
+async function loadPage(filePath) {
   if (
-    !window.matchMedia("(max-width: 960px)").matches ||
-    !contentArea
+    !contentArea ||
+    !filePath
   ) {
-    return;
+    return false;
   }
 
-  const performScroll = () => {
-    const contentPosition =
-      contentArea.getBoundingClientRect().top +
-      window.scrollY -
-      16;
-  };
+  try {
+    const separator =
+      filePath.includes("?")
+        ? "&"
+        : "?";
 
-  /* Nach dem Einfügen des Artikels */
-  requestAnimationFrame(() => {
-    requestAnimationFrame(performScroll);
-  });
+    const response =
+      await fetch(
+        `${filePath}${separator}v=${Date.now()}`
+      );
 
-  /* Sicherheitswiederholungen für langsame Handys */
-  setTimeout(performScroll, 150);
-  setTimeout(performScroll, 400);
-}
-        return true;
-
-      } catch (error) {
-        console.error(
-          "M.I.N.D.-Archivfehler:",
-          error
-        );
-
-        showFileError(
-          filePath
-        );
-
-        return false;
-      }
+    if (!response.ok) {
+      throw new Error(
+        `Datei nicht gefunden: ${filePath}`
+      );
     }
 
+    const html =
+      await response.text();
+
+    contentArea.innerHTML =
+      html;
+
+    connectPageButtons();
+    updateDynamicPageInformation();
+    updatePageTileAccess();
+
+    return true;
+
+  } catch (error) {
+    console.error(
+      "M.I.N.D.-Archivfehler:",
+      error
+    );
+
+    showFileError(
+      filePath
+    );
+
+    return false;
+  }
+}
+
+    
 
     /* =====================================================
        DYNAMISCHE SEITENINFORMATIONEN
@@ -1263,7 +1225,7 @@ function scrollToContentOnMobile() {
           "smooth"
       });
     }
-scrollToContentOnMobile();
+
 
     /* =====================================================
        DATEIFEHLER
