@@ -3248,3 +3248,12 @@ button.maskOverviewCard:hover {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
+#contentArea .archiveDocument p:first-child::first-letter {
+  float: none;
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-shadow: none;
+}
