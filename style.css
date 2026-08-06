@@ -89,25 +89,6 @@ button {
   background: rgba(8, 42, 36, 0.98);
 }
 
-#audioToggle {
-  color: #a9d8cf;
-  background: rgba(5, 25, 25, 0.9);
-  border: 1px solid #4fc9b5;
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-#audioToggle.active {
-  color: #ff6b6b;
-  border-color: #ff4545;
-
-  box-shadow:
-    0 0 10px rgba(255, 69, 69, 0.55),
-    inset 0 0 12px rgba(255, 69, 69, 0.08);
-}
-
 /* =========================
    STARTBILDSCHIRM
 ========================= */
@@ -409,22 +390,6 @@ button {
   text-transform: uppercase;
 }
 /* Punkt */
-.onlineDot {
-  width: 9px;
-  height: 9px;
-
-  border-radius: 50%;
-
-  background: var(--green);
-
-  box-shadow:
-    0 0 10px var(--green),
-    0 0 24px rgba(69, 255, 117, 0.65);
-
-  animation:
-    onlinePulse 1.4s ease-in-out infinite;
-}
-
 
 /* =========================
    SEITENAUFTEILUNG
@@ -434,7 +399,7 @@ button {
   display: grid;
 
   grid-template-columns:
-    360px minmax(0, 1fr);
+    400px minmax(0, 1fr);
 
   gap: 18px;
 
@@ -444,10 +409,11 @@ button {
 
 
 /* =====================================================
-   LINKES MENÜ – SAUBERE GRUNDFASSUNG
-===================================================== */
-/* =====================================================
-   LINKES MENÜ BEIM START NACH OBEN SETZEN
+   LINKES MENÜ
+
+   - bleibt beim Scrollen sichtbar
+   - beginnt oben
+   - besitzt einen eigenen Scrollbalken
 ===================================================== */
 
 .sideMenu {
@@ -659,7 +625,7 @@ button {
   display: grid;
 
   grid-template-columns:
-    repeat(3, minmax(3, 1fr));
+    repeat(3, minmax(0, 1fr));
 
   gap: 12px;
   width: 100%;
@@ -1291,7 +1257,7 @@ button.homeTile:hover {
 .artifactInfoGrid {
   display: grid;
   grid-template-columns:
-    repeat(4, minmax(4, 1fr));
+    repeat(4, minmax(0, 1fr));
   gap: 12px;
   width: 100%;
   margin: 28px 0 34px;
@@ -1415,7 +1381,7 @@ button.homeTile:hover {
   margin:
     0 0 22px;
 
-  color: var(--cyan);
+  color: var(--red);
 
   font-family:
     "Roboto",
@@ -1796,27 +1762,16 @@ button.maskOverviewCard:hover {
 
   border-radius: 50%;
 
-  background: #45ff75;
+  background: var(--green);
 
   box-shadow:
-    0 0 8px #45ff75,
-    0 0 18px rgba(69, 255, 117, 0.65);
+    0 0 10px var(--green),
+    0 0 24px rgba(69, 255, 117, 0.65);
+
+  animation:
+    onlinePulse 1.4s ease-in-out infinite;
 }
 
-
-.systemHeaderText {
-  margin-top: 7px;
-
-  color:
-    rgba(205, 235, 230, 0.7);
-
-  font-size: 9px;
-  font-weight: 700;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-}
 
 
 /* Unterer Benutzerbereich */
@@ -2912,50 +2867,6 @@ button.maskOverviewCard:hover {
   text-transform: uppercase;
 }
 
-.artifactImageFrame {
-  margin: 28px 0 30px 0;
-  padding: 14px;
-  border: 1px solid rgba(70, 180, 200, 0.25);
-  background: linear-gradient(
-    180deg,
-    rgba(8, 18, 22, 0.95),
-    rgba(4, 10, 12, 0.98)
-  );
-  box-shadow:
-    0 0 0 1px rgba(255, 60, 60, 0.08),
-    0 0 24px rgba(0, 0, 0, 0.35);
-}
-
-.artifactImage {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-}
-
-.imageSmall {
-  width: 240px;
-}
-
-.imageMedium {
-  width: 360px;
-}
-
-.imageLarge {
-  width: 480px;
-}
-
-.imageWide {
-  width: 600px;
-}
-
-.imageFull {
-  width: 100%;
-}
-
-.imageCustom {
-  width: var(--image-width, 600px);
-}
 
 /* =========================================================
    ARCHIVAKTEN – EINHEITLICHES GRUNDDESIGN
@@ -3268,29 +3179,72 @@ button.maskOverviewCard:hover {
   line-height: 1.8;
 }
 
-
 /* =====================================================
-   LAUT GESPROCHENE ODER GESCHRIENE DIALOGE
+   DIALOGE IN DEN EPISODEN
 ===================================================== */
 
-.storyDialogueLoud {
-  border-left-color: var(--red);
-  color: var(--red);
+/* Normal gesprochener Dialog */
+.storyDialogue {
+  margin: 22px 0;
+  padding: 12px 0 12px 18px;
+
+  border-left: 3px solid var(--cyan);
+
+  color: var(--cyan);
 
   font-family: Arial, sans-serif;
+  font-size: 1rem;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 600;
+
+  line-height: 1.6;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
-.storyDialogue {
-  border-left-color: var(--cyan);
-  color: var(--cyan);
+/* Laut gesprochener oder geschriener Dialog */
+.storyDialogueLoud {
+  border-left-color: var(--red);
+  color: var(--red);
 
-  font-family: Arial, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  font-weight: 900;
+}
+
+
+/* =====================================================
+   ENDE EINER EPISODE
+===================================================== */
+
+.episodeEnd {
+  margin-top: 60px;
+  padding: 26px;
+
+  border-top: 1px solid rgba(255, 59, 59, 0.7);
+  border-bottom: 1px solid rgba(255, 59, 59, 0.25);
+
+  background: rgba(255, 40, 40, 0.035);
+
+  text-align: center;
+}
+
+.episodeEndLabel {
+  margin-bottom: 10px;
+
+  color: var(--red);
+
+  font-size: 0.72rem;
+  font-weight: 900;
+
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.episodeEndTitle {
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 800;
+
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
