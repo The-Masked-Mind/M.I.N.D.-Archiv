@@ -3249,11 +3249,35 @@ button.maskOverviewCard:hover {
   text-transform: uppercase;
 }
 
-#contentArea .archiveDocument p:first-child::first-letter {
-  float: none;
-  margin: 0;
-  color: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  text-shadow: none;
+/* =====================================================
+   GROSSER ANFANGSBUCHSTABE DER EPISODE
+
+   Betrifft nur:
+   - den ersten storyText-Bereich
+   - den ersten Absatz darin
+   - den ersten Buchstaben dieses Absatzes
+===================================================== */
+
+#contentArea
+.archiveDocument
+> .storyText:first-of-type
+> p:first-of-type::first-letter {
+  float: left;
+
+  margin: 0.06em 0.14em 0 0;
+
+  color: var(--red);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 4.7em;
+  font-weight: 700;
+
+  line-height: 0.78;
+
+  text-shadow:
+    0 0 14px rgba(255, 60, 60, 0.35);
 }
