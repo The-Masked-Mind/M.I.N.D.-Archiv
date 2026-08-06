@@ -887,17 +887,44 @@ archiveAudio.addEventListener("ended", () => {
         connectPageButtons();
         updateDynamicPageInformation();
         updatePageTileAccess();
+        scrollToContentOnMobile();
 
         /* Auf Handy und Tablet nach dem Laden zum Artikel springen */
-if (window.matchMedia("(max-width: 960px)").matches) {
-  requestAnimationFrame(() => {
-    contentArea.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  });
-}
+       if (window.matchMedia("(max-width: 960px)").matches) {
+         requestAnimationFrame(() => {
+        });
+       }
+/* =====================================================
+   HANDY: ZUVERLÄSSIG ZUM INHALTSBEREICH SPRINGEN
 
+   Der Sprung wird mehrmals kurz überprüft, weil mobile
+   Browser den Seitenaufbau manchmal verzögert berechnen.
+===================================================== */
+
+function scrollToContentOnMobile() {
+  if (
+    !window.matchMedia("(max-width: 960px)").matches ||
+    !contentArea
+  ) {
+    return;
+  }
+
+  const performScroll = () => {
+    const contentPosition =
+      contentArea.getBoundingClientRect().top +
+      window.scrollY -
+      16;
+  };
+
+  /* Nach dem Einfügen des Artikels */
+  requestAnimationFrame(() => {
+    requestAnimationFrame(performScroll);
+  });
+
+  /* Sicherheitswiederholungen für langsame Handys */
+  setTimeout(performScroll, 150);
+  setTimeout(performScroll, 400);
+}
         return true;
 
       } catch (error) {
@@ -1236,7 +1263,7 @@ if (window.matchMedia("(max-width: 960px)").matches) {
           "smooth"
       });
     }
-
+scrollToContentOnMobile();
 
     /* =====================================================
        DATEIFEHLER
