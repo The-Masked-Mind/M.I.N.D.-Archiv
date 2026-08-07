@@ -634,6 +634,32 @@ archiveAudio.addEventListener("ended", () => {
       );
     }
 
+     /* Schloss-Symbol für gesperrte Akten */
+      let lockIcon =
+        button.querySelector(".menuLockIcon");
+
+      if (!hasAccess) {
+
+      if (!lockIcon) {
+        lockIcon =
+        document.createElement("span");
+
+        lockIcon.className =
+        "menuLockIcon";
+
+        lockIcon.textContent =
+        "🔒";
+
+       button.appendChild(lockIcon);
+     }
+
+    } else {
+
+      if (lockIcon) {
+        lockIcon.remove();
+    }
+
+   }
 
     /* =====================================================
        STARTSEQUENZ

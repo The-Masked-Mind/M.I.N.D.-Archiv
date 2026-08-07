@@ -3248,3 +3248,28 @@ button.maskOverviewCard:hover {
   font-size: 0.9em;
   opacity: 0.8;
 }
+
+/* =====================================================
+   SCHLOSS BEI GESPERRTEN AKTEN
+===================================================== */
+
+.menuButton {
+  position: relative;
+}
+
+.menuButton.locked {
+  padding-right: 46px;
+}
+
+.menuLockIcon {
+  position: absolute;
+
+  right: 14px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 16px;
+
+  pointer-events: none;
+}
