@@ -1129,12 +1129,16 @@ Eine vollständige Version wäre:
 ## Abstände
 
 ```css
-margin: 20px;
+margin: 20px 7px 74px 32px;     oben – rechts – unten – links
+margin: 20px 7px                oben/unten - rechts/links
+margin: 20px                    alles gleich
 ```
 Abstand außerhalb eines Elements.
 
 ```css
-padding: 20px;
+padding: 20px 2px 7px 92px;      oben – rechts – unten – links
+padding: 20px 7px                oben/unten - rechts/links
+padding: 20px                    alles gleich
 ```
 Abstand innerhalb eines Elements.
 
