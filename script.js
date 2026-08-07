@@ -828,6 +828,60 @@ archiveAudio.addEventListener("ended", () => {
     }
 
 
+/* =====================================================
+   HANDY – NACH DEM LADEN ZUM INHALT SPRINGEN
+===================================================== */
+
+function scrollToContentOnMobile() {
+
+  /* Nur auf Handy und Tablet ausführen */
+  if (
+    !window.matchMedia("(max-width: 960px)").matches ||
+    !contentArea
+  ) {
+    return;
+  }
+
+  /*
+    Kurz warten, damit der neue Inhalt zuerst
+    vollständig in die Seite eingesetzt werden kann.
+  */
+  setTimeout(() => {
+
+    const position =
+      contentArea.getBoundingClientRect().top +
+      window.scrollY -
+      12;
+
+    window.scrollTo({
+      top: position,
+      behavior: "smooth"
+    });
+
+  }, 100);
+
+
+  /*
+    Sicherheitskorrektur:
+    Falls Bilder oder andere Elemente die Seite
+    nachträglich verschieben, wird die Position
+    noch einmal korrigiert.
+  */
+  setTimeout(() => {
+
+    const position =
+      contentArea.getBoundingClientRect().top +
+      window.scrollY -
+      12;
+
+    window.scrollTo({
+      top: position,
+      behavior: "auto"
+    });
+
+  }, 600);
+}
+
     /* =====================================================
    HTML-DATEI LADEN
 ===================================================== */
@@ -866,6 +920,8 @@ async function loadPage(filePath) {
     connectPageButtons();
     updateDynamicPageInformation();
     updatePageTileAccess();
+    /* Auf dem Handy automatisch zum geöffneten Inhalt springen */
+    scrollToContentOnMobile();
 
     return true;
 
@@ -1198,13 +1254,8 @@ async function loadPage(filePath) {
         </div>
       `;
 
-      window.scrollTo({
-        top:
-          0,
-
-        behavior:
-          "smooth"
-      });
+      /* Auch bei gesperrten Akten zum Inhaltsbereich springen */
+      scrollToContentOnMobile();
     }
 
 
