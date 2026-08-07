@@ -361,7 +361,7 @@ button {
   display: grid;
 
   grid-template-columns:
-    400px minmax(0, 1fr);
+    380px minmax(0, 1fr);
 
   gap: 18px;
 
