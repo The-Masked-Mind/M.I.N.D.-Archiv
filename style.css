@@ -3133,8 +3133,8 @@ button.maskOverviewCard:hover {
 
 /* Normal gesprochener Dialog */
 .storyDialogue {
-  margin: 8px 0;
-  padding: 8px 0 8px 18px;
+  margin: 4px 0;
+  padding: 4px 0 4px 18px;
 
   border-left: 3px solid var(--cyan);
 
