@@ -3259,3 +3259,7 @@ button.maskOverviewCard:hover {
   font-size: 0.85em;
   opacity: 0.9;
 }
+
+#contentArea article.storyText > p {
+  margin: 0.25em 0;
+}
