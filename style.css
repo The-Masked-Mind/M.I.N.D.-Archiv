@@ -644,7 +644,7 @@ button {
 ========================= */
 /* Jeder Absatz */
 .storyText {
-  padding-top: 8px;
+  padding-top: 4px;
 
   border-top:
     1px solid rgba(255, 255, 255, 0.1);
