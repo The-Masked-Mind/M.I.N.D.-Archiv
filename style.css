@@ -3237,3 +3237,14 @@ button.maskOverviewCard:hover {
 #contentArea {
   scroll-margin-top: 16px;
 }
+
+/* =====================================================
+   SCHLOSS-SYMBOL BEI GESPERRTEN AKTEN
+===================================================== */
+
+.menuButton.locked::after {
+  content: "🔒";
+  margin-left: 10px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
