@@ -604,62 +604,86 @@ archiveAudio.addEventListener("ended", () => {
   }
 }
 
+/* =====================================================
+   MENÜZUGRIFF AKTUALISIEREN
+===================================================== */
 
-    /* =====================================================
-       MENÜZUGRIFF AKTUALISIEREN
-    ===================================================== */
+function updateMenuAccess() {
 
-    function updateMenuAccess() {
-      menuButtons.forEach(
-        button => {
-          const requiredLevel =
-            getRequiredLevel(
-              button
-            );
+  menuButtons.forEach(
+    button => {
 
-          const hasAccess =
-            currentUser.level >=
-            requiredLevel;
+      const requiredLevel =
+        getRequiredLevel(
+          button
+        );
 
-          button.classList.toggle(
-            "unlocked",
-            hasAccess
-          );
+      const hasAccess =
+        currentUser.level >=
+        requiredLevel;
 
-          button.classList.toggle(
-            "locked",
-            !hasAccess
-          );
-        }
+
+      /* Freigeschaltet / gesperrt markieren */
+
+      button.classList.toggle(
+        "unlocked",
+        hasAccess
       );
-    }
 
-     /* Schloss-Symbol für gesperrte Akten */
+      button.classList.toggle(
+        "locked",
+        !hasAccess
+      );
+
+
+      /* Schloss-Symbol suchen */
+
       let lockIcon =
-        button.querySelector(".menuLockIcon");
+        button.querySelector(
+          ".menuLockIcon"
+        );
+
+
+      /* Gesperrte Akte */
 
       if (!hasAccess) {
 
-      if (!lockIcon) {
-        lockIcon =
-        document.createElement("span");
+        if (!lockIcon) {
 
-        lockIcon.className =
-        "menuLockIcon";
+          lockIcon =
+            document.createElement(
+              "span"
+            );
 
-        lockIcon.textContent =
-        "🔒";
+          lockIcon.className =
+            "menuLockIcon";
 
-       button.appendChild(lockIcon);
-     }
+          lockIcon.textContent =
+            "🔒";
 
-    } else {
+          button.appendChild(
+            lockIcon
+          );
+        }
 
-      if (lockIcon) {
-        lockIcon.remove();
+      }
+
+
+      /* Freigeschaltete Akte */
+
+      else {
+
+        if (lockIcon) {
+          lockIcon.remove();
+        }
+
+      }
+
     }
+  );
 
-   }
+}
+   
 
     /* =====================================================
        STARTSEQUENZ
