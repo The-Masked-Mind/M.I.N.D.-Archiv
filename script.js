@@ -634,54 +634,7 @@ function updateMenuAccess() {
         "locked",
         !hasAccess
       );
-
-
-      /* Schloss-Symbol suchen */
-
-      let lockIcon =
-        button.querySelector(
-          ".menuLockIcon"
-        );
-
-
-      /* Gesperrte Akte */
-
-      if (!hasAccess) {
-
-        if (!lockIcon) {
-
-          lockIcon =
-            document.createElement(
-              "span"
-            );
-
-          lockIcon.className =
-            "menuLockIcon";
-
-          lockIcon.textContent =
-            "🔒";
-
-          button.appendChild(
-            lockIcon
-          );
-        }
-
-      }
-
-
-      /* Freigeschaltete Akte */
-
-      else {
-
-        if (lockIcon) {
-          lockIcon.remove();
-        }
-
-      }
-
-    }
-  );
-
+   })
 }
    
 

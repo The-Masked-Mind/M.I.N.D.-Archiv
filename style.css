@@ -3239,37 +3239,23 @@ button.maskOverviewCard:hover {
 }
 
 /* =====================================================
-   SCHLOSS-SYMBOL BEI GESPERRTEN AKTEN
+   SCHLOSS LINKS BEI GESPERRTEN AKTEN
 ===================================================== */
-
-.menuButton.locked::after {
-  content: "🔒";
-  margin-left: 10px;
-  font-size: 0.9em;
-  opacity: 0.8;
-}
-
-/* =====================================================
-   SCHLOSS BEI GESPERRTEN AKTEN
-===================================================== */
-
-.menuButton {
-  position: relative;
-}
 
 .menuButton.locked {
-  padding-right: 46px;
+  position: relative;
+  padding-left: 34px;
 }
 
-.menuLockIcon {
-  position: absolute;
+.menuButton.locked::before {
+  content: "🔒";
 
-  right: 14px;
+  position: absolute;
+  left: 10px;
   top: 50%;
 
   transform: translateY(-50%);
 
-  font-size: 16px;
-
-  pointer-events: none;
+  font-size: 0.85em;
+  opacity: 0.9;
 }
