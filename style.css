@@ -644,7 +644,7 @@ button {
 ========================= */
 /* Jeder Absatz */
 .storyText {
-  padding-top: 10px;
+  padding-top: 8px;
 
   border-top:
     1px solid rgba(255, 255, 255, 0.1);
@@ -663,7 +663,7 @@ button {
 
 .storyText p {
   margin:
-    1.35em 0;
+    8px 0;
 }
 /* Großer Buchstabe */
 .storyText p:first-child::first-letter {
