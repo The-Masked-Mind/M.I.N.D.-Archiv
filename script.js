@@ -1369,14 +1369,18 @@ async function loadPage(filePath) {
             );
 
           if (statusElement) {
+          const individualText =
+            statusElement.dataset.openText ||
+            statusElement.textContent.trim();
+
+            statusElement.dataset.openText =
+            individualText;
+
             statusElement.textContent =
               hasAccess
-                ? "ARCHIV ÖFFNEN"
-                : "ZUGRIFF GESPERRT";
-          }
-        }
-      );
-    }
+              ? individualText
+              : "ZUGRIFF GESPERRT";
+         }
 
 
     /* =====================================================
