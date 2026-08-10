@@ -1369,18 +1369,21 @@ async function loadPage(filePath) {
             );
 
           if (statusElement) {
-          const individualText =
-            statusElement.dataset.openText ||
-            statusElement.textContent.trim();
+            const individualText =
+              statusElement.dataset.openText ||
+              statusElement.textContent.trim();
 
             statusElement.dataset.openText =
-            individualText;
+              individualText;
 
             statusElement.textContent =
               hasAccess
               ? individualText
               : "ZUGRIFF GESPERRT";
-         }
+          }
+        }
+      );
+    }
 
 
     /* =====================================================
