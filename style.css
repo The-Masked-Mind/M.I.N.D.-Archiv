@@ -3383,3 +3383,12 @@ button.maskOverviewCard:hover {
 .mindFileReferenceButton.lockedTile .archiveCategoryStatus {
   color: #ff4444;
 }
+
+.mindFileReferenceLevel {
+  margin-top: 12px;
+
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
