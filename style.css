@@ -3138,7 +3138,6 @@ button.maskOverviewCard:hover {
   padding: 4px 0 4px 18px;
 
   border-left: 3px solid var(--blue);
-
   color: var(--blue);
 
   font-family: Arial, sans-serif;
@@ -3153,12 +3152,39 @@ button.maskOverviewCard:hover {
 
 /* Laut gesprochener oder geschriener Dialog */
 .storyDialogueLoud {
-  border-left-color: var(--red);
-  color: var(--red);
-
   font-weight: 900;
 }
 
+/* Farben der Personen */
+.storyDialogue.sl {
+  border-left-color: #b31217;
+  color: #b31217;
+}
+
+.storyDialogue.ma {
+  border-left-color: #3d8fc4;
+  color: #3d8fc4;
+}
+
+.storyDialogue.ko {
+  border-left-color: #7c5aa6;
+  color: #7c5aa6;
+}
+
+.storyDialogue.li {
+  border-left-color: #d6b35a;
+  color: #d6b35a;
+}
+
+.storyDialogue.ok {
+  border-left-color: #909090;
+  color: #909090;
+}
+
+.storyDialogue.as {
+  border-left-color: #b5dddf;
+  color: #b5dddf;
+}
 
 /* =====================================================
    ENDE EINER EPISODE
