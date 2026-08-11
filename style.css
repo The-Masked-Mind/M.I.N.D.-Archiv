@@ -3264,3 +3264,122 @@ button.maskOverviewCard:hover {
 #contentArea article.storyText > p {
   margin: 1.1em 0;
 }
+
+/* =====================================================
+   M.I.N.D. AKTENZUSATZ
+===================================================== */
+
+.mindFileReference {
+  position: relative;
+  margin: 50px 0 35px;
+  padding: 24px;
+
+  background: linear-gradient(
+    110deg,
+    rgba(5, 18, 20, 0.98),
+    rgba(9, 31, 33, 0.94)
+  );
+
+  border-left: 4px solid #ff4444;
+  border-top: 1px solid rgba(70, 235, 255, 0.35);
+
+  box-shadow:
+    0 0 20px rgba(50, 225, 255, 0.12),
+    inset 0 0 20px rgba(50, 225, 255, 0.04);
+}
+
+.mindFileReferenceLabel {
+  margin-bottom: 12px;
+
+  color: #ff4b4b;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+}
+
+.mindFileReferenceText {
+  margin-bottom: 18px;
+
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.mindFileReferenceButton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  padding: 20px 22px;
+
+  color: white;
+  font-family: inherit;
+  text-align: left;
+
+  background: rgba(3, 12, 14, 0.9);
+  border: 1px solid rgba(60, 225, 240, 0.28);
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mindFileReferenceButton.unlockedTile:hover {
+  transform: translateX(6px);
+
+  background: rgba(8, 27, 29, 0.98);
+  border-color: #ff4444;
+
+  box-shadow:
+    0 0 18px rgba(255, 68, 68, 0.15);
+}
+
+.mindFileReferenceCode {
+  margin-bottom: 8px;
+
+  color: #ff4b4b;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+.mindFileReferenceName {
+  color: white;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.mindFileReferenceTitle {
+  margin-top: 5px;
+
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.mindFileReferenceButton .archiveCategoryStatus {
+  margin-top: 18px;
+
+  color: #37ff8b;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.mindFileReferenceButton.lockedTile {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mindFileReferenceButton.lockedTile .archiveCategoryStatus {
+  color: #ff4444;
+}
