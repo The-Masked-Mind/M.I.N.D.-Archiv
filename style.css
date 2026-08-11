@@ -5,6 +5,7 @@
   --cyan: #34d9ff;
   --green: #45ff75;
   --yellow: #ffd54a;
+  --blue: #4aa7ff;
 
   --text: #f4f7f8;  /*weiß*/
   --muted: #9ca9ad; /*grau*/
@@ -3136,9 +3137,9 @@ button.maskOverviewCard:hover {
   margin: 4px 0;
   padding: 4px 0 4px 18px;
 
-  border-left: 3px solid var(--cyan);
+  border-left: 3px solid var(--blue);
 
-  color: var(--cyan);
+  color: var(--blue);
 
   font-family: Arial, sans-serif;
   font-size: 14px;
