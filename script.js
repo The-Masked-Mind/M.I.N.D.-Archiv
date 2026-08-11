@@ -1379,7 +1379,7 @@ async function loadPage(filePath) {
             statusElement.textContent =
               hasAccess
               ? individualText
-              : "ZUGRIFF GESPERRT";
+              : `ZUGRIFF GESPERRT — BENÖTIGTES LEVEL: ${requiredLevel}`;
           }
         }
       );
