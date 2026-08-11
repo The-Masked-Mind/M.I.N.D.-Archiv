@@ -3282,9 +3282,9 @@ button.maskOverviewCard:hover {
   border: 0.1px solid var(--cyan);
   border-left: 4px solid var(--cyan);
   
-  box-shadow:
+  /*box-shadow:
     0 0 20px rgba(50, 225, 255, 0.12),
-    inset 0 0 20px rgba(50, 225, 255, 0.04);
+    inset 0 0 20px rgba(50, 225, 255, 0.04);*/
 }
 
 .mindFileReferenceLabel {
