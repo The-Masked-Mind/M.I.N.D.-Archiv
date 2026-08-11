@@ -89,6 +89,186 @@ async function loadMindUserFromSupabase() {
 
 
 /* =========================================================
+   GLOBALER WARTUNGSMODUS
+========================================================= */
+
+async function loadMaintenanceStatus() {
+  const requestUrl =
+    `${SUPABASE_URL}/rest/v1/mind_settings` +
+    `?setting_key=eq.maintenance_mode` +
+    `&select=enabled,message` +
+    `&limit=1`;
+
+  try {
+    const response =
+      await fetch(requestUrl, {
+        method: "GET",
+
+        headers: {
+          apikey:
+            SUPABASE_PUBLISHABLE_KEY
+        }
+      });
+
+    if (!response.ok) {
+      console.error(
+        "M.I.N.D.: Wartungsstatus konnte nicht geladen werden:",
+        response.status,
+        await response.text()
+      );
+
+      return {
+        enabled: false,
+        message: ""
+      };
+    }
+
+    const settings =
+      await response.json();
+
+    const setting =
+      Array.isArray(settings)
+        ? settings[0]
+        : null;
+
+    return {
+      enabled:
+        setting?.enabled === true,
+
+      message:
+        String(
+          setting?.message ||
+          "Das Archiv ist aufgrund von Wartungsarbeiten vorübergehend nicht verfügbar."
+        )
+    };
+
+  } catch (error) {
+    console.error(
+      "M.I.N.D.: Verbindung zur Wartungssteuerung fehlgeschlagen:",
+      error
+    );
+
+    /* Bei einem Verbindungsfehler bleibt das Archiv erreichbar. */
+    return {
+      enabled: false,
+      message: ""
+    };
+  }
+}
+
+
+function showMaintenanceScreen(message) {
+  document.body.dataset.maintenanceActive =
+    "true";
+
+  document.title =
+    "M.I.N.D. – Systemwartung";
+
+  const screen =
+    document.createElement("main");
+
+  screen.className =
+    "maintenanceScreen";
+
+  const panel =
+    document.createElement("section");
+
+  panel.className =
+    "maintenancePanel";
+
+  const code =
+    document.createElement("div");
+
+  code.className =
+    "maintenanceCode";
+
+  code.textContent =
+    "M.I.N.D. // SYSTEMSTATUS";
+
+  const title =
+    document.createElement("h1");
+
+  title.textContent =
+    "SYSTEMWARTUNG";
+
+  const status =
+    document.createElement("div");
+
+  status.className =
+    "maintenanceStatus";
+
+  status.innerHTML =
+    '<span class="maintenanceDot"></span>' +
+    '<span>ARCHIVZUGRIFF VORÜBERGEHEND GESPERRT</span>';
+
+  const text =
+    document.createElement("p");
+
+  text.textContent =
+    message;
+
+  const footer =
+    document.createElement("div");
+
+  footer.className =
+    "maintenanceFooter";
+
+  footer.textContent =
+    "VERBINDUNG ZUM ARCHIV WIRD WIEDERHERGESTELLT …";
+
+  panel.append(
+    code,
+    title,
+    status,
+    text,
+    footer
+  );
+
+  screen.append(panel);
+
+  document.body.replaceChildren(screen);
+}
+
+
+function startMaintenanceWatch(isAdministrator) {
+  if (isAdministrator) {
+    return;
+  }
+
+  setInterval(
+    async () => {
+      const maintenance =
+        await loadMaintenanceStatus();
+
+      const maintenanceIsVisible =
+        document.body.dataset
+          .maintenanceActive ===
+        "true";
+
+      if (
+        maintenance.enabled &&
+        !maintenanceIsVisible
+      ) {
+        showMaintenanceScreen(
+          maintenance.message
+        );
+
+        return;
+      }
+
+      if (
+        !maintenance.enabled &&
+        maintenanceIsVisible
+      ) {
+        window.location.reload();
+      }
+    },
+    15000
+  );
+}
+
+
+/* =========================================================
    ARCHIV STARTEN
 ========================================================= */
 
@@ -98,6 +278,33 @@ document.addEventListener(
 
     const mindUser =
       await loadMindUserFromSupabase();
+
+    const userLevel =
+      Number.parseInt(
+        mindUser?.level,
+        10
+      ) || 0;
+
+    const isAdministrator =
+      userLevel >= 100;
+
+    const maintenance =
+      await loadMaintenanceStatus();
+
+    startMaintenanceWatch(
+      isAdministrator
+    );
+
+    if (
+      maintenance.enabled &&
+      !isAdministrator
+    ) {
+      showMaintenanceScreen(
+        maintenance.message
+      );
+
+      return;
+    }
 
 /* =====================================================
    ARCHIVMUSIK – PLAYLIST
@@ -1379,7 +1586,7 @@ async function loadPage(filePath) {
             statusElement.textContent =
               hasAccess
               ? individualText
-              : `ZUGRIFF GESPERRT — BENÖTIGTES LEVEL: ${requiredLevel}`;
+              : "ZUGRIFF GESPERRT";
           }
         }
       );
