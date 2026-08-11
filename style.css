@@ -3279,7 +3279,7 @@ button.maskOverviewCard:hover {
     rgba(5, 18, 20, 0.98),
     rgba(9, 31, 33, 0.94)
   );
-  border: 1px solid var(--cyan);
+  border: 0.2px solid var(--cyan);
   border-left: 4px solid var(--cyan);
   
   box-shadow:
