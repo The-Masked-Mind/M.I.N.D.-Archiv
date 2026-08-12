@@ -3081,7 +3081,7 @@ button.maskOverviewCard:hover {
       rgba(0, 0, 0, 0.25)
     );
 
-  text-align: center;
+  text-align: left;
 }
 
 .ritualBlockDanger {
