@@ -3584,3 +3584,35 @@ button.maskOverviewCard:hover {
     letter-spacing: 1.5px;
   }
 }
+
+/* =========================================================
+   HANDY – BENUTZERBEREICH ZUERST
+========================================================= */
+
+@media (max-width: 680px) {
+
+  .mainLayout {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  /* Benutzerinformationen und geladene Seite zuerst */
+  .contentArea {
+    order: 1;
+    width: 100%;
+  }
+
+  /* Auswahlmenü darunter */
+  .sideMenu {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    position: static;
+  }
+
+  /* Archivkacheln untereinander */
+  .archiveCategoryGrid {
+    grid-template-columns: 1fr;
+  }
+}
