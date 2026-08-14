@@ -89,84 +89,6 @@ async function loadMindUserFromSupabase() {
 
 
 /* =========================================================
-   BENUTZERBESUCH SPEICHERN
-========================================================= */
-
-async function recordMindVisit(accessCode) {
-  const normalizedCode =
-    String(accessCode || "").trim();
-
-  if (!normalizedCode) {
-    return;
-  }
-
-  /*
-    Verhindert, dass ein einfaches Neuladen
-    derselben Registerkarte erneut gezählt wird.
-  */
-  const sessionKey =
-    `mind_visit_recorded_${normalizedCode}`;
-
-  if (
-    sessionStorage.getItem(sessionKey) ===
-    "true"
-  ) {
-    return;
-  }
-
-  const requestUrl =
-    `${SUPABASE_URL}/rest/v1/rpc/record_mind_visit`;
-
-  try {
-    const response =
-      await fetch(requestUrl, {
-        method: "POST",
-
-        headers: {
-          apikey:
-            SUPABASE_PUBLISHABLE_KEY,
-
-          "Content-Type":
-            "application/json"
-        },
-
-        body:
-          JSON.stringify({
-            p_access_code:
-              normalizedCode
-          })
-      });
-
-    if (!response.ok) {
-      console.error(
-        "M.I.N.D.: Besuch konnte nicht gespeichert werden:",
-        response.status,
-        await response.text()
-      );
-
-      return;
-    }
-
-    const visitWasRecorded =
-      await response.json();
-
-    if (visitWasRecorded === true) {
-      sessionStorage.setItem(
-        sessionKey,
-        "true"
-      );
-    }
-
-  } catch (error) {
-    console.error(
-      "M.I.N.D.: Besuchserfassung fehlgeschlagen:",
-      error
-    );
-  }
-}
-
-
-/* =========================================================
    GLOBALER WARTUNGSMODUS
 ========================================================= */
 
@@ -356,12 +278,6 @@ document.addEventListener(
 
     const mindUser =
       await loadMindUserFromSupabase();
-
-     if (mindUser?.access_code) {
-  await recordMindVisit(
-    mindUser.access_code
-  );
-}
 
     const userLevel =
       Number.parseInt(
@@ -737,11 +653,11 @@ archiveAudio.addEventListener("ended", () => {
         return "ALPHA";
       }
 
-      if (numericLevel >= 20) {
+      if (numericLevel >= 10) {
         return "BETA";
       }
 
-      if (numericLevel >= 10) {
+      if (numericLevel >= 5) {
         return "GAMMA";
       }
 
