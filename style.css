@@ -4209,7 +4209,7 @@ button.maskOverviewCard:hover {
 .homeUnlockEmpty {
   grid-column: 1 / -1;
 
-  padding: 20px;
+  padding: 10px;
 
   border:
     1px solid rgba(255, 60, 60, 0.24);
