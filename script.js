@@ -1323,6 +1323,7 @@ function connectClassifiedReveals() {
       );
 
       updateArchiveCounts();
+      updateHomeUnlockOverview();
     }
 
 
@@ -1420,6 +1421,415 @@ function connectClassifiedReveals() {
     /* =====================================================
        HOME-SEITE
     ===================================================== */
+
+    /* =====================================================
+   FREIGABEPLAN DER ARCHIVINHALTE
+===================================================== */
+
+const archiveUnlockPlan = [
+
+  {
+    level: 1,
+    type: "CHRONIK",
+    title: "PROLOG",
+    page: "kapitel/prolog"
+  },
+
+  {
+    level: 2,
+    type: "CHRONIK",
+    title: "EPISODE 1 – STIMMEN IM WALD",
+    page: "kapitel/kapitel_1/kapitel_1_episode_1"
+  },
+
+  {
+    level: 2,
+    type: "PERSONENAKTE",
+    title: "MATTHIAS",
+    page: "personenarchiv/matthias"
+  },
+
+  {
+    level: 3,
+    type: "CHRONIK",
+    title: "EPISODE 2 – LIAM",
+    page: "kapitel/kapitel_1/kapitel_1_episode_2"
+  },
+
+  {
+    level: 4,
+    type: "PERSONENAKTE",
+    title: "LIAM",
+    page: "personenarchiv/liam"
+  },
+
+  {
+    level: 4,
+    type: "PERSONENAKTE",
+    title: "DER OKKULTIST",
+    page: "personenarchiv/okkultist"
+  },
+
+  {
+    level: 5,
+    type: "SAMMELAKTE",
+    title: "GESCHICHTE DER MASKEN",
+    page: "masken_des_unheils/geschichte"
+  },
+
+  {
+    level: 5,
+    type: "ARTEFAKTAKTE",
+    title: "ASKARION",
+    page: "masken_des_unheils/askarion"
+  },
+
+  {
+    level: 6,
+    type: "CHRONIK",
+    title: "EPISODE 3 – THAR’GHUL",
+    page: "kapitel/kapitel_1/kapitel_1_episode_3"
+  },
+
+  {
+    level: 7,
+    type: "ORTSAKTE",
+    title: "THAR’GHUL",
+    page: "ortsarchiv/tharghul"
+  },
+
+  {
+    level: 7,
+    type: "ORGANISATIONSAKTE",
+    title: "DIE BRUDERSCHAFT VON THAR’GHUL",
+    page: "personenarchiv/bruderschaft_von_thar'ghul"
+  },
+
+  {
+    level: 8,
+    type: "CHRONIK",
+    title: "EPISODE 4 – DAS RITUAL",
+    page: "kapitel/kapitel_1/kapitel_1_episode_4"
+  },
+
+  {
+    level: 9,
+    type: "BESTIARIUM",
+    title: "SLASHER",
+    page: "bestarium/slasher"
+  },
+
+  {
+    level: 9,
+    type: "BESTIARIUM",
+    title: "KON’DOR – DER TODESVOGEL",
+    page: "bestarium/kondor"
+  }
+
+];
+
+
+/* =====================================================
+   FREIGABEKACHEL ERSTELLEN
+===================================================== */
+
+function createHomeUnlockCard(
+  archiveItem,
+  isNewUnlock = false
+) {
+  const button =
+    document.createElement("button");
+
+  button.type =
+    "button";
+
+  button.className =
+    "homeUnlockCard";
+
+  if (isNewUnlock) {
+    button.classList.add(
+      "homeUnlockCardNew"
+    );
+  }
+
+  button.dataset.level =
+    archiveItem.level;
+
+  button.dataset.openPage =
+    archiveItem.page;
+
+  button.innerHTML = `
+    <span class="homeUnlockCardLevel">
+      LEVEL ${archiveItem.level}
+    </span>
+
+    <span class="homeUnlockCardType">
+      ${escapeHtml(archiveItem.type)}
+    </span>
+
+    <span class="homeUnlockCardTitle">
+      ${escapeHtml(archiveItem.title)}
+    </span>
+
+    <span class="homeUnlockCardStatus">
+      ✓ FREIGESCHALTET · ÖFFNEN
+    </span>
+  `;
+
+  button.addEventListener(
+    "click",
+    () => {
+      openArchivePage(
+        archiveItem.page,
+        button
+      );
+    }
+  );
+
+  return button;
+}
+
+
+/* =====================================================
+   HOME-FREIGABEN ANZEIGEN
+===================================================== */
+
+function updateHomeUnlockOverview() {
+  const newUnlockPanel =
+    document.querySelector(
+      "[data-new-unlock-panel]"
+    );
+
+  const newUnlockHeadline =
+    document.querySelector(
+      "[data-new-unlock-headline]"
+    );
+
+  const newUnlockText =
+    document.querySelector(
+      "[data-new-unlock-text]"
+    );
+
+  const newUnlockList =
+    document.querySelector(
+      "[data-new-unlock-list]"
+    );
+
+  const allUnlockList =
+    document.querySelector(
+      "[data-all-unlock-list]"
+    );
+
+
+  /*
+    Die Funktion wird nur ausgeführt,
+    wenn gerade die Home-Seite geöffnet ist.
+  */
+
+  if (
+    !newUnlockPanel ||
+    !newUnlockList ||
+    !allUnlockList
+  ) {
+    return;
+  }
+
+
+  const availableItems =
+    archiveUnlockPlan.filter(
+      archiveItem =>
+        currentUser.level >=
+        archiveItem.level
+    );
+
+
+  newUnlockList.replaceChildren();
+  allUnlockList.replaceChildren();
+
+
+  /*
+    Alle bisher freigeschalteten Inhalte anzeigen
+  */
+
+  availableItems.forEach(
+    archiveItem => {
+      allUnlockList.append(
+        createHomeUnlockCard(
+          archiveItem
+        )
+      );
+    }
+  );
+
+
+  /*
+    Für Besucher ohne Freigabe
+  */
+
+  if (availableItems.length === 0) {
+    const emptyMessage =
+      document.createElement("div");
+
+    emptyMessage.className =
+      "homeUnlockEmpty";
+
+    emptyMessage.textContent =
+      "NOCH KEINE ARCHIVINHALTE FREIGESCHALTET.";
+
+    allUnlockList.append(
+      emptyMessage
+    );
+
+    newUnlockPanel.hidden =
+      true;
+
+    return;
+  }
+
+
+  /*
+    Zuletzt angesehenes Benutzerlevel laden
+  */
+
+  const userStorageName =
+    String(
+      currentUser.name ||
+      "gast"
+    )
+      .toLowerCase()
+      .replace(
+        /[^a-z0-9äöüß_-]/g,
+        "_"
+      );
+
+  const storageKey =
+    `mind_last_seen_level_${userStorageName}`;
+
+  let previousLevel =
+    null;
+
+  try {
+    const storedLevel =
+      localStorage.getItem(
+        storageKey
+      );
+
+    if (storedLevel !== null) {
+      previousLevel =
+        Number(storedLevel);
+    }
+  } catch (error) {
+    console.warn(
+      "M.I.N.D.: Letztes Level konnte nicht geladen werden.",
+      error
+    );
+  }
+
+
+  let highlightedItems = [];
+  let headlineText = "";
+  let informationText = "";
+
+
+  /*
+    Tatsächlicher Levelaufstieg
+  */
+
+  if (
+    Number.isFinite(previousLevel) &&
+    currentUser.level > previousLevel
+  ) {
+    highlightedItems =
+      archiveUnlockPlan.filter(
+        archiveItem =>
+          archiveItem.level >
+            previousLevel &&
+
+          archiveItem.level <=
+            currentUser.level
+      );
+
+    headlineText =
+      `GLÜCKWUNSCH – LEVEL ${currentUser.level} ERREICHT`;
+
+    informationText =
+      "FOLGENDE ARCHIVINHALTE WURDEN NEU FREIGESCHALTET:";
+  }
+
+
+  /*
+    Erster Besuch oder kein neuer Levelaufstieg:
+    Die zuletzt erreichte Freigabestufe anzeigen.
+  */
+
+  if (highlightedItems.length === 0) {
+    const highestUnlockLevel =
+      Math.max(
+        ...availableItems.map(
+          archiveItem =>
+            archiveItem.level
+        )
+      );
+
+    highlightedItems =
+      availableItems.filter(
+        archiveItem =>
+          archiveItem.level ===
+          highestUnlockLevel
+      );
+
+    headlineText =
+      `DEINE FREIGABEN AUF LEVEL ${highestUnlockLevel}`;
+
+    informationText =
+      "ZULETZT FREIGESCHALTETE ARCHIVINHALTE:";
+  }
+
+
+  if (newUnlockHeadline) {
+    newUnlockHeadline.textContent =
+      headlineText;
+  }
+
+  if (newUnlockText) {
+    newUnlockText.textContent =
+      informationText;
+  }
+
+
+  highlightedItems.forEach(
+    archiveItem => {
+      newUnlockList.append(
+        createHomeUnlockCard(
+          archiveItem,
+          true
+        )
+      );
+    }
+  );
+
+
+  newUnlockPanel.hidden =
+    false;
+
+
+  /*
+    Aktuelles Level für den nächsten Besuch speichern
+  */
+
+  try {
+    localStorage.setItem(
+      storageKey,
+      String(currentUser.level)
+    );
+  } catch (error) {
+    console.warn(
+      "M.I.N.D.: Aktuelles Level konnte nicht gespeichert werden.",
+      error
+    );
+  }
+}
+
 
     async function showHome() {
       clearActiveButtons();
