@@ -1609,7 +1609,7 @@ function addArchiveReadingGuide(currentFilePath) {
     </div>
 
     <div class="archiveReadingGuideProgress">
-       ${escapeHtml(currentItem.title)} ABGESCHLOSSEN
+      ${escapeHtml(currentItem.title)} ABGESCHLOSSEN
     </div>
 
     <div class="archiveReadingGuideNext">
