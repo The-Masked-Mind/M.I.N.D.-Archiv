@@ -1631,8 +1631,8 @@ function addArchiveReadingGuide(currentFilePath) {
     >
       ${
         hasAccess
-          ? "NÃ„CHSTE AKTE Ã–FFNEN"
-          : `NOCH GESPERRT Â· LEVEL ${nextItem.level} BENÃ–TIGT`
+          ? "NÄCHSTE AKTE ÖFFNEN"
+          : `NOCH GESPERRT · LEVEL ${nextItem.level} BENÖTIGT`
       }
     </button>
   `;
