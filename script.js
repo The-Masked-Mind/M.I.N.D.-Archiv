@@ -1146,9 +1146,124 @@ async function loadPage(filePath) {
     contentArea.innerHTML =
       html;
 
+      /* =====================================================
+   KLASSIFIZIERTE AKTENNACHTRÄGE
+===================================================== */
+
+function connectClassifiedReveals() {
+  const revealBlocks =
+    document.querySelectorAll(
+      ".classifiedReveal"
+    );
+
+  revealBlocks.forEach(
+    block => {
+      const requiredLevel =
+        Number(
+          block.dataset.revealLevel
+        ) || 999;
+
+      const status =
+        block.querySelector(
+          "[data-reveal-status]"
+        );
+
+      const button =
+        block.querySelector(
+          "[data-reveal-button]"
+        );
+
+      const content =
+        block.querySelector(
+          "[data-reveal-content]"
+        );
+
+      const hasAccess =
+        currentUser.level >=
+        requiredLevel;
+
+
+      block.classList.toggle(
+        "classifiedRevealUnlocked",
+        hasAccess
+      );
+
+      block.classList.toggle(
+        "classifiedRevealLocked",
+        !hasAccess
+      );
+
+
+      if (status) {
+        status.textContent =
+          hasAccess
+            ? `SICHERHEITSFREIGABE BESTÄTIGT · LEVEL ${requiredLevel}`
+            : `ZUGRIFF GESPERRT · LEVEL ${requiredLevel} BENÖTIGT`;
+      }
+
+
+      if (!button || !content) {
+        return;
+      }
+
+
+      /* Inhalt beim Laden immer schließen */
+
+      content.hidden = true;
+
+      button.hidden =
+        !hasAccess;
+
+
+      if (!hasAccess) {
+        return;
+      }
+
+
+      /*
+        Verhindert doppelte Klickverbindungen,
+        falls die Seite erneut aktualisiert wird.
+      */
+
+      if (
+        button.dataset.revealConnected ===
+        "true"
+      ) {
+        return;
+      }
+
+      button.dataset.revealConnected =
+        "true";
+
+
+      button.addEventListener(
+        "click",
+        () => {
+          const contentWillOpen =
+            content.hidden;
+
+          content.hidden =
+            !contentWillOpen;
+
+          block.classList.toggle(
+            "classifiedRevealOpen",
+            contentWillOpen
+          );
+
+          button.textContent =
+            contentWillOpen
+              ? "AKTENNACHTRAG SCHLIESSEN"
+              : "AKTENNACHTRAG ENTSCHLÜSSELN";
+        }
+      );
+    }
+  );
+}
+
     connectPageButtons();
     updateDynamicPageInformation();
     updatePageTileAccess();
+    connectClassifiedReveals();
     /* Auf dem Handy automatisch zum geöffneten Inhalt springen */
     scrollToContentOnMobile();
 
