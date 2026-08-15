@@ -1415,6 +1415,26 @@ button.homeTile:hover {
   opacity: 0.6;
 }
 
+/* Untere Musiknote */
+
+.artifactQuoteMarkBottom {
+  left: auto;
+  top: auto;
+
+  right: 20px;
+  bottom: -8px;
+
+  font-size: 72px;
+}
+
+
+/* Platz für die untere Note */
+
+.storySong {
+  padding-right: 76px;
+  padding-bottom: 62px;
+}
+
 .artifactQuoteText {
   color: white;
 
@@ -4257,5 +4277,23 @@ button.maskOverviewCard:hover {
 
   .homeNewUnlockPanel::after {
     font-size: 30px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .artifactQuoteMarkBottom {
+    left: auto;
+    top: auto;
+
+    right: 14px;
+    bottom: -7px;
+
+    font-size: 62px;
+  }
+
+  .storySong {
+    padding-right: 48px;
+    padding-bottom: 58px;
   }
 }
