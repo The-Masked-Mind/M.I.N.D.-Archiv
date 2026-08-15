@@ -3073,6 +3073,3 @@ function updateHomeUnlockOverview() {
 
     loadAccessCode();
     startBootSequence();
-
-  }
-);
