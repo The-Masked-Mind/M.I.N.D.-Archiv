@@ -1437,7 +1437,10 @@ button.homeTile:hover {
 
 .artifactQuoteText {
   color: white;
-
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: left;
   font-family:
     Georgia,
     "Times New Roman",
