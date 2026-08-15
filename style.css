@@ -4300,3 +4300,121 @@ button.maskOverviewCard:hover {
     padding-bottom: 58px;
   }
 }
+
+/* =====================================================
+   ARCHIV-LEITFADEN
+===================================================== */
+
+.archiveReadingGuide {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 60px;
+  padding: 28px;
+  border: 1px solid rgba(220, 50, 55, 0.65);
+  border-left: 4px solid #dc3237;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(35, 8, 10, 0.92),
+      rgba(3, 18, 20, 0.96)
+    );
+  box-shadow:
+    0 0 24px rgba(220, 50, 55, 0.08);
+}
+
+.archiveReadingGuideLabel {
+  margin-bottom: 20px;
+  color: #dc3237;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.archiveReadingGuideProgress {
+  margin-bottom: 30px;
+  color: #92c9bd;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.archiveReadingGuideNext {
+  margin-bottom: 8px;
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.archiveReadingGuideType {
+  margin-bottom: 8px;
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.archiveReadingGuideTitle {
+  margin-bottom: 24px;
+  color: #f2f2f2;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.archiveReadingGuideText {
+  color: #bbb;
+  line-height: 1.7;
+}
+
+.archiveReadingGuideButton {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #dc3237;
+  background: rgba(220, 50, 55, 0.08);
+  color: #f2f2f2;
+  font: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.archiveReadingGuideButton:hover:not(:disabled) {
+  background: rgba(220, 50, 55, 0.22);
+  box-shadow:
+    0 0 18px rgba(220, 50, 55, 0.18);
+}
+
+.archiveReadingGuideButton:disabled {
+  border-color: #555;
+  background: rgba(255, 255, 255, 0.03);
+  color: #777;
+  cursor: not-allowed;
+}
+
+.archiveReadingGuideLocked {
+  border-color: #555;
+  border-left-color: #777;
+}
+
+.archiveReadingGuideComplete {
+  border-color: rgba(73, 170, 145, 0.65);
+  border-left-color: #49aa91;
+}
+
+
+/* HANDY */
+
+@media (max-width: 700px) {
+  .archiveReadingGuide {
+    margin-top: 40px;
+    padding: 20px 16px;
+  }
+
+  .archiveReadingGuideButton {
+    padding: 14px 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+}
