@@ -1430,14 +1430,14 @@ const archiveUnlockPlan = [
 
   {
     level: 1,
-    type: "CHRONIK",
+    type: "CHRONIKEN DER DUNKELHEIT",
     title: "PROLOG",
     page: "kapitel/prolog"
   },
 
   {
     level: 2,
-    type: "CHRONIK",
+    type: "CHRONIKEN DER DUNKELHEIT",
     title: "EPISODE 1 – STIMMEN IM WALD",
     page: "kapitel/kapitel_1/kapitel_1_episode_1"
   },
@@ -1451,7 +1451,7 @@ const archiveUnlockPlan = [
 
   {
     level: 3,
-    type: "CHRONIK",
+    type: "CHRONIKEN DER DUNKELHEIT",
     title: "EPISODE 2 – LIAM",
     page: "kapitel/kapitel_1/kapitel_1_episode_2"
   },
@@ -1472,7 +1472,7 @@ const archiveUnlockPlan = [
 
   {
     level: 5,
-    type: "SAMMELAKTE",
+    type: "ARTEFAKTAKTE",
     title: "GESCHICHTE DER MASKEN",
     page: "masken_des_unheils/geschichte"
   },
@@ -1486,7 +1486,7 @@ const archiveUnlockPlan = [
 
   {
     level: 6,
-    type: "CHRONIK",
+    type: "CHRONIKEN DER DUNKELHEIT",
     title: "EPISODE 3 – THAR’GHUL",
     page: "kapitel/kapitel_1/kapitel_1_episode_3"
   },
@@ -1500,14 +1500,14 @@ const archiveUnlockPlan = [
 
   {
     level: 7,
-    type: "ORGANISATIONSAKTE",
+    type: "PERSOENENAKTE",
     title: "DIE BRUDERSCHAFT VON THAR’GHUL",
     page: "personenarchiv/bruderschaft_von_thar'ghul"
   },
 
   {
     level: 8,
-    type: "CHRONIK",
+    type: "CHRONIKEN DER DUNKELHEIT",
     title: "EPISODE 4 – DAS RITUAL",
     page: "kapitel/kapitel_1/kapitel_1_episode_4"
   },
