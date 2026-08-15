@@ -335,7 +335,26 @@ const playlist = [
   "sounds/archivmusik17.mp3",
   "sounds/archivmusik18.mp3",
   "sounds/archivmusik19.mp3",
-
+  "sounds/archivmusik20.mp3",
+  "sounds/archivmusik21.mp3",
+  "sounds/archivmusik22.mp3",
+  "sounds/archivmusik23.mp3",
+  "sounds/archivmusik24.mp3",
+  "sounds/archivmusik25.mp3",
+  "sounds/archivmusik26.mp3",
+  "sounds/archivmusik27.mp3",
+  "sounds/archivmusik28.mp3",
+  "sounds/archivmusik29.mp3",
+  "sounds/archivmusik30.mp3",
+  "sounds/archivmusik31.mp3",
+  "sounds/archivmusik32.mp3",
+  "sounds/archivmusik33.mp3",
+  "sounds/archivmusik34.mp3",
+  "sounds/archivmusik35.mp3",
+  "sounds/archivmusik36.mp3",
+  "sounds/archivmusik37.mp3",
+  "sounds/archivmusik38.mp3",
+  "sounds/archivmusik39.mp3",
 ];
 
 const archiveAudio = new Audio();
