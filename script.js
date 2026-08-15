@@ -1,5 +1,5 @@
 /* =========================================================
-   M.I.N.D. ARCHIV – ZENTRALE STEUERUNG
+   M.I.N.D. ARCHIV â€“ ZENTRALE STEUERUNG
 ========================================================= */
 
 const SUPABASE_URL =
@@ -69,7 +69,7 @@ async function loadMindUserFromSupabase() {
       users.length === 0
     ) {
       console.warn(
-        "M.I.N.D.: Kein Benutzer für diesen Code gefunden."
+        "M.I.N.D.: Kein Benutzer fÃ¼r diesen Code gefunden."
       );
 
       return null;
@@ -138,7 +138,7 @@ async function loadMaintenanceStatus() {
       message:
         String(
           setting?.message ||
-          "Das Archiv ist aufgrund von Wartungsarbeiten vorübergehend nicht verfügbar."
+          "Das Archiv ist aufgrund von Wartungsarbeiten vorÃ¼bergehend nicht verfÃ¼gbar."
         )
     };
 
@@ -162,7 +162,7 @@ function showMaintenanceScreen(message) {
     "true";
 
   document.title =
-    "M.I.N.D. – Systemwartung";
+    "M.I.N.D. â€“ Systemwartung";
 
   const screen =
     document.createElement("main");
@@ -199,7 +199,7 @@ function showMaintenanceScreen(message) {
 
   status.innerHTML =
     '<span class="maintenanceDot"></span>' +
-    '<span>ARCHIVZUGRIFF VORÜBERGEHEND GESPERRT</span>';
+    '<span>ARCHIVZUGRIFF VORÃœBERGEHEND GESPERRT</span>';
 
   const text =
     document.createElement("p");
@@ -214,7 +214,7 @@ function showMaintenanceScreen(message) {
     "maintenanceFooter";
 
   footer.textContent =
-    "VERBINDUNG ZUM ARCHIV WIRD WIEDERHERGESTELLT …";
+    "VERBINDUNG ZUM ARCHIV WIRD WIEDERHERGESTELLT â€¦";
 
   panel.append(
     code,
@@ -307,11 +307,7 @@ document.addEventListener(
     }
 
 /* =====================================================
-   ARCHIVMUSIK – PLAYLIST
-===================================================== */
-
-/* =====================================================
-   ARCHIVMUSIK – PLAYLIST UND STEUERUNG
+   ARCHIVMUSIK â€“ PLAYLIST UND STEUERUNG
 ===================================================== */
 
 const playlist = [
@@ -366,13 +362,13 @@ let currentTrackIndex = -1;
 let audioIsActive = false;
 
 
-/* Button immer frisch suchen, weil home.html später geladen wird */
+/* Button immer frisch suchen, weil home.html spÃ¤ter geladen wird */
 function getAudioButton() {
   return document.getElementById("audioToggle");
 }
 
 
-/* Zufälligen Titel auswählen – nicht zweimal direkt denselben */
+/* ZufÃ¤lligen Titel auswÃ¤hlen â€“ nicht zweimal direkt denselben */
 function getRandomTrackIndex() {
   if (playlist.length <= 1) {
     return 0;
@@ -398,7 +394,7 @@ async function playTrack(index) {
   currentTrackIndex = index;
 
   /*
-    Erstellt eine vollständige Adresse aus dem relativen Pfad.
+    Erstellt eine vollstÃ¤ndige Adresse aus dem relativen Pfad.
     Das verhindert Probleme mit Unterseiten wie data/home.html.
   */
   const trackUrl =
@@ -431,7 +427,7 @@ async function playTrack(index) {
 
     if (button) {
       button.textContent =
-        "AUDIOFEHLER – DATEIPFAD PRÜFEN";
+        "AUDIOFEHLER â€“ DATEIPFAD PRÃœFEN";
 
       button.classList.remove("active");
     }
@@ -480,7 +476,7 @@ function disableArchiveAudio() {
 }
 
 
-/* Funktioniert auch bei später geladenem home.html */
+/* Funktioniert auch bei spÃ¤ter geladenem home.html */
 document.addEventListener("click", event => {
   const button =
     event.target.closest("#audioToggle");
@@ -517,7 +513,7 @@ archiveAudio.addEventListener("error", () => {
   audioIsActive = false;
 });
 
-/* Nach jedem Titel zufällig einen neuen auswählen */
+/* Nach jedem Titel zufÃ¤llig einen neuen auswÃ¤hlen */
 archiveAudio.addEventListener("ended", () => {
   if (!audioIsActive) return;
 
@@ -614,7 +610,7 @@ archiveAudio.addEventListener("ended", () => {
           "Neugieriger Aktenleser",
 
         motto:
-          "Jede Wahrheit beginnt mit der Neugier, eine Akte zu öffnen."
+          "Jede Wahrheit beginnt mit der Neugier, eine Akte zu Ã¶ffnen."
       },
 
 
@@ -638,19 +634,19 @@ archiveAudio.addEventListener("ended", () => {
 
       ALPHA: {
         title:
-          "Hüter des Archivs",
+          "HÃ¼ter des Archivs",
 
         motto:
-          "Das Archiv zu schützen bedeutet, die Wahrheit zu bewahren."
+          "Das Archiv zu schÃ¼tzen bedeutet, die Wahrheit zu bewahren."
       },
 
 
       OMEGA: {
         title:
-          "Schöpfer des Archivs",
+          "SchÃ¶pfer des Archivs",
 
         motto:
-          "Der Schöpfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
+          "Der SchÃ¶pfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
       }
 
     };
@@ -831,7 +827,7 @@ archiveAudio.addEventListener("ended", () => {
 }
 
 /* =====================================================
-   MENÜZUGRIFF AKTUALISIEREN
+   MENÃœZUGRIFF AKTUALISIEREN
 ===================================================== */
 
 function updateMenuAccess() {
@@ -881,7 +877,7 @@ function updateMenuAccess() {
       }
 
       bootAccessRank.textContent =
-        `${currentUser.rank} – LEVEL ${currentUser.level}`;
+        `${currentUser.rank} â€“ LEVEL ${currentUser.level}`;
 
       bootAccessRank.className =
         "bootIdentityValue";
@@ -913,7 +909,7 @@ function updateMenuAccess() {
     function startBootSequence() {
       setTimeout(() => {
         setBootStatus(
-          "IDENTITÄT WIRD GEPRÜFT..."
+          "IDENTITÃ„T WIRD GEPRÃœFT..."
         );
       }, 1000);
 
@@ -928,7 +924,7 @@ function updateMenuAccess() {
         }
 
         setBootStatus(
-          "IDENTITÄT BESTÄTIGT"
+          "IDENTITÃ„T BESTÃ„TIGT"
         );
       }, 2000);
 
@@ -937,7 +933,7 @@ function updateMenuAccess() {
         if (bootWelcome) {
           bootWelcome.textContent =
             currentUser.level > 0
-              ? `WILLKOMMEN ZURÜCK, ${currentUser.name}`
+              ? `WILLKOMMEN ZURÃœCK, ${currentUser.name}`
               : "WILLKOMMEN IM M.I.N.D. ARCHIV";
 
           bootWelcome
@@ -979,7 +975,7 @@ function updateMenuAccess() {
 
 
     /* =====================================================
-       MENÜMARKIERUNG
+       MENÃœMARKIERUNG
     ===================================================== */
 
     function clearActiveButtons() {
@@ -1058,12 +1054,12 @@ function updateMenuAccess() {
 
 
 /* =====================================================
-   HANDY – NACH DEM LADEN ZUM INHALT SPRINGEN
+   HANDY â€“ NACH DEM LADEN ZUM INHALT SPRINGEN
 ===================================================== */
 
 function scrollToContentOnMobile() {
 
-  /* Nur auf Handy und Tablet ausführen */
+  /* Nur auf Handy und Tablet ausfÃ¼hren */
   if (
     !window.matchMedia("(max-width: 960px)").matches ||
     !contentArea
@@ -1073,7 +1069,7 @@ function scrollToContentOnMobile() {
 
   /*
     Kurz warten, damit der neue Inhalt zuerst
-    vollständig in die Seite eingesetzt werden kann.
+    vollstÃ¤ndig in die Seite eingesetzt werden kann.
   */
   setTimeout(() => {
 
@@ -1093,7 +1089,7 @@ function scrollToContentOnMobile() {
   /*
     Sicherheitskorrektur:
     Falls Bilder oder andere Elemente die Seite
-    nachträglich verschieben, wird die Position
+    nachtrÃ¤glich verschieben, wird die Position
     noch einmal korrigiert.
   */
   setTimeout(() => {
@@ -1112,42 +1108,7 @@ function scrollToContentOnMobile() {
 }
 
     /* =====================================================
-   HTML-DATEI LADEN
-===================================================== */
-
-async function loadPage(filePath) {
-  if (
-    !contentArea ||
-    !filePath
-  ) {
-    return false;
-  }
-
-  try {
-    const separator =
-      filePath.includes("?")
-        ? "&"
-        : "?";
-
-    const response =
-      await fetch(
-        `${filePath}${separator}v=${Date.now()}`
-      );
-
-    if (!response.ok) {
-      throw new Error(
-        `Datei nicht gefunden: ${filePath}`
-      );
-    }
-
-    const html =
-      await response.text();
-
-    contentArea.innerHTML =
-      html;
-
-      /* =====================================================
-   KLASSIFIZIERTE AKTENNACHTRÄGE
+   KLASSIFIZIERTE AKTENNACHTRÃ„GE
 ===================================================== */
 
 function connectClassifiedReveals() {
@@ -1197,8 +1158,8 @@ function connectClassifiedReveals() {
       if (status) {
         status.textContent =
           hasAccess
-            ? `SICHERHEITSFREIGABE BESTÄTIGT · LEVEL ${requiredLevel}`
-            : `ZUGRIFF GESPERRT · LEVEL ${requiredLevel} BENÖTIGT`;
+            ? `SICHERHEITSFREIGABE BESTÃ„TIGT Â· LEVEL ${requiredLevel}`
+            : `ZUGRIFF GESPERRT Â· LEVEL ${requiredLevel} BENÃ–TIGT`;
       }
 
 
@@ -1207,7 +1168,7 @@ function connectClassifiedReveals() {
       }
 
 
-      /* Inhalt beim Laden immer schließen */
+      /* Inhalt beim Laden immer schlieÃŸen */
 
       content.hidden = true;
 
@@ -1253,18 +1214,56 @@ function connectClassifiedReveals() {
           button.textContent =
             contentWillOpen
               ? "AKTENNACHTRAG SCHLIESSEN"
-              : "AKTENNACHTRAG ENTSCHLÜSSELN";
+              : "AKTENNACHTRAG ENTSCHLÃœSSELN";
         }
       );
     }
   );
 }
 
+
+    /* =====================================================
+       HTML-DATEI LADEN
+    ===================================================== */
+
+async function loadPage(filePath) {
+  if (
+    !contentArea ||
+    !filePath
+  ) {
+    return false;
+  }
+
+  try {
+    const separator =
+      filePath.includes("?")
+        ? "&"
+        : "?";
+
+    const response =
+      await fetch(
+        `${filePath}${separator}v=${Date.now()}`
+      );
+
+    if (!response.ok) {
+      throw new Error(
+        `Datei nicht gefunden: ${filePath}`
+      );
+    }
+
+    const html =
+      await response.text();
+
+    contentArea.innerHTML =
+      html;
+
     connectPageButtons();
     updateDynamicPageInformation();
     updatePageTileAccess();
     connectClassifiedReveals();
-    /* Auf dem Handy automatisch zum geöffneten Inhalt springen */
+    addArchiveReadingGuide(filePath);
+
+    /* Auf dem Handy automatisch zum geÃ¶ffneten Inhalt springen */
     scrollToContentOnMobile();
 
     return true;
@@ -1314,7 +1313,7 @@ function connectClassifiedReveals() {
 
       setTextForAll(
         "[data-current-motto]",
-        `„${currentUser.motto}“`
+        `â€ž${currentUser.motto}â€œ`
       );
 
       setTextForAll(
@@ -1350,12 +1349,12 @@ function connectClassifiedReveals() {
       ) {
         case "OMEGA":
           return (
-            "SCHÖPFER DES ARCHIVS"
+            "SCHÃ–PFER DES ARCHIVS"
           );
 
         case "ALPHA":
           return (
-            "HÜTER DES ARCHIVS"
+            "HÃœTER DES ARCHIVS"
           );
 
         case "BETA":
@@ -1438,7 +1437,7 @@ const archiveUnlockPlan = [
   {
     level: 2,
     type: "CHRONIKEN DER DUNKELHEIT",
-    title: "EPISODE 1 – STIMMEN IM WALD",
+    title: "EPISODE 1 â€“ STIMMEN IM WALD",
     page: "kapitel/kapitel_1/kapitel_1_episode_1"
   },
 
@@ -1452,7 +1451,7 @@ const archiveUnlockPlan = [
   {
     level: 3,
     type: "CHRONIKEN DER DUNKELHEIT",
-    title: "EPISODE 2 – LIAM",
+    title: "EPISODE 2 â€“ LIAM",
     page: "kapitel/kapitel_1/kapitel_1_episode_2"
   },
 
@@ -1487,28 +1486,28 @@ const archiveUnlockPlan = [
   {
     level: 6,
     type: "CHRONIKEN DER DUNKELHEIT",
-    title: "EPISODE 3 – THAR’GHUL",
+    title: "EPISODE 3 â€“ THARâ€™GHUL",
     page: "kapitel/kapitel_1/kapitel_1_episode_3"
   },
 
   {
     level: 7,
     type: "ORTSAKTE",
-    title: "THAR’GHUL",
+    title: "THARâ€™GHUL",
     page: "ortsarchiv/tharghul"
   },
 
   {
     level: 7,
-    type: "PERSOENENAKTE",
-    title: "DIE BRUDERSCHAFT VON THAR’GHUL",
+    type: "PERSONENAKTE",
+    title: "DIE BRUDERSCHAFT VON THARâ€™GHUL",
     page: "personenarchiv/bruderschaft_von_thar'ghul"
   },
 
   {
     level: 8,
     type: "CHRONIKEN DER DUNKELHEIT",
-    title: "EPISODE 4 – DAS RITUAL",
+    title: "EPISODE 4 â€“ DAS RITUAL",
     page: "kapitel/kapitel_1/kapitel_1_episode_4"
   },
 
@@ -1522,11 +1521,144 @@ const archiveUnlockPlan = [
   {
     level: 9,
     type: "BESTIARIUM",
-    title: "KON’DOR – DER TODESVOGEL",
+    title: "KONâ€™DOR â€“ DER TODESVOGEL",
     page: "bestarium/kondor"
   }
 
 ];
+
+
+/* =====================================================
+   LEITFADEN AM ENDE EINER ARCHIVAKTE
+===================================================== */
+
+function addArchiveReadingGuide(currentFilePath) {
+  if (
+    !contentArea ||
+    !currentFilePath
+  ) {
+    return;
+  }
+
+  const currentPage =
+    normalizePageName(
+      currentFilePath
+    );
+
+  const currentIndex =
+    archiveUnlockPlan.findIndex(
+      archiveItem =>
+        normalizePageName(
+          archiveItem.page
+        ) === currentPage
+    );
+
+  /* Auf der Home-Seite und auf nicht gelisteten Seiten nichts ergÃ¤nzen. */
+  if (currentIndex < 0) {
+    return;
+  }
+
+  const currentItem =
+    archiveUnlockPlan[currentIndex];
+
+  const nextItem =
+    archiveUnlockPlan[currentIndex + 1];
+
+  const guide =
+    document.createElement("section");
+
+  guide.className =
+    "archiveReadingGuide";
+
+  if (!nextItem) {
+    guide.classList.add(
+      "archiveReadingGuideComplete"
+    );
+
+    guide.innerHTML = `
+      <div class="archiveReadingGuideLabel">
+        ARCHIV-LEITFADEN
+      </div>
+
+      <div class="archiveReadingGuideTitle">
+        AKTUELLER ARCHIVSTAND ABGESCHLOSSEN
+      </div>
+
+      <div class="archiveReadingGuideText">
+        Du hast alle derzeit im Leitfaden erfassten Akten gelesen.
+      </div>
+    `;
+
+    contentArea.append(guide);
+    return;
+  }
+
+  const hasAccess =
+    currentUser.level >=
+    nextItem.level;
+
+  guide.classList.add(
+    hasAccess
+      ? "archiveReadingGuideUnlocked"
+      : "archiveReadingGuideLocked"
+  );
+
+  guide.innerHTML = `
+    <div class="archiveReadingGuideLabel">
+      ARCHIV-LEITFADEN
+    </div>
+
+    <div class="archiveReadingGuideProgress">
+      âœ“ ${escapeHtml(currentItem.title)} ABGESCHLOSSEN
+    </div>
+
+    <div class="archiveReadingGuideNext">
+      ALS NÃ„CHSTES
+    </div>
+
+    <div class="archiveReadingGuideType">
+      ${escapeHtml(nextItem.type)} Â· LEVEL ${nextItem.level}
+    </div>
+
+    <div class="archiveReadingGuideTitle">
+      ${escapeHtml(nextItem.title)}
+    </div>
+
+    <button
+      class="archiveReadingGuideButton"
+      type="button"
+      ${hasAccess ? "" : "disabled"}
+    >
+      ${
+        hasAccess
+          ? "NÃ„CHSTE AKTE Ã–FFNEN"
+          : `NOCH GESPERRT Â· LEVEL ${nextItem.level} BENÃ–TIGT`
+      }
+    </button>
+  `;
+
+  const guideButton =
+    guide.querySelector(
+      ".archiveReadingGuideButton"
+    );
+
+  if (
+    hasAccess &&
+    guideButton
+  ) {
+    guideButton.addEventListener(
+      "click",
+      () => {
+        openArchivePage(
+          nextItem.page,
+          guideButton
+        );
+      }
+    );
+  }
+
+  contentArea.append(guide);
+}
 
 
 /* =====================================================
@@ -1572,7 +1704,7 @@ function createHomeUnlockCard(
     </span>
 
     <span class="homeUnlockCardStatus">
-      ✓ FREIGESCHALTET · ÖFFNEN
+      âœ“ FREIGESCHALTET Â· Ã–FFNEN
     </span>
   `;
 
@@ -1622,8 +1754,8 @@ function updateHomeUnlockOverview() {
 
 
   /*
-    Die Funktion wird nur ausgeführt,
-    wenn gerade die Home-Seite geöffnet ist.
+    Die Funktion wird nur ausgefÃ¼hrt,
+    wenn gerade die Home-Seite geÃ¶ffnet ist.
   */
 
   if (
@@ -1663,7 +1795,7 @@ function updateHomeUnlockOverview() {
 
 
   /*
-    Für Besucher ohne Freigabe
+    FÃ¼r Besucher ohne Freigabe
   */
 
   if (availableItems.length === 0) {
@@ -1698,7 +1830,7 @@ function updateHomeUnlockOverview() {
     )
       .toLowerCase()
       .replace(
-        /[^a-z0-9äöüß_-]/g,
+        /[^a-z0-9Ã¤Ã¶Ã¼ÃŸ_-]/g,
         "_"
       );
 
@@ -1732,7 +1864,7 @@ function updateHomeUnlockOverview() {
 
 
   /*
-    Tatsächlicher Levelaufstieg
+    TatsÃ¤chlicher Levelaufstieg
   */
 
   if (
@@ -1750,7 +1882,7 @@ function updateHomeUnlockOverview() {
       );
 
     headlineText =
-      `GLÜCKWUNSCH – LEVEL ${currentUser.level} ERREICHT`;
+      `GLÃœCKWUNSCH â€“ LEVEL ${currentUser.level} ERREICHT`;
 
     informationText =
       "FOLGENDE ARCHIVINHALTE WURDEN NEU FREIGESCHALTET:";
@@ -1814,7 +1946,7 @@ function updateHomeUnlockOverview() {
 
 
   /*
-    Aktuelles Level für den nächsten Besuch speichern
+    Aktuelles Level fÃ¼r den nÃ¤chsten Besuch speichern
   */
 
   try {
@@ -1841,7 +1973,7 @@ function updateHomeUnlockOverview() {
 
 
     /* =====================================================
-       AKTE ÖFFNEN
+       AKTE Ã–FFNEN
     ===================================================== */
 
     async function openArchivePage(
@@ -1965,7 +2097,7 @@ function updateHomeUnlockOverview() {
           <div class="lockedPanel">
 
             <div class="lockedIcon">
-              🔒
+              ðŸ”’
             </div>
 
             <div class="lockedTitle">
@@ -1988,18 +2120,18 @@ function updateHomeUnlockOverview() {
 
               <br><br>
 
-              BENÖTIGTER RANG:
+              BENÃ–TIGTER RANG:
               ${getRankName(requiredLevel)}
 
               <br>
 
-              BENÖTIGTES LEVEL:
+              BENÃ–TIGTES LEVEL:
               ${requiredLevel}
 
               <br><br>
 
               DIESE ARCHIVAKTE WURDE
-              NOCH NICHT ENTSCHLÜSSELT.
+              NOCH NICHT ENTSCHLÃœSSELT.
 
             </div>
 
@@ -2030,7 +2162,7 @@ function updateHomeUnlockOverview() {
           <div class="lockedPanel">
 
             <div class="lockedIcon">
-              ⚠
+              âš 
             </div>
 
             <div class="lockedTitle">
@@ -2048,7 +2180,7 @@ function updateHomeUnlockOverview() {
 
               <br><br>
 
-              PRÜFE DEN DATEINAMEN,
+              PRÃœFE DEN DATEINAMEN,
               DIE ENDUNG .HTML UND
               DEN ORDNERPFAD.
 
@@ -2062,7 +2194,7 @@ function updateHomeUnlockOverview() {
 
 
     /* =====================================================
-       KNÖPFE INNERHALB GELADENER SEITEN
+       KNÃ–PFE INNERHALB GELADENER SEITEN
     ===================================================== */
 
     function connectPageButtons() {
@@ -2130,7 +2262,7 @@ function updateHomeUnlockOverview() {
             statusElement.textContent =
               hasAccess
               ? individualText
-              : `ZUGRIFF GESPERRT · LEVEL ${requiredLevel} BENÖTIGT`;
+              : `ZUGRIFF GESPERRT Â· LEVEL ${requiredLevel} BENÃ–TIGT`;
           }
         }
       );
@@ -2138,7 +2270,7 @@ function updateHomeUnlockOverview() {
 
 
     /* =====================================================
-       LINKES MENÜ
+       LINKES MENÃœ
     ===================================================== */
 
     menuButtons.forEach(
@@ -2225,4 +2357,3 @@ function updateHomeUnlockOverview() {
 
   }
 );
-
