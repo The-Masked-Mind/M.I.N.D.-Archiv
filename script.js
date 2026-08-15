@@ -1,5 +1,5 @@
 /* =========================================================
-   M.I.N.D. ARCHIV â€“ ZENTRALE STEUERUNG
+   M.I.N.D. ARCHIV \u2013 ZENTRALE STEUERUNG
 ========================================================= */
 
 const SUPABASE_URL =
@@ -69,7 +69,7 @@ async function loadMindUserFromSupabase() {
       users.length === 0
     ) {
       console.warn(
-        "M.I.N.D.: Kein Benutzer fÃ¼r diesen Code gefunden."
+        "M.I.N.D.: Kein Benutzer f\u00FCr diesen Code gefunden."
       );
 
       return null;
@@ -138,7 +138,7 @@ async function loadMaintenanceStatus() {
       message:
         String(
           setting?.message ||
-          "Das Archiv ist aufgrund von Wartungsarbeiten vorÃ¼bergehend nicht verfÃ¼gbar."
+          "Das Archiv ist aufgrund von Wartungsarbeiten vor\u00FCbergehend nicht verf\u00FCgbar."
         )
     };
 
@@ -162,7 +162,7 @@ function showMaintenanceScreen(message) {
     "true";
 
   document.title =
-    "M.I.N.D. â€“ Systemwartung";
+    "M.I.N.D. \u2013 Systemwartung";
 
   const screen =
     document.createElement("main");
@@ -199,7 +199,7 @@ function showMaintenanceScreen(message) {
 
   status.innerHTML =
     '<span class="maintenanceDot"></span>' +
-    '<span>ARCHIVZUGRIFF VORÃœBERGEHEND GESPERRT</span>';
+    '<span>ARCHIVZUGRIFF VOR\u00DCBERGEHEND GESPERRT</span>';
 
   const text =
     document.createElement("p");
@@ -214,7 +214,7 @@ function showMaintenanceScreen(message) {
     "maintenanceFooter";
 
   footer.textContent =
-    "VERBINDUNG ZUM ARCHIV WIRD WIEDERHERGESTELLT â€¦";
+    "VERBINDUNG ZUM ARCHIV WIRD WIEDERHERGESTELLT \u2026";
 
   panel.append(
     code,
@@ -307,7 +307,7 @@ document.addEventListener(
     }
 
 /* =====================================================
-   ARCHIVMUSIK â€“ PLAYLIST UND STEUERUNG
+   ARCHIVMUSIK \u2013 PLAYLIST UND STEUERUNG
 ===================================================== */
 
 const playlist = [
@@ -362,13 +362,13 @@ let currentTrackIndex = -1;
 let audioIsActive = false;
 
 
-/* Button immer frisch suchen, weil home.html spÃ¤ter geladen wird */
+/* Button immer frisch suchen, weil home.html sp\u00E4ter geladen wird */
 function getAudioButton() {
   return document.getElementById("audioToggle");
 }
 
 
-/* ZufÃ¤lligen Titel auswÃ¤hlen â€“ nicht zweimal direkt denselben */
+/* Zuf\u00E4lligen Titel ausw\u00E4hlen \u2013 nicht zweimal direkt denselben */
 function getRandomTrackIndex() {
   if (playlist.length <= 1) {
     return 0;
@@ -394,7 +394,7 @@ async function playTrack(index) {
   currentTrackIndex = index;
 
   /*
-    Erstellt eine vollstÃ¤ndige Adresse aus dem relativen Pfad.
+    Erstellt eine vollst\u00E4ndige Adresse aus dem relativen Pfad.
     Das verhindert Probleme mit Unterseiten wie data/home.html.
   */
   const trackUrl =
@@ -427,7 +427,7 @@ async function playTrack(index) {
 
     if (button) {
       button.textContent =
-        "AUDIOFEHLER â€“ DATEIPFAD PRÃœFEN";
+        "AUDIOFEHLER \u2013 DATEIPFAD PR\u00DCFEN";
 
       button.classList.remove("active");
     }
@@ -476,7 +476,7 @@ function disableArchiveAudio() {
 }
 
 
-/* Funktioniert auch bei spÃ¤ter geladenem home.html */
+/* Funktioniert auch bei sp\u00E4ter geladenem home.html */
 document.addEventListener("click", event => {
   const button =
     event.target.closest("#audioToggle");
@@ -513,7 +513,7 @@ archiveAudio.addEventListener("error", () => {
   audioIsActive = false;
 });
 
-/* Nach jedem Titel zufÃ¤llig einen neuen auswÃ¤hlen */
+/* Nach jedem Titel zuf\u00E4llig einen neuen ausw\u00E4hlen */
 archiveAudio.addEventListener("ended", () => {
   if (!audioIsActive) return;
 
@@ -610,7 +610,7 @@ archiveAudio.addEventListener("ended", () => {
           "Neugieriger Aktenleser",
 
         motto:
-          "Jede Wahrheit beginnt mit der Neugier, eine Akte zu Ã¶ffnen."
+          "Jede Wahrheit beginnt mit der Neugier, eine Akte zu \u00F6ffnen."
       },
 
 
@@ -634,19 +634,19 @@ archiveAudio.addEventListener("ended", () => {
 
       ALPHA: {
         title:
-          "HÃ¼ter des Archivs",
+          "H\u00FCter des Archivs",
 
         motto:
-          "Das Archiv zu schÃ¼tzen bedeutet, die Wahrheit zu bewahren."
+          "Das Archiv zu sch\u00FCtzen bedeutet, die Wahrheit zu bewahren."
       },
 
 
       OMEGA: {
         title:
-          "SchÃ¶pfer des Archivs",
+          "Sch\u00F6pfer des Archivs",
 
         motto:
-          "Der SchÃ¶pfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
+          "Der Sch\u00F6pfer schreibt nicht die Wahrheit. Er erschafft den Ort, an dem sie bewahrt wird."
       }
 
     };
@@ -827,7 +827,7 @@ archiveAudio.addEventListener("ended", () => {
 }
 
 /* =====================================================
-   MENÃœZUGRIFF AKTUALISIEREN
+   MEN\u00DCZUGRIFF AKTUALISIEREN
 ===================================================== */
 
 function updateMenuAccess() {
@@ -877,7 +877,7 @@ function updateMenuAccess() {
       }
 
       bootAccessRank.textContent =
-        `${currentUser.rank} â€“ LEVEL ${currentUser.level}`;
+        `${currentUser.rank} \u2013 LEVEL ${currentUser.level}`;
 
       bootAccessRank.className =
         "bootIdentityValue";
@@ -909,7 +909,7 @@ function updateMenuAccess() {
     function startBootSequence() {
       setTimeout(() => {
         setBootStatus(
-          "IDENTITÃ„T WIRD GEPRÃœFT..."
+          "IDENTIT\u00C4T WIRD GEPR\u00DCFT..."
         );
       }, 1000);
 
@@ -924,7 +924,7 @@ function updateMenuAccess() {
         }
 
         setBootStatus(
-          "IDENTITÃ„T BESTÃ„TIGT"
+          "IDENTIT\u00C4T BEST\u00C4TIGT"
         );
       }, 2000);
 
@@ -933,7 +933,7 @@ function updateMenuAccess() {
         if (bootWelcome) {
           bootWelcome.textContent =
             currentUser.level > 0
-              ? `WILLKOMMEN ZURÃœCK, ${currentUser.name}`
+              ? `WILLKOMMEN ZUR\u00DCCK, ${currentUser.name}`
               : "WILLKOMMEN IM M.I.N.D. ARCHIV";
 
           bootWelcome
@@ -975,7 +975,7 @@ function updateMenuAccess() {
 
 
     /* =====================================================
-       MENÃœMARKIERUNG
+       MEN\u00DCMARKIERUNG
     ===================================================== */
 
     function clearActiveButtons() {
@@ -1054,12 +1054,12 @@ function updateMenuAccess() {
 
 
 /* =====================================================
-   HANDY â€“ NACH DEM LADEN ZUM INHALT SPRINGEN
+   HANDY \u2013 NACH DEM LADEN ZUM INHALT SPRINGEN
 ===================================================== */
 
 function scrollToContentOnMobile() {
 
-  /* Nur auf Handy und Tablet ausfÃ¼hren */
+  /* Nur auf Handy und Tablet ausf\u00FChren */
   if (
     !window.matchMedia("(max-width: 960px)").matches ||
     !contentArea
@@ -1069,7 +1069,7 @@ function scrollToContentOnMobile() {
 
   /*
     Kurz warten, damit der neue Inhalt zuerst
-    vollstÃ¤ndig in die Seite eingesetzt werden kann.
+    vollst\u00E4ndig in die Seite eingesetzt werden kann.
   */
   setTimeout(() => {
 
@@ -1089,7 +1089,7 @@ function scrollToContentOnMobile() {
   /*
     Sicherheitskorrektur:
     Falls Bilder oder andere Elemente die Seite
-    nachtrÃ¤glich verschieben, wird die Position
+    nachtr\u00E4glich verschieben, wird die Position
     noch einmal korrigiert.
   */
   setTimeout(() => {
@@ -1108,7 +1108,7 @@ function scrollToContentOnMobile() {
 }
 
     /* =====================================================
-   KLASSIFIZIERTE AKTENNACHTRÃ„GE
+   KLASSIFIZIERTE AKTENNACHTR\u00C4GE
 ===================================================== */
 
 function connectClassifiedReveals() {
@@ -1158,8 +1158,8 @@ function connectClassifiedReveals() {
       if (status) {
         status.textContent =
           hasAccess
-            ? `SICHERHEITSFREIGABE BESTÃ„TIGT Â· LEVEL ${requiredLevel}`
-            : `ZUGRIFF GESPERRT Â· LEVEL ${requiredLevel} BENÃ–TIGT`;
+            ? `SICHERHEITSFREIGABE BEST\u00C4TIGT \u00B7 LEVEL ${requiredLevel}`
+            : `ZUGRIFF GESPERRT \u00B7 LEVEL ${requiredLevel} BEN\u00D6TIGT`;
       }
 
 
@@ -1168,7 +1168,7 @@ function connectClassifiedReveals() {
       }
 
 
-      /* Inhalt beim Laden immer schlieÃŸen */
+      /* Inhalt beim Laden immer schlie\u00DFen */
 
       content.hidden = true;
 
@@ -1214,7 +1214,7 @@ function connectClassifiedReveals() {
           button.textContent =
             contentWillOpen
               ? "AKTENNACHTRAG SCHLIESSEN"
-              : "AKTENNACHTRAG ENTSCHLÃœSSELN";
+              : "AKTENNACHTRAG ENTSCHL\u00DCSSELN";
         }
       );
     }
@@ -1263,7 +1263,7 @@ async function loadPage(filePath) {
     connectClassifiedReveals();
     addArchiveReadingGuide(filePath);
 
-    /* Auf dem Handy automatisch zum geÃ¶ffneten Inhalt springen */
+    /* Auf dem Handy automatisch zum ge\u00F6ffneten Inhalt springen */
     scrollToContentOnMobile();
 
     return true;
@@ -1313,7 +1313,7 @@ async function loadPage(filePath) {
 
       setTextForAll(
         "[data-current-motto]",
-        `â€ž${currentUser.motto}â€œ`
+        `\u201E${currentUser.motto}\u201C`
       );
 
       setTextForAll(
@@ -1349,12 +1349,12 @@ async function loadPage(filePath) {
       ) {
         case "OMEGA":
           return (
-            "SCHÃ–PFER DES ARCHIVS"
+            "SCH\u00D6PFER DES ARCHIVS"
           );
 
         case "ALPHA":
           return (
-            "HÃœTER DES ARCHIVS"
+            "H\u00DCTER DES ARCHIVS"
           );
 
         case "BETA":
@@ -1437,7 +1437,7 @@ const archiveUnlockPlan = [
   {
     level: 2,
     type: "CHRONIKEN DER DUNKELHEIT",
-    title: "EPISODE 1 â€“ STIMMEN IM WALD",
+    title: "EPISODE 1 \u2013 STIMMEN IM WALD",
     page: "kapitel/kapitel_1/kapitel_1_episode_1"
   },
 
@@ -1451,7 +1451,7 @@ const archiveUnlockPlan = [
   {
     level: 3,
     type: "CHRONIKEN DER DUNKELHEIT",
-    title: "EPISODE 2 â€“ LIAM",
+    title: "EPISODE 2 \u2013 LIAM",
     page: "kapitel/kapitel_1/kapitel_1_episode_2"
   },
 
@@ -1486,28 +1486,28 @@ const archiveUnlockPlan = [
   {
     level: 6,
     type: "CHRONIKEN DER DUNKELHEIT",
-    title: "EPISODE 3 â€“ THARâ€™GHUL",
+    title: "EPISODE 3 \u2013 THAR\u2019GHUL",
     page: "kapitel/kapitel_1/kapitel_1_episode_3"
   },
 
   {
     level: 7,
     type: "ORTSAKTE",
-    title: "THARâ€™GHUL",
+    title: "THAR\u2019GHUL",
     page: "ortsarchiv/tharghul"
   },
 
   {
     level: 7,
     type: "PERSONENAKTE",
-    title: "DIE BRUDERSCHAFT VON THARâ€™GHUL",
+    title: "DIE BRUDERSCHAFT VON THAR\u2019GHUL",
     page: "personenarchiv/bruderschaft_von_thar'ghul"
   },
 
   {
     level: 8,
     type: "CHRONIKEN DER DUNKELHEIT",
-    title: "EPISODE 4 â€“ DAS RITUAL",
+    title: "EPISODE 4 \u2013 DAS RITUAL",
     page: "kapitel/kapitel_1/kapitel_1_episode_4"
   },
 
@@ -1521,7 +1521,7 @@ const archiveUnlockPlan = [
   {
     level: 9,
     type: "BESTIARIUM",
-    title: "KONâ€™DOR â€“ DER TODESVOGEL",
+    title: "KON\u2019DOR \u2013 DER TODESVOGEL",
     page: "bestarium/kondor"
   }
 
@@ -1553,7 +1553,7 @@ function addArchiveReadingGuide(currentFilePath) {
         ) === currentPage
     );
 
-  /* Auf der Home-Seite und auf nicht gelisteten Seiten nichts ergÃ¤nzen. */
+  /* Auf der Home-Seite und auf nicht gelisteten Seiten nichts erg\u00E4nzen. */
   if (currentIndex < 0) {
     return;
   }
@@ -1609,15 +1609,15 @@ function addArchiveReadingGuide(currentFilePath) {
     </div>
 
     <div class="archiveReadingGuideProgress">
-      ${escapeHtml(currentItem.title)} ABGESCHLOSSEN
+      &#10003; ${escapeHtml(currentItem.title)} ABGESCHLOSSEN
     </div>
 
     <div class="archiveReadingGuideNext">
-      ALS NÄCHSTES
+      ALS N&Auml;CHSTES
     </div>
 
     <div class="archiveReadingGuideType">
-      ${escapeHtml(nextItem.type)} · LEVEL ${nextItem.level}
+      ${escapeHtml(nextItem.type)} &middot; LEVEL ${nextItem.level}
     </div>
 
     <div class="archiveReadingGuideTitle">
@@ -1631,8 +1631,8 @@ function addArchiveReadingGuide(currentFilePath) {
     >
       ${
         hasAccess
-          ? "NÄCHSTE AKTE ÖFFNEN"
-          : `NOCH GESPERRT · LEVEL ${nextItem.level} BENÖTIGT`
+          ? "N&Auml;CHSTE AKTE &Ouml;FFNEN"
+          : `NOCH GESPERRT &middot; LEVEL ${nextItem.level} BEN&Ouml;TIGT`
       }
     </button>
   `;
@@ -1704,7 +1704,726 @@ function createHomeUnlockCard(
     </span>
 
     <span class="homeUnlockCardStatus">
-      âœ“ FREIGESCHALTET Â· Ã–FFNEN
+      &#10003; FREIGESCHALTET &middot; &Ouml;FFNEN
+    </span>
+  `;
+
+  button.addEventListener(
+    "click",
+    () => {
+      openArchivePage(
+        archiveItem.page,
+        button
+      );
+    }
+  );
+
+  return button;
+}
+
+
+/* =====================================================
+   HOME-FREIGABEN ANZEIGEN
+===================================================== */
+
+function updateHomeUnlockOverview() {
+  const newUnlockPanel =
+    document.querySelector(
+      "[data-new-unlock-panel]"
+    );
+
+  const newUnlockHeadline =
+    document.querySelector(
+      "[data-new-unlock-headline]"
+    );
+
+  const newUnlockText =
+    document.querySelector(
+      "[data-new-unlock-text]"
+    );
+
+  const newUnlockList =
+    document.querySelector(
+      "[data-new-unlock-list]"
+    );
+
+  const allUnlockList =
+    document.querySelector(
+      "[data-all-unlock-list]"
+    );
+
+
+  /*
+    Die Funktion wird nur ausgef\u00FChrt,
+    wenn gerade die Home-Seite ge\u00F6ffnet ist.
+  */
+
+  if (
+    !newUnlockPanel ||
+    !newUnlockList ||
+    !allUnlockList
+  ) {
+    return;
+  }
+
+
+  const availableItems =
+    archiveUnlockPlan.filter(
+      archiveItem =>
+        currentUser.level >=
+        archiveItem.level
+    );
+
+
+  newUnlockList.replaceChildren();
+  allUnlockList.replaceChildren();
+
+
+  /*
+    Alle bisher freigeschalteten Inhalte anzeigen
+  */
+
+  availableItems.forEach(
+    archiveItem => {
+      allUnlockList.append(
+        createHomeUnlockCard(
+          archiveItem
+        )
+      );
+    }
+  );
+
+
+  /*
+    F\u00FCr Besucher ohne Freigabe
+  */
+
+  if (availableItems.length === 0) {
+    const emptyMessage =
+      document.createElement("div");
+
+    emptyMessage.className =
+      "homeUnlockEmpty";
+
+    emptyMessage.textContent =
+      "NOCH KEINE ARCHIVINHALTE FREIGESCHALTET.";
+
+    allUnlockList.append(
+      emptyMessage
+    );
+
+    newUnlockPanel.hidden =
+      true;
+
+    return;
+  }
+
+
+  /*
+    Zuletzt angesehenes Benutzerlevel laden
+  */
+
+  const userStorageName =
+    String(
+      currentUser.name ||
+      "gast"
+    )
+      .toLowerCase()
+      .replace(
+        /[^a-z0-9\u00E4\u00F6\u00FC\u00DF_-]/g,
+        "_"
+      );
+
+  const storageKey =
+    `mind_last_seen_level_${userStorageName}`;
+
+  let previousLevel =
+    null;
+
+  try {
+    const storedLevel =
+      localStorage.getItem(
+        storageKey
+      );
+
+    if (storedLevel !== null) {
+      previousLevel =
+        Number(storedLevel);
+    }
+  } catch (error) {
+    console.warn(
+      "M.I.N.D.: Letztes Level konnte nicht geladen werden.",
+      error
+    );
+  }
+
+
+  let highlightedItems = [];
+  let headlineText = "";
+  let informationText = "";
+
+
+  /*
+    Tats\u00E4chlicher Levelaufstieg
+  */
+
+  if (
+    Number.isFinite(previousLevel) &&
+    currentUser.level > previousLevel
+  ) {
+    highlightedItems =
+      archiveUnlockPlan.filter(
+        archiveItem =>
+          archiveItem.level >
+            previousLevel &&
+
+          archiveItem.level <=
+            currentUser.level
+      );
+
+    headlineText =
+      `GL\u00DCCKWUNSCH \u2013 LEVEL ${currentUser.level} ERREICHT`;
+
+    informationText =
+      "FOLGENDE ARCHIVINHALTE WURDEN NEU FREIGESCHALTET:";
+  }
+
+
+  /*
+    Erster Besuch oder kein neuer Levelaufstieg:
+    Die zuletzt erreichte Freigabestufe anzeigen.
+  */
+
+  if (highlightedItems.length === 0) {
+    const highestUnlockLevel =
+      Math.max(
+        ...availableItems.map(
+          archiveItem =>
+            archiveItem.level
+        )
+      );
+
+    highlightedItems =
+      availableItems.filter(
+        archiveItem =>
+          archiveItem.level ===
+          highestUnlockLevel
+      );
+
+    headlineText =
+      `DEINE FREIGABEN AUF LEVEL ${highestUnlockLevel}`;
+
+    informationText =
+      "ZULETZT FREIGESCHALTETE ARCHIVINHALTE:";
+  }
+
+
+  if (newUnlockHeadline) {
+    newUnlockHeadline.textContent =
+      headlineText;
+  }
+
+  if (newUnlockText) {
+    newUnlockText.textContent =
+      informationText;
+  }
+
+
+  highlightedItems.forEach(
+    archiveItem => {
+      newUnlockList.append(
+        createHomeUnlockCard(
+          archiveItem,
+          true
+        )
+      );
+    }
+  );
+
+
+  newUnlockPanel.hidden =
+    false;
+
+
+  /*
+    Aktuelles Level f\u00FCr den n\u00E4chsten Besuch speichern
+  */
+
+  try {
+    localStorage.setItem(
+      storageKey,
+      String(currentUser.level)
+    );
+  } catch (error) {
+    console.warn(
+      "M.I.N.D.: Aktuelles Level konnte nicht gespeichert werden.",
+      error
+    );
+  }
+}
+
+
+    async function showHome() {
+      clearActiveButtons();
+
+      await loadPage(
+        "data/home.html"
+      );
+    }
+
+
+    /* =====================================================
+       AKTE \u00D6FFNEN
+    ===================================================== */
+
+    async function openArchivePage(
+      pageName,
+      sourceElement = null
+    ) {
+      const normalizedPage =
+        normalizePageName(
+          pageName
+        );
+
+      if (!normalizedPage) {
+        return;
+      }
+
+      const matchingMenuButton =
+        findMenuButton(
+          normalizedPage
+        );
+
+      const requiredLevel =
+        sourceElement?.dataset.level
+          ? getRequiredLevel(
+              sourceElement
+            )
+          : matchingMenuButton
+            ? getRequiredLevel(
+                matchingMenuButton
+              )
+            : 999;
+
+      if (
+        currentUser.level <
+        requiredLevel
+      ) {
+        activateMenuButton(
+          normalizedPage
+        );
+
+        showLockedContent(
+          sourceElement
+            ?.textContent
+            .trim() ||
+
+          matchingMenuButton
+            ?.textContent
+            .trim() ||
+
+          normalizedPage,
+
+          requiredLevel
+        );
+
+        return;
+      }
+
+      activateMenuButton(
+        normalizedPage
+      );
+
+      const filePath =
+        createFilePath(
+          normalizedPage
+        );
+
+      await loadPage(
+        filePath
+      );
+    }
+
+
+    function findMenuButton(
+      pageName
+    ) {
+      const normalizedPage =
+        normalizePageName(
+          pageName
+        );
+
+      return menuButtons.find(
+        button => {
+          return (
+            normalizePageName(
+              button.dataset.page
+            ) === normalizedPage
+          );
+        }
+      );
+    }
+
+
+    function getRequiredLevel(
+      element
+    ) {
+      const level =
+        Number(
+          element?.dataset.level
+        );
+
+      return Number.isFinite(level)
+        ? level
+        : 999;
+    }
+
+
+    /* =====================================================
+       GESPERRTE AKTE
+    ===================================================== */
+
+    function showLockedContent(
+      name,
+      requiredLevel
+    ) {
+      if (!contentArea) {
+        return;
+      }
+
+      contentArea.innerHTML = `
+        <div class="lockedScreen">
+
+          <div class="lockedPanel">
+
+            <div class="lockedIcon">
+              \u{1F512}
+            </div>
+
+            <div class="lockedTitle">
+              ZUGRIFF VERWEIGERT
+            </div>
+
+            <div class="lockedText">
+
+              ${escapeHtml(name)}
+
+              <br><br>
+
+              AKTUELLER RANG:
+              ${currentUser.rank}
+
+              <br>
+
+              AKTUELLES LEVEL:
+              ${currentUser.level}
+
+              <br><br>
+
+              BEN\u00D6TIGTER RANG:
+              ${getRankName(requiredLevel)}
+
+              <br>
+
+              BEN\u00D6TIGTES LEVEL:
+              ${requiredLevel}
+
+              <br><br>
+
+              DIESE ARCHIVAKTE WURDE
+              NOCH NICHT ENTSCHL\u00DCSSELT.
+
+            </div>
+
+          </div>
+
+        </div>
+      `;
+
+      /* Auch bei gesperrten Akten zum Inhaltsbereich springen */
+      scrollToContentOnMobile();
+    }
+
+
+    /* =====================================================
+       DATEIFEHLER
+    ===================================================== */
+
+    function showFileError(
+      filePath
+    ) {
+      if (!contentArea) {
+        return;
+      }
+
+      contentArea.innerHTML = `
+        <div class="lockedScreen">
+
+          <div class="lockedPanel">
+
+            <div class="lockedIcon">
+              \u26A0
+            </div>
+
+            <div class="lockedTitle">
+              DATEIFEHLER
+            </div>
+
+            <div class="lockedText">
+
+              DIE ARCHIVDATEI KONNTE
+              NICHT GELADEN WERDEN.
+
+              <br><br>
+
+              ${escapeHtml(filePath)}
+
+              <br><br>
+
+              PR\u00DCFE DEN DATEINAMEN,
+              DIE ENDUNG .HTML UND
+              DEN ORDNERPFAD.
+
+            </div>
+
+          </div>
+
+        </div>
+      `;
+    }
+
+
+    /* =====================================================
+       KN\u00D6PFE INNERHALB GELADENER SEITEN
+    ===================================================== */
+
+    function connectPageButtons() {
+      const pageLinks =
+        document.querySelectorAll(
+          "[data-open-page]"
+        );
+
+      pageLinks.forEach(
+        button => {
+          button.addEventListener(
+            "click",
+            () => {
+              openArchivePage(
+                button.dataset.openPage,
+                button
+              );
+            }
+          );
+        }
+      );
+    }
+
+
+    function updatePageTileAccess() {
+      const pageLinks =
+        document.querySelectorAll(
+          "[data-open-page]"
+        );
+
+      pageLinks.forEach(
+        element => {
+          const requiredLevel =
+            getRequiredLevel(
+              element
+            );
+
+          const hasAccess =
+            currentUser.level >=
+            requiredLevel;
+
+          element.classList.toggle(
+            "lockedTile",
+            !hasAccess
+          );
+
+          element.classList.toggle(
+            "unlockedTile",
+            hasAccess
+          );
+
+          const statusElement =
+            element.querySelector(
+              ".archiveCategoryStatus, .maskOverviewStatus"
+            );
+
+          if (statusElement) {
+            const individualText =
+              statusElement.dataset.openText ||
+              statusElement.textContent.trim();
+
+            statusElement.dataset.openText =
+              individualText;
+
+            statusElement.textContent =
+              hasAccess
+              ? individualText
+              : `ZUGRIFF GESPERRT \u00B7 LEVEL ${requiredLevel} BEN\u00D6TIGT`;
+          }
+        }
+      );
+    }
+
+
+    /* =====================================================
+       LINKES MEN\u00DC
+    ===================================================== */
+
+    menuButtons.forEach(
+      button => {
+        button.addEventListener(
+          "click",
+          () => {
+            openArchivePage(
+              button.dataset.page,
+              button
+            );
+          }
+        );
+      }
+    );
+
+
+    /* =====================================================
+       HOME-BUTTON
+    ===================================================== */
+
+    if (homeButton) {
+      homeButton.addEventListener(
+        "click",
+        showHome
+      );
+    }
+
+
+    /* =====================================================
+       HILFSFUNKTIONEN
+    ===================================================== */
+
+    function capitalizeWord(
+      word
+    ) {
+      if (!word) {
+        return "";
+      }
+
+      return (
+        word
+          .charAt(0)
+          .toUpperCase() +
+
+        word.slice(1)
+      );
+    }
+
+
+    function escapeHtml(
+      value
+    ) {
+      return String(value)
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
+    }
+
+
+    /* =====================================================
+       SYSTEM STARTEN
+    ===================================================== */
+
+    loadAccessCode();
+    startBootSequence();
+
+    const guideButton =
+      guide.querySelector(
+        ".archiveReadingGuideButton"
+      );
+
+    if (
+      hasAccess &&
+      guideButton
+    ) {
+      guideButton.addEventListener(
+        "click",
+        () => {
+          openArchivePage(
+            nextItem.page,
+            guideButton
+          );
+        }
+      );
+    }
+
+    contentArea.append(guide);
+  }
+);
+
+
+/* =====================================================
+   FREIGABEKACHEL ERSTELLEN
+===================================================== */
+
+function createHomeUnlockCard(
+  archiveItem,
+  isNewUnlock = false
+) {
+  const button =
+    document.createElement("button");
+
+  button.type =
+    "button";
+
+  button.className =
+    "homeUnlockCard";
+
+  if (isNewUnlock) {
+    button.classList.add(
+      "homeUnlockCardNew"
+    );
+  }
+
+  button.dataset.level =
+    archiveItem.level;
+
+  button.dataset.openPage =
+    archiveItem.page;
+
+  button.innerHTML = `
+    <span class="homeUnlockCardLevel">
+      LEVEL ${archiveItem.level}
+    </span>
+
+    <span class="homeUnlockCardType">
+      ${escapeHtml(archiveItem.type)}
+    </span>
+
+    <span class="homeUnlockCardTitle">
+      ${escapeHtml(archiveItem.title)}
+    </span>
+
+    <span class="homeUnlockCardStatus">
+      âœ“ FREIGESCHALTET Â· Ã-FFNEN
     </span>
   `;
 
@@ -1973,7 +2692,7 @@ function updateHomeUnlockOverview() {
 
 
     /* =====================================================
-       AKTE Ã–FFNEN
+       AKTE Ã-FFNEN
     ===================================================== */
 
     async function openArchivePage(
@@ -2097,7 +2816,7 @@ function updateHomeUnlockOverview() {
           <div class="lockedPanel">
 
             <div class="lockedIcon">
-              ðŸ”’
+              ðŸ”'
             </div>
 
             <div class="lockedTitle">
@@ -2120,12 +2839,12 @@ function updateHomeUnlockOverview() {
 
               <br><br>
 
-              BENÃ–TIGTER RANG:
+              BENÃ-TIGTER RANG:
               ${getRankName(requiredLevel)}
 
               <br>
 
-              BENÃ–TIGTES LEVEL:
+              BENÃ-TIGTES LEVEL:
               ${requiredLevel}
 
               <br><br>
@@ -2194,7 +2913,7 @@ function updateHomeUnlockOverview() {
 
 
     /* =====================================================
-       KNÃ–PFE INNERHALB GELADENER SEITEN
+       KNÃ-PFE INNERHALB GELADENER SEITEN
     ===================================================== */
 
     function connectPageButtons() {
@@ -2262,7 +2981,7 @@ function updateHomeUnlockOverview() {
             statusElement.textContent =
               hasAccess
               ? individualText
-              : `ZUGRIFF GESPERRT Â· LEVEL ${requiredLevel} BENÃ–TIGT`;
+              : `ZUGRIFF GESPERRT Â· LEVEL ${requiredLevel} BENÃ-TIGT`;
           }
         }
       );
