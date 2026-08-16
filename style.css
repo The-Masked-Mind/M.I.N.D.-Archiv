@@ -4418,3 +4418,9 @@ button.maskOverviewCard:hover {
     letter-spacing: 1px;
   }
 }
+
+.archiveSectionTitle {
+  margin-top: 45px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(160, 170, 170, 0.25);
+}
