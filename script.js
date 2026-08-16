@@ -956,7 +956,7 @@ function updateMenuAccess() {
 
       setTimeout(async () => {
         await showHome();
-
+        showFirstVisitWelcome();
         if (bootScreen) {
           bootScreen
             .classList
@@ -2679,6 +2679,119 @@ function updateHomeUnlockOverview() {
       error
     );
   }
+}
+
+/* =====================================================
+   BEGRÜSSUNG BEIM ERSTEN BESUCH
+===================================================== */
+
+function showFirstVisitWelcome() {
+  const userStorageName =
+    String(currentUser.name || "gast")
+      .toLowerCase()
+      .replace(
+        /[^a-z0-9äöüß_-]/g,
+        "_"
+      );
+
+  const storageKey =
+    `mind_welcome_seen_${userStorageName}`;
+
+  try {
+    if (
+      localStorage.getItem(storageKey) ===
+      "true"
+    ) {
+      return;
+    }
+  } catch (error) {
+    console.warn(
+      "Begrüßungsstatus konnte nicht geladen werden.",
+      error
+    );
+  }
+
+  const welcomeScreen =
+    document.createElement("div");
+
+  welcomeScreen.className =
+    "firstVisitWelcome";
+
+  welcomeScreen.innerHTML = `
+    <section class="firstVisitWelcomePanel">
+
+      <div class="firstVisitWelcomeLabel">
+        M.I.N.D. ARCHIVSYSTEM
+      </div>
+
+      <h2 class="firstVisitWelcomeTitle">
+        WILLKOMMEN IM M.I.N.D.-ARCHIV
+      </h2>
+
+      <div class="firstVisitWelcomeText">
+
+        <p>
+          Weiter unten findest du alle Archivbereiche,
+          die für deine Sicherheitsstufe freigeschaltet sind.
+        </p>
+
+        <p>
+          Wenn du möchtest, kannst du oben die
+          atmosphärische Archivmusik aktivieren.
+        </p>
+
+        <p>
+          Viel Spaß beim Entdecken.
+        </p>
+
+      </div>
+
+      <button
+        class="firstVisitWelcomeButton"
+        type="button"
+      >
+        ARCHIV BETRETEN
+      </button>
+
+    </section>
+  `;
+
+  document.body.append(
+    welcomeScreen
+  );
+
+  const welcomeButton =
+    welcomeScreen.querySelector(
+      ".firstVisitWelcomeButton"
+    );
+
+  welcomeButton.addEventListener(
+    "click",
+    () => {
+      try {
+        localStorage.setItem(
+          storageKey,
+          "true"
+        );
+      } catch (error) {
+        console.warn(
+          "Begrüßungsstatus konnte nicht gespeichert werden.",
+          error
+        );
+      }
+
+      welcomeScreen.classList.add(
+        "firstVisitWelcomeClosing"
+      );
+
+      setTimeout(
+        () => {
+          welcomeScreen.remove();
+        },
+        400
+      );
+    }
+  );
 }
 
 

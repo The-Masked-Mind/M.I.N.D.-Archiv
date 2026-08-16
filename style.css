@@ -4430,3 +4430,121 @@ button.maskOverviewCard:hover {
   padding-top: 30px;
   border-top: 1px solid rgba(160, 170, 170, 0.25);
 }
+
+/* =====================================================
+   BEGRÜSSUNG BEIM ERSTEN BESUCH
+===================================================== */
+
+.firstVisitWelcome {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: rgba(0, 8, 10, 0.92);
+  backdrop-filter: blur(7px);
+
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.firstVisitWelcomeClosing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.firstVisitWelcomePanel {
+  width: min(600px, 100%);
+  padding: 38px;
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 55, 60, 0.7);
+  border-left: 4px solid #ff373c;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(32, 7, 10, 0.98),
+      rgba(2, 18, 20, 0.98)
+    );
+
+  box-shadow:
+    0 0 35px rgba(255, 55, 60, 0.12);
+}
+
+.firstVisitWelcomeLabel {
+  margin-bottom: 18px;
+
+  color: #ff3e43;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.firstVisitWelcomeTitle {
+  margin: 0 0 28px;
+  padding: 0;
+  border: 0;
+
+  color: #f1f1f1;
+  font-size: clamp(23px, 5vw, 34px);
+  letter-spacing: 2px;
+}
+
+.firstVisitWelcomeText {
+  color: #c7cece;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.firstVisitWelcomeText p {
+  margin: 0 0 16px;
+}
+
+.firstVisitWelcomeButton {
+  width: 100%;
+  margin-top: 18px;
+  padding: 16px 20px;
+
+  border: 1px solid #ff3e43;
+  background: rgba(255, 55, 60, 0.09);
+
+  color: #f2f2f2;
+  font: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.firstVisitWelcomeButton:hover {
+  background: rgba(255, 55, 60, 0.22);
+  box-shadow:
+    0 0 20px rgba(255, 55, 60, 0.18);
+}
+
+@media (max-width: 600px) {
+  .firstVisitWelcome {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 25px 14px;
+  }
+
+  .firstVisitWelcomePanel {
+    padding: 26px 20px;
+  }
+
+  .firstVisitWelcomeText {
+    font-size: 15px;
+  }
+}
