@@ -1493,8 +1493,8 @@ const archiveUnlockPlan = [
   {
     level: 7,
     type: "ORTSAKTE",
-    title: "THAR\u2019GHUL",
-    page: "ortsarchiv/tharghul"
+    title: "DIE FESTUNG THAR\u2019GHUL",
+    page: "ortsarchiv/die_festung_tharghul"
   },
 
   {
