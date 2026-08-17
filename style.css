@@ -4548,3 +4548,13 @@ button.maskOverviewCard:hover {
     font-size: 15px;
   }
 }
+
+.artifactQuote .artifactQuoteMark:first-child {
+  top: 20px;
+  left: 22px;
+}
+
+.artifactQuote .artifactQuoteMark:last-child {
+  right: 24px;
+  bottom: 45px;
+}
