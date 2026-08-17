@@ -4553,7 +4553,7 @@ button.maskOverviewCard:hover {
 /* Gänsefüßchen oben links */
 
 .artifactQuote > .artifactQuoteMark:first-child {
-  top: 4px;
+  top: 1px;
   left: 20px;
   right: auto;
   bottom: auto;
