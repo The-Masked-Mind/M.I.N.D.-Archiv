@@ -4549,12 +4549,22 @@ button.maskOverviewCard:hover {
   }
 }
 
-.artifactQuote .artifactQuoteMark:first-child {
-  top: 70px;
-  left: 22px;
+
+/* Gänsefüßchen oben links */
+
+.artifactQuote > .artifactQuoteMark:first-child {
+  top: 4px;
+  left: 20px;
+  right: auto;
+  bottom: auto;
 }
 
-.artifactQuote .artifactQuoteMark:last-child {
-  right: 24px;
-  bottom: 45px;
+/* Gänsefüßchen unten rechts */
+
+.artifactQuote > .artifactQuoteMark:last-child {
+  top: auto;
+  left: auto;
+  right: 20px;
+  bottom: -8px;
+  font-size: 72px;
 }
