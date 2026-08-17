@@ -1057,6 +1057,7 @@ function updateMenuAccess() {
    HANDY \u2013 NACH DEM LADEN ZUM INHALT SPRINGEN
 ===================================================== */
 
+
 function scrollToContentOnMobile() {
 
   /* Nur auf Handy und Tablet ausf\u00FChren */
@@ -1105,6 +1106,26 @@ function scrollToContentOnMobile() {
     });
 
   }, 600);
+}
+
+/* =====================================================
+   PC – BEIM AKTENWECHSEL NACH OBEN SPRINGEN
+===================================================== */
+
+function scrollToTopOnDesktop() {
+  if (
+    window.matchMedia(
+      "(max-width: 960px)"
+    ).matches
+  ) {
+    return;
+  }
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "auto"
+  });
 }
 
     /* =====================================================
@@ -1262,6 +1283,9 @@ async function loadPage(filePath) {
     updatePageTileAccess();
     connectClassifiedReveals();
     addArchiveReadingGuide(filePath);
+
+    /* Auf dem PC nach ganz oben springen */
+    scrollToTopOnDesktop();
 
     /* Auf dem Handy automatisch zum ge\u00F6ffneten Inhalt springen */
     scrollToContentOnMobile();
