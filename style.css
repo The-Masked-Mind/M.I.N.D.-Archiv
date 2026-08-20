@@ -4568,3 +4568,55 @@ button.maskOverviewCard:hover {
   bottom: -8px;
   font-size: 72px;
 }
+
+/* =====================================================
+   ZURÜCK-BUTTON DER ARCHIVBEREICHE
+===================================================== */
+
+.archiveBackArea {
+  display: flex;
+  justify-content: flex-start;
+  margin: 28px 0 40px;
+}
+
+.archiveBackButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 18px;
+
+  border: 1px solid rgba(255, 60, 60, 0.55);
+  background: rgba(255, 40, 40, 0.05);
+  color: #d8d8d8;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.archiveBackButton:hover {
+  color: #ffffff;
+  border-color: #ff3c3c;
+  background: rgba(255, 40, 40, 0.12);
+}
+
+.archiveBackArrow {
+  color: #ff3c3c;
+  font-size: 19px;
+  line-height: 1;
+}
+
+@media (max-width: 700px) {
+  .archiveBackButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
