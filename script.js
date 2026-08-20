@@ -668,11 +668,11 @@ archiveAudio.addEventListener("ended", () => {
         return "ALPHA";
       }
 
-      if (numericLevel >= 10) {
+      if (numericLevel >= 20) {
         return "BETA";
       }
 
-      if (numericLevel >= 5) {
+      if (numericLevel >= 10) {
         return "GAMMA";
       }
 
