@@ -4610,20 +4610,20 @@ button.maskOverviewCard:hover {
 .artifactQuoteMark {
   position: absolute;
   color: #c73535;
-  font-family: Arial, sans-serif;
-  font-size: 48px;
+  font-family: Georgia, serif;
+  font-size: 46px;
   font-weight: bold;
   line-height: 1;
+  opacity: 0.85;
 }
 
-.quoteLeft {
-  top: 63px;
+.artifactQuote > .quoteLeft {
+  top: 48px;
   left: 25px;
-  transform: scaleX(-1);
 }
 
-.quoteRight {
-  top: 43px;
+.artifactQuote > .quoteRight {
+  top: 48px;
   right: 25px;
 }
 
