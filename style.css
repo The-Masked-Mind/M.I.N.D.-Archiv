@@ -4617,17 +4617,17 @@ button.maskOverviewCard:hover {
   opacity: 0.85;
 }
 
-.artifactQuote > .quoteLeft {
+.artifactQuote > .quoteLeft {           
   top: 48px;
   left: 25px;
 }
 
-.artifactQuote > .quoteRight {
+.artifactQuote > .quoteRight {          
   top: 48px;
   right: 25px;
 }
 
-/* Linkes Anführungszeichen */
+/* Anführungszeichen unten */
 .artifactQuote > .artifactQuoteMark:first-child {
   top: 25px;
   left: 22px;
@@ -4635,10 +4635,10 @@ button.maskOverviewCard:hover {
   right: auto;
 }
 
-/* Rechtes Anführungszeichen */
+/* Anführungszeichen oben */
 .artifactQuote > .artifactQuoteMark:last-child {
   right: 22px;
-  bottom: 15px;
+  bottom: 5px;
   top: auto;
   left: auto;
 }
