@@ -4629,7 +4629,7 @@ button.maskOverviewCard:hover {
 
 /* Anführungszeichen unten */
 .artifactQuote > .artifactQuoteMark:first-child {
-  top: 25px;
+  top: 35px;
   left: 22px;
   bottom: auto;
   right: auto;
