@@ -89,6 +89,67 @@ async function loadMindUserFromSupabase() {
 
 
 /* =========================================================
+   BESUCH IN SUPABASE PROTOKOLLIEREN
+========================================================= */
+
+async function recordMindVisit(accessCode) {
+  const normalizedCode =
+    String(accessCode || "").trim();
+
+  if (!normalizedCode) {
+    return false;
+  }
+
+  const requestUrl =
+    `${SUPABASE_URL}/rest/v1/rpc/record_mind_visit`;
+
+  try {
+    const response =
+      await fetch(requestUrl, {
+        method: "POST",
+
+        headers: {
+          apikey:
+            SUPABASE_PUBLISHABLE_KEY,
+
+          "Content-Type":
+            "application/json"
+        },
+
+        body: JSON.stringify({
+          p_access_code:
+            normalizedCode
+        })
+      });
+
+    if (!response.ok) {
+      console.error(
+        "M.I.N.D.: Besuch konnte nicht protokolliert werden:",
+        response.status,
+        await response.text()
+      );
+
+      return false;
+    }
+
+    console.log(
+      "M.I.N.D.: Archivbesuch wurde protokolliert."
+    );
+
+    return true;
+
+  } catch (error) {
+    console.error(
+      "M.I.N.D.: Fehler bei der Besuchsprotokollierung:",
+      error
+    );
+
+    return false;
+  }
+}
+
+
+/* =========================================================
    GLOBALER WARTUNGSMODUS
 ========================================================= */
 
@@ -278,6 +339,12 @@ document.addEventListener(
 
     const mindUser =
       await loadMindUserFromSupabase();
+
+      if (mindUser?.access_code) {
+      await recordMindVisit(
+      mindUser.access_code
+     );
+    }
 
     const userLevel =
       Number.parseInt(
