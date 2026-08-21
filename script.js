@@ -2100,17 +2100,21 @@ function showFirstVisitWelcome() {
       </h2>
 
       <div class="firstVisitWelcomeText">
-
         <p>
-          Weiter unten findest du alle Archivbereiche,
-          die für deine Sicherheitsstufe freigeschaltet sind.
-        </p>
-
+          Auf der Startseite findest du deine freigeschalteten Archivakten.
+        </p>        
         <p>
-          Wenn du möchtest, kannst du oben die
-          atmosphärische Archivmusik aktivieren.
+          Weiter unten findest du alle Archivbereiche, die für deine Sicherheitsstufe freigeschaltet sind.
         </p>
-
+        <p>
+          Empfohlen wird der Leitfaden der sich am Ende jeder Akte befindet.
+        </p>
+        <p>
+          Du kannst dich aber auch durch die Akten selbst durcharbeiten
+        </p>
+        <p>
+          Wenn du möchtest, kannst du oben die atmosphärische Archivmusik aktivieren.
+        </p>
         <p>
           Viel Spaß beim Entdecken.
         </p>
