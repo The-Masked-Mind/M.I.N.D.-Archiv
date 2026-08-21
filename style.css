@@ -4624,3 +4624,28 @@ button.maskOverviewCard:hover {
     justify-content: center;
   }
 }
+
+.artifactQuoteMark {
+  position: absolute;
+  font-family: Arial, sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1;
+  color: #c73535;
+}
+
+/* Linkes Anführungszeichen */
+.artifactQuote > .artifactQuoteMark:first-child {
+  top: 45px;
+  left: 22px;
+  bottom: auto;
+  right: auto;
+}
+
+/* Rechtes Anführungszeichen */
+.artifactQuote > .artifactQuoteMark:last-child {
+  right: 22px;
+  bottom: 35px;
+  top: auto;
+  left: auto;
+}
