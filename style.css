@@ -4627,11 +4627,22 @@ button.maskOverviewCard:hover {
 
 .artifactQuoteMark {
   position: absolute;
+  color: #c73535;
   font-family: Arial, sans-serif;
   font-size: 48px;
   font-weight: bold;
   line-height: 1;
-  color: #c73535;
+}
+
+.quoteLeft {
+  top: 63px;
+  left: 25px;
+  transform: scaleX(-1);
+}
+
+.quoteRight {
+  top: 43px;
+  right: 25px;
 }
 
 /* Linkes Anführungszeichen */
