@@ -4554,24 +4554,6 @@ button.maskOverviewCard:hover {
 }
 
 
-/* Gänsefüßchen oben links */
-
-.artifactQuote > .artifactQuoteMark:first-child {
-  top: 1px;
-  left: 20px;
-  right: auto;
-  bottom: auto;
-}
-
-/* Gänsefüßchen unten rechts */
-
-.artifactQuote > .artifactQuoteMark:last-child {
-  top: auto;
-  left: auto;
-  right: 20px;
-  bottom: -8px;
-  font-size: 72px;
-}
 
 /* =====================================================
    ZURÜCK-BUTTON DER ARCHIVBEREICHE
