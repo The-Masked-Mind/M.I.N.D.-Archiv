@@ -446,6 +446,10 @@ button {
   text-transform: uppercase;
 }
 
+.menuTitle .menuTitleSecondary {
+  color: var(--cyan);
+}
+
 /* einzelne Menüeinträge */
 .menuButton {
   display: block;
