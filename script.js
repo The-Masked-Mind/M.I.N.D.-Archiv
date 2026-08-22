@@ -2102,15 +2102,11 @@ function showFirstVisitWelcome() {
       <div class="firstVisitWelcomeText">
         <p>
           Auf der Startseite findest du deine freigeschalteten Archivakten.
-        </p>        
-        <p>
           Weiter unten findest du alle Archivbereiche, die für deine Sicherheitsstufe freigeschaltet sind.
         </p>
         <p>
-          Empfohlen wird der Leitfaden der sich am Ende jeder Akte befindet.
-        </p>
-        <p>
-          Du kannst dich aber auch durch die Akten selbst durcharbeiten
+          Angefangen mit dem Prolog führt dich der Leitfaden, der sich am Ende jeder Akte befindet, durch das Archiv.
+          Du kannst dich aber auch selbst durch die Akten durcharbeiten.
         </p>
         <p>
           Wenn du möchtest, kannst du oben die atmosphärische Archivmusik aktivieren.
