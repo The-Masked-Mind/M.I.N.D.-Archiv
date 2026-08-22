@@ -1592,7 +1592,7 @@ const archiveUnlockPlan = [
     level: 7,
     type: "PERSONENAKTE",
     title: "DIE BRUDERSCHAFT VON THAR\u2019GHUL",
-    page: "personenarchiv/bruderschaft_von_thar'ghul"
+    page: "personenarchiv/die_bruderschaft_von_thar'ghul"
   },
 
   {
