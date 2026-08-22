@@ -2839,7 +2839,7 @@ function updateHomeUnlockOverview() {
       `ZULETZT FREIGESCHALTET AUF LEVEL ${highestUnlockLevel}`;
 
     informationText =
-      "FREIGESCHALTETE ARCHIVINHALTE:";
+      "ZULETZT FREIGESCHALTETE ARCHIVINHALTE:";
   }
 
 
