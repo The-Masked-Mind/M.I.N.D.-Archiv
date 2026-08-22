@@ -2836,10 +2836,10 @@ function updateHomeUnlockOverview() {
       );
 
     headlineText =
-      `DEINE FREIGABEN AUF LEVEL ${highestUnlockLevel}`;
+      `ZULETZT FREIGESCHALTET AUF LEVEL ${highestUnlockLevel}`;
 
     informationText =
-      "ZULETZT FREIGESCHALTETE ARCHIVINHALTE:";
+      "FREIGESCHALTETE ARCHIVINHALTE:";
   }
 
 
