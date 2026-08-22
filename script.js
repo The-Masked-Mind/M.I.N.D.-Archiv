@@ -2103,6 +2103,7 @@ function showFirstVisitWelcome() {
         <p>
           Auf der Startseite findest du deine freigeschalteten Archivakten.
           Weiter unten findest du alle Archivbereiche, die für deine Sicherheitsstufe freigeschaltet sind.
+          Wenn du oben auf das Haus klickst, kommst du immer auf die Starseite zurück.
         </p>
         <p>
           Angefangen mit dem Prolog führt dich der Leitfaden, der sich am Ende jeder Akte befindet, durch das Archiv.
