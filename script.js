@@ -1557,7 +1557,7 @@ const archiveUnlockPlan = [
     level: 4,
     type: "PERSONENAKTE",
     title: "DER OKKULTIST",
-    page: "personenarchiv/okkultist"
+    page: "personenarchiv/der_okkultist"
   },
 
   {
