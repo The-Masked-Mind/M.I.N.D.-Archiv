@@ -4628,18 +4628,18 @@ button.maskOverviewCard:hover {
   right: 25px;
 }
 
-/* Anführungszeichen unten */
+/* Öffnendes Gänsefüßchen – oben links */
 .artifactQuote > .artifactQuoteMark:first-child {
-  top: -10px;
+  top: 18px;
   left: 22px;
-  bottom: auto;
   right: auto;
+  bottom: auto;
 }
 
-/* Anführungszeichen oben */
+/* Schließendes Gänsefüßchen – unten rechts */
 .artifactQuote > .artifactQuoteMark:last-child {
-  right: 120px;
-  bottom: -5px;
   top: auto;
   left: auto;
+  right: 22px;
+  bottom: 14px;
 }
