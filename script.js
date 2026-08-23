@@ -1612,8 +1612,16 @@ const archiveUnlockPlan = [
   {
     level: 9,
     type: "BESTIARIUM",
-    title: "KON\u2019DOR \u2013 DER TODESVOGEL",
+    title: "KON'DOR - DER TODESVOGEL",
     page: "bestarium/kondor"
+  },
+
+  {
+    level: 20,
+    type: "BESTIARIUM · AKTENNACHTRAG",
+    title: "KON'DOR - WEITERE INFORMATIONEN ZU KON'DOR",
+    page: "bestarium/kondor",
+    showInGuide: false
   }
 
 ];
@@ -1636,6 +1644,12 @@ function addArchiveReadingGuide(currentFilePath) {
       currentFilePath
     );
 
+  const guideUnlockPlan =
+    archiveUnlockPlan.filter(
+      archiveItem =>
+        archiveItem.showInGuide !== false
+    );
+
   const currentIndex =
     archiveUnlockPlan.findIndex(
       archiveItem =>
@@ -1650,10 +1664,10 @@ function addArchiveReadingGuide(currentFilePath) {
   }
 
   const currentItem =
-    archiveUnlockPlan[currentIndex];
+    guideUnlockPlan[currentIndex];
 
   const nextItem =
-    archiveUnlockPlan[currentIndex + 1];
+    guideUnlockPlan[currentIndex + 1];
 
   const guide =
     document.createElement("section");
