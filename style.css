@@ -4630,7 +4630,7 @@ button.maskOverviewCard:hover {
 
 /* Öffnendes Gänsefüßchen – oben links */
 .artifactQuote > .artifactQuoteMark:first-child {
-  top: 40px;
+  top: 20px;
   left: 22px;
   right: auto;
   bottom: auto;
@@ -4641,5 +4641,5 @@ button.maskOverviewCard:hover {
   top: auto;
   left: auto;
   right: 22px;
-  bottom: 60px;
+  bottom: 40px;
 }
