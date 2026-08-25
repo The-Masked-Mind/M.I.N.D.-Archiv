@@ -4643,3 +4643,292 @@ button.maskOverviewCard:hover {
   right: 22px;
   bottom: 35px;
 }
+
+/* =====================================================
+   NACHRICHT AN DAS ARCHIV
+===================================================== */
+
+.archiveMessageArea {
+  margin-top: 48px;
+}
+
+.archiveMessageTerminal {
+  position: relative;
+  overflow: hidden;
+
+  padding: 30px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.28);
+
+  border-left:
+    4px solid var(--cyan);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 26, 29, 0.98),
+      rgba(3, 10, 12, 0.98)
+    );
+}
+
+.archiveMessageTerminal::after {
+  content: "SENDEN";
+
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+
+  color: rgba(52, 217, 255, 0.035);
+
+  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: 8px;
+
+  pointer-events: none;
+}
+
+.archiveMessageLabel {
+  position: relative;
+  z-index: 1;
+
+  margin-bottom: 18px;
+
+  color: var(--cyan);
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+.archiveMessageHeadline {
+  position: relative;
+  z-index: 1;
+
+  margin:
+    0 0 14px;
+
+  color: var(--text);
+
+  font-size:
+    clamp(22px, 4vw, 34px);
+
+  letter-spacing: 3px;
+}
+
+.archiveMessageDescription {
+  position: relative;
+  z-index: 1;
+
+  max-width: 720px;
+
+  margin:
+    0 0 24px;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+.archiveMessageOpenButton,
+.archiveMessageSendButton,
+.archiveMessageCancelButton {
+  position: relative;
+  z-index: 1;
+
+  min-height: 46px;
+
+  padding:
+    12px 18px;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.5);
+
+  color: var(--cyan);
+  background:
+    rgba(52, 217, 255, 0.07);
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.archiveMessageOpenButton:hover,
+.archiveMessageSendButton:hover {
+  color: #ffffff;
+  border-color: var(--cyan);
+  background:
+    rgba(52, 217, 255, 0.16);
+}
+
+.archiveMessagePanel {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 26px;
+  padding-top: 26px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.1);
+}
+
+.archiveMessagePanel[hidden] {
+  display: none !important;
+}
+
+.archiveMessageField {
+  display: block;
+
+  margin-bottom: 22px;
+}
+
+.archiveMessageFieldLabel {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+}
+
+.archiveMessageField select,
+.archiveMessageField textarea {
+  box-sizing: border-box;
+
+  width: 100%;
+
+  border:
+    1px solid rgba(52, 217, 255, 0.25);
+
+  outline: none;
+
+  color: var(--text);
+  background:
+    rgba(0, 7, 9, 0.92);
+
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.archiveMessageField select {
+  min-height: 48px;
+
+  padding:
+    10px 14px;
+}
+
+.archiveMessageField textarea {
+  min-height: 160px;
+
+  padding: 15px;
+
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.archiveMessageField select:focus,
+.archiveMessageField textarea:focus {
+  border-color: var(--cyan);
+
+  box-shadow:
+    0 0 18px rgba(52, 217, 255, 0.1);
+}
+
+.archiveMessageCounter {
+  margin-top: -12px;
+  margin-bottom: 20px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-align: right;
+}
+
+.archiveMessageActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.archiveMessageCancelButton {
+  color: var(--muted);
+
+  border-color:
+    rgba(255, 255, 255, 0.16);
+
+  background:
+    rgba(255, 255, 255, 0.03);
+}
+
+.archiveMessageCancelButton:hover {
+  color: #ffffff;
+
+  border-color:
+    rgba(255, 255, 255, 0.35);
+}
+
+.archiveMessageSendButton:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}
+
+.archiveMessageStatus {
+  min-height: 22px;
+
+  margin-top: 18px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  line-height: 1.6;
+}
+
+.archiveMessageStatus.messageSuccess {
+  color: var(--green);
+}
+
+.archiveMessageStatus.messageError {
+  color: var(--red);
+}
+
+
+/* =====================================================
+   NACHRICHTENFENSTER – HANDY
+===================================================== */
+
+@media (max-width: 680px) {
+
+  .archiveMessageTerminal {
+    padding:
+      24px 18px;
+  }
+
+  .archiveMessageTerminal::after {
+    font-size: 44px;
+  }
+
+  .archiveMessageOpenButton,
+  .archiveMessageSendButton,
+  .archiveMessageCancelButton {
+    width: 100%;
+  }
+
+  .archiveMessageActions {
+    flex-direction: column-reverse;
+  }
+}
