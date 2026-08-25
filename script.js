@@ -1310,6 +1310,315 @@ function connectClassifiedReveals() {
 }
 
 
+/* =====================================================
+   NACHRICHT AN DAS ARCHIV
+===================================================== */
+
+function connectArchiveMessageTerminal(
+  currentFilePath = ""
+) {
+  const openButton =
+    document.querySelector(
+      "[data-message-open]"
+    );
+
+  const messagePanel =
+    document.querySelector(
+      "[data-message-panel]"
+    );
+
+  const messageForm =
+    document.querySelector(
+      "[data-message-form]"
+    );
+
+  const cancelButton =
+    document.querySelector(
+      "[data-message-cancel]"
+    );
+
+  const sendButton =
+    document.querySelector(
+      "[data-message-send]"
+    );
+
+  const messageText =
+    document.querySelector(
+      "[data-message-text]"
+    );
+
+  const messageCount =
+    document.querySelector(
+      "[data-message-count]"
+    );
+
+  const messageStatus =
+    document.querySelector(
+      "[data-message-status]"
+    );
+
+
+  /*
+    Die Funktion wird nur auf Seiten mit
+    einem Nachrichtenfenster ausgeführt.
+  */
+
+  if (
+    !openButton ||
+    !messagePanel ||
+    !messageForm ||
+    !messageText ||
+    !messageStatus
+  ) {
+    return;
+  }
+
+
+  const accessCode =
+    String(
+      mindUser?.access_code || ""
+    ).trim();
+
+
+  /*
+    Besucher ohne gültigen Archivzugang
+    dürfen keine Nachricht übermitteln.
+  */
+
+  if (!accessCode) {
+    openButton.disabled = true;
+
+    openButton.textContent =
+      "GÜLTIGER ARCHIVZUGANG BENÖTIGT";
+
+    return;
+  }
+
+
+  function clearMessageStatus() {
+    messageStatus.textContent = "";
+
+    messageStatus.classList.remove(
+      "messageSuccess",
+      "messageError"
+    );
+  }
+
+
+  function updateCharacterCount() {
+    if (!messageCount) {
+      return;
+    }
+
+    messageCount.textContent =
+      messageText.value.length;
+  }
+
+
+  /*
+    Nachrichtenfenster öffnen
+  */
+
+  openButton.addEventListener(
+    "click",
+    () => {
+      clearMessageStatus();
+
+      messagePanel.hidden = false;
+
+      openButton.hidden = true;
+
+      window.setTimeout(
+        () => {
+          messageText.focus();
+        },
+        100
+      );
+    }
+  );
+
+
+  /*
+    Nachrichtenfenster schließen
+  */
+
+  cancelButton?.addEventListener(
+    "click",
+    () => {
+      messagePanel.hidden = true;
+
+      openButton.hidden = false;
+
+      clearMessageStatus();
+    }
+  );
+
+
+  /*
+    Zeichenzähler
+  */
+
+  messageText.addEventListener(
+    "input",
+    updateCharacterCount
+  );
+
+  updateCharacterCount();
+
+
+  /*
+    Nachricht an Supabase senden
+  */
+
+  messageForm.addEventListener(
+    "submit",
+    async event => {
+      event.preventDefault();
+
+      clearMessageStatus();
+
+      const formData =
+        new FormData(
+          messageForm
+        );
+
+      const category =
+        String(
+          formData.get("category") || ""
+        ).trim();
+
+      const message =
+        String(
+          formData.get("message") || ""
+        ).trim();
+
+
+      if (!message) {
+        messageStatus.textContent =
+          "BITTE GIB EINE NACHRICHT EIN.";
+
+        messageStatus.classList.add(
+          "messageError"
+        );
+
+        messageText.focus();
+
+        return;
+      }
+
+
+      if (sendButton) {
+        sendButton.disabled = true;
+
+        sendButton.textContent =
+          "NACHRICHT WIRD ÜBERMITTELT...";
+      }
+
+
+      try {
+        const response =
+          await fetch(
+            `${SUPABASE_URL}/rest/v1/rpc/submit_mind_message`,
+            {
+              method: "POST",
+
+              headers: {
+                apikey:
+                  SUPABASE_PUBLISHABLE_KEY,
+
+                "Content-Type":
+                  "application/json"
+              },
+
+              body: JSON.stringify({
+                p_access_code:
+                  accessCode,
+
+                p_category:
+                  category,
+
+                p_message:
+                  message,
+
+                p_archive_page:
+                  currentFilePath
+              })
+            }
+          );
+
+
+        if (!response.ok) {
+          let errorMessage =
+            "DIE NACHRICHT KONNTE NICHT ÜBERMITTELT WERDEN.";
+
+          try {
+            const errorData =
+              await response.json();
+
+            const serverMessage =
+              String(
+                errorData?.message || ""
+              );
+
+            if (
+              serverMessage.includes(
+                "Bitte warte kurz"
+              )
+            ) {
+              errorMessage =
+                "BITTE WARTE EINE MINUTE, BEVOR DU EINE WEITERE NACHRICHT SENDEST.";
+            }
+          } catch (error) {
+            console.warn(
+              "M.I.N.D.: Serverantwort konnte nicht gelesen werden.",
+              error
+            );
+          }
+
+          throw new Error(
+            errorMessage
+          );
+        }
+
+
+        messageForm.reset();
+
+        updateCharacterCount();
+
+        messageStatus.textContent =
+          "NACHRICHT ERFOLGREICH AN DAS ARCHIV ÜBERMITTELT.";
+
+        messageStatus.classList.add(
+          "messageSuccess"
+        );
+
+      } catch (error) {
+        console.error(
+          "M.I.N.D.: Nachricht konnte nicht gesendet werden:",
+          error
+        );
+
+        messageStatus.textContent =
+          error.message ||
+          "DIE NACHRICHT KONNTE NICHT ÜBERMITTELT WERDEN.";
+
+        messageStatus.classList.add(
+          "messageError"
+        );
+
+      } finally {
+        if (sendButton) {
+          sendButton.disabled = false;
+
+          sendButton.textContent =
+            "NACHRICHT ÜBERMITTELN";
+        }
+      }
+    }
+  );
+}
+
+
     /* =====================================================
        HTML-DATEI LADEN
     ===================================================== */
@@ -1344,7 +1653,10 @@ async function loadPage(filePath) {
 
     contentArea.innerHTML =
       html;
-
+      
+    connectArchiveMessageTerminal(
+      filePath
+    );
     connectPageButtons();
     updateDynamicPageInformation();
     updatePageTileAccess();
