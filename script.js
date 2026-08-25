@@ -2439,6 +2439,9 @@ function showFirstVisitWelcome() {
           Wenn du möchtest, kannst du oben die atmosphärische Archivmusik aktivieren.
         </p>
         <p>
+          Auf der Startseite findest du weiter unten die Nachrichtenfunktion. Dort kann du Fragen, Fehler oder Meinung hinterlassen wenn du magst.
+        </p>
+        <p>
           Viel Spaß beim Entdecken.
         </p>
 
