@@ -320,6 +320,142 @@
      LETZTE AKTUALISIERUNGEN
 ====================================================== -->
 
+<!-- ======================================================
+     NACHRICHT AN DAS ARCHIV
+====================================================== -->
+
+<section class="archiveMessageArea">
+
+  <div class="homeSectionTitle">
+    NACHRICHTENÜBERMITTLUNG
+  </div>
+
+  <div class="archiveMessageTerminal">
+
+    <div class="archiveMessageLabel">
+      M.I.N.D. KOMMUNIKATIONSTERMINAL
+    </div>
+
+    <h2 class="archiveMessageHeadline">
+      NACHRICHT AN DAS ARCHIV
+    </h2>
+
+    <p class="archiveMessageDescription">
+      Du hast einen Fehler entdeckt, eine Frage oder eine Anregung?
+      Übermittle dem Archiv hier deine Nachricht.
+    </p>
+
+    <button
+      class="archiveMessageOpenButton"
+      type="button"
+      data-message-open
+    >
+      NACHRICHTENFENSTER ÖFFNEN
+    </button>
+
+
+    <div
+      class="archiveMessagePanel"
+      data-message-panel
+      hidden
+    >
+
+      <form data-message-form>
+
+        <label
+          class="archiveMessageField"
+          for="archiveMessageCategory"
+        >
+          <span class="archiveMessageFieldLabel">
+            ART DER NACHRICHT
+          </span>
+
+          <select
+            id="archiveMessageCategory"
+            name="category"
+            required
+          >
+            <option value="FEHLER">
+              FEHLER MELDEN
+            </option>
+
+            <option value="FRAGE">
+              FRAGE STELLEN
+            </option>
+
+            <option value="ANREGUNG">
+              ANREGUNG SENDEN
+            </option>
+
+            <option value="SONSTIGES">
+              SONSTIGES
+            </option>
+          </select>
+        </label>
+
+
+        <label
+          class="archiveMessageField"
+          for="archiveMessageText"
+        >
+          <span class="archiveMessageFieldLabel">
+            DEINE NACHRICHT
+          </span>
+
+          <textarea
+            id="archiveMessageText"
+            name="message"
+            maxlength="1200"
+            rows="7"
+            placeholder="Was möchtest du dem Archiv mitteilen?"
+            required
+            data-message-text
+          ></textarea>
+        </label>
+
+
+        <div class="archiveMessageCounter">
+          <span data-message-count>0</span>
+          / 1200 ZEICHEN
+        </div>
+
+
+        <div class="archiveMessageActions">
+
+          <button
+            class="archiveMessageCancelButton"
+            type="button"
+            data-message-cancel
+          >
+            ABBRECHEN
+          </button>
+
+          <button
+            class="archiveMessageSendButton"
+            type="submit"
+            data-message-send
+          >
+            NACHRICHT ÜBERMITTELN
+          </button>
+
+        </div>
+
+
+        <div
+          class="archiveMessageStatus"
+          data-message-status
+          aria-live="polite"
+        ></div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <div class="homeSectionTitle">
   LETZTE AKTUALISIERUNGEN
 </div>
