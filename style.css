@@ -451,6 +451,11 @@ button {
   font-size: 15px;
 }
 
+.menuTitle .menuTitleTertiary {
+  color: var(--yellow);
+  font-size: 15px;
+}
+
 /* einzelne Menüeinträge */
 .menuButton {
   display: block;
