@@ -1931,8 +1931,7 @@ const archiveUnlockPlan = [
   {
     level: 10,
     type: "CHRONIKEN DER DUNKELHEIT",
-    title: "KAPITEL 2 - DIE JAGD" <br>
-           "EPISODE 1 - DER PLAN",
+    title: "KAPITEL 2 - DIE JAGD · EPISODE 1 - DER PLAN",
     page: "kapitel/kapitel_2/kapitel_2_episode_1"
   },
 
