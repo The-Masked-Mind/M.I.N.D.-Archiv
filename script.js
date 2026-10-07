@@ -1929,6 +1929,28 @@ const archiveUnlockPlan = [
   },
 
   {
+    level: 10,
+    type: "CHRONIKEN DER DUNKELHEIT",
+    title: "KAPITEL 2 - DIE JAGD" <br>
+           "EPISODE 1 - DER PLAN",
+    page: "kapitel/kapitel_2/kapitel_2_episode_1"
+  },
+
+  {
+    level: 11,
+    type: "CHRONIKEN DER DUNKELHEIT",
+    title: "EPISODE 2 - DIE ERSTEN OPFER",
+    page: "kapitel/kapitel_2/kapitel_2_episode_2"
+  },
+
+  {
+    level: 12,
+    type: "CHRONIKEN DER DUNKELHEIT",
+    title: "EPISODE 3 - STIMMEN AUS DER DUNKELHEIT",
+    page: "kapitel/kapitel_2/kapitel_2_episode_3"
+  },  
+
+  {
     level: 20,
     type: "BESTIARIUM · AKTENNACHTRAG",
     title: "KON'DOR - WEITERE INFORMATIONEN ZU KON'DOR",
