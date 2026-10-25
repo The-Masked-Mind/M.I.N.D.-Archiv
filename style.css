@@ -4937,3 +4937,25 @@ button.maskOverviewCard:hover {
     flex-direction: column-reverse;
   }
 }
+
+.home-infobox {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(10, 15, 25, 0.9);
+  border: 1px solid #365a78;
+  border-left: 4px solid #5ca9e6;
+  border-radius: 8px;
+  color: #dce8f2;
+}
+
+.home-infobox-title {
+  color: #5ca9e6;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.home-infobox p {
+  margin: 0;
+  line-height: 1.6;
+}
