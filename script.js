@@ -2454,7 +2454,8 @@ function showFirstVisitWelcome() {
         </p>
         <p>
           Angefangen mit dem Prolog führt dich der Leitfaden, der sich am Ende jeder Akte befindet, durch das Archiv.
-          Du kannst dich aber auch selbst durch die Akten durcharbeiten.
+          Du kannst dich aber auch selbst durch die Akten durcharbeiten. Sofern du die Akten freigeschaltet hast. 
+          Du schaltest sie frei, indem du weitere Kanalpunkte einlöst.
         </p>
         <p>
           Wenn du möchtest, kannst du oben die atmosphärische Archivmusik aktivieren.
