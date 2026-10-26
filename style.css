@@ -5035,3 +5035,21 @@ button.maskOverviewCard:hover {
 .userTerminalStatus {
   justify-content: center;
 }
+
+/* Startbildschirm mittig ausrichten */
+
+.bootScreen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+}
+
+.bootPanel {
+  width: min(95%, 950px);
+  min-height: 380px;
+  margin: 0 auto;
+}
