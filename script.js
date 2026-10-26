@@ -2,9 +2,11 @@
    M.I.N.D. ARCHIV \u2013 ZENTRALE STEUERUNG
 ========================================================= */
 
+/* DATENBANK: Öffentliche Projektadresse von Supabase; nicht unüberlegt ändern. */
 const SUPABASE_URL =
   "https://vyyysbwtzisvgigrkgkv.supabase.co";
 
+/* DATENBANKSCHLÜSSEL: Publishable Key; niemals einen geheimen Service-Role-Key im Browser verwenden. */
 const SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_ubqmffcDeAtVfr__G1k0Fg_WGsXCcMK";
 
@@ -13,6 +15,7 @@ const SUPABASE_PUBLISHABLE_KEY =
    SUPABASE-BENUTZER LADEN
 ========================================================= */
 
+/* FUNKTION loadMindUserFromSupabase: Lädt den Benutzer anhand des Zugangscodes aus der URL. */
 async function loadMindUserFromSupabase() {
   const parameters =
     new URLSearchParams(
@@ -92,6 +95,7 @@ async function loadMindUserFromSupabase() {
    BESUCH IN SUPABASE PROTOKOLLIEREN
 ========================================================= */
 
+/* FUNKTION recordMindVisit: Protokolliert den Besuch in Supabase. */
 async function recordMindVisit(accessCode) {
   const normalizedCode =
     String(accessCode || "").trim();
@@ -153,6 +157,7 @@ async function recordMindVisit(accessCode) {
    GLOBALER WARTUNGSMODUS
 ========================================================= */
 
+/* FUNKTION loadMaintenanceStatus: Fragt den globalen Wartungsmodus ab. */
 async function loadMaintenanceStatus() {
   const requestUrl =
     `${SUPABASE_URL}/rest/v1/mind_settings` +
@@ -218,6 +223,7 @@ async function loadMaintenanceStatus() {
 }
 
 
+/* FUNKTION showMaintenanceScreen: Ersetzt die Seite durch die Wartungsanzeige. */
 function showMaintenanceScreen(message) {
   document.body.dataset.maintenanceActive =
     "true";
@@ -291,6 +297,7 @@ function showMaintenanceScreen(message) {
 }
 
 
+/* FUNKTION startMaintenanceWatch: Prüft regelmäßig, ob der Wartungsmodus gewechselt hat. */
 function startMaintenanceWatch(isAdministrator) {
   if (isAdministrator) {
     return;
@@ -333,6 +340,7 @@ function startMaintenanceWatch(isAdministrator) {
    ARCHIV STARTEN
 ========================================================= */
 
+/* EREIGNISSTEUERUNG: Reagiert auf Laden oder Bedienung der Webseite. */
 document.addEventListener(
   "DOMContentLoaded",
   async () => {
@@ -377,6 +385,7 @@ document.addEventListener(
    ARCHIVMUSIK \u2013 PLAYLIST UND STEUERUNG
 ===================================================== */
 
+/* MUSIKLISTE: Hier die Pfade zu den MP3-Dateien eintragen. */
 const playlist = [
   "sounds/archivmusik.mp3",
   "sounds/archivmusik1.mp3",
@@ -422,6 +431,7 @@ const playlist = [
 
 const archiveAudio = new Audio();
 
+/* LAUTSTÄRKE: 0 = stumm, 1 = volle Lautstärke. */
 archiveAudio.volume = 0.35;
 archiveAudio.preload = "auto";
 
@@ -430,12 +440,14 @@ let audioIsActive = false;
 
 
 /* Button immer frisch suchen, weil home.html sp\u00E4ter geladen wird */
+/* FUNKTION getAudioButton: Findet den Button zum Ein- und Ausschalten der Musik. */
 function getAudioButton() {
   return document.getElementById("audioToggle");
 }
 
 
 /* Zuf\u00E4lligen Titel ausw\u00E4hlen \u2013 nicht zweimal direkt denselben */
+/* FUNKTION getRandomTrackIndex: Wählt einen zufälligen Musiktitel, möglichst nicht zweimal denselben. */
 function getRandomTrackIndex() {
   if (playlist.length <= 1) {
     return 0;
@@ -453,6 +465,7 @@ function getRandomTrackIndex() {
 
 
 /* Titel laden und abspielen */
+/* FUNKTION playTrack: Lädt und startet den ausgewählten Titel. */
 async function playTrack(index) {
   if (!audioIsActive) {
     return;
@@ -503,6 +516,7 @@ async function playTrack(index) {
 
 
 /* Archivmusik einschalten */
+/* FUNKTION enableArchiveAudio: Aktiviert die Archivmusik. */
 function enableArchiveAudio() {
   if (playlist.length === 0) {
     return;
@@ -526,6 +540,7 @@ function enableArchiveAudio() {
 
 
 /* Archivmusik ausschalten */
+/* FUNKTION disableArchiveAudio: Stoppt die Archivmusik. */
 function disableArchiveAudio() {
   audioIsActive = false;
 
@@ -544,6 +559,7 @@ function disableArchiveAudio() {
 
 
 /* Funktioniert auch bei sp\u00E4ter geladenem home.html */
+/* EREIGNISSTEUERUNG: Reagiert auf Laden oder Bedienung der Webseite. */
 document.addEventListener("click", event => {
   const button =
     event.target.closest("#audioToggle");
@@ -661,6 +677,7 @@ archiveAudio.addEventListener("ended", () => {
        RANGDATEN
     ===================================================== */
 
+/* RANGTEXTE: Namen, Titel und Mottos der Sicherheitsränge. */
     const rankInformation = {
 
       KEINE: {
@@ -723,6 +740,7 @@ archiveAudio.addEventListener("ended", () => {
        RANG AUS LEVEL BERECHNEN
     ===================================================== */
 
+/* FUNKTION getRankName: Ermittelt aus dem Level den Rang. */
     function getRankName(level) {
       const numericLevel =
         Number(level) || 0;
@@ -755,6 +773,7 @@ archiveAudio.addEventListener("ended", () => {
        BENUTZERPROFIL ERSTELLEN
     ===================================================== */
 
+/* FUNKTION createUserProfile: Erstellt ein Profilobjekt mit Name, Level, Rang und Beschreibung. */
     function createUserProfile(
       userData
     ) {
@@ -808,6 +827,7 @@ archiveAudio.addEventListener("ended", () => {
        ZUGANGSCODE AUS URL LADEN
     ===================================================== */
 
+/* FUNKTION loadAccessCode: Prüft den Zugangscode und übernimmt das Benutzerprofil. */
     function loadAccessCode() {
       const parameters =
         new URLSearchParams(
@@ -862,6 +882,7 @@ archiveAudio.addEventListener("ended", () => {
        BENUTZERANZEIGE OBEN RECHTS
     ===================================================== */
 
+/* FUNKTION updateUserTerminal: Aktualisiert Benutzername, Rang und Level in der Kopfzeile. */
     function updateUserTerminal() {
       if (archiveUserName) {
         archiveUserName.textContent =
@@ -897,6 +918,7 @@ archiveAudio.addEventListener("ended", () => {
    MEN\u00DCZUGRIFF AKTUALISIEREN
 ===================================================== */
 
+/* FUNKTION updateMenuAccess: Kennzeichnet Menüpunkte als gesperrt oder freigeschaltet. */
 function updateMenuAccess() {
 
   menuButtons.forEach(
@@ -931,6 +953,7 @@ function updateMenuAccess() {
        STARTSEQUENZ
     ===================================================== */
 
+/* FUNKTION updateBootIdentity: Schreibt Benutzername und Rang auf den Startbildschirm. */
     function updateBootIdentity() {
       if (bootUserName) {
         bootUserName.textContent =
