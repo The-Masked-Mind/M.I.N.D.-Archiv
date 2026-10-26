@@ -5029,7 +5029,7 @@ button.maskOverviewCard:hover {
 /* SYSTEM ONLINE mittig ausrichten */
 
 .userTerminalHeader {
-  text-align: center;
+  position: center;
 }
 
 .userTerminalStatus {
