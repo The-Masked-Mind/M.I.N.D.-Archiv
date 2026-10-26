@@ -26,227 +26,161 @@
 
   <div
     class="bootScreen"
-    id="bootScreen"
-  >
-
+    id="bootScreen">
     <div class="bootPanel">
-
       <div class="bootLabel">
         M.I.N.D. ARCHIV
       </div>
-
       <div class="bootTitle">
         ZUGRIFF WIRD GEPRÜFT
       </div>
-
       <div
-  class="bootStatus"
-  id="bootStatus"
->
-  VERBINDUNG WIRD HERGESTELLT...
-</div>
-
-<div
-  class="bootIdentity"
-  id="bootIdentity"
->
-
-  <div class="bootIdentityRow">
-
-    <span class="bootIdentityLabel">
-      BENUTZER
-    </span>
-
-    <span
-      class="bootIdentityValue"
-      id="bootUserName"
-    >
-      WIRD ERMITTELT...
-    </span>
-
-  </div>
-
-  <div class="bootIdentityRow">
-
-    <span class="bootIdentityLabel">
-      SICHERHEITSSTUFE
-    </span>
-
-    <span
-      class="bootIdentityValue"
-      id="bootAccessRank"
-    >
-      WIRD GEPRÜFT...
-    </span>
-
-  </div>
-
-</div>
-
-<div
-  class="bootWelcome"
-  id="bootWelcome"
->
-</div>
-
-<div class="bootBar">
-  <div class="bootFill"></div>
-</div>
-
+        class="bootStatus"
+        id="bootStatus">
+        VERBINDUNG WIRD HERGESTELLT...
+      </div>
     </div>
-
+    <div
+        class="bootIdentity"
+        id="bootIdentity">
+    <div class="bootIdentityRow">
+      <span class="bootIdentityLabel">
+        BENUTZER
+      </span>
+      <span
+        class="bootIdentityValue"
+        id="bootUserName">
+        WIRD ERMITTELT...
+      </span>
+    </div>
+    <div class="bootIdentityRow">
+      <span class="bootIdentityLabel">
+        SICHERHEITSSTUFE
+      </span>
+      <span
+        class="bootIdentityValue"
+        id="bootAccessRank">
+        WIRD GEPRÜFT...
+      </span>
+    </div>
   </div>
-
+  <div
+    class="bootWelcome"
+    id="bootWelcome">
+  </div>
+  <div class="bootBar">
+    <div class="bootFill">    
+    </div>
+  </div>
   
   <!-- HAUPTBEREICH -->
 
   <div class="archiveApp">
-
     <!-- KOPFZEILE -->
-
     <header class="topBar">
+        <div class="brandArea">
+          <button
+            id="homeButton"
+            class="homeButton"
+            type="button"
+            title="Zur Startseite"
+            aria-label="Zur Startseite">
+            <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path
+            d="M3 11.5L12 4l9 7.5M5.5 10.5V20h13v-9.5M9.5 20v-6h5v6">
+            </path>
+            </svg>
+          </button>
+          <div class="brandLogo">
+            M
+          </div>
+          <div>
+          <div class="brandTitle">
+            M.I.N.D. ARCHIV
+          </div>
+          <div class="brandSubtitle">
+            CHRONIKEN DER DUNKELHEIT
+          </div>
+        </div>
 
-      <div class="brandArea">
+         <!-- Musik -->
 
-  <button
-    id="homeButton"
-    class="homeButton"
-    type="button"
-    title="Zur Startseite"
-    aria-label="Zur Startseite"
-  >
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        d="M3 11.5L12 4l9 7.5M5.5 10.5V20h13v-9.5M9.5 20v-6h5v6"
-      ></path>
-    </svg>
-  </button>
-
-  <div class="brandLogo">
-    M
-  </div>
-
-  <div>
-    <div class="brandTitle">
-      M.I.N.D. ARCHIV
-    </div>
-
-    <div class="brandSubtitle">
-      CHRONIKEN DER DUNKELHEIT
-    </div>
-  </div>
-
-<!-- Musik -->
-
-<audio
-  id="archiveMusic"
-  preload="auto"
-></audio>
-
-<button
-  id="audioToggle"
-  type="button"
->
-  ARCHIV-AUDIO AKTIVIEREN
-</button>
-
-
-</div>
- <div class="userTerminal">
-
-  <div class="userTerminalHeader">
-
-    <div class="userTerminalStatus">
-      <span class="onlineDot"></span>
-      <span>SYSTEM ONLINE</span>
-    </div>
-
-    <div class="systemHeaderText">
-      M.I.N.D.-NETZWERK VERBUNDEN
-    </div>
-
-  </div>
-
-  <div class="userTerminalBody">
-
-    <div class="userTerminalUser">
-
-      <span class="userTerminalLabel">
-        BENUTZER
-      </span>
-
-      <span
-        class="userTerminalName"
-        id="archiveUserName"
-      >
-        GAST
-      </span>
-
-    </div>
-
-    <div class="userTerminalStats">
-
-      <div class="userTerminalField">
-
-        <span class="userTerminalLabel">
-          RANG
-        </span>
-
-        <span
-          class="userTerminalValue accessAlpha"
-          id="archiveAccessRank"
-        >
-          KEINE
-        </span>
-
+        <audio
+          id="archiveMusic"
+          preload="auto">
+        </audio>
+        <button
+          id="audioToggle"
+          type="button">
+          ARCHIV-AUDIO AKTIVIEREN
+        </button>
+      
+      <div class="userTerminal">
+      <div class="userTerminalHeader">
+        <div class="userTerminalStatus">
+          <span class="onlineDot">        
+          </span>
+          <span>SYSTEM ONLINE</span>
+        </div>
+        <div class="systemHeaderText">
+          M.I.N.D.-NETZWERK VERBUNDEN
+        </div>
       </div>
-
-      <div class="userTerminalField">
-
-        <span class="userTerminalLabel">
-          LEVEL
-        </span>
-
-        <span
-          class="userTerminalValue"
-          id="archiveUserLevel"
-        >
-          0
-        </span>
-
-      </div>
-
-    </div>
-
+      <div class="userTerminalBody">
+        <div class="userTerminalUser">
+          <span class="userTerminalLabel">
+            BENUTZER
+          </span>
+          <span
+            class="userTerminalName"
+            id="archiveUserName">
+            GAST
+          </span>
+        </div>
+        <div class="userTerminalStats">
+          <div class="userTerminalField">
+            <span class="userTerminalLabel">
+              RANG
+            </span>
+            <span
+              class="userTerminalValue accessAlpha"
+              id="archiveAccessRank">
+              KEINE
+            </span>
+          </div>
+          <div class="userTerminalField">
+            <span class="userTerminalLabel">
+              LEVEL
+            </span>
+            <span
+              class="userTerminalValue"
+              id="archiveUserLevel">
+             0
+            </span>
+        </div>
+      </div>   
+    </header>
   </div>
-</header>
-
-
-<div class="home-infobox">
-  <div class="home-infobox-title">◈ ARCHIVMITTEILUNG</div>
-  <p>
-    Das M.I.N.D. Archivsystem befindet sich in der Weiterentwicklung.
-  </p>
-  <p>
-    Derzeit werden bestehende Archivakten überarbeitet und um neue Erkenntnisse, Hintergrundinformationen und Ereignisse ergänzt.
-  </p>
-  <p>
-    Darüber hinaus arbeiten wir an einer Audio-Wiedergabe in Form eines Hörspiels. Zukünftig soll es möglich sein, die einzelnen Archivakten nicht nur zu lesen,
-    sondern auch anzuhören.
-  </p>
-  <p>
-    Die neuen Inhalte und Funktionen werden nach und nach im Archiv verfügbar gemacht.
-  </p>
-  <p><em>Vielen Dank für eure Geduld.</em></p>
-  <p><strong>- Die Archivleitung</strong></p>
-</div>
-</div>
-
-    
-
+  <div class="home-infobox">
+    <div class="home-infobox-title">◈ ARCHIVMITTEILUNG</div>
+    <p>
+      Das M.I.N.D. Archivsystem befindet sich in der Weiterentwicklung.
+    </p>
+    <p>
+      Derzeit werden bestehende Archivakten überarbeitet und um neue Erkenntnisse, Hintergrundinformationen und Ereignisse ergänzt.
+    </p>
+    <p>
+      Darüber hinaus arbeiten wir an einer Audio-Wiedergabe in Form eines Hörspiels. Zukünftig soll es möglich sein, die einzelnen Archivakten nicht nur zu lesen,
+      sondern auch anzuhören.
+    </p>
+    <p>
+      Die neuen Inhalte und Funktionen werden nach und nach im Archiv verfügbar gemacht.
+    </p>
+    <p><em>Vielen Dank für eure Geduld.</em></p>
+    <p><strong>- Die Archivleitung</strong></p>
+  </div>
     <div class="mainLayout">
       <!-- MENÜ LINKS -->
       <aside class="sideMenu">
@@ -255,11 +189,9 @@
             <span>
               CHRONIKEN DER DUNKELHEIT
             </span>
-
             <span class="menuTitleSecondary">
               ARCHIV B1
             </span>
-
             <span class="menuTitleSecondary">
               LIAM UND DIE MASKE
             </span>
@@ -272,16 +204,14 @@
           <button
             class="menuButton"
             data-level="1"
-            data-page="kapitel/prolog"
-          >
+            data-page="kapitel/prolog">
             AKTE B1-100 - PROLOG
           </button>
 
 		      <button
             class="menuButton"
             data-level="2"
-            data-page="kapitel/kapitel_1/kapitel_1_episode_1"
-          >
+            data-page="kapitel/kapitel_1/kapitel_1_episode_1">
             AKTE B1-101 - KAPITEL 1 - EPISODE 1 <br>
             STIMMEN IM WALD
           </button>
@@ -289,8 +219,7 @@
 		      <button
             class="menuButton"
             data-level="3"
-            data-page="kapitel/kapitel_1/kapitel_1_episode_2"
-          >
+            data-page="kapitel/kapitel_1/kapitel_1_episode_2">
             AKTE B1-102 - KAPITEL 1  - EPISODE 2 <br>
             LIAM
           </button>
@@ -298,8 +227,7 @@
 		      <button
             class="menuButton"
             data-level="6"
-            data-page="kapitel/kapitel_1/kapitel_1_episode_3"
-          >
+            data-page="kapitel/kapitel_1/kapitel_1_episode_3">
             AKTE B1-103 - KAPITEL 1  - EPISODE 3 <br>
             THAR'GHUL
           </button>
@@ -307,23 +235,21 @@
 		      <button
             class="menuButton"
             data-level="8"
-            data-page="kapitel/kapitel_1/kapitel_1_episode_4"
-          >
+            data-page="kapitel/kapitel_1/kapitel_1_episode_4">
             AKTE B1-104 - KAPITEL 1  - EPISODE 4 <br>
             DAS RITUAL
           </button>
-        <br>  
-        <div class="menuTitle">
-          <span class="menuTitleTertiary">
-            KAPITEL 2 - DIE JAGD
-          </span>
-        </div>
+          <br>  
+          <div class="menuTitle">
+            <span class="menuTitleTertiary">
+              KAPITEL 2 - DIE JAGD
+            </span>
+          </div>
         
 		      <button
             class="menuButton"
             data-level="10"
-            data-page="kapitel/kapitel_2/kapitel_2_episode_1"
-          >
+            data-page="kapitel/kapitel_2/kapitel_2_episode_1">
             AKTE B1-201 - KAPITEL 2  - EPISODE 1 <br>
             COMING SOON
           </button>
@@ -331,8 +257,7 @@
           <button
             class="menuButton"
             data-level="11"
-            data-page="kapitel/kapitel_2/kapitel_2_episode_2"
-          >
+            data-page="kapitel/kapitel_2/kapitel_2_episode_2">
             AKTE B1-202 - KAPITEL 2  - EPISODE 2 <br>
             COMING SOON
           </button>
@@ -340,17 +265,12 @@
           <button
             class="menuButton"
             data-level="12"
-            data-page="kapitel/kapitel_2/kapitel_2_episode_3"
-          >
+            data-page="kapitel/kapitel_2/kapitel_2_episode_3">
             AKTE B1-203 - KAPITEL 2  - EPISODE 3 <br>
             COMING SOON
           </button>
-
         </section>
-
-
         <section class="menuSection">
-
           <div class="menuTitle">
             PERSONENARCHIV
           </div>
@@ -358,40 +278,32 @@
           <button
             class="menuButton"
             data-page="personenarchiv/matthias"
-            data-level="2"
-          >
+            data-level="2">
             MATTHIAS
           </button>
           
           <button
             class="menuButton"
 			      data-level="4"
-            data-page="personenarchiv/liam"
-          >
+            data-page="personenarchiv/liam">
             LIAM
           </button>
 
           <button
             class="menuButton"
 			      data-level="4"
-            data-page="personenarchiv/der_okkultist"
-          >
+            data-page="personenarchiv/der_okkultist">
             DER OKKULTIST
           </button>
 
           <button
             class="menuButton"
 			      data-level="7"
-            data-page="personenarchiv/die_bruderschaft_von_thar'ghul"
-          >
+            data-page="personenarchiv/die_bruderschaft_von_thar'ghul">
             DIE BRUDERSCHAFT VON THAR'GHUL
           </button>
-
         </section>
-
-
         <section class="menuSection">
-
           <div class="menuTitle">
             DIE MASKEN DES UNHEILS
           </div>
@@ -399,16 +311,14 @@
 		      <button
             class="menuButton"
 			      data-level="5"
-            data-page="masken_des_unheils/geschichte"
-          >
+            data-page="masken_des_unheils/geschichte">
             GESCHICHTE
           </button>
           
 		      <button
             class="menuButton"
 			      data-level="5"
-            data-page="masken_des_unheils/askarion"
-          >
+            data-page="masken_des_unheils/askarion">
             ASKARION <br>
             DIE MASKE DER OFFENBARUNG
           </button>
@@ -416,8 +326,7 @@
           <button
             class="menuButton"
 			      data-level="20"
-            data-page="masken_des_unheils/nerathul"
-          >
+            data-page="masken_des_unheils/nerathul">
             NERATHUL <br>
             DIE MASKE DER SÜHNE
           </button>
@@ -425,8 +334,7 @@
           <button
             class="menuButton"
 			      data-level="20"
-            data-page="masken_des_unheils/tharnex"
-          >
+            data-page="masken_des_unheils/tharnex">
             THARNEX <br>
             DIE MASKE DES WAHNSINNS
           </button>
@@ -434,17 +342,12 @@
           <button
             class="menuButton"
 			      data-level="20"
-            data-page="masken_des_unheils/dravion"
-          >
+            data-page="masken_des_unheils/dravion">
             DRAVION <br>
             DIE MASKE DES HOCHMUTS
           </button>
-
         </section>
-
-
         <section class="menuSection">
-
           <div class="menuTitle">
             BESTARIUM
           </div>
@@ -452,41 +355,31 @@
           <button
             class="menuButton"
             data-page="bestarium/slasher"
-            data-level="9"
-          >
+            data-level="9">
             SLASHER
           </button>
           
           <button
             class="menuButton"
 			      data-level="9"
-            data-page="bestarium/kondor"
-          >
+            data-page="bestarium/kondor">
             KON'DOR <br>
             DER TODESVOGEL
           </button>
-
         </section>
-
-		  <section class="menuSection">
-
+		    <section class="menuSection">
           <div class="menuTitle">
             ORTSARCHIV
           </div>
 
-		  <button
+		      <button
             class="menuButton"
 			      data-level="7"
-            data-page="ortsarchiv/die_festung_tharghul"
-          >
+            data-page="ortsarchiv/die_festung_tharghul">
             DIE FESTUNG THAR'GHUL
-          </button>  
-
-      </section>
-
-
-		  <section class="menuSection">
-
+          </button>
+        </section>
+		    <section class="menuSection">
          <div class="menuTitle">
             DOKUMENTENARCHIV
          </div>
@@ -494,131 +387,88 @@
          <button
            class="menuButton"
 		       data-level="100"
-           data-page="dokumente/abschriften_aus_dem_buch_der_toten"
-          >
+           data-page="dokumente/abschriften_aus_dem_buch_der_toten">
             ABSCHRIFTEN AUS DEM BUCH DER TOTEN
          </button>
 
-	     <!-- <button 
+	       <!-- <button 
            class="menuButton"
            data-level="99"
-           data-page="geheim/alpha_akte"
-         >
+           data-page="geheim/alpha_akte">
            OMEGA-AKTE
-         </button>-->
-			 
+         </button>-->			 
         </section>
       </aside>
 
-
-      <!-- INHALT RECHTS -->
+         <!-- INHALT RECHTS -->
 
       <main
         class="contentArea"
-        id="contentArea"
-      >
-
+        id="contentArea">
         <div class="archiveLabel">
           CHRONIKEN DER DUNKELHEIT
         </div>
-
         <h1>
           ARCHIVAKTE
         </h1>
-
         <div class="archiveSubtitle">
           
         </div>
-
-
         <div class="infoGrid">
-
           <div class="infoBox">
-
             <span class="infoLabel">
               ZUGRIFFSSTATUS
             </span>
-
             <span class="infoValue green">
               FREIGEGEBEN
             </span>
-
           </div>
-
-
           <div class="infoBox">
-
             <span class="infoLabel">
               SICHERHEITSSTUFE
             </span>
-
             <span class="infoValue">
               ALPHA
             </span>
-
           </div>
-
-
           <div class="infoBox">
-
             <span class="infoLabel">
               AKTENKENNUNG
             </span>
-
             <span class="infoValue">
               CDD-001
             </span>
-
           </div>
-
         </div>
-
-
         <article
           class="storyText"
-          id="storyText"
-        >
-
+          id="storyText">
           <p>
             Klicke links auf die Akten um sie zu lesen.
           </p>
-
           <p>
             Falls sie gesperrt sind, hast du noch nicht genug Kanalpunkte eingelöst.
           </p>
-
         </article>
-
       </main>
-
     </div>
-    
-
 
     <!-- ==================================================
          URHEBERRECHTSHINWEIS
     =================================================== -->
 
     <footer class="copyrightFooter">
-
       <span class="copyrightOwner">
         © 2025-2026 THE_MASKED_MIND
       </span>
-
       <span>
         CHRONIKEN DER DUNKELHEIT · M.I.N.D. - UNIVERSUM
       </span>
-
       <span>
         ALLE RECHTE VORBEHALTEN
       </span>
-
     </footer>
-
-
-
-  <script src="script.js?v=63"></script>
-
+  <script src="script.js?v=63">    
+  </script>
 </body>
-
 </html>
