@@ -2923,7 +2923,7 @@ button.maskOverviewCard:hover {
   display: flex;
 
   /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
-  justify-content: space-between;
+  justify-content: center;
   /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
 
