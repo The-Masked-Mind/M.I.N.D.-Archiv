@@ -2941,7 +2941,7 @@ button.maskOverviewCard:hover {
   color: var(--muted);
 
   /* font-size: Schriftgröße. */
-  font-size: 18px;
+  font-size: 15px;
   /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
