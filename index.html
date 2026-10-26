@@ -16,67 +16,66 @@
 </head>
 
 <body>
+  
+    <!-- ==========================================
+         STARTBILDSCHIRM
+         Alle Elemente befinden sich im selben Rahmen
+    ========================================== -->
 
-  <!-- STARTBILDSCHIRM -->
+  <div class="bootScreen" id="bootScreen">
 
-  <!-- ERKLÄRUNG: Startbildschirm; wird durch JavaScript nach der Prüfung ausgeblendet. ID nicht ändern: JavaScript greift darauf zu. -->
-  <div
-    class="bootScreen"
-    id="bootScreen">
-  <!-- RAHMEN: Nur Elemente innerhalb dieses div erscheinen im großen Start-Rahmen. -->
     <div class="bootPanel">
+
+      <!-- Archivname -->
       <div class="bootLabel">
         M.I.N.D. ARCHIV
       </div>
+
+      <!-- Hauptüberschrift -->
       <div class="bootTitle">
         ZUGRIFF WIRD GEPRÜFT
       </div>
-  <!-- ERKLÄRUNG: Statusmeldung während der Zugriffsprüfung. ID nicht ändern: JavaScript greift darauf zu. -->
-      <div
-        class="bootStatus"
-        id="bootStatus">
+
+      <!-- Sicherheitsprüfung -->
+      <div class="bootStatus" id="bootStatus">
         VERBINDUNG WIRD HERGESTELLT...
       </div>
-    </div>
-  <!-- ERKLÄRUNG: Benutzerinformationen auf dem Startbildschirm. ID nicht ändern: JavaScript greift darauf zu. -->
-    <div
-        class="bootIdentity"
-        id="bootIdentity">
-    <div class="bootIdentityRow">
-      <span class="bootIdentityLabel">
-        BENUTZER
-      </span>
-  <!-- ERKLÄRUNG: Benutzername beim Start. ID nicht ändern: JavaScript greift darauf zu. -->
-      <span
-        class="bootIdentityValue"
-        id="bootUserName">
-        WIRD ERMITTELT...
-      </span>
-    </div>
-    <div class="bootIdentityRow">
-      <span class="bootIdentityLabel">
-        SICHERHEITSSTUFE
-      </span>
-  <!-- ERKLÄRUNG: Sicherheitsstufe und Level beim Start. ID nicht ändern: JavaScript greift darauf zu. -->
-      <span
-        class="bootIdentityValue"
-        id="bootAccessRank">
-        WIRD GEPRÜFT...
-      </span>
-    </div>
-  </div>
-  <!-- ERKLÄRUNG: Willkommensnachricht beim Start. ID nicht ändern: JavaScript greift darauf zu. -->
-  <div
-    class="bootWelcome"
-    id="bootWelcome">
-  </div>
-  <div class="bootBar">
-    <div class="bootFill">    
-    </div>
-  </div>
-  
-  </div> <!-- /bootBar -->
-  </div> <!-- /bootScreen -->
+
+      <!-- Benutzerinformationen -->
+      <div class="bootIdentity" id="bootIdentity">
+
+        <div class="bootIdentityRow">
+          <span class="bootIdentityLabel">
+            BENUTZER
+          </span>
+          <span class="bootIdentityValue" id="bootUserName">
+            WIRD ERMITTELT...
+          </span>
+        </div>
+
+        <div class="bootIdentityRow">
+          <span class="bootIdentityLabel">
+            SICHERHEITSSTUFE
+          </span>
+          <span class="bootIdentityValue" id="bootAccessRank">
+            WIRD GEPRÜFT...
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Persönliche Begrüßung -->
+      <div class="bootWelcome" id="bootWelcome"></div>
+
+      <!-- Ladebalken -->
+      <div class="bootBar">
+        <div class="bootFill"></div>
+      </div>
+
+    </div> <!-- Ende bootPanel -->
+
+  </div> <!-- Ende bootScreen -->
+
 
   <!-- HAUPTBEREICH -->
 
