@@ -175,7 +175,7 @@ button {
 
   color: var(--text);
 
-  font-size: clamp(30px, 7vw, 58px);
+  font-size: clamp(20px, 7vw, 58px);
   font-weight: 900;
 
   letter-spacing: 6px;
