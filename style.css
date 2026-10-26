@@ -507,7 +507,7 @@ button {
 
   /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 4px solid #ff3b3b;
-  border-top: 1px solid rgba(255, 59, 59, 0.18);
+  /*border-top: 1px solid rgba(255, 59, 59, 0.18);*/
   /* border-right: 1px solid rgba(255, 59, 59, 0.18); 
   border-bottom: 1px solid rgba(255, 59, 59, 0.18);*/
 
@@ -4792,7 +4792,7 @@ button.maskOverviewCard:hover {
     /* max-width: Begrenzt die maximale Breite. */
     max-width: 100%;
     /* max-height: Begrenzt die maximale Höhe. */
-    max-height: 95%;
+    max-height: none;
     /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
     position: static;
   }
