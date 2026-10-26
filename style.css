@@ -1723,7 +1723,7 @@ button.maskOverviewCard:hover {
 
   color: #45ff75;
 
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 900;
 
   letter-spacing: 2px;
@@ -1774,7 +1774,7 @@ button.maskOverviewCard:hover {
 .userTerminalName {
   color: #ffffff;
 
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 900;
 
   line-height: 1;
@@ -1817,7 +1817,7 @@ button.maskOverviewCard:hover {
   color:
     rgba(190, 225, 220, 0.72);
 
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
 
   letter-spacing: 2px;
@@ -1831,7 +1831,7 @@ button.maskOverviewCard:hover {
 .userTerminalValue {
   color: #ffffff;
 
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 900;
 
   line-height: 1;
