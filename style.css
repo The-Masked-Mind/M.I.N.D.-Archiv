@@ -245,11 +245,7 @@ button {
 ========================= */
 
 .archiveApp {
-  width:
-    min(
-      calc(100% - 26px),
-      1440px
-    );
+  width: auto;
 
   margin: 0 auto;
 
