@@ -311,7 +311,7 @@ button {
 }
 /* Text oben */
 .brandTitle {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 900;
 
   letter-spacing: 4px;
@@ -324,7 +324,7 @@ button {
 
   color: var(--muted);
 
-  font-size: 10px;
+  font-size: 20px;
   font-weight: 700;
 
   letter-spacing: 2px;
@@ -862,10 +862,10 @@ button {
 ========================= */
 
 .homeButton {
-  width: 44px;
-  height: 44px;
+  width: 60px;
+  height: 60px;
 
-  flex: 0 0 44px;
+  flex: 0 0 60px;
 
   display: grid;
   place-items: center;
