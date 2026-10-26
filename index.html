@@ -81,99 +81,81 @@
 
   <div class="archiveApp">
     <!-- KOPFZEILE -->
-    <header class="topBar">
-        <div class="brandArea">
-  <!-- ERKLÄRUNG: Button zurück zur Archivzentrale. ID nicht ändern: JavaScript greift darauf zu. -->
-          <button
-            id="homeButton"
-            class="homeButton"
-            type="button"
-            title="Zur Startseite"
-            aria-label="Zur Startseite">
-            <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true">
-            <path
-            d="M3 11.5L12 4l9 7.5M5.5 10.5V20h13v-9.5M9.5 20v-6h5v6">
-            </path>
-            </svg>
-          </button>
-          <div class="brandLogo">
-            M
-          </div>
-          <div>
-          <div class="brandTitle">
-            M.I.N.D. ARCHIV
-          </div>
-          <div class="brandSubtitle">
-            CHRONIKEN DER DUNKELHEIT
-          </div>
-          </div> <!-- /brand text -->
-        </div> <!-- /brandArea -->
+    
+<header class="topBar">
 
-         <!-- Musik -->
+  <!-- LINKS: LOGO -->
+  <div class="brandArea">
+    <button
+      id="homeButton"
+      class="homeButton"
+      type="button"
+      title="Zur Startseite"
+      aria-label="Zur Startseite">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 11.5L12 4l9 7.5M5.5 10.5V20h13v-9.5M9.5 20v-6h5v6"></path>
+      </svg>
+    </button>
 
-        <audio
-          id="archiveMusic"
-          preload="auto">
-        </audio>
-  <!-- ERKLÄRUNG: Button für Archivmusik. ID nicht ändern: JavaScript greift darauf zu. -->
-        <button
-          id="audioToggle"
-          type="button">
-          ARCHIV-AUDIO AKTIVIEREN
-        </button>
-      
-      <div class="userTerminal">
-      <div class="userTerminalHeader">
-        <div class="userTerminalStatus">
-          <span class="onlineDot">        
-          </span>
-          <span>SYSTEM ONLINE</span>
-        </div>
-        <div class="systemHeaderText">
-          M.I.N.D.-NETZWERK VERBUNDEN
-        </div>
+    <div class="brandLogo">M</div>
+
+    <div>
+      <div class="brandTitle">M.I.N.D. ARCHIV</div>
+      <div class="brandSubtitle">
+        CHRONIKEN DER DUNKELHEIT
       </div>
-      <div class="userTerminalBody">
-        <div class="userTerminalUser">
-          <span class="userTerminalLabel">
-            BENUTZER
-          </span>
-  <!-- ERKLÄRUNG: Benutzername in der Kopfzeile. ID nicht ändern: JavaScript greift darauf zu. -->
-          <span
-            class="userTerminalName"
-            id="archiveUserName">
-            GAST
-          </span>
-        </div>
-        <div class="userTerminalStats">
-          <div class="userTerminalField">
-            <span class="userTerminalLabel">
-              RANG
-            </span>
-  <!-- ERKLÄRUNG: Rang in der Kopfzeile. ID nicht ändern: JavaScript greift darauf zu. -->
-            <span
-              class="userTerminalValue accessAlpha"
-              id="archiveAccessRank">
-              KEINE
-            </span>
-          </div>
-          <div class="userTerminalField">
-            <span class="userTerminalLabel">
-              LEVEL
-            </span>
-  <!-- ERKLÄRUNG: Level in der Kopfzeile. ID nicht ändern: JavaScript greift darauf zu. -->
-            <span
-              class="userTerminalValue"
-              id="archiveUserLevel">
-             0
-            </span>
-          </div> <!-- /userTerminalField LEVEL -->
-        </div> <!-- /userTerminalStats -->
-      </div> <!-- /userTerminalBody -->
-    </div> <!-- /userTerminal -->
-    </header>
+    </div>
+  </div>
+
+  <!-- MITTE: AUDIO OBEN, BENUTZERDATEN DARUNTER -->
+  <div class="headerCenter">
+
+    <audio id="archiveMusic" preload="auto"></audio>
+
+    <button id="audioToggle" type="button">
+      ARCHIV-AUDIO AKTIVIEREN
+    </button>
+
+    <div class="headerUserInfo">
+
+      <div class="headerUserField">
+        <span class="userTerminalLabel">BENUTZER</span>
+        <span class="userTerminalName" id="archiveUserName">
+          GAST
+        </span>
+      </div>
+
+      <div class="headerUserField">
+        <span class="userTerminalLabel">RANG</span>
+        <span class="userTerminalValue" id="archiveAccessRank">
+          KEINE
+        </span>
+      </div>
+
+      <div class="headerUserField">
+        <span class="userTerminalLabel">LEVEL</span>
+        <span class="userTerminalValue" id="archiveUserLevel">
+          0
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RECHTS OBEN: SYSTEMSTATUS -->
+  <div class="headerSystem">
+    <div class="userTerminalStatus">
+      <span class="onlineDot"></span>
+      <span>SYSTEM ONLINE</span>
+    </div>
+
+    <div class="systemHeaderText">
+      M.I.N.D.-NETZWERK VERBUNDEN
+    </div>
+  </div>
+
+</header>
+
   <!-- ARCHIVMITTEILUNG: Infokasten zur Weiterentwicklung und zum Hörspiel. -->
   <div class="home-infobox">
     <div class="home-infobox-title">◈ ARCHIVMITTEILUNG</div>
