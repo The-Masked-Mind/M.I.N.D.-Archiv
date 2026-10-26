@@ -224,7 +224,7 @@ button {
   color: var(--text);
 
   /* font-size: Schriftgröße. */
-  font-size: clamp(15px, 7vw, 30px);
+  font-size: clamp(18px, 7vw, 30px);
   /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
