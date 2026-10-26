@@ -2941,7 +2941,7 @@ button.maskOverviewCard:hover {
   color: var(--muted);
 
   /* font-size: Schriftgröße. */
-  font-size: 20px;
+  font-size: 18px;
   /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
@@ -3511,8 +3511,8 @@ button.maskOverviewCard:hover {
   display: grid;
 
   /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+  grid-column: 1;
+    /*repeat(3, minmax(0, 1fr));*/
 
   /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
@@ -3590,7 +3590,7 @@ button.maskOverviewCard:hover {
 
 .commandMotto {
   /* max-width: Begrenzt die maximale Breite. */
-  max-width: 960px;
+  max-width: 1080px;
 
   margin-top: 18px;
 
