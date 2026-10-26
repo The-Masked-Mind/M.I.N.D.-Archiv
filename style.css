@@ -6812,3 +6812,29 @@ button.maskOverviewCard:hover {
     justify-content: center;
   }
 }
+
+/* =========================================================
+   HOME – DREI KOMPAKTE ARCHIVBEREICHE NEBENEINANDER
+========================================================= */
+@media (min-width: 1100px) {
+  #contentArea .archiveCategoryGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+@media (min-width: 681px) and (max-width: 1099px) {
+  #contentArea .archiveCategoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+#contentArea .archiveCategoryCard {
+  min-height: 155px;
+  padding: 16px 18px;
+}
+#contentArea .archiveCategoryCard .archiveCategoryCode {
+  margin-bottom: 8px;
+}
+#contentArea [data-all-unlock-list] { display: none !important; }
+#contentArea .homeNewUnlockPanel { padding: 18px; margin-bottom: 20px; }
+#contentArea .homeNewUnlockPanel .homeUnlockGrid { grid-template-columns: 1fr; }
+#contentArea .homeNewUnlockPanel .homeUnlockCard { min-height: 110px; padding: 16px; }

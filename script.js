@@ -2202,240 +2202,52 @@ function createHomeUnlockCard(
 ===================================================== */
 
 function updateHomeUnlockOverview() {
-  const newUnlockPanel =
-    document.querySelector(
-      "[data-new-unlock-panel]"
-    );
+  // Zeigt genau die letzte durch das Benutzerlevel erreichbare Akte.
+  const newUnlockPanel = document.querySelector("[data-new-unlock-panel]");
+  const newUnlockHeadline = document.querySelector("[data-new-unlock-headline]");
+  const newUnlockText = document.querySelector("[data-new-unlock-text]");
+  const newUnlockList = document.querySelector("[data-new-unlock-list]");
+  const allUnlockList = document.querySelector("[data-all-unlock-list]");
 
-  const newUnlockHeadline =
-    document.querySelector(
-      "[data-new-unlock-headline]"
-    );
+  if (!newUnlockPanel || !newUnlockList) return;
 
-  const newUnlockText =
-    document.querySelector(
-      "[data-new-unlock-text]"
-    );
-
-  const newUnlockList =
-    document.querySelector(
-      "[data-new-unlock-list]"
-    );
-
-  const allUnlockList =
-    document.querySelector(
-      "[data-all-unlock-list]"
-    );
-
-
-  /*
-    Die Funktion wird nur ausgef\u00FChrt,
-    wenn gerade die Home-Seite ge\u00F6ffnet ist.
-  */
-
-  if (
-    !newUnlockPanel ||
-    !newUnlockList ||
-    !allUnlockList
-  ) {
-    return;
+  // Alte Gesamtliste bleibt für die Zugriffsprüfung unberührt,
+  // wird auf der Startseite aber nicht mehr angezeigt.
+  if (allUnlockList) {
+    allUnlockList.replaceChildren();
+    allUnlockList.hidden = true;
+    const oldSection = allUnlockList.closest("section");
+    if (oldSection && oldSection !== newUnlockPanel &&
+        !oldSection.contains(newUnlockPanel)) {
+      oldSection.hidden = true;
+    }
   }
 
-
-  const availableItems =
-    archiveUnlockPlan.filter(
-      archiveItem =>
-        currentUser.level >=
-        archiveItem.level
-    );
-
-
-  newUnlockList.replaceChildren();
-  allUnlockList.replaceChildren();
-
-
-  /*
-    Alle bisher freigeschalteten Inhalte anzeigen
-  */
-
-  availableItems.forEach(
-    archiveItem => {
-      allUnlockList.append(
-        createHomeUnlockCard(
-          archiveItem
-        )
-      );
-    }
+  const availableItems = archiveUnlockPlan.filter(item =>
+    currentUser.level >= Number(item.level)
   );
+  newUnlockList.replaceChildren();
 
-
-  /*
-    F\u00FCr Besucher ohne Freigabe
-  */
-
-  if (availableItems.length === 0) {
-    const emptyMessage =
-      document.createElement("div");
-
-    emptyMessage.className =
-      "homeUnlockEmpty";
-
-    emptyMessage.textContent =
-      "NOCH KEINE ARCHIVINHALTE FREIGESCHALTET.";
-
-    allUnlockList.append(
-      emptyMessage
-    );
-
-    newUnlockPanel.hidden =
-      true;
-
+  if (!availableItems.length) {
+    newUnlockPanel.hidden = true;
     return;
   }
 
-
-  /*
-    Zuletzt angesehenes Benutzerlevel laden
-  */
-
-  const userStorageName =
-    String(
-      currentUser.name ||
-      "gast"
-    )
-      .toLowerCase()
-      .replace(
-        /[^a-z0-9\u00E4\u00F6\u00FC\u00DF_-]/g,
-        "_"
-      );
-
-  const storageKey =
-    `mind_last_seen_level_${userStorageName}`;
-
-  let previousLevel =
-    null;
-
-  try {
-    const storedLevel =
-      localStorage.getItem(
-        storageKey
-      );
-
-    if (storedLevel !== null) {
-      previousLevel =
-        Number(storedLevel);
-    }
-  } catch (error) {
-    console.warn(
-      "M.I.N.D.: Letztes Level konnte nicht geladen werden.",
-      error
-    );
-  }
-
-
-  let highlightedItems = [];
-  let headlineText = "";
-  let informationText = "";
-
-
-  /*
-    Tats\u00E4chlicher Levelaufstieg
-  */
-
-  if (
-    Number.isFinite(previousLevel) &&
-    currentUser.level > previousLevel
-  ) {
-    highlightedItems =
-      archiveUnlockPlan.filter(
-        archiveItem =>
-          archiveItem.level >
-            previousLevel &&
-
-          archiveItem.level <=
-            currentUser.level
-      );
-
-    headlineText =
-      `GL\u00DCCKWUNSCH \u2013 LEVEL ${currentUser.level} ERREICHT`;
-
-    informationText =
-      "FOLGENDE ARCHIVINHALTE WURDEN NEU FREIGESCHALTET:";
-  }
-
-
-  /*
-    Erster Besuch oder kein neuer Levelaufstieg:
-    Die zuletzt erreichte Freigabestufe anzeigen.
-  */
-
-  if (highlightedItems.length === 0) {
-    const highestUnlockLevel =
-      Math.max(
-        ...availableItems.map(
-          archiveItem =>
-            archiveItem.level
-        )
-      );
-
-    highlightedItems =
-      availableItems.filter(
-        archiveItem =>
-          archiveItem.level ===
-          highestUnlockLevel
-      );
-
-    headlineText =
-      `ZULETZT FREIGESCHALTET AUF LEVEL ${highestUnlockLevel}`;
-
-    informationText =
-      "ZULETZT FREIGESCHALTETE ARCHIVINHALTE:";
-  }
-
+  // Höchste freigeschaltete Stufe; bei Gleichstand die letzte Akte im Plan.
+  const latest = availableItems.reduce((best, item) =>
+    !best || Number(item.level) >= Number(best.level) ? item : best, null
+  );
 
   if (newUnlockHeadline) {
-    newUnlockHeadline.textContent =
-      headlineText;
+    newUnlockHeadline.textContent = "ZULETZT FREIGESCHALTETE ARCHIVAKTE";
   }
-
   if (newUnlockText) {
-    newUnlockText.textContent =
-      informationText;
+    newUnlockText.textContent = `LEVEL ${latest.level} · ${latest.type}`;
   }
-
-
-  highlightedItems.forEach(
-    archiveItem => {
-      newUnlockList.append(
-        createHomeUnlockCard(
-          archiveItem,
-          true
-        )
-      );
-    }
-  );
-
-
-  newUnlockPanel.hidden =
-    false;
-
-
-  /*
-    Aktuelles Level f\u00FCr den n\u00E4chsten Besuch speichern
-  */
-
-  try {
-    localStorage.setItem(
-      storageKey,
-      String(currentUser.level)
-    );
-  } catch (error) {
-    console.warn(
-      "M.I.N.D.: Aktuelles Level konnte nicht gespeichert werden.",
-      error
-    );
-  }
+  newUnlockList.append(createHomeUnlockCard(latest, true));
+  newUnlockPanel.hidden = false;
 }
+
 /* =====================================================
    BEGRÜSSUNG BEIM ERSTEN BESUCH
 ===================================================== */
