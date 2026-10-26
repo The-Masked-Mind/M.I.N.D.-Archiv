@@ -18,6 +18,7 @@
 }
 
 * {
+  /* box-sizing: Bestimmt, ob Innenabstand und Rahmen in Breiten-/Höhenangaben enthalten sind. */
   box-sizing: border-box;
 }
 
@@ -26,17 +27,22 @@ html {
 }
 /* Hintergrund der Seite*/
 body {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0;
 
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 100vh;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--text);
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     "Roboto",
     Arial,
     sans-serif;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     radial-gradient(
       circle at 75% 0%,
@@ -54,12 +60,14 @@ body {
     ),
     var(--background);
 
+  /* background-size: Größe von Hintergrundbildern und Mustern. */
   background-size:
     auto,
     52px 52px,
     52px 52px,
     auto;
 
+  /* overflow-x: Steuert horizontal überstehenden Inhalt. */
   overflow-x: hidden;
 }
 
@@ -68,25 +76,38 @@ button {
 }
 
 .musicButton {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: fixed;
+  /* right: Abstand zur rechten Positionierungskante. */
   right: 24px;
+  /* bottom: Abstand zur unteren Positionierungskante. */
   bottom: 24px;
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1000;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 10px 16px;
 
+  /* border: Rahmen um das Element. */
   border: 1px solid #4b8f7a;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(3, 20, 18, 0.95);
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #b7e7d7;
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: inherit;
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1.5px;
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 }
 
 .musicButton:hover {
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(8, 42, 36, 0.98);
 }
 
@@ -94,39 +115,56 @@ button {
    STARTBILDSCHIRM
 ========================= */
 
+/* BEREICH: Gesamter Startbildschirm; seine Position bestimmt, ob er die Home-Seite überlagert. */
 .bootScreen {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 100;
 
+  /* inset: Kurzform für top, right, bottom und left. */
   inset: 0;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* place-items: Kurzform für align-items und justify-items, häufig zum Zentrieren. */
   place-items: center;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 24px;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: #010304;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     opacity 0.8s ease,
     visibility 0.8s ease;
 }
 
 .bootScreen.hidden {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0;
+  /* visibility: Schaltet Sichtbarkeit um; hidden versteckt das Element. */
   visibility: hidden;
+  /* pointer-events: Legt fest, ob das Element Mausklicks empfängt. */
   pointer-events: none;
 }
 
+/* BEREICH: Großer Rahmen für die Zugriffsprüfung. */
 .bootPanel {
+  /* width: Bestimmt die Breite des Elements. */
   width: min(100%, 720px);
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 38px;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: center;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       100deg,
@@ -135,8 +173,10 @@ button {
       rgba(3, 9, 10, 0.98)
     );
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 5px solid var(--red);
 
+  /* clip-path: Schneidet das Element in eine Form, z. B. abgeschrägte Ecken. */
   clip-path: polygon(
     0 0,
     95% 0,
@@ -146,6 +186,7 @@ button {
     0 82%
   );
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 36px rgba(69, 196, 255, 0.24),
     inset 0 0 22px rgba(69, 218, 255, 0.05);
@@ -156,13 +197,18 @@ button {
 ========================= */
 
 .bootLabel {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 15px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -171,17 +217,24 @@ button {
 ========================= */
 
 .bootTitle {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 18px 0 10px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--text);
 
+  /* font-size: Schriftgröße. */
   font-size: clamp(20px, 7vw, 58px);
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 6px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 20px rgba(255, 69, 69, 0.5);
 }
@@ -191,27 +244,37 @@ button {
 ========================= */
 
 .bootStatus {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 24px;
 
   margin-top: 16px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--yellow);
 
+  /* font-size: Schriftgröße. */
   font-size: 16px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
+/* BEREICH: Hintergrund des Ladebalkens. */
 .bootBar {
+  /* height: Bestimmt die Höhe des Elements. */
   height: 11px;
 
   margin-top: 28px;
 
+  /* overflow: Steuert, was mit überstehendem Inhalt passiert. */
   overflow: hidden;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 255, 255, 0.08);
 }
@@ -220,10 +283,14 @@ button {
    LADEBALKEN
 ========================= */
 
+/* BEREICH: Animierter Fortschritt im Ladebalken. */
 .bootFill {
+  /* width: Bestimmt die Breite des Elements. */
   width: 0;
+  /* height: Bestimmt die Höhe des Elements. */
   height: 100%;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       90deg,
@@ -232,9 +299,11 @@ button {
       var(--red)
     );
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 15px rgba(255, 69, 69, 0.7);
 
+  /* animation: Spielt eine definierte CSS-Animation ab. */
   animation:
     bootLoading 10s linear forwards;
 }
@@ -245,10 +314,13 @@ button {
 ========================= */
 
 .archiveApp {
+  /* width: Bestimmt die Breite des Elements. */
   width: auto;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 auto;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     26px 0 48px;
 }
@@ -258,94 +330,133 @@ button {
    KOPFZEILE
 ========================= */
 /* oberer Balken*/
+/* BEREICH: Kopfzeile mit Logo, Audio und Benutzeranzeige. */
 .topBar {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 74px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     14px 22px;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
 
+  /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
   justify-content: space-between;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 20px;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(4, 11, 12, 0.92);
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left:
     5px solid var(--red);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 28px rgba(52, 217, 255, 0.1);
 }
 
 /* gesamte obere Bereich */
 .brandArea {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
 
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 16px;
 }
 /* das M */
 .brandLogo {
+  /* width: Bestimmt die Breite des Elements. */
   width: 60px;
+  /* height: Bestimmt die Höhe des Elements. */
   height: 60px;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* place-items: Kurzform für align-items und justify-items, häufig zum Zentrieren. */
   place-items: center;
 
+  /* border: Rahmen um das Element. */
   border:
     2px solid var(--red);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 20px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 15px rgba(255, 60, 60, 0.35);
 }
 /* Text oben */
 .brandTitle {
+  /* font-size: Schriftgröße. */
   font-size: 30px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 /* kleiner Text oben */
 .brandSubtitle {
   margin-top: 5px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 20px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 /* Text oben rechts */
 .onlineStatus {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
 
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 10px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 /* Punkt */
@@ -354,12 +465,16 @@ button {
    SEITENAUFTEILUNG
 ========================= */
 
+/* BEREICH: Zweispaltige Aufteilung: Menü und Inhaltsbereich. */
 .mainLayout {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     380px minmax(0, 1fr);
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 18px;
 
   margin-top: 18px;
@@ -375,43 +490,59 @@ button {
    - besitzt einen eigenen Scrollbalken
 ===================================================== */
 
+/* BEREICH: Linkes Navigationsmenü. */
 .sideMenu {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: sticky;
+  /* top: Abstand zur oberen Positionierungskante. */
   top: 20px;
   align-self: start;
 
+  /* width: Bestimmt die Breite des Elements. */
   width: 420px;
+  /* max-height: Begrenzt die maximale Höhe. */
   max-height: calc(100vh - 40px);
+  /* overflow-y: Steuert vertikal überstehenden Inhalt bzw. Scrollbalken. */
   overflow-y: auto;
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 4px solid #ff3b3b;
   border-top: 1px solid rgba(255, 59, 59, 0.18);
   /* border-right: 1px solid rgba(255, 59, 59, 0.18); 
   border-bottom: 1px solid rgba(255, 59, 59, 0.18);*/
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 22px;
+  /* box-sizing: Bestimmt, ob Innenabstand und Rahmen in Breiten-/Höhenangaben enthalten sind. */
   box-sizing: border-box;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(4, 16, 18, 0.72);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     inset 0 0 24px rgba(0, 255, 255, 0.03),
     0 0 24px rgba(0, 0, 0, 0.2);
 
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform: none;
 }
 
 /* Scrollbar optisch etwas sauberer */
 .sideMenu::-webkit-scrollbar {
+  /* width: Bestimmt die Breite des Elements. */
   width: 8px;
 }
 
 .sideMenu::-webkit-scrollbar-track {
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255,255,255,0.04);
 }
 
 .sideMenu::-webkit-scrollbar-thumb {
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255,255,255,0.25);
+  /* border-radius: Rundet die Ecken des Elements ab. */
   border-radius: 10px;
 }
 
@@ -429,46 +560,70 @@ button {
 
 /* rote Überschrift */
 .menuTitle {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
   flex-direction: column;
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 6px;
 
   margin-bottom: 16px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ff4040;
+  /* font-size: Schriftgröße. */
   font-size: 18px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .menuTitle .menuTitleSecondary {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
+  /* font-size: Schriftgröße. */
   font-size: 15px;
 }
 
 .menuTitle .menuTitleTertiary {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--yellow);
+  /* font-size: Schriftgröße. */
   font-size: 15px;
 }
 
 /* einzelne Menüeinträge */
+/* BEREICH: Einzelner Menüpunkt mit Levelzugang. */
 .menuButton {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 10px 12px;
   margin-bottom: 8px;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: transparent;
+  /* border: Rahmen um das Element. */
   border: 1px solid transparent;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: rgba(220, 230, 235, 0.82);
 
+  /* font-size: Schriftgröße. */
   font-size: 14px;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.35;
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: left;
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     background 0.2s ease,
     border-color 0.2s ease,
@@ -476,14 +631,18 @@ button {
 }
 
 .menuButton:hover {
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(100, 255, 255, 0.05);
   border-color: rgba(100, 255, 255, 0.18);
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
 }
 
 .menuButton.active {
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(100, 255, 255, 0.08);
   border-color: rgba(100, 255, 255, 0.28);
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
 }
 
@@ -491,14 +650,19 @@ button {
    INHALTSBEREICH RECHTS
 ========================= */
 
+/* BEREICH: Hauptfläche mit Archivakten. */
 .contentArea {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 760px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     36px 44px 48px;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       100deg,
@@ -507,9 +671,11 @@ button {
       rgba(5, 12, 13, 0.93)
     );
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left:
     5px solid var(--red);
 
+  /* clip-path: Schneidet das Element in eine Form, z. B. abgeschrägte Ecken. */
   clip-path: polygon(
     0 0,
     98% 0,
@@ -519,6 +685,7 @@ button {
     0 calc(100% - 26px)
   );
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 28px rgba(52, 217, 255, 0.1),
     inset 0 0 24px rgba(52, 217, 255, 0.03);
@@ -527,14 +694,20 @@ button {
 .contentArea::before {
   content: "";
 
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: absolute;
 
+  /* left: Abstand zur linken Positionierungskante. */
   left: 34px;
+  /* right: Abstand zur rechten Positionierungskante. */
   right: 44px;
+  /* top: Abstand zur oberen Positionierungskante. */
   top: 12px;
 
+  /* height: Bestimmt die Höhe des Elements. */
   height: 2px;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       90deg,
@@ -545,29 +718,40 @@ button {
 }
 /* Text oben im Kasten */
 .archiveLabel {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 /* Überschrift */
 .contentArea h1 {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     14px 0 8px;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(36px, 6vw, 68px);
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 0.98;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 16px rgba(255, 60, 60, 0.35);
 }
@@ -575,13 +759,18 @@ button {
 .archiveSubtitle {
   margin-bottom: 26px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 
+  /* font-size: Schriftgröße. */
   font-size: 15px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -591,56 +780,76 @@ button {
 ========================= */
 /* gesamter Bereich */
 .infoGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
   margin-bottom: 28px;
 }
 /* einzelner Kasten */
 .infoBox {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 76px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     13px 15px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.16);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 255, 255, 0.02);
 }
 /* kleine Überschrift im Kasten */
 .infoLabel {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-bottom: 8px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 /* Wert im Kasten */
 .infoValue {
+  /* font-size: Schriftgröße. */
   font-size: 15px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .infoValue.green {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 10px rgba(69, 255, 117, 0.35);
 }
@@ -650,25 +859,31 @@ button {
    GESCHICHTENTEXT
 ========================= */
 /* Jeder Absatz */
+/* BEREICH: Darstellung der Geschichte und ihrer Absätze. */
 .storyText {
   padding-top: 4px;
 
   border-top:
     1px solid rgba(255, 255, 255, 0.1);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #e7ecee;
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
+  /* font-size: Schriftgröße. */
   font-size: 19px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.86;
 }
 
 .storyText p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     8px 0;
 }
@@ -676,15 +891,20 @@ button {
 .storyText p:first-child::first-letter {
   float: left;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     0.05em 0.13em 0 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 4.7em;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 0.78;
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 14px rgba(255, 60, 60, 0.35);
 }
@@ -695,59 +915,81 @@ button {
 ========================= */
 
 .lockedScreen {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 580px;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* place-items: Kurzform für align-items und justify-items, häufig zum Zentrieren. */
   place-items: center;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: center;
 }
 
 .lockedPanel {
+  /* width: Bestimmt die Breite des Elements. */
   width: min(100%, 650px);
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 36px;
 
+  /* border: Rahmen um das Element. */
   border:
     2px solid var(--red);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(17, 4, 5, 0.75);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 34px rgba(255, 60, 60, 0.18),
     inset 0 0 24px rgba(255, 60, 60, 0.05);
 }
 
 .lockedIcon {
+  /* font-size: Schriftgröße. */
   font-size: 48px;
 }
 
 .lockedTitle {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     16px 0 10px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 30px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 5px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .lockedText {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.7;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -758,27 +1000,35 @@ button {
 
 @keyframes bootLoading {
   from {
+    /* width: Bestimmt die Breite des Elements. */
     width: 0;
   }
 
   to {
+    /* width: Bestimmt die Breite des Elements. */
     width: 100%;
   }
 }
 
 @keyframes onlinePulse {
   0% {
+    /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
     transform: scale(1);
+    /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
     opacity: 1;
   }
 
   50% {
+    /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
     transform: scale(1.55);
+    /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
     opacity: 0.5;
   }
 
   100% {
+    /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
     transform: scale(1);
+    /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
     opacity: 1;
   }
 }
@@ -789,22 +1039,30 @@ button {
 ========================= */
 
 @media (max-width: 960px) {
+  /* BEREICH: Zweispaltige Aufteilung: Menü und Inhaltsbereich. */
   .mainLayout {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
+  /* BEREICH: Linkes Navigationsmenü. */
   .sideMenu {
+    /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
     position: static;
 
+    /* max-height: Begrenzt die maximale Höhe. */
     max-height: none;
   }
 
   .menuSection {
+    /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
     display: grid;
 
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
 
+    /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
     gap: 8px;
   }
 
@@ -812,6 +1070,7 @@ button {
     grid-column: 1 / -1;
   }
 
+  /* BEREICH: Einzelner Menüpunkt mit Levelzugang. */
   .menuButton {
     margin-bottom: 0;
   }
@@ -824,6 +1083,7 @@ button {
 
 @media (max-width: 680px) {
   .archiveApp {
+    /* width: Bestimmt die Breite des Elements. */
     width:
       min(
         calc(100% - 16px),
@@ -831,28 +1091,38 @@ button {
       );
   }
 
+  /* BEREICH: Kopfzeile mit Logo, Audio und Benutzeranzeige. */
   .topBar {
+    /* align-items: Richtet Kindelemente entlang der Querachse aus. */
     align-items: flex-start;
 
+    /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
     flex-direction: column;
 
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding: 18px;
   }
 
+  /* BEREICH: Hauptfläche mit Archivakten. */
   .contentArea {
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding:
       34px 22px 40px;
   }
 
   .infoGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
   .menuSection {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
+  /* BEREICH: Darstellung der Geschichte und ihrer Absätze. */
   .storyText {
+    /* font-size: Schriftgröße. */
     font-size: 17px;
   }
 }
@@ -862,26 +1132,38 @@ button {
 ========================= */
 
 .homeButton {
+  /* width: Bestimmt die Breite des Elements. */
   width: 60px;
+  /* height: Bestimmt die Höhe des Elements. */
   height: 60px;
 
+  /* flex: Legt Wachstum, Schrumpfen und Grundgröße eines Flex-Elements fest. */
   flex: 0 0 60px;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
+  /* place-items: Kurzform für align-items und justify-items, häufig zum Zentrieren. */
   place-items: center;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 9px;
 
+  /* border: Rahmen um das Element. */
   border: 2px solid var(--red);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255, 60, 60, 0.03);
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 15px rgba(255, 60, 60, 0.25);
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     color 0.25s ease,
     background 0.25s ease,
@@ -890,7 +1172,9 @@ button {
 }
 
 .homeButton svg {
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* height: Bestimmt die Höhe des Elements. */
   height: 100%;
 
   fill: none;
@@ -901,14 +1185,18 @@ button {
 }
 
 .homeButton:hover {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 60, 60, 0.08);
 
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     scale(1.08);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 20px rgba(255, 60, 60, 0.6);
 }
@@ -921,11 +1209,14 @@ button {
 .homeWelcome {
   margin-top: 34px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 34px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.18);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     radial-gradient(
       circle at top right,
@@ -936,133 +1227,182 @@ button {
 }
 
 .homeWelcomeTitle {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(25px, 4vw, 42px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .homeWelcomeText {
+  /* max-width: Begrenzt die maximale Breite. */
   max-width: 800px;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     22px 0 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #d6dddf;
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
+  /* font-size: Schriftgröße. */
   font-size: 19px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.8;
 }
 /* 3 Statuskasten */
 .homeStatusGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 14px;
 
   margin-top: 28px;
 }
 /* einzelner Statuskasten */
 .homeStatusCard {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 105px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 18px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.16);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 255, 255, 0.02);
 }
 
 .homeStatusLabel {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .homeStatusValue {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-top: 13px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size: 24px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .homeStatusValue.green {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 12px rgba(69, 255, 117, 0.4);
 }
 
 .homeSectionTitle {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     42px 0 18px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 /* große Kacheln */
 .homeTileGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 16px;
 }
 /* eine KAchel */
 .homeTile {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 145px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 23px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.18);
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: left;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       120deg,
@@ -1070,6 +1410,7 @@ button {
       rgba(10, 31, 34, 0.75)
     );
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -1077,59 +1418,76 @@ button {
 }
 
 button.homeTile {
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 }
 
 button.homeTile:hover {
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     translateY(-4px);
 
   border-color:
     rgba(69, 255, 117, 0.4);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 25px rgba(69, 255, 117, 0.1);
 }
 
 .homeTile.lockedTile {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #6e797c;
 
   border-color:
     rgba(255, 255, 255, 0.08);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 255, 255, 0.015);
 }
 
 .homeTileIcon {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 28px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 }
 /* Kachelüberschrift */
 .homeTileTitle {
   margin-top: 17px;
 
+  /* font-size: Schriftgröße. */
   font-size: 17px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 /* Beschreibung der Kachel */
 .homeTileText {
   margin-top: 10px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 12px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -1140,47 +1498,68 @@ button.homeTile:hover {
 @media (max-width: 680px) {
   .homeStatusGrid,
   .homeTileGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
   .homeWelcome {
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding: 24px 20px;
   }
 
   .homeWelcomeText {
+    /* font-size: Schriftgröße. */
     font-size: 17px;
   }
 }
 
 #audioToggle {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: absolute;
 
+  /* left: Abstand zur linken Positionierungskante. */
   left: 50%;
+  /* top: Abstand zur oberen Positionierungskante. */
   top: 74px;
 
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform: translateX(-50%);
 
+  /* min-width: Legt die Mindestbreite fest. */
   min-width: 280px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 14px 24px;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1000;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #a9d8cf;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(5, 25, 25, 0.92);
 
+  /* border: Rahmen um das Element. */
   border: 1px solid #4fc9b5;
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: inherit;
+  /* font-size: Schriftgröße. */
   font-size: 14px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     color 0.25s ease,
     border-color 0.25s ease,
@@ -1188,17 +1567,21 @@ button.homeTile:hover {
 }
 
 #audioToggle:hover {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 12px rgba(79, 201, 181, 0.55),
     inset 0 0 12px rgba(79, 201, 181, 0.08);
 }
 
 #audioToggle.active {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ff6b6b;
   border-color: #ff4545;
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 12px rgba(255, 69, 69, 0.55),
     inset 0 0 12px rgba(255, 69, 69, 0.08);
@@ -1210,21 +1593,30 @@ button.homeTile:hover {
 ========================================================= */
 
 .artifactInfoGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(4, minmax(0, 1fr));
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 28px 0 34px;
 }
 
 .artifactInfoBox {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 84px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 15px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(255, 60, 60, 0.22);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
@@ -1234,36 +1626,50 @@ button.homeTile:hover {
 }
 
 .artifactInfoLabel {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .artifactInfoValue {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-top: 12px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size: 15px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .dangerValue {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 12px rgba(255, 60, 60, 0.5);
 }
@@ -1272,16 +1678,21 @@ button.homeTile:hover {
 /* WARNUNG */
 
 .artifactWarning {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 34px 0;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 24px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(255, 60, 60, 0.55);
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left:
     5px solid var(--red);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     repeating-linear-gradient(
       -45deg,
@@ -1293,24 +1704,33 @@ button.homeTile:hover {
 }
 
 .artifactWarningTitle {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 14px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .artifactWarning p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     16px 0 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #dce2e4;
 
+  /* font-size: Schriftgröße. */
   font-size: 15px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.7;
 }
 
@@ -1320,62 +1740,83 @@ button.homeTile:hover {
 .archiveDocument {
   margin-top: 42px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #dce3e5;
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
+  /* font-size: Schriftgröße. */
   font-size: 18px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.85;
 }
 
 .archiveDocument h2 {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     0 0 22px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     "Roboto",
     sans-serif;
 
+  /* font-size: Schriftgröße. */
   font-size: 16px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 5px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .archiveDocument p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     1.3em 0;
 }
 
 .archiveEmphasis {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     35px 0 !important;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     "Roboto",
     sans-serif;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(22px, 4vw, 32px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: center;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 18px rgba(255, 60, 60, 0.45);
 }
@@ -1384,11 +1825,14 @@ button.homeTile:hover {
 /* ZITAT */
 
 .artifactQuote {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     46px 0;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     20px 34px 36px 70px;
 
@@ -1398,6 +1842,7 @@ button.homeTile:hover {
   border-bottom:
     1px solid rgba(255, 60, 60, 0.3);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     radial-gradient(
       circle at left,
@@ -1407,29 +1852,41 @@ button.homeTile:hover {
 }
 
 .artifactQuoteMark {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: absolute;
 
+  /* left: Abstand zur linken Positionierungskante. */
   left: 20px;
+  /* top: Abstand zur oberen Positionierungskante. */
   top: 4px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: Georgia, serif;
 
+  /* font-size: Schriftgröße. */
   font-size: 90px;
 
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0.6;
 }
 
 /* Untere Musiknote */
 
 .artifactQuoteMarkBottom {
+  /* left: Abstand zur linken Positionierungskante. */
   left: auto;
+  /* top: Abstand zur oberen Positionierungskante. */
   top: auto;
 
+  /* right: Abstand zur rechten Positionierungskante. */
   right: 20px;
+  /* bottom: Abstand zur unteren Positionierungskante. */
   bottom: -8px;
 
+  /* font-size: Schriftgröße. */
   font-size: 72px;
 }
 
@@ -1442,21 +1899,29 @@ button.homeTile:hover {
 }
 
 .artifactQuoteText {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
+  /* width: Bestimmt die Breite des Elements. */
   width: fit-content;
+  /* max-width: Begrenzt die maximale Breite. */
   max-width: 100%;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 auto;
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: left;
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(20px, 3vw, 28px);
 
   font-style: italic;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
 }
 
@@ -1464,29 +1929,39 @@ button.homeTile:hover {
 /* MASKENKARTEN */
 
 .maskOverviewGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 16px;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     50px 0;
 }
 
 .maskOverviewCard {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 190px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 24px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(255, 60, 60, 0.22);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: left;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
@@ -1496,8 +1971,10 @@ button.homeTile:hover {
 }
 
 button.maskOverviewCard {
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -1505,69 +1982,91 @@ button.maskOverviewCard {
 }
 
 button.maskOverviewCard:hover {
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     translateY(-4px);
 
   border-color:
     rgba(255, 60, 60, 0.65);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 26px rgba(255, 60, 60, 0.14);
 }
 
 .maskNumber {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 }
 
 .maskOverviewName {
   margin-top: 22px;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(24px, 4vw, 38px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 5px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .maskOverviewTitle {
   margin-top: 10px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .maskOverviewStatus {
   margin-top: 24px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #687276;
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .unlockedStatus {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 }
 
 .lockedArtifact {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0.48;
 }
 
@@ -1575,39 +2074,52 @@ button.maskOverviewCard:hover {
 /* OFFENBARUNGSZEILEN */
 
 .revelationLines {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 10px;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     35px 0;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     25px;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: center;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(255, 60, 60, 0.25);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 60, 60, 0.035);
 }
 
 .revelationLines span {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     "Roboto",
     sans-serif;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(19px, 3vw, 27px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -1615,46 +2127,60 @@ button.maskOverviewCard:hover {
 /* M.I.N.D.-ANMERKUNG */
 
 .classifiedBlock {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     50px 0;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     28px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.25);
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left:
     5px solid var(--cyan);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(52, 217, 255, 0.035);
 }
 
 .classifiedHeader {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .classifiedText {
   margin-top: 20px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #cbd5d8;
 
+  /* font-size: Schriftgröße. */
   font-size: 15px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.8;
 }
 
 
 @media (max-width: 900px) {
   .artifactInfoGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   }
@@ -1664,16 +2190,20 @@ button.maskOverviewCard:hover {
 @media (max-width: 680px) {
   .artifactInfoGrid,
   .maskOverviewGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
   .artifactQuote {
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding:
       60px 22px 28px;
   }
 
   .artifactQuoteMark {
+    /* left: Abstand zur linken Positionierungskante. */
     left: 18px;
+    /* top: Abstand zur oberen Positionierungskante. */
     top: -5px;
   }
 }
@@ -1682,14 +2212,20 @@ button.maskOverviewCard:hover {
    BENUTZERTERMINAL OBEN RECHTS
 ===================================================== */
 
+/* BEREICH: Kasten mit SYSTEM ONLINE, Benutzer, Rang und Level. */
 .userTerminal {
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: center;
+  /* width: Bestimmt die Breite des Elements. */
   width: 340px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 14px 18px 16px;
 
+  /* box-sizing: Bestimmt, ob Innenabstand und Rahmen in Breiten-/Höhenangaben enthalten sind. */
   box-sizing: border-box;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       90deg,
@@ -1697,9 +2233,11 @@ button.maskOverviewCard:hover {
       rgba(8, 25, 27, 0.94)
     );
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(70, 205, 190, 0.35);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     inset 0 0 18px rgba(50, 210, 200, 0.05),
     0 0 18px rgba(0, 0, 0, 0.38);
@@ -1717,36 +2255,50 @@ button.maskOverviewCard:hover {
 
 
 .userTerminalStatus {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 9px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #45ff75;
 
+  /* font-size: Schriftgröße. */
   font-size: 15px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 
 .onlineDot {
+  /* width: Bestimmt die Breite des Elements. */
   width: 10px;
+  /* height: Bestimmt die Höhe des Elements. */
   height: 10px;
 
   flex-shrink: 0;
 
+  /* border-radius: Rundet die Ecken des Elements ab. */
   border-radius: 50%;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: var(--green);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 10px var(--green),
     0 0 24px rgba(69, 255, 117, 0.65);
 
+  /* animation: Spielt eine definierte CSS-Animation ab. */
   animation:
     onlinePulse 1.4s ease-in-out infinite;
 }
@@ -1763,25 +2315,35 @@ button.maskOverviewCard:hover {
 /* Benutzername oben */
 
 .userTerminalUser {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
   flex-direction: column;
 
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: flex-start;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 4px;
 }
 
 
 .userTerminalName {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
 
+  /* font-size: Schriftgröße. */
   font-size: 20px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 10px rgba(255, 255, 255, 0.12);
 }
@@ -1792,22 +2354,29 @@ button.maskOverviewCard:hover {
 .userTerminalStats {
   margin-top: 12px;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     minmax(0, 1fr)
     minmax(0, 1fr);
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 24px;
 }
 
 
 .userTerminalField {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
   flex-direction: column;
 
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: flex-start;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 4px;
 }
 
@@ -1815,14 +2384,19 @@ button.maskOverviewCard:hover {
 /* Kleine Beschriftungen */
 
 .userTerminalLabel {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color:
     rgba(190, 225, 220, 0.72);
 
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -1830,13 +2404,18 @@ button.maskOverviewCard:hover {
 /* Werte */
 
 .userTerminalValue {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
 
+  /* font-size: Schriftgröße. */
   font-size: 20px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -1844,46 +2423,56 @@ button.maskOverviewCard:hover {
 /* Rangfarben */
 
 .userTerminalValue.accessOmega {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 }
 
 
 .userTerminalValue.accessAlpha {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 }
 
 
 .userTerminalValue.accessBeta {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 }
 
 
 .userTerminalValue.accessGamma {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--yellow);
 }
 
 
 .userTerminalValue.accessDelta {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 }
 
 .accessOmega {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 }
 
 .accessAlpha {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 }
 
 .accessBeta {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 }
 
 .accessGamma {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--yellow);
 }
 
 .accessDelta {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 }
 
@@ -1893,18 +2482,22 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .statusReleased {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 }
 
 .statusIncomplete {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--yellow);
 }
 
 .statusDamaged {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 }
 
 .statusClassified {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #c46cff;
 }
 
@@ -1914,15 +2507,19 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .damagedData {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     35px 0;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     25px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(255, 60, 60, 0.35);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     repeating-linear-gradient(
       -45deg,
@@ -1932,28 +2529,39 @@ button.maskOverviewCard:hover {
       transparent 20px
     );
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.8;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: center;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .redactedText {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: inline-block;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     0 6px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: transparent;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     #060606;
 
@@ -1975,44 +2583,60 @@ button.maskOverviewCard:hover {
 }
 
 .relatedFilesTitle {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .relatedFilesGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 14px;
 
   margin-top: 20px;
 }
 
 .relatedFile {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 105px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 18px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.17);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: left;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(52, 217, 255, 0.025);
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
@@ -2020,50 +2644,66 @@ button.maskOverviewCard:hover {
 }
 
 .relatedFile:hover {
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     translateY(-3px);
 
   border-color:
     rgba(69, 255, 117, 0.4);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 22px rgba(69, 255, 117, 0.08);
 }
 
 .relatedFileId {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .relatedFileName {
   margin-top: 12px;
 
+  /* font-size: Schriftgröße. */
   font-size: 15px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .relatedFileLocked {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0.42;
 }
 
 
 @media (max-width: 760px) {
+  /* BEREICH: Kasten mit SYSTEM ONLINE, Benutzer, Rang und Level. */
   .userTerminal {
+    /* width: Bestimmt die Breite des Elements. */
     width: 100%;
+    /* min-width: Legt die Mindestbreite fest. */
     min-width: 0;
   }
 
   .relatedFilesGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 }
@@ -2072,48 +2712,65 @@ button.maskOverviewCard:hover {
    IDENTITÄT IM STARTFENSTER
 ========================================================= */
 
+/* BEREICH: Benutzername und Sicherheitsstufe beim Start. */
 .bootIdentity {
+  /* max-width: Begrenzt die maximale Breite. */
   max-width: 360px;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     26px auto 0;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     18px 20px;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 15px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.22);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(52, 217, 255, 0.025);
 
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0;
 
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     translateY(12px);
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     opacity 0.5s ease,
     transform 0.5s ease;
 }
 
 .bootIdentity.show {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 1;
 
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     translateY(0);
 }
 
 .bootIdentityRow {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
 
+  /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
   justify-content: space-between;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 20px;
 
   padding-bottom: 10px;
@@ -2129,82 +2786,111 @@ button.maskOverviewCard:hover {
 }
 
 .bootIdentityLabel {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 14px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .bootIdentityValue {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size: 16px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: right;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .bootIdentityValue.omega {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 }
 
 .bootIdentityValue.alpha {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 }
 
 .bootIdentityValue.beta {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 }
 
 .bootIdentityValue.gamma {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--yellow);
 }
 
 .bootIdentityValue.delta {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 }
 
 .bootIdentityValue.none {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 }
 
 
+/* BEREICH: Willkommensnachricht beim Start. */
 .bootWelcome {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 28px;
 
   margin-top: 24px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(16px, 3vw, 23px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: center;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     opacity 0.6s ease;
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 16px rgba(255, 255, 255, 0.2);
 }
 
 .bootWelcome.show {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 1;
 }
 
@@ -2215,11 +2901,14 @@ button.maskOverviewCard:hover {
 .commandDashboard {
   margin-top: 30px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 26px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.2);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     radial-gradient(
       circle at top right,
@@ -2230,11 +2919,15 @@ button.maskOverviewCard:hover {
 }
 
 .commandDashboardHeader {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
 
+  /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
   justify-content: space-between;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 20px;
 
   padding-bottom: 20px;
@@ -2244,124 +2937,171 @@ button.maskOverviewCard:hover {
 }
 
 .commandDashboardLabel {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .commandDashboardUser {
   margin-top: 8px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(22px, 4vw, 34px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .commandOnline {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
 
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 10px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* font-size: Schriftgröße. */
   font-size: 11px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .commandStatusGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(4, minmax(0, 1fr));
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
 
   margin-top: 22px;
 }
 
 .commandStatusCard {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 125px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 17px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.16);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 255, 255, 0.02);
 }
 
 .commandStatusLabel {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .commandStatusValue {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-top: 15px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size: 25px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .commandStatusDescription {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-top: 10px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #748084;
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.5;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .onlineValue {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 12px rgba(69, 255, 117, 0.4);
 }
 
 .lockedValue {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 }
 
@@ -2371,26 +3111,35 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .archiveCategoryGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 16px;
 }
 
 .archiveCategoryCard {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 210px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 24px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.2);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: left;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
@@ -2398,8 +3147,10 @@ button.maskOverviewCard:hover {
       rgba(5, 15, 17, 0.94)
     );
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -2408,78 +3159,102 @@ button.maskOverviewCard:hover {
 }
 
 .archiveCategoryCard:hover {
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     translateY(-4px);
 
   border-color:
     rgba(69, 255, 117, 0.42);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 28px rgba(69, 255, 117, 0.09);
 }
 
 .archiveCategoryCard.lockedTile {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0.42;
 }
 
 .archiveCategoryCard.lockedTile:hover {
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform: none;
 
   border-color:
     rgba(255, 60, 60, 0.35);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 22px rgba(255, 60, 60, 0.08);
 }
 
 .archiveCategoryCode {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 29px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .archiveCategoryTitle {
   margin-top: 20px;
 
+  /* font-size: Schriftgröße. */
   font-size: 18px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .archiveCategoryText {
   margin-top: 13px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 12px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.7;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
 }
 
 .archiveCategoryStatus {
   margin-top: 23px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .lockedTile .archiveCategoryStatus {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 }
 
@@ -2493,20 +3268,26 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .systemMessagePanel {
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.18);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 255, 255, 0.015);
 }
 
 .systemMessage {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns: 90px 1fr;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 20px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 20px;
 
   border-bottom:
@@ -2518,39 +3299,53 @@ button.maskOverviewCard:hover {
 }
 
 .systemMessageTime {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .systemMessage strong {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size: 12px;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .systemMessage p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     8px 0 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 13px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
 }
 
 .warningMessage .systemMessageTime,
 .warningMessage strong {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 }
 
@@ -2560,50 +3355,68 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .updateLog {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 10px;
 }
 
 .updateLogEntry {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns: 40px 1fr;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 14px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 17px;
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left:
     3px solid var(--green);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(69, 255, 117, 0.025);
 }
 
 .updateLogMarker {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* font-size: Schriftgröße. */
   font-size: 21px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 }
 
 .updateLogEntry strong {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size: 11px;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .updateLogEntry p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     7px 0 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 12px;
 }
 
@@ -2613,10 +3426,13 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .systemFooter {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
 
+  /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
   justify-content: space-between;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 18px;
 
   margin-top: 45px;
@@ -2626,19 +3442,25 @@ button.maskOverviewCard:hover {
   border-top:
     1px solid rgba(52, 217, 255, 0.16);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #607074;
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 
 @media (max-width: 1050px) {
   .commandStatusGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   }
@@ -2647,21 +3469,27 @@ button.maskOverviewCard:hover {
 
 @media (max-width: 680px) {
   .commandDashboardHeader {
+    /* align-items: Richtet Kindelemente entlang der Querachse aus. */
     align-items: flex-start;
+    /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
     flex-direction: column;
   }
 
   .commandStatusGrid,
   .archiveCategoryGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
   .systemMessage {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
+    /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
     gap: 8px;
   }
 
   .systemFooter {
+    /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
     flex-direction: column;
   }
 }
@@ -2671,32 +3499,42 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .commandIdentity {
+  /* flex: Legt Wachstum, Schrumpfen und Grundgröße eines Flex-Elements fest. */
   flex: 1;
 
+  /* min-width: Legt die Mindestbreite fest. */
   min-width: 0;
 }
 
 .commandIdentityGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
 
+  /* max-width: Begrenzt die maximale Breite. */
   max-width: 650px;
 
   margin-top: 22px;
 }
 
 .commandIdentityItem {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 76px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 14px 16px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.16);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 255, 255, 0.018);
 }
@@ -2706,32 +3544,44 @@ button.maskOverviewCard:hover {
 }
 
 .commandIdentityLabel {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .commandIdentityValue {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-top: 10px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(15px, 2vw, 21px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -2739,10 +3589,12 @@ button.maskOverviewCard:hover {
 /* LEITSATZ */
 
 .commandMotto {
+  /* max-width: Begrenzt die maximale Breite. */
   max-width: 780px;
 
   margin-top: 18px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     20px 22px;
 
@@ -2752,6 +3604,7 @@ button.maskOverviewCard:hover {
   border-bottom:
     1px solid rgba(255, 60, 60, 0.3);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     radial-gradient(
       circle at left,
@@ -2761,35 +3614,46 @@ button.maskOverviewCard:hover {
 }
 
 .commandMottoLabel {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .commandMottoText {
   margin-top: 12px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #e8edef;
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(17px, 2.5vw, 24px);
 
   font-style: italic;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 14px rgba(255, 255, 255, 0.08);
 }
@@ -2798,33 +3662,41 @@ button.maskOverviewCard:hover {
 /* RANGFARBEN */
 
 .commandIdentityValue.rankOmega {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 }
 
 .commandIdentityValue.rankAlpha {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 }
 
 .commandIdentityValue.rankBeta {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 }
 
 .commandIdentityValue.rankGamma {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--yellow);
 }
 
 .commandIdentityValue.rankDelta {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 }
 
 
 @media (max-width: 760px) {
   .commandDashboardHeader {
+    /* align-items: Richtet Kindelemente entlang der Querachse aus. */
     align-items: flex-start;
+    /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
     flex-direction: column;
   }
 
   .commandIdentityGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
@@ -2836,13 +3708,18 @@ button.maskOverviewCard:hover {
 .systemHeaderText {
   margin-top: 12px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -2865,26 +3742,43 @@ button.maskOverviewCard:hover {
 --------------------------------------------------------- */
 #contentArea h2,
 #contentArea .archiveSectionTitle {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 34px 0 18px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: "Roboto", Arial, sans-serif;
+  /* font-size: Schriftgröße. */
   font-size: 22px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.2;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow: 0 0 10px rgba(255, 60, 60, 0.28);
 }
 
 /* Kleinere Überschriften innerhalb von Karten */
 #contentArea h3 {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 0 10px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: "Roboto", Arial, sans-serif;
+  /* font-size: Schriftgröße. */
   font-size: 15px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.25;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -2896,15 +3790,21 @@ button.maskOverviewCard:hover {
 #contentArea .archiveText,
 #contentArea .archiveDocument,
 #contentArea .storyText {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #e7ecee;
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: "Roboto", Arial, sans-serif;
+  /* font-size: Schriftgröße. */
   font-size: 17px;
   font-style: normal;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 400;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.62;
 }
 
 #contentArea p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 0 16px;
 }
 
@@ -2913,10 +3813,15 @@ button.maskOverviewCard:hover {
 #contentArea .archiveSection .storyText p:first-child::first-letter,
 #contentArea .archiveDocument p:first-child::first-letter {
   float: none;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: inherit;
+  /* font-size: Schriftgröße. */
   font-size: inherit;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: inherit;
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow: none;
 }
 
@@ -2926,40 +3831,63 @@ button.maskOverviewCard:hover {
    statusGrid, statusCard, statusLabel, statusValue
 --------------------------------------------------------- */
 #contentArea .statusGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 28px 0 34px;
 }
 
 #contentArea .statusCard {
+  /* min-width: Legt die Mindestbreite fest. */
   min-width: 0;
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 84px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 15px;
+  /* border: Rahmen um das Element. */
   border: 1px solid rgba(52, 217, 255, 0.2);
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255, 255, 255, 0.02);
 }
 
 #contentArea .statusLabel,
 #contentArea .detailLabel {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
   margin-bottom: 10px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 #contentArea .statusValue,
 #contentArea .detailValue {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
+  /* font-size: Schriftgröße. */
   font-size: 16px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.25;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1.5px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -2969,18 +3897,28 @@ button.maskOverviewCard:hover {
    detailGrid, detailCard, detailLabel, detailValue
 --------------------------------------------------------- */
 #contentArea .detailGrid {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 28px 0 34px;
 }
 
 #contentArea .detailCard {
+  /* min-width: Legt die Mindestbreite fest. */
   min-width: 0;
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 96px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 16px;
+  /* border: Rahmen um das Element. */
   border: 1px solid rgba(255, 60, 60, 0.28);
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: linear-gradient(
     135deg,
     rgba(255, 60, 60, 0.035),
@@ -2991,12 +3929,16 @@ button.maskOverviewCard:hover {
 /* Farbige Statuswerte */
 #contentArea .statusReleased,
 #contentArea .green {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow: 0 0 10px rgba(69, 255, 117, 0.35);
 }
 
 #contentArea .dangerValue {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow: 0 0 12px rgba(255, 60, 60, 0.48);
 }
 
@@ -3006,23 +3948,35 @@ button.maskOverviewCard:hover {
    abilityList und abilityCard
 --------------------------------------------------------- */
 #contentArea .abilityList {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns: 1fr;
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 14px;
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 20px 0 32px;
 }
 
 #contentArea .abilityCard {
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 18px 20px;
+  /* border: Rahmen um das Element. */
   border: 1px solid rgba(255, 60, 60, 0.24);
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255, 255, 255, 0.018);
 }
 
 #contentArea .abilityCard p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0;
+  /* font-size: Schriftgröße. */
   font-size: 16px;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.65;
 }
 
@@ -3034,15 +3988,21 @@ button.maskOverviewCard:hover {
 #contentArea .artifactImageFrame,
 #contentArea .archiveImageFrame,
 #contentArea .imageFrame {
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 28px 0 30px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 14px;
+  /* border: Rahmen um das Element. */
   border: 1px solid rgba(70, 180, 200, 0.25);
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: linear-gradient(
     180deg,
     rgba(8, 18, 22, 0.95),
     rgba(4, 10, 12, 0.98)
   );
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 0 1px rgba(255, 60, 60, 0.08),
     0 0 24px rgba(0, 0, 0, 0.35);
@@ -3050,9 +4010,13 @@ button.maskOverviewCard:hover {
 
 #contentArea img,
 #contentArea .artifactImage {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
+  /* max-width: Begrenzt die maximale Breite. */
   max-width: 100%;
+  /* height: Bestimmt die Höhe des Elements. */
   height: auto;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 auto;
 }
 
@@ -3068,6 +4032,7 @@ button.maskOverviewCard:hover {
    style="--image-width: 560px"
 */
 #contentArea img.imageCustom {
+  /* width: Bestimmt die Breite des Elements. */
   width: min(100%, var(--image-width, 480px));
 }
 
@@ -3076,6 +4041,7 @@ button.maskOverviewCard:hover {
 --------------------------------------------------------- */
 @media (max-width: 1100px) {
   #contentArea .detailGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -3083,12 +4049,15 @@ button.maskOverviewCard:hover {
 @media (max-width: 680px) {
   #contentArea .statusGrid,
   #contentArea .detailGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
   #contentArea h2,
   #contentArea .archiveSectionTitle {
+    /* font-size: Schriftgröße. */
     font-size: 19px;
+    /* letter-spacing: Abstand zwischen Buchstaben. */
     letter-spacing: 3px;
   }
 }
@@ -3098,12 +4067,17 @@ button.maskOverviewCard:hover {
 ===================================================== */
 
 .ritualBlock {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 42px 0;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 30px;
 
+  /* border: Rahmen um das Element. */
   border: 1px solid rgba(75, 225, 225, 0.28);
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 4px solid var(--cyan);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
@@ -3111,6 +4085,7 @@ button.maskOverviewCard:hover {
       rgba(0, 0, 0, 0.25)
     );
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: left;
 }
 
@@ -3118,6 +4093,7 @@ button.maskOverviewCard:hover {
   border-color: rgba(255, 55, 55, 0.35);
   border-left-color: var(--red);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
@@ -3129,20 +4105,30 @@ button.maskOverviewCard:hover {
 .ritualLabel {
   margin-bottom: 24px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
+  /* font-size: Schriftgröße. */
   font-size: 0.68rem;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .ritualText {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: Georgia, serif;
+  /* font-size: Schriftgröße. */
   font-size: 1.15rem;
   font-style: italic;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.9;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
 }
 
@@ -3152,9 +4138,13 @@ button.maskOverviewCard:hover {
 
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: rgba(215, 225, 228, 0.78);
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: Georgia, serif;
+  /* font-size: Schriftgröße. */
   font-size: 0.98rem;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.8;
 }
 
@@ -3164,55 +4154,72 @@ button.maskOverviewCard:hover {
 
 /* Normal gesprochener Dialog */
 .storyDialogue {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 4px 0;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 4px 0 4px 18px;
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 3px solid var(--blue);
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--blue);
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: Arial, sans-serif;
+  /* font-size: Schriftgröße. */
   font-size: 14px;
   font-style: normal;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 400;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1.5px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 /* Laut gesprochener oder geschriener Dialog */
 .storyDialogueLoud {
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 }
 
 /* Farben der Personen */
 .storyDialogue.sl {
   border-left-color: #cf2026;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #cf2026;
 }
 
 .storyDialogue.ma {
   border-left-color: #3d8fc4;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #3d8fc4;
 }
 
 .storyDialogue.ko {
   border-left-color: #7c5aa6;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #7c5aa6;
 }
 
 .storyDialogue.li {
   border-left-color: #d6b35a;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #d6b35a;
 }
 
 .storyDialogue.ok {
   border-left-color: #909090;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #909090;
 }
 
 .storyDialogue.as {
   border-left-color: #cf9f93;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #cf9f93;
 }
 
@@ -3222,35 +4229,48 @@ button.maskOverviewCard:hover {
 
 .episodeEnd {
   margin-top: 60px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 26px;
 
   border-top: 1px solid rgba(255, 59, 59, 0.7);
   border-bottom: 1px solid rgba(255, 59, 59, 0.25);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255, 40, 40, 0.035);
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: center;
 }
 
 .episodeEndLabel {
   margin-bottom: 10px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 0.72rem;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .episodeEndTitle {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
 
+  /* font-size: Schriftgröße. */
   font-size: 1rem;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 800;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -3269,20 +4289,27 @@ button.maskOverviewCard:hover {
 > p:first-of-type::first-letter {
   float: left;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0.03em 0.14em 0 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
+  /* font-size: Schriftgröße. */
   font-size: 4.7em;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 0.78;
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 14px rgba(255, 60, 60, 0.35);
 }
@@ -3300,6 +4327,7 @@ button.maskOverviewCard:hover {
 ===================================================== */
 
 .menuButton.locked {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
   padding-left: 34px;
 }
@@ -3307,17 +4335,24 @@ button.maskOverviewCard:hover {
 .menuButton.locked::before {
   content: "🔒";
 
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: absolute;
+  /* left: Abstand zur linken Positionierungskante. */
   left: 10px;
+  /* top: Abstand zur oberen Positionierungskante. */
   top: 50%;
 
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform: translateY(-50%);
 
+  /* font-size: Schriftgröße. */
   font-size: 0.85em;
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0.9;
 }
 
 #contentArea article.storyText > p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 1.1em 0;
 }
 
@@ -3326,18 +4361,25 @@ button.maskOverviewCard:hover {
 ===================================================== */
 
 .mindFileReference {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 50px 0 35px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 24px;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: linear-gradient(
     110deg,
     rgba(5, 18, 20, 0.98),
     rgba(9, 31, 33, 0.94)
   );
+  /* border: Rahmen um das Element. */
   border: 0.1px solid var(--cyan);
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 4px solid var(--cyan);
   
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 20px rgba(50, 225, 255, 0.12),
     inset 0 0 20px rgba(50, 225, 255, 0.04);
@@ -3346,40 +4388,61 @@ button.maskOverviewCard:hover {
 .mindFileReferenceLabel {
   margin-bottom: 12px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
+  /* font-size: Schriftgröße. */
   font-size: 14px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 5px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .mindFileReferenceText {
   margin-bottom: 18px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: rgba(255, 255, 255, 0.7);
+  /* font-size: Schriftgröße. */
   font-size: 15px;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
 }
 
 .mindFileReferenceButton {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
   flex-direction: column;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: flex-start;
 
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 20px 22px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: inherit;
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: left;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(3, 12, 14, 0.9);
+  /* border: Rahmen um das Element. */
   border: 1px solid rgba(60, 225, 240, 0.28);
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     border-color 0.25s ease,
     background 0.25s ease,
@@ -3388,11 +4451,14 @@ button.maskOverviewCard:hover {
 }
 
 .mindFileReferenceButton.unlockedTile:hover {
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform: translateX(6px);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(8, 27, 29, 0.98);
   border-color: #ff4444;
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 18px rgba(255, 68, 68, 0.15);
 }
@@ -3400,51 +4466,73 @@ button.maskOverviewCard:hover {
 .mindFileReferenceCode {
   margin-bottom: 8px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ff4b4b;
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 }
 
 .mindFileReferenceName {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
+  /* font-size: Schriftgröße. */
   font-size: 30px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 }
 
 .mindFileReferenceTitle {
   margin-top: 5px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: rgba(255, 255, 255, 0.7);
+  /* font-size: Schriftgröße. */
   font-size: 14px;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 }
 
 .mindFileReferenceButton .archiveCategoryStatus {
   margin-top: 18px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #37ff8b;
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 }
 
 .mindFileReferenceButton.lockedTile {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0.5;
+  /* cursor: Form des Mauszeigers. */
   cursor: not-allowed;
 }
 
 .mindFileReferenceButton.lockedTile .archiveCategoryStatus {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ff4444;
 }
 
 .mindFileReferenceLevel {
   margin-top: 12px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: rgba(255, 255, 255, 0.75);
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 }
 
@@ -3453,19 +4541,29 @@ button.maskOverviewCard:hover {
 ===================================================== */
 
 .maintenanceScreen {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: fixed;
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 999999;
+  /* inset: Kurzform für top, right, bottom und left. */
   inset: 0;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
+  /* place-items: Kurzform für align-items und justify-items, häufig zum Zentrieren. */
   place-items: center;
 
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 100vh;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 30px;
+  /* box-sizing: Bestimmt, ob Innenabstand und Rahmen in Breiten-/Höhenangaben enthalten sind. */
   box-sizing: border-box;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       rgba(50, 230, 240, 0.035) 1px,
@@ -3482,6 +4580,7 @@ button.maskOverviewCard:hover {
       #020708 72%
     );
 
+  /* background-size: Größe von Hintergrundbildern und Mustern. */
   background-size:
     28px 28px,
     28px 28px,
@@ -3489,21 +4588,28 @@ button.maskOverviewCard:hover {
 }
 
 .maintenancePanel {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* width: Bestimmt die Breite des Elements. */
   width: min(760px, 100%);
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 42px;
+  /* box-sizing: Bestimmt, ob Innenabstand und Rahmen in Breiten-/Höhenangaben enthalten sind. */
   box-sizing: border-box;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: linear-gradient(
     110deg,
     rgba(5, 14, 16, 0.98),
     rgba(8, 27, 29, 0.96)
   );
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 5px solid #ff4444;
   border-top: 1px solid rgba(70, 235, 255, 0.45);
 
+  /* clip-path: Schneidet das Element in eine Form, z. B. abgeschrägte Ecken. */
   clip-path: polygon(
     0 0,
     96% 0,
@@ -3513,6 +4619,7 @@ button.maskOverviewCard:hover {
     0 88%
   );
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 35px rgba(55, 225, 240, 0.22),
     inset 0 0 28px rgba(55, 225, 240, 0.06);
@@ -3521,57 +4628,85 @@ button.maskOverviewCard:hover {
 .maintenanceCode {
   margin-bottom: 16px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ff4b4b;
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 5px;
 }
 
 .maintenancePanel h1 {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 0 25px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
+  /* font-size: Schriftgröße. */
   font-size: clamp(38px, 7vw, 70px);
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-shadow: Schatten oder Leuchteffekt für Schrift. */
   text-shadow:
     0 0 10px rgba(255, 68, 68, 0.35);
 }
 
 .maintenanceStatus {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 13px;
 
   margin-bottom: 25px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ff5b5b;
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 }
 
 .maintenanceDot {
+  /* width: Bestimmt die Breite des Elements. */
   width: 9px;
+  /* height: Bestimmt die Höhe des Elements. */
   height: 9px;
+  /* flex: Legt Wachstum, Schrumpfen und Grundgröße eines Flex-Elements fest. */
   flex: 0 0 9px;
 
+  /* border-radius: Rundet die Ecken des Elements ab. */
   border-radius: 50%;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: #ff4444;
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 8px #ff4444,
     0 0 18px rgba(255, 68, 68, 0.8);
 
+  /* animation: Spielt eine definierte CSS-Animation ab. */
   animation: maintenancePulse 1.2s infinite ease-in-out;
 }
 
 .maintenancePanel p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: rgba(255, 255, 255, 0.82);
+  /* font-size: Schriftgröße. */
   font-size: 18px;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.7;
 }
 
@@ -3579,9 +4714,13 @@ button.maskOverviewCard:hover {
   margin-top: 35px;
   padding-top: 18px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #40f29b;
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
   border-top: 1px solid rgba(70, 235, 255, 0.2);
@@ -3590,27 +4729,34 @@ button.maskOverviewCard:hover {
 @keyframes maintenancePulse {
   0%,
   100% {
+    /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
     opacity: 0.4;
+    /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
     transform: scale(0.9);
   }
 
   50% {
+    /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
     opacity: 1;
+    /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
     transform: scale(1.3);
   }
 }
 
 @media (max-width: 600px) {
   .maintenanceScreen {
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding: 16px;
   }
 
   .maintenancePanel {
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding: 30px 24px;
   }
 
   .maintenanceStatus,
   .maintenanceFooter {
+    /* letter-spacing: Abstand zwischen Buchstaben. */
     letter-spacing: 1.5px;
   }
 }
@@ -3621,28 +4767,39 @@ button.maskOverviewCard:hover {
 
 @media (max-width: 680px) {
 
+  /* BEREICH: Zweispaltige Aufteilung: Menü und Inhaltsbereich. */
   .mainLayout {
+    /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
     display: grid;
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
   /* Benutzerinformationen und geladene Seite zuerst */
+  /* BEREICH: Hauptfläche mit Archivakten. */
   .contentArea {
     order: 1;
+    /* width: Bestimmt die Breite des Elements. */
     width: 100%;
   }
 
   /* Auswahlmenü darunter */
+  /* BEREICH: Linkes Navigationsmenü. */
   .sideMenu {
     order: 2;
+    /* width: Bestimmt die Breite des Elements. */
     width: 100%;
+    /* max-width: Begrenzt die maximale Breite. */
     max-width: 100%;
+    /* max-height: Begrenzt die maximale Höhe. */
     max-height: none;
+    /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
     position: static;
   }
 
   /* Archivkacheln untereinander */
   .archiveCategoryGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 }
@@ -3652,15 +4809,20 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .copyrightFooter {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
 
+  /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
   justify-content: space-between;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 18px;
 
   margin-top: 22px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     20px 24px;
 
@@ -3670,20 +4832,27 @@ button.maskOverviewCard:hover {
   border-bottom:
     1px solid rgba(52, 217, 255, 0.08);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #607074;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 255, 255, 0.012);
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .copyrightOwner {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 }
 
@@ -3693,12 +4862,16 @@ button.maskOverviewCard:hover {
 @media (max-width: 680px) {
 
   .copyrightFooter {
+    /* align-items: Richtet Kindelemente entlang der Querachse aus. */
     align-items: flex-start;
+    /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
     flex-direction: column;
 
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding:
       18px 20px;
 
+    /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
     line-height: 1.6;
   }
 }
@@ -3708,20 +4881,26 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .classifiedReveal {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
   margin-top: 36px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 24px;
 
+  /* overflow: Steuert, was mit überstehendem Inhalt passiert. */
   overflow: hidden;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(255, 60, 60, 0.34);
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left:
     4px solid var(--red);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     radial-gradient(
       circle at top right,
@@ -3730,6 +4909,7 @@ button.maskOverviewCard:hover {
     ),
     rgba(255, 255, 255, 0.018);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     inset 0 0 25px rgba(255, 60, 60, 0.025);
 }
@@ -3740,23 +4920,32 @@ button.maskOverviewCard:hover {
 .classifiedReveal::after {
   content: "KLASSIFIZIERT";
 
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: absolute;
 
+  /* right: Abstand zur rechten Positionierungskante. */
   right: -12px;
+  /* bottom: Abstand zur unteren Positionierungskante. */
   bottom: 8px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color:
     rgba(255, 60, 60, 0.035);
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(30px, 6vw, 64px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 5px;
 
+  /* pointer-events: Legt fest, ob das Element Mausklicks empfängt. */
   pointer-events: none;
 
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     rotate(-5deg);
 }
@@ -3765,38 +4954,53 @@ button.maskOverviewCard:hover {
 /* Überschrift */
 
 .classifiedRevealHeader {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 .classifiedRevealTitle {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
   margin-top: 13px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(17px, 3vw, 23px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.4;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -3804,21 +5008,29 @@ button.maskOverviewCard:hover {
 /* Zugriffsstatus */
 
 .classifiedRevealStatus {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
   margin-top: 17px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -3826,31 +5038,43 @@ button.maskOverviewCard:hover {
 /* Entschlüsselungsknopf */
 
 .classifiedRevealButton {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 2;
 
   margin-top: 22px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 13px 17px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(69, 255, 117, 0.42);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(69, 255, 117, 0.035);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     background 0.25s ease,
     border-color 0.25s ease,
@@ -3860,9 +5084,11 @@ button.maskOverviewCard:hover {
 .classifiedRevealButton:hover {
   border-color: var(--green);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(69, 255, 117, 0.08);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 20px rgba(69, 255, 117, 0.12);
 }
@@ -3883,6 +5109,7 @@ button.maskOverviewCard:hover {
 
 .classifiedRevealUnlocked
 .classifiedRevealStatus {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 }
 
@@ -3890,8 +5117,10 @@ button.maskOverviewCard:hover {
 /* Geöffneter geheimer Inhalt */
 
 .classifiedRevealContent {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
   margin-top: 24px;
@@ -3901,13 +5130,16 @@ button.maskOverviewCard:hover {
   border-top:
     1px solid rgba(69, 255, 117, 0.22);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--text);
 }
 
 .classifiedRevealContent p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     0 0 18px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.8;
 }
 
@@ -3919,6 +5151,7 @@ button.maskOverviewCard:hover {
 /* Verborgene Elemente wirklich ausblenden */
 
 .classifiedReveal [hidden] {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: none !important;
 }
 
@@ -3932,17 +5165,21 @@ button.maskOverviewCard:hover {
   .classifiedReveal {
     margin-top: 28px;
 
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding:
       20px 18px;
   }
 
   .classifiedRevealButton {
+    /* width: Bestimmt die Breite des Elements. */
     width: 100%;
 
+    /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
     line-height: 1.5;
   }
 
   .classifiedReveal::after {
+    /* font-size: Schriftgröße. */
     font-size: 32px;
   }
 }
@@ -3961,20 +5198,26 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .homeNewUnlockPanel {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
   margin-bottom: 38px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 26px;
 
+  /* overflow: Steuert, was mit überstehendem Inhalt passiert. */
   overflow: hidden;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(69, 255, 117, 0.34);
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left:
     4px solid var(--green);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     radial-gradient(
       circle at top right,
@@ -3983,6 +5226,7 @@ button.maskOverviewCard:hover {
     ),
     rgba(69, 255, 117, 0.018);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 28px rgba(69, 255, 117, 0.06);
 }
@@ -3993,23 +5237,32 @@ button.maskOverviewCard:hover {
 .homeNewUnlockPanel::after {
   content: "FREIGEGEBEN";
 
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: absolute;
 
+  /* right: Abstand zur rechten Positionierungskante. */
   right: -14px;
+  /* bottom: Abstand zur unteren Positionierungskante. */
   bottom: 4px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color:
     rgba(69, 255, 117, 0.035);
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(34px, 6vw, 68px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 5px;
 
+  /* pointer-events: Legt fest, ob das Element Mausklicks empfängt. */
   pointer-events: none;
 
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     rotate(-4deg);
 }
@@ -4018,65 +5271,90 @@ button.maskOverviewCard:hover {
 /* Verborgenen Bereich ausblenden */
 
 .homeNewUnlockPanel[hidden] {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: none !important;
 }
 
 
 .homeUnlockLabel {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 
 .homeUnlockHeadline {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     13px 0 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(21px, 4vw, 32px);
 
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.3;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 
 .homeUnlockText {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
   margin-top: 12px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 11px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -4086,15 +5364,20 @@ button.maskOverviewCard:hover {
 ========================================================= */
 
 .homeUnlockGrid {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
 
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
 
+  /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
   grid-template-columns:
     repeat(2, minmax(0, 1fr));
 
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
 
   margin-top: 20px;
@@ -4102,22 +5385,31 @@ button.maskOverviewCard:hover {
 
 
 .homeUnlockCard {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
 
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: flex-start;
+  /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
   flex-direction: column;
 
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 150px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 18px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.2);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: left;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
@@ -4125,8 +5417,10 @@ button.maskOverviewCard:hover {
       rgba(5, 15, 17, 0.94)
     );
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -4135,12 +5429,14 @@ button.maskOverviewCard:hover {
 
 
 .homeUnlockCard:hover {
+  /* transform: Verschiebt, dreht oder skaliert das Element optisch. */
   transform:
     translateY(-3px);
 
   border-color:
     rgba(69, 255, 117, 0.48);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 22px rgba(69, 255, 117, 0.08);
 }
@@ -4152,6 +5448,7 @@ button.maskOverviewCard:hover {
   border-color:
     rgba(69, 255, 117, 0.34);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
@@ -4162,74 +5459,101 @@ button.maskOverviewCard:hover {
 
 
 .homeUnlockCardLevel {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 
 .homeUnlockCardNew
 .homeUnlockCardLevel {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 }
 
 
 .homeUnlockCardType {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-top: 11px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 
 .homeUnlockCardTitle {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-top: 8px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: white;
 
+  /* font-size: Schriftgröße. */
   font-size: 15px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.45;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
 
 .homeUnlockCardStatus {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-top: auto;
   padding-top: 16px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 
+  /* font-size: Schriftgröße. */
   font-size: 9px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.5;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -4239,23 +5563,32 @@ button.maskOverviewCard:hover {
 .homeUnlockEmpty {
   grid-column: 1 / -1;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 10px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(255, 60, 60, 0.24);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 60, 60, 0.025);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
 
+  /* text-transform: Verändert die Anzeige der Groß-/Kleinschreibung. */
   text-transform: uppercase;
 }
 
@@ -4271,21 +5604,26 @@ button.maskOverviewCard:hover {
   }
 
   .homeNewUnlockPanel {
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding:
       22px 18px;
   }
 
   .homeUnlockGrid {
+    /* grid-template-columns: Definiert Anzahl und Breite der Grid-Spalten. */
     grid-template-columns: 1fr;
   }
 
   .homeUnlockCard {
+    /* min-height: Legt die Mindesthöhe fest. */
     min-height: 135px;
 
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding: 17px;
   }
 
   .homeNewUnlockPanel::after {
+    /* font-size: Schriftgröße. */
     font-size: 30px;
   }
 }
@@ -4293,12 +5631,17 @@ button.maskOverviewCard:hover {
 @media (max-width: 680px) {
 
   .artifactQuoteMarkBottom {
+    /* left: Abstand zur linken Positionierungskante. */
     left: auto;
+    /* top: Abstand zur oberen Positionierungskante. */
     top: auto;
 
+    /* right: Abstand zur rechten Positionierungskante. */
     right: 14px;
+    /* bottom: Abstand zur unteren Positionierungskante. */
     bottom: -7px;
 
+    /* font-size: Schriftgröße. */
     font-size: 62px;
   }
 
@@ -4313,90 +5656,131 @@ button.maskOverviewCard:hover {
 ===================================================== */
 
 .archiveReadingGuide {
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* box-sizing: Bestimmt, ob Innenabstand und Rahmen in Breiten-/Höhenangaben enthalten sind. */
   box-sizing: border-box;
   margin-top: 60px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 28px;
+  /* border: Rahmen um das Element. */
   border: 1px solid rgba(220, 50, 55, 0.65);
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 4px solid #dc3237;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
       rgba(35, 8, 10, 0.92),
       rgba(3, 18, 20, 0.96)
     );
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 24px rgba(220, 50, 55, 0.08);
 }
 
 .archiveReadingGuideLabel {
   margin-bottom: 20px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #dc3237;
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: bold;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 }
 
 .archiveReadingGuideProgress {
   margin-bottom: 30px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #92c9bd;
+  /* font-size: Schriftgröße. */
   font-size: 13px;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
 }
 
 .archiveReadingGuideNext {
   margin-bottom: 8px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #777;
+  /* font-size: Schriftgröße. */
   font-size: 11px;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 }
 
 .archiveReadingGuideType {
   margin-bottom: 8px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #aaa;
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
 }
 
 .archiveReadingGuideTitle {
   margin-bottom: 24px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #f2f2f2;
+  /* font-size: Schriftgröße. */
   font-size: clamp(20px, 3vw, 30px);
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: bold;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
 }
 
 .archiveReadingGuideText {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #bbb;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.7;
 }
 
 .archiveReadingGuideButton {
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 15px 20px;
+  /* border: Rahmen um das Element. */
   border: 1px solid #dc3237;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(220, 50, 55, 0.08);
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #f2f2f2;
   font: inherit;
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: bold;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     background 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .archiveReadingGuideButton:hover:not(:disabled) {
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(220, 50, 55, 0.22);
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 18px rgba(220, 50, 55, 0.18);
 }
 
 .archiveReadingGuideButton:disabled {
   border-color: #555;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255, 255, 255, 0.03);
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #777;
+  /* cursor: Form des Mauszeigers. */
   cursor: not-allowed;
 }
 
@@ -4416,12 +5800,16 @@ button.maskOverviewCard:hover {
 @media (max-width: 700px) {
   .archiveReadingGuide {
     margin-top: 40px;
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding: 20px 16px;
   }
 
   .archiveReadingGuideButton {
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding: 14px 10px;
+    /* font-size: Schriftgröße. */
     font-size: 11px;
+    /* letter-spacing: Abstand zwischen Buchstaben. */
     letter-spacing: 1px;
   }
 }
@@ -4443,37 +5831,56 @@ button.maskOverviewCard:hover {
 ===================================================== */
 
 .firstVisitWelcome {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: fixed;
+  /* inset: Kurzform für top, right, bottom und left. */
   inset: 0;
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 10000;
 
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
+  /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
   justify-content: center;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 20px;
+  /* box-sizing: Bestimmt, ob Innenabstand und Rahmen in Breiten-/Höhenangaben enthalten sind. */
   box-sizing: border-box;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(0, 8, 10, 0.92);
   backdrop-filter: blur(7px);
 
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 1;
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition: opacity 0.4s ease;
 }
 
 .firstVisitWelcomeClosing {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0;
+  /* pointer-events: Legt fest, ob das Element Mausklicks empfängt. */
   pointer-events: none;
 }
 
 .firstVisitWelcomePanel {
+  /* width: Bestimmt die Breite des Elements. */
   width: min(600px, 100%);
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 38px;
+  /* box-sizing: Bestimmt, ob Innenabstand und Rahmen in Breiten-/Höhenangaben enthalten sind. */
   box-sizing: border-box;
 
+  /* border: Rahmen um das Element. */
   border: 1px solid rgba(255, 55, 60, 0.7);
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 4px solid #ff373c;
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
@@ -4481,6 +5888,7 @@ button.maskOverviewCard:hover {
       rgba(2, 18, 20, 0.98)
     );
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 35px rgba(255, 55, 60, 0.12);
 }
@@ -4488,70 +5896,101 @@ button.maskOverviewCard:hover {
 .firstVisitWelcomeLabel {
   margin-bottom: 18px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ff3e43;
+  /* font-size: Schriftgröße. */
   font-size: 11px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: bold;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 }
 
 .firstVisitWelcomeTitle {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 0 28px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 0;
+  /* border: Rahmen um das Element. */
   border: 0;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #f1f1f1;
+  /* font-size: Schriftgröße. */
   font-size: clamp(23px, 5vw, 34px);
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 }
 
 .firstVisitWelcomeText {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #c7cece;
+  /* font-size: Schriftgröße. */
   font-size: 16px;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.7;
 }
 
 .firstVisitWelcomeText p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 0 16px;
 }
 
 .firstVisitWelcomeButton {
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
   margin-top: 18px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 16px 20px;
 
+  /* border: Rahmen um das Element. */
   border: 1px solid #ff3e43;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255, 55, 60, 0.09);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #f2f2f2;
   font: inherit;
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: bold;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     background 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .firstVisitWelcomeButton:hover {
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255, 55, 60, 0.22);
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 20px rgba(255, 55, 60, 0.18);
 }
 
 @media (max-width: 600px) {
   .firstVisitWelcome {
+    /* align-items: Richtet Kindelemente entlang der Querachse aus. */
     align-items: flex-start;
+    /* overflow-y: Steuert vertikal überstehenden Inhalt bzw. Scrollbalken. */
     overflow-y: auto;
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding: 25px 14px;
   }
 
   .firstVisitWelcomePanel {
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding: 26px 20px;
   }
 
   .firstVisitWelcomeText {
+    /* font-size: Schriftgröße. */
     font-size: 15px;
   }
 }
@@ -4563,28 +6002,44 @@ button.maskOverviewCard:hover {
 ===================================================== */
 
 .archiveBackArea {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
   justify-content: flex-start;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 28px 0 40px;
 }
 
 .archiveBackButton {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: inline-flex;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 12px 18px;
 
+  /* border: Rahmen um das Element. */
   border: 1px solid rgba(255, 60, 60, 0.55);
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255, 40, 40, 0.05);
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #d8d8d8;
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: inherit;
+  /* font-size: Schriftgröße. */
   font-size: 12px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 700;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1.8px;
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     color 0.2s ease,
     border-color 0.2s ease,
@@ -4592,57 +6047,83 @@ button.maskOverviewCard:hover {
 }
 
 .archiveBackButton:hover {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
   border-color: #ff3c3c;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(255, 40, 40, 0.12);
 }
 
 .archiveBackArrow {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ff3c3c;
+  /* font-size: Schriftgröße. */
   font-size: 19px;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1;
 }
 
 @media (max-width: 700px) {
   .archiveBackButton {
+    /* width: Bestimmt die Breite des Elements. */
     width: 100%;
+    /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
     justify-content: center;
   }
 }
 
 .artifactQuoteMark {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: absolute;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #c73535;
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: Georgia, serif;
+  /* font-size: Schriftgröße. */
   font-size: 46px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: bold;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1;
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0.85;
 }
 
 .artifactQuote > .quoteLeft {           
+  /* top: Abstand zur oberen Positionierungskante. */
   top: 48px;
+  /* left: Abstand zur linken Positionierungskante. */
   left: 25px;
 }
 
 .artifactQuote > .quoteRight {          
+  /* top: Abstand zur oberen Positionierungskante. */
   top: 48px;
+  /* right: Abstand zur rechten Positionierungskante. */
   right: 25px;
 }
 
 /* Öffnendes Gänsefüßchen – oben links */
 .artifactQuote > .artifactQuoteMark:first-child {
+  /* top: Abstand zur oberen Positionierungskante. */
   top: 15px;
+  /* left: Abstand zur linken Positionierungskante. */
   left: 22px;
+  /* right: Abstand zur rechten Positionierungskante. */
   right: auto;
+  /* bottom: Abstand zur unteren Positionierungskante. */
   bottom: auto;
 }
 
 /* Schließendes Gänsefüßchen – unten rechts */
 .artifactQuote > .artifactQuoteMark:last-child {
+  /* top: Abstand zur oberen Positionierungskante. */
   top: auto;
+  /* left: Abstand zur linken Positionierungskante. */
   left: auto;
+  /* right: Abstand zur rechten Positionierungskante. */
   right: 22px;
+  /* bottom: Abstand zur unteren Positionierungskante. */
   bottom: 35px;
 }
 
@@ -4655,17 +6136,23 @@ button.maskOverviewCard:hover {
 }
 
 .archiveMessageTerminal {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
+  /* overflow: Steuert, was mit überstehendem Inhalt passiert. */
   overflow: hidden;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 30px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.28);
 
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left:
     4px solid var(--cyan);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     linear-gradient(
       135deg,
@@ -4677,86 +6164,125 @@ button.maskOverviewCard:hover {
 .archiveMessageTerminal::after {
   content: "SENDEN";
 
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: absolute;
+  /* right: Abstand zur rechten Positionierungskante. */
   right: 20px;
+  /* bottom: Abstand zur unteren Positionierungskante. */
   bottom: -20px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: rgba(52, 217, 255, 0.035);
 
+  /* font-size: Schriftgröße. */
   font-size: 72px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 8px;
 
+  /* pointer-events: Legt fest, ob das Element Mausklicks empfängt. */
   pointer-events: none;
 }
 
 .archiveMessageLabel {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
   margin-bottom: 18px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
 
+  /* font-size: Schriftgröße. */
   font-size: 11px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 4px;
 }
 
 .archiveMessageHeadline {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     0 0 14px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--text);
 
+  /* font-size: Schriftgröße. */
   font-size:
     clamp(22px, 4vw, 34px);
 
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 3px;
 }
 
 .archiveMessageDescription {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
+  /* max-width: Begrenzt die maximale Breite. */
   max-width: 720px;
 
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
     0 0 24px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.7;
 }
 
 .archiveMessageOpenButton,
 .archiveMessageSendButton,
 .archiveMessageCancelButton {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 46px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     12px 18px;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.5);
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--cyan);
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(52, 217, 255, 0.07);
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: inherit;
+  /* font-size: Schriftgröße. */
   font-size: 11px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2px;
 
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 
+  /* transition: Legt weiche Übergänge bei CSS-Änderungen fest. */
   transition:
     color 0.2s ease,
     border-color 0.2s ease,
@@ -4765,14 +6291,18 @@ button.maskOverviewCard:hover {
 
 .archiveMessageOpenButton:hover,
 .archiveMessageSendButton:hover {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
   border-color: var(--cyan);
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(52, 217, 255, 0.16);
 }
 
 .archiveMessagePanel {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 1;
 
   margin-top: 26px;
@@ -4783,58 +6313,77 @@ button.maskOverviewCard:hover {
 }
 
 .archiveMessagePanel[hidden] {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: none !important;
 }
 
 .archiveMessageField {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-bottom: 22px;
 }
 
 .archiveMessageFieldLabel {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: block;
 
   margin-bottom: 9px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 2.5px;
 }
 
 .archiveMessageField select,
 .archiveMessageField textarea {
+  /* box-sizing: Bestimmt, ob Innenabstand und Rahmen in Breiten-/Höhenangaben enthalten sind. */
   box-sizing: border-box;
 
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
 
+  /* border: Rahmen um das Element. */
   border:
     1px solid rgba(52, 217, 255, 0.25);
 
   outline: none;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--text);
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(0, 7, 9, 0.92);
 
+  /* font-family: Schriftart und Ersatzschriftarten. */
   font-family: inherit;
+  /* font-size: Schriftgröße. */
   font-size: 14px;
 }
 
 .archiveMessageField select {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 48px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding:
     10px 14px;
 }
 
 .archiveMessageField textarea {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 160px;
 
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 15px;
 
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
   resize: vertical;
 }
@@ -4843,6 +6392,7 @@ button.maskOverviewCard:hover {
 .archiveMessageField textarea:focus {
   border-color: var(--cyan);
 
+  /* box-shadow: Schatten oder Leuchteffekt um beziehungsweise im Element. */
   box-shadow:
     0 0 18px rgba(52, 217, 255, 0.1);
 }
@@ -4851,31 +6401,41 @@ button.maskOverviewCard:hover {
   margin-top: -12px;
   margin-bottom: 20px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 10px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 800;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1.5px;
+  /* text-align: Horizontale Ausrichtung des Textes. */
   text-align: right;
 }
 
 .archiveMessageActions {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
   flex-wrap: wrap;
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
 }
 
 .archiveMessageCancelButton {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
   border-color:
     rgba(255, 255, 255, 0.16);
 
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background:
     rgba(255, 255, 255, 0.03);
 }
 
 .archiveMessageCancelButton:hover {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #ffffff;
 
   border-color:
@@ -4883,28 +6443,38 @@ button.maskOverviewCard:hover {
 }
 
 .archiveMessageSendButton:disabled {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0.45;
+  /* cursor: Form des Mauszeigers. */
   cursor: wait;
 }
 
 .archiveMessageStatus {
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 22px;
 
   margin-top: 18px;
 
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--muted);
 
+  /* font-size: Schriftgröße. */
   font-size: 11px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: 900;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1.5px;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
 }
 
 .archiveMessageStatus.messageSuccess {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--green);
 }
 
 .archiveMessageStatus.messageError {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: var(--red);
 }
 
@@ -4916,113 +6486,155 @@ button.maskOverviewCard:hover {
 @media (max-width: 680px) {
 
   .archiveMessageTerminal {
+    /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
     padding:
       24px 18px;
   }
 
   .archiveMessageTerminal::after {
+    /* font-size: Schriftgröße. */
     font-size: 44px;
   }
 
   .archiveMessageOpenButton,
   .archiveMessageSendButton,
   .archiveMessageCancelButton {
+    /* width: Bestimmt die Breite des Elements. */
     width: 100%;
   }
 
   .archiveMessageActions {
+    /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
     flex-direction: column-reverse;
   }
 }
 
+/* BEREICH: Mitteilung über laufende Archivarbeiten und Hörspiel. */
 .home-infobox {
   margin-top: 20px;
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 20px;
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(10, 15, 25, 0.9);
+  /* border: Rahmen um das Element. */
   border: 1px solid #365a78;
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 4px solid #5ca9e6;
+  /* border-radius: Rundet die Ecken des Elements ab. */
   border-radius: 8px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #dce8f2;
 }
 
 .home-infobox-title {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #5ca9e6;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: bold;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1.5px;
   margin-bottom: 12px;
 }
 
 .home-infobox p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.6;
 }
 
 /* M.I.N.D. ARCHIVNACHTRÄGE */
 
 .mindArchiveAddendums {
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
   flex-direction: column;
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
   margin-top: 24px;
 }
 
 .mindArchiveAddendum,
 .mindArchiveLocked {
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(8, 15, 25, 0.9);
+  /* border: Rahmen um das Element. */
   border: 1px solid #34516b;
+  /* border-left: Linker Rahmen, beispielsweise die rote Zierlinie. */
   border-left: 3px solid #5ca9e6;
+  /* border-radius: Rundet die Ecken des Elements ab. */
   border-radius: 6px;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #dce8f2;
 }
 
 .mindArchiveAddendum summary,
 .mindArchiveLocked {
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 16px;
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: flex;
+  /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
   justify-content: space-between;
+  /* align-items: Richtet Kindelemente entlang der Querachse aus. */
   align-items: center;
+  /* gap: Abstand zwischen Flex- oder Grid-Elementen. */
   gap: 12px;
 }
 
 .mindArchiveAddendum summary {
+  /* cursor: Form des Mauszeigers. */
   cursor: pointer;
 }
 
 .mindArchiveAddendum summary:hover {
+  /* background: Hintergrundfarbe, Verlauf oder Hintergrundbild. */
   background: rgba(92, 169, 230, 0.08);
 }
 
 .mindArchiveLocked {
+  /* opacity: Sichtbarkeit über Transparenz: 0 unsichtbar, 1 vollständig sichtbar. */
   opacity: 0.55;
   border-left-color: #777;
 }
 
 .addendumStatus {
+  /* font-size: Schriftgröße. */
   font-size: 11px;
+  /* font-weight: Schriftstärke (z. B. 400 normal, 700 fett). */
   font-weight: bold;
+  /* letter-spacing: Abstand zwischen Buchstaben. */
   letter-spacing: 1px;
   white-space: nowrap;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #5ca9e6;
 }
 
 .mindArchiveLocked .addendumStatus {
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #999;
 }
 
 .addendumContent {
+  /* padding: Innenabstand: Platz zwischen Inhalt und Rand. */
   padding: 18px;
   border-top: 1px solid #34516b;
+  /* line-height: Zeilenhöhe, beeinflusst Lesbarkeit und Absatzhöhe. */
   line-height: 1.8;
 }
 
 .addendumContent p {
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 0 14px;
 }
 
 @media (max-width: 600px) {
   .mindArchiveAddendum summary,
   .mindArchiveLocked {
+    /* flex-direction: Bestimmt, ob Flex-Elemente nebeneinander oder untereinander stehen. */
     flex-direction: column;
+    /* align-items: Richtet Kindelemente entlang der Querachse aus. */
     align-items: flex-start;
   }
 }
@@ -5030,30 +6642,47 @@ button.maskOverviewCard:hover {
 /* SYSTEM ONLINE mittig ausrichten */
 
 .userTerminalHeader {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: center;
 }
 
 .userTerminalStatus {
+  /* justify-content: Verteilt Kindelemente entlang der Hauptachse. */
   justify-content: center;
 }
 
 /* Startbildschirm mittig ausrichten */
 
+/* BEREICH: Gesamter Startbildschirm; seine Position bestimmt, ob er die Home-Seite überlagert. */
 .bootScreen {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: fixed;
+  /* inset: Kurzform für top, right, bottom und left. */
   inset: 0;
+  /* width: Bestimmt die Breite des Elements. */
   width: 100%;
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 100vh;
+  /* display: Legt fest, wie der Bereich und seine Kindelemente angeordnet werden. */
   display: grid;
+  /* place-items: Kurzform für align-items und justify-items, häufig zum Zentrieren. */
   place-items: center;
+  /* z-index: Stapelreihenfolge: höhere Werte liegen bei passender Positionierung weiter vorne. */
   z-index: 9999;
 }
 
+/* BEREICH: Großer Rahmen für die Zugriffsprüfung. */
 .bootPanel {
+  /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
   position: relative;
+  /* top: Abstand zur oberen Positionierungskante. */
   top: auto;
+  /* left: Abstand zur linken Positionierungskante. */
   left: auto;
+  /* width: Bestimmt die Breite des Elements. */
   width: min(95%, 950px);
+  /* min-height: Legt die Mindesthöhe fest. */
   min-height: 380px;
+  /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin: 0 auto;
 }

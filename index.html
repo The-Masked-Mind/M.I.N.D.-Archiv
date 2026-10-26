@@ -9,6 +9,7 @@
   <title>
     M.I.N.D. Archiv
   </title>
+  <!-- CACHE: Versionsnummer hinter ?v= erhöhen, wenn der Browser altes CSS lädt. -->
   <link
   rel="stylesheet"
   href="style.css?v=28">
@@ -18,9 +19,11 @@
 
   <!-- STARTBILDSCHIRM -->
 
+  <!-- ERKLÄRUNG: Startbildschirm; wird durch JavaScript nach der Prüfung ausgeblendet. ID nicht ändern: JavaScript greift darauf zu. -->
   <div
     class="bootScreen"
     id="bootScreen">
+  <!-- RAHMEN: Nur Elemente innerhalb dieses div erscheinen im großen Start-Rahmen. -->
     <div class="bootPanel">
       <div class="bootLabel">
         M.I.N.D. ARCHIV
@@ -28,12 +31,14 @@
       <div class="bootTitle">
         ZUGRIFF WIRD GEPRÜFT
       </div>
+  <!-- ERKLÄRUNG: Statusmeldung während der Zugriffsprüfung. ID nicht ändern: JavaScript greift darauf zu. -->
       <div
         class="bootStatus"
         id="bootStatus">
         VERBINDUNG WIRD HERGESTELLT...
       </div>
     </div>
+  <!-- ERKLÄRUNG: Benutzerinformationen auf dem Startbildschirm. ID nicht ändern: JavaScript greift darauf zu. -->
     <div
         class="bootIdentity"
         id="bootIdentity">
@@ -41,6 +46,7 @@
       <span class="bootIdentityLabel">
         BENUTZER
       </span>
+  <!-- ERKLÄRUNG: Benutzername beim Start. ID nicht ändern: JavaScript greift darauf zu. -->
       <span
         class="bootIdentityValue"
         id="bootUserName">
@@ -51,6 +57,7 @@
       <span class="bootIdentityLabel">
         SICHERHEITSSTUFE
       </span>
+  <!-- ERKLÄRUNG: Sicherheitsstufe und Level beim Start. ID nicht ändern: JavaScript greift darauf zu. -->
       <span
         class="bootIdentityValue"
         id="bootAccessRank">
@@ -58,6 +65,7 @@
       </span>
     </div>
   </div>
+  <!-- ERKLÄRUNG: Willkommensnachricht beim Start. ID nicht ändern: JavaScript greift darauf zu. -->
   <div
     class="bootWelcome"
     id="bootWelcome">
@@ -76,6 +84,7 @@
     <!-- KOPFZEILE -->
     <header class="topBar">
         <div class="brandArea">
+  <!-- ERKLÄRUNG: Button zurück zur Archivzentrale. ID nicht ändern: JavaScript greift darauf zu. -->
           <button
             id="homeButton"
             class="homeButton"
@@ -109,6 +118,7 @@
           id="archiveMusic"
           preload="auto">
         </audio>
+  <!-- ERKLÄRUNG: Button für Archivmusik. ID nicht ändern: JavaScript greift darauf zu. -->
         <button
           id="audioToggle"
           type="button">
@@ -131,6 +141,7 @@
           <span class="userTerminalLabel">
             BENUTZER
           </span>
+  <!-- ERKLÄRUNG: Benutzername in der Kopfzeile. ID nicht ändern: JavaScript greift darauf zu. -->
           <span
             class="userTerminalName"
             id="archiveUserName">
@@ -142,6 +153,7 @@
             <span class="userTerminalLabel">
               RANG
             </span>
+  <!-- ERKLÄRUNG: Rang in der Kopfzeile. ID nicht ändern: JavaScript greift darauf zu. -->
             <span
               class="userTerminalValue accessAlpha"
               id="archiveAccessRank">
@@ -152,6 +164,7 @@
             <span class="userTerminalLabel">
               LEVEL
             </span>
+  <!-- ERKLÄRUNG: Level in der Kopfzeile. ID nicht ändern: JavaScript greift darauf zu. -->
             <span
               class="userTerminalValue"
               id="archiveUserLevel">
@@ -162,6 +175,7 @@
       </div> <!-- /userTerminalBody -->
     </div> <!-- /userTerminal -->
     </header>
+  <!-- ARCHIVMITTEILUNG: Infokasten zur Weiterentwicklung und zum Hörspiel. -->
   <div class="home-infobox">
     <div class="home-infobox-title">◈ ARCHIVMITTEILUNG</div>
     <p>
@@ -180,6 +194,7 @@
     <p><em>Vielen Dank für eure Geduld.</em></p>
     <p><strong>- Die Archivleitung</strong></p>
   </div>
+  <!-- LAYOUT: Enthält links die Navigation und rechts die Archivakten. -->
     <div class="mainLayout">
       <!-- MENÜ LINKS -->
       <aside class="sideMenu">
@@ -200,6 +215,7 @@
             </span>
           </div>
           
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 1. -->
           <button
             class="menuButton"
             data-level="1"
@@ -207,6 +223,7 @@
             AKTE B1-100 - PROLOG
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 2. -->
 		      <button
             class="menuButton"
             data-level="2"
@@ -215,6 +232,7 @@
             STIMMEN IM WALD
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 3. -->
 		      <button
             class="menuButton"
             data-level="3"
@@ -223,6 +241,7 @@
             LIAM
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 6. -->
 		      <button
             class="menuButton"
             data-level="6"
@@ -231,6 +250,7 @@
             THAR'GHUL
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 8. -->
 		      <button
             class="menuButton"
             data-level="8"
@@ -245,6 +265,7 @@
             </span>
           </div>
         
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 10. -->
 		      <button
             class="menuButton"
             data-level="10"
@@ -253,6 +274,7 @@
             COMING SOON
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 11. -->
           <button
             class="menuButton"
             data-level="11"
@@ -261,6 +283,7 @@
             COMING SOON
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 12. -->
           <button
             class="menuButton"
             data-level="12"
@@ -274,6 +297,7 @@
             PERSONENARCHIV
           </div>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 2. -->
           <button
             class="menuButton"
             data-page="personenarchiv/matthias"
@@ -281,6 +305,7 @@
             MATTHIAS
           </button>
           
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 4. -->
           <button
             class="menuButton"
 			      data-level="4"
@@ -288,6 +313,7 @@
             LIAM
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 4. -->
           <button
             class="menuButton"
 			      data-level="4"
@@ -295,6 +321,7 @@
             DER OKKULTIST
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 7. -->
           <button
             class="menuButton"
 			      data-level="7"
@@ -307,6 +334,7 @@
             DIE MASKEN DES UNHEILS
           </div>
           
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 5. -->
 		      <button
             class="menuButton"
 			      data-level="5"
@@ -314,6 +342,7 @@
             GESCHICHTE
           </button>
           
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 5. -->
 		      <button
             class="menuButton"
 			      data-level="5"
@@ -322,6 +351,7 @@
             DIE MASKE DER OFFENBARUNG
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 20. -->
           <button
             class="menuButton"
 			      data-level="20"
@@ -330,6 +360,7 @@
             DIE MASKE DER SÜHNE
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 20. -->
           <button
             class="menuButton"
 			      data-level="20"
@@ -338,6 +369,7 @@
             DIE MASKE DES WAHNSINNS
           </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 20. -->
           <button
             class="menuButton"
 			      data-level="20"
@@ -351,6 +383,7 @@
             BESTARIUM
           </div>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 9. -->
           <button
             class="menuButton"
             data-page="bestarium/slasher"
@@ -358,6 +391,7 @@
             SLASHER
           </button>
           
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 9. -->
           <button
             class="menuButton"
 			      data-level="9"
@@ -371,6 +405,7 @@
             ORTSARCHIV
           </div>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 7. -->
 		      <button
             class="menuButton"
 			      data-level="7"
@@ -383,6 +418,7 @@
             DOKUMENTENARCHIV
          </div>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 100. -->
          <button
            class="menuButton"
 		       data-level="100"
@@ -390,6 +426,7 @@
             ABSCHRIFTEN AUS DEM BUCH DER TOTEN
          </button>
 
+  <!-- ZUGANG: Dieser Menüpunkt benötigt mindestens Level 99. -->
 	       <!-- <button 
            class="menuButton"
            data-level="99"
@@ -401,6 +438,7 @@
 
          <!-- INHALT RECHTS -->
 
+  <!-- ERKLÄRUNG: Dynamisch befüllter Aktenbereich. ID nicht ändern: JavaScript greift darauf zu. -->
       <main
         class="contentArea"
         id="contentArea">
@@ -439,6 +477,7 @@
             </span>
           </div>
         </div>
+  <!-- ERKLÄRUNG: Bereich für den eigentlichen Akten- und Geschichtentext. ID nicht ändern: JavaScript greift darauf zu. -->
         <article
           class="storyText"
           id="storyText">
@@ -468,6 +507,7 @@
         ALLE RECHTE VORBEHALTEN
       </span>
     </footer>
+  <!-- CACHE: Versionsnummer hinter ?v= erhöhen, wenn der Browser altes JavaScript lädt. -->
   <script src="script.js?v=63">    
   </script>
 </body>
