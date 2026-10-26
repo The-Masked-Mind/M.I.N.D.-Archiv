@@ -5025,3 +5025,13 @@ button.maskOverviewCard:hover {
     align-items: flex-start;
   }
 }
+
+/* SYSTEM ONLINE mittig ausrichten */
+
+.userTerminalHeader {
+  text-align: center;
+}
+
+.userTerminalStatus {
+  justify-content: center;
+}
