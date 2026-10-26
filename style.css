@@ -6232,7 +6232,7 @@ button.maskOverviewCard:hover {
   z-index: 1;
 
   /* max-width: Begrenzt die maximale Breite. */
-  max-width: 720px;
+  max-width: 1080px;
 
   /* margin: Außenabstand: Abstand zu anderen Elementen. */
   margin:
