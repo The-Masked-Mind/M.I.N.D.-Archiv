@@ -95,7 +95,7 @@ button {
 ========================= */
 
 .bootScreen {
-  position: static;
+  position: fixed;
 
   z-index: 100;
 
