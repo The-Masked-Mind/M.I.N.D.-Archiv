@@ -5039,7 +5039,7 @@ button.maskOverviewCard:hover {
 /* Startbildschirm mittig ausrichten */
 
 .bootScreen {
-  position: fixed;
+  position: center;
   inset: 0;
   width: 100%;
   height: 100vh;
