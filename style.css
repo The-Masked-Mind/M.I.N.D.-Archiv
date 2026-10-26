@@ -4959,3 +4959,73 @@ button.maskOverviewCard:hover {
   margin: 0;
   line-height: 1.6;
 }
+
+/* M.I.N.D. ARCHIVNACHTRÄGE */
+
+.mindArchiveAddendums {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.mindArchiveAddendum,
+.mindArchiveLocked {
+  background: rgba(8, 15, 25, 0.9);
+  border: 1px solid #34516b;
+  border-left: 3px solid #5ca9e6;
+  border-radius: 6px;
+  color: #dce8f2;
+}
+
+.mindArchiveAddendum summary,
+.mindArchiveLocked {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.mindArchiveAddendum summary {
+  cursor: pointer;
+}
+
+.mindArchiveAddendum summary:hover {
+  background: rgba(92, 169, 230, 0.08);
+}
+
+.mindArchiveLocked {
+  opacity: 0.55;
+  border-left-color: #777;
+}
+
+.addendumStatus {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  color: #5ca9e6;
+}
+
+.mindArchiveLocked .addendumStatus {
+  color: #999;
+}
+
+.addendumContent {
+  padding: 18px;
+  border-top: 1px solid #34516b;
+  line-height: 1.8;
+}
+
+.addendumContent p {
+  margin: 0 0 14px;
+}
+
+@media (max-width: 600px) {
+  .mindArchiveAddendum summary,
+  .mindArchiveLocked {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
