@@ -1950,6 +1950,20 @@ const archiveUnlockPlan = [
   },  
 
   {
+    level: 13,
+    type: "CHRONIKEN DER DUNKELHEIT",
+    title: "EPISODE 4 - EINE UNERWARTETE VERBINDUNG",
+    page: "kapitel/kapitel_2/kapitel_2_episode_4"
+  },  
+
+  {
+    level: 13,
+    type: "PERSONENARCHIV · AKTENNACHTRAG",
+    title: "DIE BRUDERSCHAFT VON THAR'GHUL - GESPÄCH ZWISCHEN KOND'DOR UND DEM OBERSTEN",
+    page: "personenarchiv/die_bruderschaft_von_thar'ghul",
+  },  
+
+  {
     level: 20,
     type: "BESTIARIUM · AKTENNACHTRAG",
     title: "KON'DOR - WEITERE INFORMATIONEN ZU KON'DOR",
