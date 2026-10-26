@@ -4792,7 +4792,7 @@ button.maskOverviewCard:hover {
     /* max-width: Begrenzt die maximale Breite. */
     max-width: 100%;
     /* max-height: Begrenzt die maximale Höhe. */
-    max-height: none;
+    max-height: 95%;
     /* position: Legt die Positionierungsart fest (fixed = am Bildschirm, relative = im normalen Layout, absolute = bezogen auf positionierten Vorfahren). */
     position: static;
   }
