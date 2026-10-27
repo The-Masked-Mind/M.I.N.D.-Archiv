@@ -6963,3 +6963,87 @@ button.maskOverviewCard:hover {
   }
 }
 
+
+/* ==========================================
+   M.I.N.D. HEADER – BENUTZERINFORMATIONEN
+========================================== */
+
+/* Audio-Button und Benutzerbereich */
+.headerCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Drei gleich große Kästchen */
+.headerUserInfo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: min(100%, 620px);
+  box-sizing: border-box;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* Einzelne Kästchen */
+.headerUserField {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  min-width: 0;
+  min-height: 70px;
+  padding: 12px 10px;
+  box-sizing: border-box;
+
+  background: rgba(8, 30, 33, 0.75);
+  border: 1px solid #24474e;
+  text-align: center;
+}
+
+/* Beschriftungen */
+.headerUserField > span:first-child {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #9ac7c5;
+}
+
+/* Werte */
+.headerUserField > span:last-child {
+  font-size: 16px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+/* Audio-Button */
+#audioToggle {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Handyansicht */
+@media (max-width: 600px) {
+  .headerUserInfo {
+    gap: 6px;
+  }
+
+  .headerUserField {
+    padding: 10px 5px;
+    min-height: 65px;
+  }
+
+  .headerUserField > span:last-child {
+    font-size: 12px;
+  }
+
+  .headerUserField > span:first-child {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}
