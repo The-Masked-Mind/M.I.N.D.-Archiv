@@ -2381,7 +2381,7 @@ button.maskOverviewCard:hover {
 }
 
 
-/* Kleine Beschriftungen */
+/* BESCHRIFTUNGEN - BENUTZER, RANG UND LEVEL */
 
 .userTerminalLabel {
   /* color: Schrift- beziehungsweise Vordergrundfarbe. */
@@ -6752,9 +6752,9 @@ button.maskOverviewCard:hover {
   background: rgba(4, 16, 18, 0.72);
 }
 
-/* Beschriftung oben, Wert direkt darunter */
+/* FELD: Benutzer, Rang und Level */
 .topBar .headerUserField {
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
   gap: 5px;
