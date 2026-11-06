@@ -4223,6 +4223,12 @@ button.maskOverviewCard:hover {
   color: #cf9f93;
 }
 
+.storyDialogue.ne {
+  border-left-color: #cf9f93;
+  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
+  color: #cf9f93;
+}
+
 /* =====================================================
    ENDE EINER EPISODE
 ===================================================== */
