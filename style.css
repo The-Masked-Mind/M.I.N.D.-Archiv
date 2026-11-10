@@ -4187,45 +4187,57 @@ button.maskOverviewCard:hover {
 }
 
 /* Farben der Personen */
+/*Slasher*/
 .storyDialogue.sl {
   border-left-color: #cf2026;
-  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #cf2026;
 }
 
+/*Matthias*/
 .storyDialogue.ma {
   border-left-color: #3d8fc4;
-  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #3d8fc4;
 }
 
+/*Kondor*/
 .storyDialogue.ko {
   border-left-color: #7c5aa6;
-  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #7c5aa6;
 }
 
+/*Liam*/
 .storyDialogue.li {
   border-left-color: #d6b35a;
-  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #d6b35a;
 }
 
+/*Okkultist*/
 .storyDialogue.ok {
   border-left-color: #909090;
-  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #909090;
 }
 
+/*Askarion*/  
 .storyDialogue.as {
   border-left-color: #cf9f93;
-  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
   color: #cf9f93;
 }
 
+/* Nebenrollen der Bruderschaft*/
 .storyDialogue.ne {
   border-left-color: #9fcf93;
-  /* color: Schrift- beziehungsweise Vordergrundfarbe. */
+  color: #9fcf93;
+}
+
+/* Bruder 1 */
+.storyDialogue.br1 {
+  border-left-color: #628a58;
+  color: #9fcf93;
+}
+
+/* Bruder 2 */
+.storyDialogue.br2 {
+  border-left-color: #7ec2b1;
   color: #9fcf93;
 }
 
