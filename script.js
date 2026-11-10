@@ -1222,6 +1222,46 @@ function scrollToTopOnDesktop() {
    KLASSIFIZIERTE AKTENNACHTR\u00C4GE
 ===================================================== */
 
+
+/* =====================================================
+   LEVELFREIGABE DER REKONSTRUIERTEN ÜBERLIEFERUNGEN
+===================================================== */
+function connectArchiveAddendumAccess() {
+  document.querySelectorAll("details.mindArchiveAddendum[data-reveal-level]")
+    .forEach(details => {
+      const requiredLevel = Number(details.dataset.revealLevel);
+      const allowed = Number.isFinite(requiredLevel) &&
+        currentUser.level >= requiredLevel;
+      const summary = details.querySelector("summary");
+      const status = details.querySelector(".addendumStatus");
+
+      if (status) {
+        status.textContent = allowed
+          ? "FREIGEGEBEN · LEVEL " + requiredLevel
+          : "GESPERRT · LEVEL " + requiredLevel;
+      }
+      details.classList.toggle("locked", !allowed);
+      details.classList.toggle("unlocked", allowed);
+      if (!allowed) details.open = false;
+
+      // Ein gesperrter Nachtrag lässt sich weder per Klick noch per Tastatur öffnen.
+      if (summary) {
+        summary.setAttribute("aria-disabled", String(!allowed));
+        summary.addEventListener("click", event => {
+          if (!allowed) event.preventDefault();
+        });
+        summary.addEventListener("keydown", event => {
+          if (!allowed && (event.key === "Enter" || event.key === " ")) {
+            event.preventDefault();
+          }
+        });
+      }
+      details.addEventListener("toggle", () => {
+        if (!allowed && details.open) details.open = false;
+      });
+    });
+}
+
 function connectClassifiedReveals() {
   const revealBlocks =
     document.querySelectorAll(
@@ -1684,6 +1724,7 @@ async function loadPage(filePath) {
     updateDynamicPageInformation();
     updatePageTileAccess();
     connectClassifiedReveals();
+    connectArchiveAddendumAccess();
     addArchiveReadingGuide(filePath);
 
     /* Auf dem PC nach ganz oben springen */
