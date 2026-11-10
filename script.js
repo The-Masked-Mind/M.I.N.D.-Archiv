@@ -1966,6 +1966,13 @@ const archiveUnlockPlan = [
   },
 
   {
+    level: 11,
+    type: "PERSONENARCHIV · AKTENNACHTRAG",
+    title: "DIE BRUDERSCHAFT VON THAR'GHUL - AUFZEICHNUNG 1",
+    page: "personenarchiv/die_bruderschaft_von_thar'ghul",
+  },  
+
+  {
     level: 12,
     type: "CHRONIKEN DER DUNKELHEIT",
     title: "EPISODE 3 - STIMMEN AUS DER DUNKELHEIT",
@@ -1982,12 +1989,33 @@ const archiveUnlockPlan = [
   {
     level: 13,
     type: "PERSONENARCHIV · AKTENNACHTRAG",
-    title: "DIE BRUDERSCHAFT VON THAR'GHUL - GESPÄCH ZWISCHEN KOND'DOR UND DEM OBERSTEN",
+    title: "DIE BRUDERSCHAFT VON THAR'GHUL - AUFZEICHNUNG 2",
+    page: "personenarchiv/die_bruderschaft_von_thar'ghul",
+  },    
+
+  {
+    level: 99,
+    type: "PERSONENARCHIV · AKTENNACHTRAG",
+    title: "DIE BRUDERSCHAFT VON THAR'GHUL - AUFZEICHNUNG 3",
     page: "personenarchiv/die_bruderschaft_von_thar'ghul",
   },  
 
   {
-    level: 20,
+    level: 99,
+    type: "PERSONENARCHIV · AKTENNACHTRAG",
+    title: "DIE BRUDERSCHAFT VON THAR'GHUL - AUFZEICHNUNG 4",
+    page: "personenarchiv/die_bruderschaft_von_thar'ghul",
+  },  
+
+  {
+    level: 99,
+    type: "PERSONENARCHIV · AKTENNACHTRAG",
+    title: "DIE BRUDERSCHAFT VON THAR'GHUL - AUFZEICHNUNG 5",
+    page: "personenarchiv/die_bruderschaft_von_thar'ghul",
+  },  
+
+  {
+    level: 99,
     type: "BESTIARIUM · AKTENNACHTRAG",
     title: "KON'DOR - WEITERE INFORMATIONEN ZU KON'DOR",
     page: "bestarium/kondor",
