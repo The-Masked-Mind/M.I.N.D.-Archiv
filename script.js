@@ -2083,19 +2083,26 @@ function addArchiveReadingGuide(currentFilePath) {
       currentFilePath
     );
 
+  // Level 99 ist vorerst ein Platzhalter für noch nicht veröffentlichte Nachträge.
   const guideUnlockPlan =
     archiveUnlockPlan.filter(
       archiveItem =>
-        archiveItem.showInGuide !== false
+        archiveItem.showInGuide !== false &&
+        (archiveItem.level < 99 || currentUser.level >= 99)
     );
 
-  const currentIndex =
-    archiveUnlockPlan.findIndex(
-      archiveItem =>
-        normalizePageName(
-          archiveItem.page
-        ) === currentPage
-    );
+  // Mehrere Aufzeichnungen können dieselbe HTML-Seite verwenden.
+  // Den zuletzt freigeschalteten Eintrag dieser Seite als Ausgangspunkt wählen.
+  // Dadurch führt Aufzeichnung I (Level 11) zu Episode 3 (Level 12).
+  let currentIndex = -1;
+  guideUnlockPlan.forEach((archiveItem, index) => {
+    if (
+      normalizePageName(archiveItem.page) === currentPage &&
+      currentUser.level >= archiveItem.level
+    ) {
+      currentIndex = index;
+    }
+  });
 
   /* Auf der Home-Seite und auf nicht gelisteten Seiten nichts erg\u00E4nzen. */
   if (currentIndex < 0) {
