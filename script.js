@@ -2071,146 +2071,137 @@ const archiveUnlockPlan = [
 ===================================================== */
 
 function addArchiveReadingGuide(currentFilePath) {
-  if (
-    !contentArea ||
-    !currentFilePath
-  ) {
-    return;
-  }
+  if (!contentArea || !currentFilePath) return;
 
-  const currentPage =
-    normalizePageName(
-      currentFilePath
-    );
+  const currentPage = normalizePageName(currentFilePath);
+  const guideUnlockPlan = archiveUnlockPlan.filter(item => item.showInGuide !== false);
+  const currentIndex = guideUnlockPlan.findIndex(item =>
+    normalizePageName(item.page) === currentPage
+  );
+  if (currentIndex < 0) return;
 
-  // Level 99 ist vorerst ein Platzhalter für noch nicht veröffentlichte Nachträge.
-  const guideUnlockPlan =
-    archiveUnlockPlan.filter(
-      archiveItem =>
-        archiveItem.showInGuide !== false &&
-        (archiveItem.level < 99 || currentUser.level >= 99)
-    );
+  const guide = document.createElement("section");
+  guide.className = "archiveReadingGuide";
+  const currentItem = guideUnlockPlan[currentIndex];
 
-  // Mehrere Aufzeichnungen können dieselbe HTML-Seite verwenden.
-  // Den zuletzt freigeschalteten Eintrag dieser Seite als Ausgangspunkt wählen.
-  // Dadurch führt Aufzeichnung I (Level 11) zu Episode 3 (Level 12).
-  let currentIndex = -1;
-  guideUnlockPlan.forEach((archiveItem, index) => {
-    if (
-      normalizePageName(archiveItem.page) === currentPage &&
-      currentUser.level >= archiveItem.level
-    ) {
-      currentIndex = index;
+  // Separate Ziele: Die nächste Episode ist nicht derselbe Leseschritt
+  // wie der optionale Aktennachtrag.
+  const episodeLinks = {
+    "kapitel/kapitel_2/kapitel_2_episode_2": {
+      next: "kapitel/kapitel_2/kapitel_2_episode_3",
+      addendum: 1
+    },
+    "kapitel/kapitel_2/kapitel_2_episode_4": {
+      next: null,
+      addendum: 2
     }
-  });
+  };
+  const bruderschaftPage = "personenarchiv/die_bruderschaft_von_thar'ghul";
+  const special = episodeLinks[currentPage];
 
-  /* Auf der Home-Seite und auf nicht gelisteten Seiten nichts erg\u00E4nzen. */
-  if (currentIndex < 0) {
-    return;
+  function makeButton(item, label, addendumNumber = null) {
+    const allowed = currentUser.level >= item.level;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "archiveReadingGuideButton";
+    button.dataset.level = String(item.level);
+    button.disabled = !allowed;
+    button.textContent = allowed
+      ? label
+      : `${label} · GESPERRT (LEVEL ${item.level})`;
+    if (allowed) {
+      button.addEventListener("click", async () => {
+        await openArchivePage(item.page, button);
+        // Nach dem Laden direkt die gewünschte freigegebene Aufzeichnung öffnen.
+        if (addendumNumber !== null) {
+          const details = contentArea.querySelectorAll(
+            "details.mindArchiveAddendum[data-reveal-level]"
+          )[addendumNumber - 1];
+          if (details && currentUser.level >= Number(details.dataset.revealLevel)) {
+            details.open = true;
+            details.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      });
+    }
+    return button;
   }
 
-  const currentItem =
-    guideUnlockPlan[currentIndex];
-
-  const nextItem =
-    guideUnlockPlan[currentIndex + 1];
-
-  const guide =
-    document.createElement("section");
-
-  guide.className =
-    "archiveReadingGuide";
-
-  if (!nextItem) {
-    guide.classList.add(
-      "archiveReadingGuideComplete"
+  function findItem(page, level = null) {
+    return guideUnlockPlan.find(item =>
+      normalizePageName(item.page) === page &&
+      (level === null || item.level === level)
     );
+  }
 
+  if (special) {
+    guide.classList.add("archiveReadingGuideUnlocked");
     guide.innerHTML = `
-      <div class="archiveReadingGuideLabel">
-        ARCHIV-LEITFADEN
-      </div>
-
-      <div class="archiveReadingGuideTitle">
-        AKTUELLER ARCHIVSTAND ABGESCHLOSSEN
-      </div>
-
-      <div class="archiveReadingGuideText">
-        Du hast alle derzeit im Leitfaden erfassten Akten gelesen.
-      </div>
+      <div class="archiveReadingGuideLabel">ARCHIV-LEITFADEN</div>
+      <div class="archiveReadingGuideProgress">&#10003; ${escapeHtml(currentItem.title)} ABGESCHLOSSEN</div>
+      <div class="archiveReadingGuideNext">WIE MÖCHTEST DU FORTFAHREN?</div>
     `;
+    const buttons = document.createElement("div");
+    buttons.style.display = "flex";
+    buttons.style.flexWrap = "wrap";
+    buttons.style.gap = "12px";
+    buttons.style.marginTop = "16px";
 
+    if (special.next) {
+      const nextEpisode = findItem(special.next);
+      if (nextEpisode) buttons.append(makeButton(nextEpisode, "WEITER ZUR NÄCHSTEN EPISODE"));
+    } else {
+      const note = document.createElement("p");
+      note.textContent = "Die nächste Episode ist noch nicht im Archiv erfasst.";
+      guide.append(note);
+    }
+    const addendum = findItem(bruderschaftPage, special.addendum === 1 ? 11 : 13);
+    if (addendum) buttons.append(makeButton(addendum, "ZUM AKTENNACHTRAG", special.addendum));
+    guide.append(buttons);
     contentArea.append(guide);
     return;
   }
 
-  const hasAccess =
-    currentUser.level >=
-    nextItem.level;
-
-  guide.classList.add(
-    hasAccess
-      ? "archiveReadingGuideUnlocked"
-      : "archiveReadingGuideLocked"
-  );
-
-  guide.innerHTML = `
-    <div class="archiveReadingGuideLabel">
-      ARCHIV-LEITFADEN
-    </div>
-
-    <div class="archiveReadingGuideProgress">
-      &#10003; ${escapeHtml(currentItem.title)} ABGESCHLOSSEN
-    </div>
-
-    <div class="archiveReadingGuideNext">
-      ALS N&Auml;CHSTES
-    </div>
-
-    <div class="archiveReadingGuideType">
-      ${escapeHtml(nextItem.type)} &middot; LEVEL ${nextItem.level}
-    </div>
-
-    <div class="archiveReadingGuideTitle">
-      ${escapeHtml(nextItem.title)}
-    </div>
-
-    <button
-      class="archiveReadingGuideButton"
-      type="button"
-      ${hasAccess ? "" : "disabled"}
-    >
-      ${
-        hasAccess
-          ? "N&Auml;CHSTE AKTE &Ouml;FFNEN"
-          : `NOCH GESPERRT &middot; LEVEL ${nextItem.level} BEN&Ouml;TIGT`
-      }
-    </button>
-  `;
-
-  const guideButton =
-    guide.querySelector(
-      ".archiveReadingGuideButton"
-    );
-
-  if (
-    hasAccess &&
-    guideButton
-  ) {
-    guideButton.addEventListener(
-      "click",
-      () => {
-        openArchivePage(
-          nextItem.page,
-          guideButton
-        );
-      }
-    );
+  // In der Bruderschaftsakte geht es mit der nächsten Episode weiter,
+  // nicht erneut zu einer Aufzeichnung auf derselben Seite.
+  if (currentPage === bruderschaftPage) {
+    const nextEpisode = findItem("kapitel/kapitel_2/kapitel_2_episode_3");
+    guide.innerHTML = `
+      <div class="archiveReadingGuideLabel">ARCHIV-LEITFADEN</div>
+      <div class="archiveReadingGuideNext">WEITERLESEN</div>
+    `;
+    if (nextEpisode) {
+      guide.append(makeButton(nextEpisode, "WEITER ZUR NÄCHSTEN EPISODE"));
+    }
+    contentArea.append(guide);
+    return;
   }
 
+  // Normale Akten: den nächsten anderen Seitenpfad auswählen.
+  const nextItem = guideUnlockPlan.slice(currentIndex + 1).find(item =>
+    normalizePageName(item.page) !== currentPage
+  );
+  if (!nextItem) {
+    guide.classList.add("archiveReadingGuideComplete");
+    guide.innerHTML = `
+      <div class="archiveReadingGuideLabel">ARCHIV-LEITFADEN</div>
+      <div class="archiveReadingGuideTitle">AKTUELLER ARCHIVSTAND ABGESCHLOSSEN</div>
+      <div class="archiveReadingGuideText">Weitere Akten folgen.</div>
+    `;
+  } else {
+    guide.classList.add(currentUser.level >= nextItem.level
+      ? "archiveReadingGuideUnlocked" : "archiveReadingGuideLocked");
+    guide.innerHTML = `
+      <div class="archiveReadingGuideLabel">ARCHIV-LEITFADEN</div>
+      <div class="archiveReadingGuideProgress">&#10003; ${escapeHtml(currentItem.title)} ABGESCHLOSSEN</div>
+      <div class="archiveReadingGuideNext">ALS NÄCHSTES</div>
+      <div class="archiveReadingGuideType">${escapeHtml(nextItem.type)} · LEVEL ${nextItem.level}</div>
+      <div class="archiveReadingGuideTitle">${escapeHtml(nextItem.title)}</div>
+    `;
+    guide.append(makeButton(nextItem, "NÄCHSTE AKTE ÖFFNEN"));
+  }
   contentArea.append(guide);
 }
-
 
 /* =====================================================
    FREIGABEKACHEL ERSTELLEN
