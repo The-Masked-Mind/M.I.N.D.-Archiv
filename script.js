@@ -2149,14 +2149,14 @@ function addArchiveReadingGuide(currentFilePath) {
 
     if (special.next) {
       const nextEpisode = findItem(special.next);
-      if (nextEpisode) buttons.append(makeButton(nextEpisode, "WEITER ZUR NÄCHSTEN EPISODE"));
+      if (nextEpisode) buttons.append(makeButton(nextEpisode, `WEITER ZU: ${nextEpisode.title}`));
     } else {
       const note = document.createElement("p");
       note.textContent = "Die nächste Episode ist noch nicht im Archiv erfasst.";
       guide.append(note);
     }
     const addendum = findItem(bruderschaftPage, special.addendum === 1 ? 11 : 13);
-    if (addendum) buttons.append(makeButton(addendum, "ZUM AKTENNACHTRAG", special.addendum));
+    if (addendum) buttons.append(makeButton(addendum, `ZUM AKTENNACHTRAG: AUFZEICHNUNG ${special.addendum === 1 ? "I – DIE FRAGE NACH DEM TOD" : "II – DER GEFANGENE"} (BRUDERSCHAFT VON THAR'GHUL)`, special.addendum));
     guide.append(buttons);
     contentArea.append(guide);
     return;
@@ -2171,7 +2171,7 @@ function addArchiveReadingGuide(currentFilePath) {
       <div class="archiveReadingGuideNext">WEITERLESEN</div>
     `;
     if (nextEpisode) {
-      guide.append(makeButton(nextEpisode, "WEITER ZUR NÄCHSTEN EPISODE"));
+      guide.append(makeButton(nextEpisode, `WEITER ZU: ${nextEpisode.title}`));
     }
     contentArea.append(guide);
     return;
