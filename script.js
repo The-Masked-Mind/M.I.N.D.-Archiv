@@ -2094,9 +2094,6 @@ function addArchiveReadingGuide(currentFilePath) {
   if (!contentArea || !currentFilePath) return;
 
   const currentPage = normalizePageName(currentFilePath);
-  // Die Bruderschaft enthält mehrere unabhängig freigeschaltete Nachträge.
-  // Daher hier keinen pauschalen Leitfaden am Ende anzeigen.
-  if (currentPage === "personenarchiv/die_bruderschaft_von_thar'ghul") return;
   const guideUnlockPlan = archiveUnlockPlan.filter(item => item.showInGuide !== false);
   const currentIndex = guideUnlockPlan.findIndex(item =>
     normalizePageName(item.page) === currentPage
@@ -2185,16 +2182,19 @@ function addArchiveReadingGuide(currentFilePath) {
     return;
   }
 
-  // In der Bruderschaftsakte geht es mit der nächsten Episode weiter,
-  // nicht erneut zu einer Aufzeichnung auf derselben Seite.
+  // Bruderschaftsakte: Leitfaden wieder anzeigen, aber nicht fälschlich
+  // zu Episode 3 weiterleiten. Rückweg zur Episode, aus der der
+  // Leser zur ersten Aufzeichnung gekommen ist.
   if (currentPage === bruderschaftPage) {
-    const nextEpisode = findItem("kapitel/kapitel_2/kapitel_2_episode_3");
+    const previousEpisode = findItem("kapitel/kapitel_2/kapitel_2_episode_2");
+    guide.classList.add("archiveReadingGuideUnlocked");
     guide.innerHTML = `
       <div class="archiveReadingGuideLabel">ARCHIV-LEITFADEN</div>
-      <div class="archiveReadingGuideNext">WEITERLESEN</div>
+      <div class="archiveReadingGuideNext">ZURÜCK ZUR GESCHICHTE</div>
+      <div class="archiveReadingGuideText">Du kannst zur Episode zurückkehren, aus der du zur ersten Aufzeichnung gelangt bist.</div>
     `;
-    if (nextEpisode) {
-      guide.append(makeButton(nextEpisode, `WEITER ZU: ${nextEpisode.title}`));
+    if (previousEpisode) {
+      guide.append(makeButton(previousEpisode, `ZURÜCK ZU: ${previousEpisode.title}`));
     }
     contentArea.append(guide);
     return;
