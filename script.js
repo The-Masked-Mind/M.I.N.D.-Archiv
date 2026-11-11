@@ -1259,6 +1259,26 @@ function connectArchiveAddendumAccess() {
       details.addEventListener("toggle", () => {
         if (!allowed && details.open) details.open = false;
       });
+
+      // Rückweg direkt im jeweiligen Aktennachtrag, nicht unten in der gesamten Akte.
+      const addendumNumber = [...document.querySelectorAll(
+        "details.mindArchiveAddendum[data-reveal-level]"
+      )].indexOf(details) + 1;
+      const returnEpisodes = {
+        1: { page: "kapitel/kapitel_2/kapitel_2_episode_2", title: "EPISODE 2 – DIE ERSTEN OPFER" },
+        2: { page: "kapitel/kapitel_2/kapitel_2_episode_4", title: "EPISODE 4 – EINE UNERWARTETE VERBINDUNG" }
+      };
+      const target = returnEpisodes[addendumNumber];
+      const content = details.querySelector(".addendumContent");
+      if (allowed && target && content && !content.querySelector(".archiveAddendumReturn")) {
+        const returnButton = document.createElement("button");
+        returnButton.type = "button";
+        returnButton.className = "archiveReadingGuideButton archiveAddendumReturn";
+        returnButton.textContent = `ZURÜCK ZU: ${target.title}`;
+        returnButton.style.marginTop = "20px";
+        returnButton.addEventListener("click", () => openArchivePage(target.page, returnButton));
+        content.append(returnButton);
+      }
     });
 }
 
@@ -2074,6 +2094,9 @@ function addArchiveReadingGuide(currentFilePath) {
   if (!contentArea || !currentFilePath) return;
 
   const currentPage = normalizePageName(currentFilePath);
+  // Die Bruderschaft enthält mehrere unabhängig freigeschaltete Nachträge.
+  // Daher hier keinen pauschalen Leitfaden am Ende anzeigen.
+  if (currentPage === "personenarchiv/die_bruderschaft_von_thar'ghul") return;
   const guideUnlockPlan = archiveUnlockPlan.filter(item => item.showInGuide !== false);
   const currentIndex = guideUnlockPlan.findIndex(item =>
     normalizePageName(item.page) === currentPage
