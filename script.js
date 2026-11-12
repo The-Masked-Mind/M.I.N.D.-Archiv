@@ -1265,8 +1265,8 @@ function connectArchiveAddendumAccess() {
         "details.mindArchiveAddendum[data-reveal-level]"
       )].indexOf(details) + 1;
       const returnEpisodes = {
-        1: { page: "kapitel/kapitel_2/kapitel_2_episode_2", title: "EPISODE 2 – DIE ERSTEN OPFER" },
-        2: { page: "kapitel/kapitel_2/kapitel_2_episode_4", title: "EPISODE 4 – EINE UNERWARTETE VERBINDUNG" }
+        1: { page: "kapitel/kapitel_2/kapitel_2_episode_2", title: "EPISODE 2 - DIE ERSTEN OPFER" },
+        2: { page: "kapitel/kapitel_2/kapitel_2_episode_4", title: "EPISODE 4 - EINE UNERWARTETE VERBINDUNG" }
       };
       const target = returnEpisodes[addendumNumber];
       const content = details.querySelector(".addendumContent");
@@ -2175,8 +2175,24 @@ function addArchiveReadingGuide(currentFilePath) {
       note.textContent = "Die nächste Episode ist noch nicht im Archiv erfasst.";
       guide.append(note);
     }
-    const addendum = findItem(bruderschaftPage, special.addendum === 1 ? 11 : 13);
-    if (addendum) buttons.append(makeButton(addendum, `ZUM AKTENNACHTRAG: AUFZEICHNUNG ${special.addendum === 1 ? "I - DIE FRAGE NACH DEM TOD" : "II - DER GEFANGENE"} (GEPRÄCH ZWISCHEN KON'DOR UND DEM OBERSTEN DER BRUDERSCHAFT)`, special.addendum));
+    const addendum = findItem(
+  bruderschaftPage,
+  special.addendum === 1 ? 11 : 13
+);
+
+if (addendum) {
+  buttons.append(
+    makeButton(
+      addendum,
+      "ZUM AKTENNACHTRAG: AUFZEICHNUNG " +
+      (special.addendum === 1
+        ? "I - DIE FRAGE NACH DEM TOD"
+        : "II - DER GEFANGENE") +
+      "\n(GESPRÄCH ZWISCHEN KON'DOR UND DEM OBERSTEN DER BRUDERSCHAFT)",
+      special.addendum
+    )
+  );
+}
     guide.append(buttons);
     contentArea.append(guide);
     return;

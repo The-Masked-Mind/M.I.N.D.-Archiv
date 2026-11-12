@@ -7065,3 +7065,10 @@ button.maskOverviewCard:hover {
     letter-spacing: 1px;
   }
 }
+
+/* Zeilenumbruch im Archiv-Leitfaden */
+.archiveGuideButton {
+    white-space: pre-line;
+    text-align: center;
+    line-height: 1.8;
+}
