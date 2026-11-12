@@ -2176,7 +2176,7 @@ function addArchiveReadingGuide(currentFilePath) {
       guide.append(note);
     }
     const addendum = findItem(bruderschaftPage, special.addendum === 1 ? 11 : 13);
-    if (addendum) buttons.append(makeButton(addendum, `ZUM AKTENNACHTRAG: AUFZEICHNUNG ${special.addendum === 1 ? "I – DIE FRAGE NACH DEM TOD" : "II – DER GEFANGENE"} (BRUDERSCHAFT VON THAR'GHUL)`, special.addendum));
+    if (addendum) buttons.append(makeButton(addendum, `ZUM AKTENNACHTRAG: AUFZEICHNUNG ${special.addendum === 1 ? "I - DIE FRAGE NACH DEM TOD" : "II - DER GEFANGENE"} (GEPRÄCH ZWISCHEN KON'DOR UND DEM OBERSTEN DER BRUDERSCHAFT)`, special.addendum));
     guide.append(buttons);
     contentArea.append(guide);
     return;
